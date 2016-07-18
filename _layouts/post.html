@@ -12,6 +12,21 @@ layout: default
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
   </div>
+  
+  <ul class="div">
+    {% for tag in page.tags %}
+      <li>
+        <details>
+          <summary><span><i class="fa fa-tag"></i> {%capture entry%}{{tag}}{%endcapture%}{{tag}}</span></summary>
+        <ul>
+        {% for post in site.tags[entry] %}
+          <li><a href="{{post.url}}">{{post.title}}</a></li>
+        {%endfor%}
+        </ul>
+        </details>
+      </li>
+    {% endfor %}
+  </ul>
 
   {% include disqus.html %}
 </article>
