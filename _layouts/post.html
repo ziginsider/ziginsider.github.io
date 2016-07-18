@@ -10,11 +10,9 @@ layout: default
   <div class="entry">
     {{ content }}
   </div>
+</article>
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
-  
+   <div>{% include date.html date=page.date %}</div>
   <ul class="div">
     {% for tag in page.tags %}
       <li>
@@ -29,11 +27,9 @@ layout: default
       </li>
     {% endfor %}
   </ul>
+</main>
 
-  {% include disqus.html %}
-</article>
-
-<main>
+ <main>
 	<div id="disqus_thread"></div>
   <script src="/assets/disqus.js" type="text/javascript"></script>
 </main>
