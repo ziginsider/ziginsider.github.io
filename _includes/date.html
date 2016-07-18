@@ -1,0 +1,3 @@
+<time>
+  <span class="day">{{ include.date | date: "%d" }}</span><span class="month">{% assign month =  include.date | date: "%m" %}{% case month %}{% when '01' %} января {% when '02' %} февраля {% when '03' %} марта {% when '04' %} апреля {% when '05' %} мая {% when '06' %} июня {% when '07' %} июля {% when '08' %} августа {% when '09' %} сентября {% when '10' %} октября {% when '11' %} ноября {% when '12' %} декабря {% endcase %}</span><span class="year">{{ include.date | date: "%Y" }}</span>
+</time>
