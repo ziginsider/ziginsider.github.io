@@ -34,7 +34,7 @@ lspci | grep Card
 ![Скриншот "не отвлекающего" режима](http://i.imgur.com/VXyN7CL.png)
 
 Теперь, после загрузки сиcтемы, sd-карта должна автоматически примонтироваться.
-{% highlight json %}
+{% highlight json linenos %}
 {
   // В боковой панели папки отмечать жирным шрифтов
   "bold_folder_labels": true,
@@ -76,6 +76,8 @@ lspci | grep Card
   "word_wrap": true
 }
 {% endhighlight %}
+
+Продолжаем...
 
 {% highlight cpp linenos %}
 
