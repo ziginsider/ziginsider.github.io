@@ -5,35 +5,13 @@ layout: default
 <article class="post">
   <h1>{{ page.title }}</h1>
 
-  <p>Теги: {% for tag in page.tags %}<a href="/tags/#{{ tag | cgi_escape }}">{{tag}}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
-  
   <div class="entry">
     {{ content }}
   </div>
+
+  <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
+  {% include disqus.html %}
 </article>
-
-   <div>{% include date.html date=page.date %}</div>
-  <ul class="div">
-    {% for tag in page.tags %}
-      <li>
-        <details>
-          <summary><span><i class="fa fa-tag"></i> {%capture entry%}{{tag}}{%endcapture%}{{tag}}</span></summary>
-        <ul>
-        {% for post in site.tags[entry] %}
-          <li><a href="{{post.url}}">{{post.title}}</a></li>
-        {%endfor%}
-        </ul>
-        </details>
-      </li>
-    {% endfor %}
-  </ul>
-</main>
-
-{% if jekyll.environment == "production" %}
-<!-- Disqus -->
-<div id="disqus_thread"></div>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-<script src="//wcoder.disqus.com/embed.js"></script>
-<!--/ Disqus -->
-{% endif %}
-
