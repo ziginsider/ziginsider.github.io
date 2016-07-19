@@ -12,7 +12,14 @@ tags:
 
 Открываем терминал и пишем следующее:
 
-<p style="max-width: 400px;">
+<p style="display: block;
+overflow-x: auto;
+padding: 0.5em;
+background: #23241f;
+border-radius: 8px;
+-webkit-text-size-adjust: none;
+max-width: 600px;
+font-size: 0.8em;">
 ```
 lspci | grep Card
 ```
