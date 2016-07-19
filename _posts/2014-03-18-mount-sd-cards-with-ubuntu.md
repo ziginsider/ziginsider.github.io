@@ -16,6 +16,12 @@ tags:
 lspci | grep Card
 ```
 
+``` html
+<html><body><div class="codehilite"><pre><code><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s">&quot;world&quot;</span>
+</code></pre></div></body></html>
+```
+
 Если увидели что-то подобное:
 
 ```
