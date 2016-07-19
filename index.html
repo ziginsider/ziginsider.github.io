@@ -11,9 +11,7 @@ layout: default
       <div class="entry">
         {{ post.excerpt }}
       </div>
-      {% if post.tags[0] != nil %}
-	<p>{% for tag in page.post %}<a href="/tags/#{{ tag | cgi_escape }}">{{tag}}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
-      {% endif %}
+
 
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Читать дальше..</a>
       
