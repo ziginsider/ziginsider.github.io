@@ -16,7 +16,7 @@ tags:
 lspci | grep Card
 ```
 
-
+g
 
 
 ``` python
@@ -66,7 +66,7 @@ def spaceless_except_pre(parser, token):
 
 
 
-{% highlight cpp linenos %}
+{% highlight python linenos %}
 """Copyright (c) 2013-2014 Stephan Groß, under MIT license."""
 from __future__ import unicode_literals
 
