@@ -27,9 +27,9 @@ public class MainPage : ContentPage
 
 Активируем компиляцию по всему проекту — добавляем новую строку в конец файла `Properties/AssemblyInfo.cs` в PCL-проекте: 
 
-{% highlight csharp %}
+{% highlight csharp linenos%}
 ...
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)
-{% highlight %}
+{% endhighlight %}
 
 Оригинал: <https://habrahabr.ru/company/microsoft/blog/303630/>
