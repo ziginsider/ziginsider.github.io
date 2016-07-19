@@ -46,7 +46,7 @@ tags:
 </ContentPage>
 {% endhighlight %}
 
-Вот так можно еще немного улучшить работу FFImageLoading (класс `AppDelegate.cs` для iOS и `MainActivity.cs` для Android):
+Вот так можно еще немного улучшить работу FFImageLoading (класс `AppDelegate.cs` для iOS и [tag: MainActivity.cs] для Android):
 
 {% highlight csharp %}
 var config = new Configuration
