@@ -18,7 +18,7 @@ html {
 }
 
 body {
-	background: $white;
+	background: $lightGray;
   font: 16px/1.4 $helvetica;
   color: $darkGray;
 }
@@ -126,8 +126,8 @@ img {
   background: $lightGray;
 }
 ::selection {
-  color: $white;
-  background: $lightBlu;
+  color: $black;
+  background: $lightGray;
 }
 
 // Nicolas Gallagher's micro clearfix hack
