@@ -12,7 +12,7 @@ tags:
 
 Открываем терминал и пишем следующее:
 
-<p>
+<p style="max-width: 400px;">
 ```
 lspci | grep Card
 ```
