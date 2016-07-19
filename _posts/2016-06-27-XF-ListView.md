@@ -30,10 +30,11 @@ tags:
 
 {% highlight xml linenos %}
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
   x:Class="Sample.Pages.MainPage"
-    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-    Title="FFImageLoading Demo">
+  xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+  Title="FFImageLoading Demo">
     <ContentPage.Content>
         <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
             WidthRequest="300" HeightRequest="300"
