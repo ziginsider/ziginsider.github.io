@@ -28,7 +28,7 @@ tags:
 
 Вот так использовать компонент при разработке на XAML:
 
-{% highlight xml linenos %}
+{% highlight xml %}
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -46,3 +46,13 @@ tags:
 </ContentPage>
 {% endhighlight %}
 
+Вот так можно еще немного улучшить работу FFImageLoading (класс `AppDelegate.cs` для iOS и `MainActivity.cs` для Android):
+
+{% highlight csharp %}
+var config = new Configuration
+            {
+                HttpClient = new HttpClient(new ModernHttpClient.NativeMessageHandler()),  //используем быстрые библиотеки для загрузки
+                FadeAnimationDuration = 250,  //ускоряем анимацию появления
+            };
+FFImageLoading.ImageService.Instance.Initialize(config);
+{% endhighlight %}
