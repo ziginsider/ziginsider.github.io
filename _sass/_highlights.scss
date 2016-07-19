@@ -5,7 +5,7 @@ pre, code {
   font-family: Consolas, monaco, monospace;
   font-style: normal;
   border-radius: 8px;
-  max-width: 60px;
+  max-width: 600px;
   max-height: 1000px;
 }
 code {
@@ -13,12 +13,12 @@ code {
   white-space: normal;
 }
 pre { // only apply for code blocks
-  overflow: auto;
+  
   padding: 8px;
 }
 pre code {
   white-space: pre;
-  overflow: auto;
+  
   word-wrap: normal;
   span {
     word-break: break-all;
