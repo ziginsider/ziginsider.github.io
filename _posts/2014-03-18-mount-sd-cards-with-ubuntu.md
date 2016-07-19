@@ -11,7 +11,7 @@ tags:
 ---
 
 Открываем терминал и пишем следующее:
-
+```
 <p style="display: block;
 overflow-x: auto;
 padding: 0.5em;
@@ -20,10 +20,11 @@ border-radius: 8px;
 -webkit-text-size-adjust: none;
 max-width: 600px;
 font-size: 0.8em;">
-```
+
 lspci | grep Card
-```
+
 </p>
+```
 g
 
 
