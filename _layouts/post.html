@@ -5,11 +5,11 @@ layout: default
 <article class="post">
   <h1>{{ page.title }}</h1>
 
-  
+  <div class="date"><p style="text-align: right;">{% include date.html date=page.date %}</p>
   {% if page.tags[0] != nil %}
 		<p style="font-size: 60%; text-align: right;" >Теги: {% for tag in page.tags %}<a href="/tags/#{{ tag | cgi_escape }}">{{tag}}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</p>
 	{% endif %}
-  <div class="date">{% include date.html date=page.date %}</div>
+  </div>
 
   <div class="entry">
     {{ content }}
