@@ -5,6 +5,10 @@ pre, code {
   font-family: Consolas, monaco, monospace;
   font-style: normal;
   border-radius: 8px;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  max-width: 600px;
 }
 code {
   word-break: break-all;
