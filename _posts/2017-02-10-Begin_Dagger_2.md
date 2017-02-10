@@ -33,12 +33,12 @@ tags:
 Телемах, который отправляется на поиски, это я, который решил влезть в мир mobile development<br><br>
 Ресурсы (dynamic list):<br>
 
-- https://habrahabr.ru/post/279125/ - первая часть отличной серии статей по Dagger 2 на Хабре, соответственно https://habrahabr.ru/post/279641/ вторая и https://habrahabr.ru/post/320676/ третья части.
-- https://google.github.io/dagger/ - официальная страница документации
-- http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/ - статья Fernando Cejas'a
-- http://frogermcs.github.io/dependency-injection-with-dagger-2-the-api/ - статья Miroslaw Stanek'a
-- http://antonioleiva.com/dependency-injection-android-dagger-part-1/ https://antonioleiva.com/dagger-android-part-2/ https://antonioleiva.com/dagger-3/ - первая, вторая и третья часть статьи Antonio Leiva
-- https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2 - статья на github со схемками
+- <https://habrahabr.ru/post/279125/> - первая часть отличной серии статей по Dagger 2 на Хабре, соответственно <https://habrahabr.ru/post/279641/> вторая и <https://habrahabr.ru/post/320676/> третья части.
+- <https://google.github.io/dagger/> - официальная страница документации
+- <http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/> - статья Fernando Cejas'a
+- <http://frogermcs.github.io/dependency-injection-with-dagger-2-the-api/> - статья Miroslaw Stanek'a
+- <http://antonioleiva.com/dependency-injection-android-dagger-part-1> <https://antonioleiva.com/dagger-android-part-2/> <https://antonioleiva.com/dagger-3/> - первая, вторая и третья часть статьи Antonio Leiva
+- <https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2> - статья на github со схемками
 
 
 
