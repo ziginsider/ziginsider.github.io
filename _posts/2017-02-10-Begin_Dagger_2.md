@@ -40,6 +40,8 @@ tags:
 - <http://frogermcs.github.io/dependency-injection-with-dagger-2-the-api/> - статья Miroslaw Stanek'a
 - <http://antonioleiva.com/dependency-injection-android-dagger-part-1> <https://antonioleiva.com/dagger-android-part-2/> <https://antonioleiva.com/dagger-3/> - первая, вторая и третья часть статьи Antonio Leiva
 - <https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2> - статья на github со схемками
+- <https://habrahabr.ru/company/ncloudtech/blog/274025/> - еще одна статейка на Хабре
+- <https://classroom.udacity.com/courses/ud853/lessons/1469948762/concepts/16307786060923> - курс от Google на Udacity. Создается погодное приложение. Уровень начальный, но затрагиваются многие важные вещи, основы. Видео с субтитрами на разных языках, в том числе и на русском.
 
 
 
