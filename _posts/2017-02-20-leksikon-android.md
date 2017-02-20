@@ -9,7 +9,7 @@ tags:
 - моё
 ---
 
-* A *
+*A*
 
 - dvfvsdv
 - sdfsd
