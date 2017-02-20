@@ -1,11 +1,10 @@
 ---
 layout: post
-title: Начало Одиссеи с Dagger 2
-date: 2017-02-10 20:19
+title: Лексикон прописных истин Android
+date: 2017-02-20 22:10
 tags:
 - Android
 - Java
-- Dagger2
 - моё
 ---
 
