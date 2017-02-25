@@ -25,7 +25,7 @@ tags:
 - LinearLayoutManager (линейное размещение элементов)
 - GridLayoutManager (табличное)
 - StaggeredGridLayoutManager (сложное) 
-<br><br>
+
 Обязаности LayoutManager'а:
 - размещает элементы
 - отвечает за скроллинг
@@ -43,7 +43,7 @@ tags:
 - частичное обновление данных
 - управление количеством ViewType'ов
 - информация о переиспользовании ViewHolder'а 
-<br><br>
+
 Основное API Adapter'a:
 <br>
 {% highlight java %}
