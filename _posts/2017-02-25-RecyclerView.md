@@ -17,22 +17,22 @@ tags:
 - LayoutManager - размещает элементы
 - ItemAnimator - анимирует элементы
 - Adapter - создает элементы
-- Decorator - дорисовывает элементы
+- Decorator - дорисовывает элементы 
 <br>
 ## LayoutManager
 Бывает:
 - LinearLayoutManager (линейное размещение элементов)
 - GridLayoutManager (табличное)
-- StaggeredGridLayoutManager (сложное)
+- StaggeredGridLayoutManager (сложное) 
 <br><br>
 Обязаности LayoutManager'а:
 - размещает элементы
 - отвечает за скроллинг
 - отвечает за View Focusing (В случае ListView отвечал сам ListView); т.е. на каком элементе сфокусироваться.
-- отвечает за Accessibility; для людей с ограниченными возможностями.
+- отвечает за Accessibility; для людей с ограниченными возможностями. 
 <br>
 ## Adapter
-<img src="{{ site.baseurl }}/images/RecyclerView2.png">
+<img src="{{ site.baseurl }}/images/RecyclerView2.png"> 
 Обязанности Adapter'а: 
 - создание ViewHolder'ов
 - заполнение ViewHolder'ов информацией
@@ -40,31 +40,31 @@ tags:
 - обработка касаний
 - частичное обновление данных
 - управление количеством ViewType'ов
-- информация о переиспользовании ViewHolder'а
+- информация о переиспользовании ViewHolder'а 
 <br><br>
 Основное API Adapter'a:
-<br><br>
+<br>
 {% highlight java %}
 ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 {% endhighlight %}
-<br><br>
+<br>
 {% highlight java %}
 void onBindViewHolder(ViewHolder holder, int position)
 {% endhighlight %} 
 При изменении позиции элемента не вызывается, поэтому нельзя вызывать так: см. типичные ошибки #1 
-<br><br>
+<br>
 {% highlight java %}
 int getItemViewType(int position)
 {% endhighlight %}
-<br><br>
+<br>
 {% highlight java %}
 boolean onFailedToRecycleView(ViewHolder holder)
 {% endhighlight %}
-<br><br>
+<br>
 {% highlight java %}
 void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
-<br><br> 
+<br> 
 ## методы notifyItemX() 
 <br>
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
