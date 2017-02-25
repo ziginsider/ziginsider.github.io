@@ -10,7 +10,7 @@ tags:
 ---
 <img src="{{ site.baseurl }}/images/RecyclerView1.png">
 <br>
-*Заметки о RecyclerView. Принципы работы. Внутреннее устройство. *
+* Заметки о RecyclerView. Принципы работы. Внутреннее устройство. *
 <br>
 ## Компоненты RecyclerView:
 - LayoutManager - размещает элементы
@@ -42,21 +42,31 @@ tags:
 - информация о переиспользовании ViewHolder'а
 <br>
 Основное API Adapter'a:
+----------
 {% highlight java %}
 ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 {% endhighlight %}
+----------
 {% highlight java %}
 void onBindViewHolder(ViewHolder holder, int position)
-{% endhighlight %} - при изменении позиции элемента не вызывается, поэтому нельзя вызывать так см. типичные ошибки #1
-
+{% endhighlight %} При изменении позиции элемента не вызывается, поэтому нельзя вызывать так: см. типичные ошибки #1
+----------
+{% highlight java %}
 int getItemViewType(int position)
-
+{% endhighlight %}
+----------
+{% highlight java %}
 boolean onFailedToRecycleView(ViewHolder holder)
-
+{% endhighlight %}
+----------
+{% highlight java %}
 void onViewRecycled(ViewHolder holder)
+{% endhighlight %}
+----------
 
+## методы notifyItemX()
 
-методы notifyItemX() нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать (??):
+Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать (??):
 
 notifyItemChanged();
 
@@ -65,6 +75,14 @@ notifyItemInserted();
 notifyItemMoved();
 
 notifyItemRemoved();
+
+notifyItemRangeChanged();
+
+notifyItemRangeInserted();
+
+notifyItemRangeMoved();
+
+notifyItemRangeRemoved();
 
 польза от методов notifyItemX():
 - Нет лишних вызовов onBindViewHolder();
