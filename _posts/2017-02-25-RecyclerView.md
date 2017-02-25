@@ -8,39 +8,46 @@ tags:
 - RecyclerView
 - моё
 ---
-
-RecyclerView:
-- LayoutManager (Размещает)
-- ItemAnimator (Анимирует)
-- Adapter (Создает)
-- Decorator (Дорисовывает
-
-LayoutManager бывает
-> LinearLayoutManager (линейное размещение элементов)
-> GridLayoutManager (табличное)
-> StaggeredGridLayoutManager (сложное)
-
+<img src="{{ site.baseurl }}/images/RecyclerView1.png">
+<br>
+*Заметки о RecyclerView. Принципы работы. Внутреннее устройство. *
+<br>
+## Компоненты RecyclerView:
+- LayoutManager - размещает элементы
+- ItemAnimator - анимирует элементы
+- Adapter - создает элементы
+- Decorator - дорисовывает элементы
+<br>
+## LayoutManager
+Бывает:
+- LinearLayoutManager (линейное размещение элементов)
+- GridLayoutManager (табличное)
+- StaggeredGridLayoutManager (сложное)
+<br>
+Обязаности LayoutManager'а:
 - размещает элементы
 - отвечает за скроллинг
 - отвечает за View Focusing (В случае ListView отвечал сам ListView); т.е. на каком элементе сфокусироваться.
 - отвечает за Accessibility; для людей с ограниченными возможностями.
-
-Adapter
-
-ответственен: 
+<br>
+## Adapter
+<img src="{{ site.baseurl }}/images/RecyclerView2.png">
+Обязанности Adapter'а: 
 - создание ViewHolder'ов
 - заполнение ViewHolder'ов информацией
-- за уведомление RecyclerView о том какие элементы изменились.
+- уведомление RecyclerView о том какие элементы изменились.
 - обработка касаний
 - частичное обновление данных
 - управление количеством ViewType'ов
 - информация о переиспользовании ViewHolder'а
-
+<br>
 Основное API Adapter'a:
-
+{% highlight java %}
 ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-
-void onBindViewHolder(ViewHolder holder, int position) - при изменении позиции элемента не вызывается, поэтому нельзя вызывать так см. типичные ошибки #1
+{% endhighlight %}
+{% highlight java %}
+void onBindViewHolder(ViewHolder holder, int position)
+{% endhighlight %} - при изменении позиции элемента не вызывается, поэтому нельзя вызывать так см. типичные ошибки #1
 
 int getItemViewType(int position)
 
