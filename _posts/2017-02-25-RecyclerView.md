@@ -18,7 +18,8 @@ tags:
 - ItemAnimator - анимирует элементы
 - Adapter - создает элементы
 - Decorator - дорисовывает элементы 
-<br>
+
+
 ## LayoutManager
 Бывает:
 - LinearLayoutManager (линейное размещение элементов)
@@ -30,7 +31,8 @@ tags:
 - отвечает за скроллинг
 - отвечает за View Focusing (В случае ListView отвечал сам ListView); т.е. на каком элементе сфокусироваться.
 - отвечает за Accessibility; для людей с ограниченными возможностями. 
-<br>
+
+
 ## Adapter
 <img src="{{ site.baseurl }}/images/RecyclerView2.png"> 
 Обязанности Adapter'а: 
@@ -52,7 +54,7 @@ ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 void onBindViewHolder(ViewHolder holder, int position)
 {% endhighlight %} 
 При изменении позиции элемента не вызывается, поэтому нельзя вызывать так: см. типичные ошибки #1 
-<br>
+<br><br>
 {% highlight java %}
 int getItemViewType(int position)
 {% endhighlight %}
