@@ -67,7 +67,7 @@ boolean onFailedToRecycleView(ViewHolder holder)
 void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
 <br> 
-## методы notifyItemX() 
+## Методы notifyItemX() 
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
 {% highlight java %}
 notifyItemChanged();
