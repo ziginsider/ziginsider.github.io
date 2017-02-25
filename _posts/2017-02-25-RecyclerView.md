@@ -68,25 +68,17 @@ void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
 <br> 
 ## методы notifyItemX() 
-<br>
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
-
+{% highlight java %}
 notifyItemChanged();
-
 notifyItemInserted();
-
 notifyItemMoved();
-
 notifyItemRemoved();
-
 notifyItemRangeChanged();
-
 notifyItemRangeInserted();
-
 notifyItemRangeMoved();
-
 notifyItemRangeRemoved();
-<br><br>
+{% endhighlight %}
 польза от методов notifyItemX(): 
 - Нет лишних вызовов onBindViewHolder(); 
 - Возможность анимировать и перемещать элементы как угодно 
@@ -101,7 +93,7 @@ long getItemId(int position)
 и давать уникальное Id элемента на основе его содержимого или создавать Id на основе Id layout'a, из которого мы надуваем это view, и который всегда уникальный.
 
 
-Типичные ошибки
+Типичные ошибки 
 1)
 {% highlight java %}
 public void onBindViewHolder(...) {
@@ -111,3 +103,18 @@ public void onBindViewHolder(...) {
     });
 }
 {% endhighlight %}
+Во-первых, создается объект на каждый Bind. Во-вторых, берется position элемента, которая у него была до onBindViewHolder. Но элемент с помощью notify() может быть перемещен/удален и его position, следовательно, измениться. Для этой ситуации есть решение, а именно установить слушатель нажатия при создании элемента:
+{% highlight java %}
+public RecyclerView.ViewHolder onCreateViewHolder(...) {
+    View v = createView();
+    RecyclerView.ViewHolder h = new RecyclerView.ViewHolder(v) {};
+    v.setOnClickListener(it -> {
+        int adapterPosition = h.getAdapterPosition();
+        if (adapterPosition != RecyclerView.NO_POSITION) {
+            itemClicked(adapterPosition);
+        }
+    });
+    return h;
+}
+{% endhighlight %}
+Очень важно проверить на NO_POSITION. Сложно представить, как можно кликнуть на то, у чего нет позиции, но иногда такое происходит. Рекомендация от Google не забывать делать эту проверку.
