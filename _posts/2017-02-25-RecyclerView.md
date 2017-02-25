@@ -10,7 +10,8 @@ tags:
 ---
 <img src="{{ site.baseurl }}/images/RecyclerView1.png">
 <br>
-* Заметки о RecyclerView. Принципы работы. Внутреннее устройство. *
+
+*Заметки о RecyclerView. Принципы работы. Внутреннее устройство.*
 <br>
 ## Компоненты RecyclerView:
 - LayoutManager - размещает элементы
@@ -23,7 +24,7 @@ tags:
 - LinearLayoutManager (линейное размещение элементов)
 - GridLayoutManager (табличное)
 - StaggeredGridLayoutManager (сложное)
-<br>
+<br><br>
 Обязаности LayoutManager'а:
 - размещает элементы
 - отвечает за скроллинг
@@ -40,33 +41,33 @@ tags:
 - частичное обновление данных
 - управление количеством ViewType'ов
 - информация о переиспользовании ViewHolder'а
-<br>
+<br><br>
 Основное API Adapter'a:
-----------
+<br><br>
 {% highlight java %}
 ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
 {% endhighlight %}
-----------
+<br><br>
 {% highlight java %}
 void onBindViewHolder(ViewHolder holder, int position)
-{% endhighlight %} При изменении позиции элемента не вызывается, поэтому нельзя вызывать так: см. типичные ошибки #1
-----------
+{% endhighlight %} 
+При изменении позиции элемента не вызывается, поэтому нельзя вызывать так: см. типичные ошибки #1 
+<br><br>
 {% highlight java %}
 int getItemViewType(int position)
 {% endhighlight %}
-----------
+<br><br>
 {% highlight java %}
 boolean onFailedToRecycleView(ViewHolder holder)
 {% endhighlight %}
-----------
+<br><br>
 {% highlight java %}
 void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
-----------
-
-## методы notifyItemX()
-
-Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать (??):
+<br><br> 
+## методы notifyItemX() 
+<br>
+Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
 
 notifyItemChanged();
 
@@ -83,18 +84,28 @@ notifyItemRangeInserted();
 notifyItemRangeMoved();
 
 notifyItemRangeRemoved();
+<br><br>
+польза от методов notifyItemX(): 
+- Нет лишних вызовов onBindViewHolder(); 
+- Возможность анимировать и перемещать элементы как угодно 
+- Нет лишних вызовов onCreateViewHolder 
 
-польза от методов notifyItemX():
-- Нет лишних вызовов onBindViewHolder();
-- Возможность анимировать и перемещать элементы как угодно
-- Нет лишних вызовов onCreateViewHolder
-
-void setHasStableIds(boolean hasStableIds) - еслт в конструкторе вызвать этот метод с true, то RecyclerView сам будет вычислять, какие элементы поменялись местами, какие добавились, удалились и т.д. Для этого необходимо реализовать:
-
+{% highlight java %}
+void setHasStableIds(boolean hasStableIds)
+{% endhighlight %} - если в конструкторе вызвать этот метод с true, то RecyclerView сам будет вычислять, какие элементы поменялись местами, какие добавились, удалились и т.д. Для этого необходимо реализовать:
+{% highlight java %}
 long getItemId(int position)
-
+{% endhighlight %}
 и давать уникальное Id элемента на основе его содержимого или создавать Id на основе Id layout'a, из которого мы надуваем это view, и который всегда уникальный.
 
 
 Типичные ошибки
-#1
+1)
+{% highlight java %}
+public void onBindViewHolder(...) {
+    holder.itemView
+    .setOnClickListener(v -> {
+        itemClicked(position);
+    });
+}
+{% endhighlight %}
