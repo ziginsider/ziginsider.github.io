@@ -7,12 +7,9 @@ tags:
 - Java
 - моё
 ---
-
-<br>  
 *A* <br> 
 - <a href="https://developer.android.com/training/appbar/index.html" title="Action Bar">Action Bar</a> - руководство по API Action Bar, которое является исчерпывающим для библиотеки AppCompat. Включает ToolBar.
 - <a href="https://developer.android.com/studio/run/managing-avds.html" title="Android Virtual Devices">Android Virtual Devices</a> - это эмуляторы Android, которые используются для отладки приложений.
-- sdcd
 
 <br>  
 *D* <br> 
