@@ -21,21 +21,21 @@ tags:
 Говоря отвлеченно, метод <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> создает "бассейн", а метод  <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span> "наполняет бассейн водой". Если каждый раз, когда меняется представление (скролл) не "менять воду в бассейне" полностью т.е. не переопределять содержание всех элементов, которые могут измениться, в <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>, то вьюха может выдавать сюрпризы в виде старых значений. 
 
 ## Компоненты RecyclerView:
-- `LayoutManager` - размещает элементы
-- `ItemAnimator` - анимирует элементы
-- `Adapter` - создает элементы
-- `Decorator` - дорисовывает элементы 
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LayoutManager</span> - размещает элементы
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ItemAnimator</span> - анимирует элементы
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Adapter</span> - создает элементы
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Decorator</span> - дорисовывает элементы 
 
 ## LayoutManager
 Бывает:
-- `LinearLayoutManager` (линейное размещение элементов)
-- `GridLayoutManager` (табличное)
-- `StaggeredGridLayoutManager` (сложное) 
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LinearLayoutManager</span> (линейное размещение элементов)
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">GridLayoutManager</span> (табличное)
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">StaggeredGridLayoutManager</span> (сложное) 
 
 Обязаности LayoutManager'а:
 - размещает элементы
 - отвечает за скроллинг
-- отвечает за View Focusing (В случае `ListView` отвечал сам `ListView`); т.е. на каком элементе сфокусироваться.
+- отвечает за View Focusing (В случае <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span> отвечал сам <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span>); т.е. на каком элементе сфокусироваться.
 - отвечает за Accessibility; для людей с ограниченными возможностями. 
 
 ## Adapter
@@ -43,7 +43,7 @@ tags:
 Обязанности Adapter'а: 
 - создание ViewHolder'ов
 - заполнение ViewHolder'ов информацией
-- уведомление RecyclerView о том какие элементы изменились.
+- уведомление <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">RecyclerView</span> о том какие элементы изменились.
 - обработка касаний
 - частичное обновление данных
 - управление количеством ViewType'ов
@@ -85,13 +85,13 @@ notifyItemRangeMoved();
 notifyItemRangeRemoved();
 {% endhighlight %}
 польза от методов notifyItemX(): 
-- Нет лишних вызовов `onBindViewHolder()`; 
+- Нет лишних вызовов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>; 
 - Возможность анимировать и перемещать элементы как угодно 
-- Нет лишних вызовов `onCreateViewHolder()` 
+- Нет лишних вызовов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> 
 
 {% highlight java %}
 void setHasStableIds(boolean hasStableIds)
-{% endhighlight %} - если в конструкторе вызвать этот метод с true, то `RecyclerView` сам будет вычислять, какие элементы поменялись местами, какие добавились, удалились и т.д. Для этого необходимо реализовать:
+{% endhighlight %} - если в конструкторе вызвать этот метод с true, то <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">RecyclerView</span> сам будет вычислять, какие элементы поменялись местами, какие добавились, удалились и т.д. Для этого необходимо реализовать:
 {% highlight java %}
 long getItemId(int position)
 {% endhighlight %}
@@ -108,7 +108,7 @@ public void onBindViewHolder(...) {
     });
 }
 {% endhighlight %}
-Во-первых, создается объект на каждый Bind. Во-вторых, берется position элемента, которая у него была до `onBindViewHolder()`. Но элемент с помощью `notify()` может быть перемещен/удален и его position, следовательно, измениться. Для этой ситуации есть решение, а именно установить слушатель нажатия при создании элемента:
+Во-первых, создается объект на каждый Bind. Во-вторых, берется position элемента, которая у него была до <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. Но элемент с помощью <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">notify()</span> может быть перемещен/удален и его position, следовательно, измениться. Для этой ситуации есть решение, а именно установить слушатель нажатия при создании элемента:
 {% highlight java %}
 public RecyclerView.ViewHolder onCreateViewHolder(...) {
     View v = createView();
@@ -122,4 +122,4 @@ public RecyclerView.ViewHolder onCreateViewHolder(...) {
     return h;
 }
 {% endhighlight %}
-Очень важно проверить на `NO_POSITION`. Сложно представить, как можно кликнуть на то, у чего нет позиции, но иногда такое происходит. Рекомендация от Google не забывать делать эту проверку.
+Очень важно проверить на <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">NO_POSITION</span>. Сложно представить, как можно кликнуть на то, у чего нет позиции, но иногда такое происходит. Рекомендация от Google не забывать делать эту проверку.
