@@ -30,7 +30,7 @@ body {
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h4, h5,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
@@ -81,8 +81,17 @@ li {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5 {
     font-weight: $base-font-weight;
+}
+
+h6 {
+  background: #f4f4f4;
+  color: #333;
+  font-size: 14px;
+  font-family: Consolas, monaco, monospace;
+  font-style: normal;
+  max-width: 800px;
 }
 
 
