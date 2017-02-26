@@ -18,7 +18,7 @@ tags:
 2) ушедшие за экран вьюхи не уничтожаются, а попадают в пул объектов `Recycled Pool`. 
 3) При дальнейшем скролле, вьюхи появляющиеся из-за экране не пересоздаются, а берутся из этого самого пула . При этом срабатывает только onBindViewHolder(). 
 
-Говоря отвлеченно, метод ``onCreateViewHolder()`` создает "бассейн", а метод  <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 5px;">onBindViewHolder()</span> "наполняет бассейн водой". Если каждый раз, когда меняется представление (скролл) не "менять воду в бассейне" полностью т.е. не переопределять содержание всех элементов, которые могут измениться, в [tag: "onBindViewHolder()"], то вьюха может выдавать сюрпризы в виде старых значений. 
+Говоря отвлеченно, метод ``onCreateViewHolder()`` создает "бассейн", а метод  <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 5px; border-radius: 3px;">onBindViewHolder()</span> "наполняет бассейн водой". Если каждый раз, когда меняется представление (скролл) не "менять воду в бассейне" полностью т.е. не переопределять содержание всех элементов, которые могут измениться, в [tag: "onBindViewHolder()"], то вьюха может выдавать сюрпризы в виде старых значений. 
 
 ## Компоненты RecyclerView:
 - `LayoutManager` - размещает элементы
