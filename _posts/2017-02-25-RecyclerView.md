@@ -172,15 +172,15 @@ isRecyclable() / setRecyclable(Boolean)
 - Если Recycler Pool вернул элемент, то RecyclerView просит Adapter сделать bindViewHolder (заполнить данные) и возвращает элемент LayoutManager’у 
 
 В случае, если LayoutManager добавляет элемент: 
-1) LayoutManager сообщает RecyclerView о том, что создает элемент: addView 
-2) RecyclerView посылает запрос Adapter’у: onViewAttachedToWindow  
+- LayoutManager сообщает RecyclerView о том, что создает элемент: addView 
+- RecyclerView посылает запрос Adapter’у: onViewAttachedToWindow  
 
 В случае удаления элемента: 
-1) LayoutManager сообщает RecyclerView о том, что удаляет элемент: removeAndRecycleView 
-2) RecyclerView посылает запрос Adapter’у: onViewDettachedToWindow 
-3) RecyclerView идет в Cache, если элемент валидный (isValid? А если не valid то сразу идет в Recycler Pool) для этой позиции, помещает туда элемент 
-4) Cache помещает старые элементы в Recycler Pool (recycle) 
-5) Recycled Pool сообщает Adapter’у, что элемент (view) был переиспользован и Adapter может сделать с ним что хочет: onViewRecycled (те элементы которые попадают в Recycled Pool, понадобятся нескоро, в отличии от тех, которые находятся в Cache) 
+- LayoutManager сообщает RecyclerView о том, что удаляет элемент: removeAndRecycleView 
+- RecyclerView посылает запрос Adapter’у: onViewDettachedToWindow 
+- RecyclerView идет в Cache, если элемент валидный (isValid? А если не valid то сразу идет в Recycler Pool) для этой позиции, помещает туда элемент 
+- Cache помещает старые элементы в Recycler Pool (recycle) 
+- Recycled Pool сообщает Adapter’у, что элемент (view) был переиспользован и Adapter может сделать с ним что хочет: onViewRecycled (те элементы которые попадают в Recycled Pool, понадобятся нескоро, в отличии от тех, которые находятся в Cache) 
 
 Удаление из представления с т.з. RecyclerView:  
 RecyclerView при удалении своего child из представления (прокрутка, удаление элемента) view не удаляет ее сразу, но помещает в re add to ViewGroup, скрывает view от LayoutManager’а (иначе LM упадет с exeption, т.к. он занет только о видимых элементах) и говорит ItemAnimator’у, что ее надо анимировать. 
@@ -203,8 +203,8 @@ NB: как проверить список на ошибки (торможнен
 
 ## ItemDecorator 
 
-Adapter  - для того чтобы представить какой-либо массив данных на экране.
-ItemDecorator  - для того чтобы доболнить это представление в зависимости от какой-либо логики (например смена ориентайии экрана) вашего приложения. 
+Adapter - для того чтобы представить какой-либо массив данных на экране.
+ItemDecorator - для того чтобы доболнить это представление в зависимости от какой-либо логики (например смена ориентайии экрана) вашего приложения. 
 
 Для чего применяется:  
 - добавление разделителей и отступов
