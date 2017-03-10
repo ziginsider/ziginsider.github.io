@@ -162,44 +162,44 @@ getOldPosition();
 isRecyclable() / setRecyclable(Boolean)
 {% endhighlight %}
 
-### Жизнь и смерть ViewHolder’а 
+### Жизнь и смерть ViewHolder’а  
 
-1)	LayoutManager  дает запрос RecyclerView на элемент: getViewForPosition
-2)	RecyclerView обращается в Cache
-3)	Если в Cache нет элемента, RecyclerView  идет в Adapter и просит у него viewType
-4)	Получив ViewType RecyclerView идет в Recycler Pool: getViewHolderByType, в котором может хранится элемент с неправильными данными, которые надо потом заполнить.
-5)	Если Recycler Pool не вернул элемент, он идет в Adapter и просит последнего создать элемент.
-6) Если Recycler Pool вернул элемент, то RecyclerView просит Adapter сделать bindViewHolder (заполнить данные) и возвращает элемент LayoutManager’у
+1)	LayoutManager  дает запрос RecyclerView на элемент: getViewForPosition 
+2)	RecyclerView обращается в Cache 
+3)	Если в Cache нет элемента, RecyclerView  идет в Adapter и просит у него viewType 
+4)	Получив ViewType RecyclerView идет в Recycler Pool: getViewHolderByType, в котором может хранится элемент с неправильными данными, которые надо потом заполнить. 
+5)	Если Recycler Pool не вернул элемент, он идет в Adapter и просит последнего создать элемент. 
+6) Если Recycler Pool вернул элемент, то RecyclerView просит Adapter сделать bindViewHolder (заполнить данные) и возвращает элемент LayoutManager’у 
 
-В случае, если LayoutManager добавляет элемент:
-1)	LayoutManager сообщает RecyclerView о том, что создает элемент: addView
-2)	RecyclerView посылает запрос Adapter’у: onViewAttachedToWindow 
+В случае, если LayoutManager добавляет элемент: 
+1)	LayoutManager сообщает RecyclerView о том, что создает элемент: addView 
+2)	RecyclerView посылает запрос Adapter’у: onViewAttachedToWindow  
 
-В случае удаления элемента:
-1)	LayoutManager сообщает RecyclerView о том, что удаляет элемент: removeAndRecycleView
-2)	RecyclerView посылает запрос Adapter’у: onViewDettachedToWindow
-3)	RecyclerView идет в Cache, если элемент валидный (isValid? А если не valid то сразу идет в Recycler Pool) для этой позиции, помещает туда элемент
-4)	Cache помещает старые элементы в Recycler Pool (recycle)
-5)	Recycled Pool сообщает Adapter’у, что элемент (view) был переиспользован и Adapter может сделать с ним что хочет: onViewRecycled (те элементы которые попадают в Recycled Pool, понадобятся нескоро, в отличии от тех, которые находятся в Cache)
+В случае удаления элемента: 
+1)	LayoutManager сообщает RecyclerView о том, что удаляет элемент: removeAndRecycleView 
+2)	RecyclerView посылает запрос Adapter’у: onViewDettachedToWindow 
+3)	RecyclerView идет в Cache, если элемент валидный (isValid? А если не valid то сразу идет в Recycler Pool) для этой позиции, помещает туда элемент 
+4)	Cache помещает старые элементы в Recycler Pool (recycle) 
+5)	Recycled Pool сообщает Adapter’у, что элемент (view) был переиспользован и Adapter может сделать с ним что хочет: onViewRecycled (те элементы которые попадают в Recycled Pool, понадобятся нескоро, в отличии от тех, которые находятся в Cache) 
 
-Удаление из представления с т.з. RecyclerView: 
+Удаление из представления с т.з. RecyclerView:  
 RecyclerView при удалении своего child из представления (прокрутка, удаление элемента) view не удаляет ее сразу, но помещает в re add to ViewGroup, скрывает view от LayoutManager’а (иначе LM упадет с exeption, т.к. он занет только о видимых элементах) и говорит ItemAnimator’у, что ее надо анимировать. 
 
-Удаление из представления с т.з. LayoutManager’а: 
+Удаление из представления с т.з. LayoutManager’а:  
 Если LayoutManager удаляет элемент из представления он посылает запрос к RecyclerView removeAndRecycleView. RecyclerView проверяет view на валидность (isValid?) NO! -> отправляет view в Recycler Pool. Recycled Pool проверяет элемент на транзиентность hasTransientState? – состояние (на системном уровне, а не уровне RecyclerView) когда не ясно в каком состоянии view (например, анимация или selection text). И тут (hasTransientState = true) выходит на сцену Adapter. У него есть возможность последний раз сказать RecyclerView, что view можно переиспользовать. И если он скажет, что можно, то recycle’м его, иначе – навсегда его теряем (отсюда вывод: единственный, кто может анимировать view – ItemAnimator. Остальное на свой страх и риск: можно потерять ViewHolder) 
 
 NB: как проверить список на ошибки (торможнение, неправильное использование hasTransientState и глюки из-за этого). Открывает дебажный лог и начинаем прокручивать список. Если видим, что потребление памяти растет, то у нас ошибка в архитектуре Recycler’а (ViewHolder не освобождается) 
 
 Еще один способ умереть ViewHolder’у. RecyclerView обращается к Recycled Pool: addViewToPool. Recycled Pool проверяет есть ли место для еще одного ViewHolder’а типа Х. Если место есть, то ОК. Иначе, ViewHolder умирает. 
 
-Почему места может не быть?
+Почему места может не быть? 
 - Слишком много ViewHolder’ов одного типа 
-Почему слишком много?
-- Произошла crossfade анимация для всего списка
-- notifyItemRangeChanged(0, getItemCount()); 
-Как исправить?
-- Правильно вызывать notifyItemChanged
-- pool.setMaxRecycledViews(type, count); (кол-во эл-ов кот. будут кэшиться, важно для тех у кого неоднородные списки, для одних типов (тех кот.больше на экране) можно увеличить значения, для других (тех кот. меньше) – уменьшить) 
+Почему слишком много? 
+- Произошла crossfade анимация для всего списка 
+- notifyItemRangeChanged(0, getItemCount());  
+Как исправить? 
+- Правильно вызывать notifyItemChanged 
+- pool.setMaxRecycledViews(type, count); (кол-во эл-ов кот. будут кэшиться, важно для тех у кого неоднородные списки, для одних типов (тех кот.больше на экране) можно увеличить значения, для других (тех кот. меньше) – уменьшить)  
 
 ## ItemDecorator 
 
