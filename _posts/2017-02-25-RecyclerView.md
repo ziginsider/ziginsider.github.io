@@ -164,23 +164,23 @@ isRecyclable() / setRecyclable(Boolean)
 
 ### Жизнь и смерть ViewHolder’а  
 
-1)	LayoutManager  дает запрос RecyclerView на элемент: getViewForPosition 
-2)	RecyclerView обращается в Cache 
-3)	Если в Cache нет элемента, RecyclerView  идет в Adapter и просит у него viewType 
-4)	Получив ViewType RecyclerView идет в Recycler Pool: getViewHolderByType, в котором может хранится элемент с неправильными данными, которые надо потом заполнить. 
-5)	Если Recycler Pool не вернул элемент, он идет в Adapter и просит последнего создать элемент. 
-6) Если Recycler Pool вернул элемент, то RecyclerView просит Adapter сделать bindViewHolder (заполнить данные) и возвращает элемент LayoutManager’у 
+- LayoutManager  дает запрос RecyclerView на элемент: getViewForPosition 
+- RecyclerView обращается в Cache 
+- Если в Cache нет элемента, RecyclerView  идет в Adapter и просит у него viewType 
+- Получив ViewType RecyclerView идет в Recycler Pool: getViewHolderByType, в котором может хранится элемент с неправильными данными, которые надо потом заполнить. 
+- Если Recycler Pool не вернул элемент, он идет в Adapter и просит последнего создать элемент. 
+- Если Recycler Pool вернул элемент, то RecyclerView просит Adapter сделать bindViewHolder (заполнить данные) и возвращает элемент LayoutManager’у 
 
 В случае, если LayoutManager добавляет элемент: 
-1)	LayoutManager сообщает RecyclerView о том, что создает элемент: addView 
-2)	RecyclerView посылает запрос Adapter’у: onViewAttachedToWindow  
+1) LayoutManager сообщает RecyclerView о том, что создает элемент: addView 
+2) RecyclerView посылает запрос Adapter’у: onViewAttachedToWindow  
 
 В случае удаления элемента: 
-1)	LayoutManager сообщает RecyclerView о том, что удаляет элемент: removeAndRecycleView 
-2)	RecyclerView посылает запрос Adapter’у: onViewDettachedToWindow 
-3)	RecyclerView идет в Cache, если элемент валидный (isValid? А если не valid то сразу идет в Recycler Pool) для этой позиции, помещает туда элемент 
-4)	Cache помещает старые элементы в Recycler Pool (recycle) 
-5)	Recycled Pool сообщает Adapter’у, что элемент (view) был переиспользован и Adapter может сделать с ним что хочет: onViewRecycled (те элементы которые попадают в Recycled Pool, понадобятся нескоро, в отличии от тех, которые находятся в Cache) 
+1) LayoutManager сообщает RecyclerView о том, что удаляет элемент: removeAndRecycleView 
+2) RecyclerView посылает запрос Adapter’у: onViewDettachedToWindow 
+3) RecyclerView идет в Cache, если элемент валидный (isValid? А если не valid то сразу идет в Recycler Pool) для этой позиции, помещает туда элемент 
+4) Cache помещает старые элементы в Recycler Pool (recycle) 
+5) Recycled Pool сообщает Adapter’у, что элемент (view) был переиспользован и Adapter может сделать с ним что хочет: onViewRecycled (те элементы которые попадают в Recycled Pool, понадобятся нескоро, в отличии от тех, которые находятся в Cache) 
 
 Удаление из представления с т.з. RecyclerView:  
 RecyclerView при удалении своего child из представления (прокрутка, удаление элемента) view не удаляет ее сразу, но помещает в re add to ViewGroup, скрывает view от LayoutManager’а (иначе LM упадет с exeption, т.к. он занет только о видимых элементах) и говорит ItemAnimator’у, что ее надо анимировать. 
