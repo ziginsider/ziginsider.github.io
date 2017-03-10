@@ -98,7 +98,7 @@ long getItemId(int position)
 и давать уникальное Id элемента на основе его содержимого или создавать Id на основе Id layout'a, из которого мы надуваем это view, и который всегда уникальный.
 
 
-Типичные ошибки 
+## Типичные ошибки  
 1)
 {% highlight java %}
 public void onBindViewHolder(...) {
@@ -123,3 +123,41 @@ public RecyclerView.ViewHolder onCreateViewHolder(...) {
 }
 {% endhighlight %}
 Очень важно проверить на <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">NO_POSITION</span>. Сложно представить, как можно кликнуть на то, у чего нет позиции, но иногда такое происходит. Рекомендация от Google не забывать делать эту проверку.
+
+2)
+{% highlight java %}
+public ViewHolder onCreateViewHolder(...) {
+    if (cachedHeader == null) {
+        cachedHeader = createHeader();
+    }
+    if (viewType == R.layout.header) {
+        return cachedHeader;
+    } else {
+        return createItem();
+    }
+}
+{% endhighlight %}
+
+Но зачем кэшировать (создавать) заранее? Надо создавать, когда в этом есть необходимость. 
+
+## ViewHolder 
+Для чего нужен был ViewHolder раньше?
+Ответ: кеширование относительно дорогого findViewById 
+
+Для чего нужен ViewHolder теперь? 
+- кеширование относительно дорогого findViewById 
+- Мост между LayoutManager, Animator’ами и Decorator’ами
+- Основной элемент Recycling’а
+
+API ViewHolder’а:
+{% highlight java %}
+getAdapterPosition();
+getItenId();
+getItemViewType();
+getLayoutPosition();
+getOldPosition();
+isRecyclable() / setRecyclable(Boolean)
+{% endhighlight %}
+
+### Жизнь и смерть ViewHolder’а
+
