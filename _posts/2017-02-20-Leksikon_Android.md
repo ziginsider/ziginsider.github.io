@@ -11,6 +11,10 @@ tags:
 - <a href="https://developer.android.com/training/appbar/index.html" title="Action Bar">Action Bar</a> - руководство по API Action Bar, которое является исчерпывающим для библиотеки AppCompat. Включает ToolBar.
 - <a href="https://developer.android.com/studio/run/managing-avds.html" title="Android Virtual Devices">Android Virtual Devices</a> - это эмуляторы Android, которые используются для отладки приложений.
 
+<br>
+*C* <br>
+- <a href="https://habrahabr.ru/company/livetyping/blog/302106/#chto-zhe-takoe-constraintlayout" title="ConstraintLayout">ConstraintLayout</a> - это новый вид layout, который позволяет гибко настраивать виджеты относительно друг друга.
+
 <br>  
 *D* <br> 
 - <a href="https://source.android.com/devices/tech/dalvik/" title="Dalvik">Dalvik & ART</a> - ART — это среда выполнения Android, которая используется приложениями и некоторыми системными службами на Android. ART и ее предшественник Dalvik изначально были созданы специально для проекта Android.
