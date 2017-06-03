@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Два примера на Kotlin
-date: 2017-02-25 18:19
+date: 2017-06-03 14:19
 tags:
 - Kotlin
 - example
