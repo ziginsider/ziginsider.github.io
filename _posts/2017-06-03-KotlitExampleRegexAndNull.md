@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Два примера на Kotlin
+title: Несколько примеров на Kotlin
 date: 2017-06-03 14:19
 tags:
 - Kotlin
@@ -30,3 +30,19 @@ fun main(args: Array<String>) {
 	}
 }
 {% endhighlight %}
+
+*Работа с object expressions (аналог анонимных внутренних классов в Java, позволяет переопределять классы, расширять функциональность, реализовывать интерфейсы). Так же в примере показывается переопределение интерфейса Comparator, для реализации сортировки массива целых чисел в обратном порядке.* 
+<br>
+{% highlight kotlin %}
+import java.util.*
+
+fun getList(): List<Int> {
+    val arrayList = arrayListOf(1, 5, 2)
+    Collections.sort(arrayList, object : Comparator<Int> {
+        override fun compare(a: Int, b: Int) = b - a
+    })
+    return arrayList
+}
+{% endhighlight %}
+
+
