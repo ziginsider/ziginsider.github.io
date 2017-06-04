@@ -45,4 +45,15 @@ fun getList(): List<Int> {
 }
 {% endhighlight %}
 
+*Предыдущий пример, но с использование лямбда-выражения*
+{% highlight kotlin %}
+import java.util.*
+
+fun getList(): List<Int> {
+    val arrayList = arrayListOf(1, 5, 2)
+    Collections.sort(arrayList, { x, y -> y - x })
+    return arrayList
+}
+{% endhighlight %}
+
 
