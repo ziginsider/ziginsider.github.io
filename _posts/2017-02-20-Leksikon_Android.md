@@ -20,6 +20,10 @@ tags:
 - <a href="https://source.android.com/devices/tech/dalvik/" title="Dalvik">Dalvik & ART</a> - ART — это среда выполнения Android, которая используется приложениями и некоторыми системными службами на Android. ART и ее предшественник Dalvik изначально были созданы специально для проекта Android.
 
 <br>  
+*I* <br> 
+- <a href="https://habrahabr.ru/company/livetyping/blog/304640/" title="Instant Run">Instant Run</a> - Это фича Android Studio, которая при помощи «магии» сокращает время, затрачиваемое на сборку и деплой инкрементальных изменений кода в процессе написания / тестирования / дебаггинга.
+
+<br>  
 *M* <br> 
 - <a href="https://developer.android.com/studio/build/multidex.html" title="Multi-Dex">Multi-Dex</a> - приложение Android (APK) состоит из исполняемых байткодовых файлов в виде Dalvik Executable (DEX), и они содержат скомпилированный код, используемый для запуска приложения. В спецификациях DalvikExecutable ограничено общее количество методов, на которые можно ссылаться в одном файле DEX до 65,536. Multi-Dex создает несколько файлов DEX для APK, и, таким образом, ограничения можно обойти.
 
