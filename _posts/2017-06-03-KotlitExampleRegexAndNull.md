@@ -62,7 +62,9 @@ fun getList(): List<Int> {
     return arrayListOf(1, 5, 2).sortedDescending()
 }
 {% endhighlight %}
-
+<br>
+<br>
+<br>
 Кстати, вот схемка как "подправлены" коллекции в Kotlin. Подробнее <a href="https://blog.jetbrains.com/kotlin/2012/09/kotlin-m3-is-out/#Collections" title="Kotlin collections">read-only and mutable views on Java collections</a>
 <br>
 <img src="{{ site.baseurl }}/images/Collections.png">
