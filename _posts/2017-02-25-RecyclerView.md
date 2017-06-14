@@ -275,7 +275,26 @@ public void onSwiped(RecyclerView.ViewHolder viewHolder,
 etc.  
 {% endhighlight %}
 
+## Практика
 
+*Как заполнить RecyclerView данными, когда их много?* 
+
+Способ №1:
+
+Повесьте на RecyclerView слушатель прокрутки и, когда он будет прокручен до последнего элемента, подгружайте новую порцию данных.
+
+Способ №2:
+
+{% highlight java %}
+@Override
+  public void onViewAttachedToWindow(final ViewHolder holder) {
+    super.onViewAttachedToWindow(holder);
+    int layoutPosition = holder.getLayoutPosition();
+    ...
+  }
+{% highlight java %}
+
+В адаптере можно получить позицию только что появившегося элемента списка. Если позиция появившегося элемента последняя, значит пора подгружать новую порцию данных
 
 
 
