@@ -31,6 +31,15 @@ NB: Если необходимо загружать большие файлы �
 - полная поддержка POST-запросов и multipart загрузок файлов
 - Retofit 2 работает с RxJava проще (with Observable types)
 
+Итак, Retrofit - библиотека REST-клиент для работы в Android.
+
+Подключение: 
+{% highlight gridle %}
+compile 'com.squareup.retrofit2:retrofit:2.3.0'
+{% endhighlight %}
+
+
+
 ## Volley
 Свойства:
 - made in Google
