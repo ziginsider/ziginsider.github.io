@@ -14,7 +14,7 @@ tags:
 <a href="https://developer.android.com/guide/topics/providers/content-providers.html?hl=ru">ContentProvider</a> – это класс, предоставляющий унифицированный интерфейс для доступа к данным приложения. Этот класс позволяет вам использовать единый источник данных в вашем приложении.
 
 *Sources:*
-- https://www.youtube.com/watch?v=3HhBKfjuvf4 - ContentProvider & Loader (обзор)
+- [https://www.youtube.com/watch?v=3HhBKfjuvf4] - ContentProvider & Loader (обзор)
 - https://www.youtube.com/watch?v=QEqGgmMkRDk - ContentProvider & SQLite (опыт использования)
 - https://www.youtube.com/watch?v=zeDzbzLmpLs - ContentProvider (опыт использования)
 - http://www.nerdgrl.org/ru/programming/sqlite-contentprovider-1/ - цикл статей ContentProvider & SQLite
