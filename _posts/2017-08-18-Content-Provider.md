@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Препарирование ContentProvider.
+title: Препарирование ContentProvider
 date: 2017-08-18 12:55
 tags:
 - Java
@@ -40,27 +40,30 @@ tags:
 - Регистрация в манифесте ContentProvider'a выглядит следующим образом:
 {% highlight xml %}
 <provider
-   android:name=".data.sqlite.WeatherContentProvider"
-   android:authorities="io.github.ziginsider"
+   android:name=".data.sqlite.peopleContact"
+   android:authorities="io.github.ziginsider.peopleprovider"
    android:exported="false"/>
 {% endhighlight %}
-- У ContentProvider'a приложения всегда определен базовый URI. Он складывается из префикса "content://" и authorities. Таким образом, для нашего примера базовый URI = "content://io.github.ziginsider"
-- Далее, допустим мы хотим создать группу, в которой будет храниться информация о погоде (в рамках базы данных это будет таблица). Тогда URI для этой группы должно выглядеть следующим образом: "content://ru.gdgkazan.simpleweather/weather". Если мы обратимся к данным в ContentProvider по этому URI, то получим все экземпляры, сохраненные в этой группе.  
-- И наконец, если нам нужно URI для отдельного объекта, то оно будет выглядеть следующим образом: "content://ru.gdgkazan.simpleweather/weather/4". Где 4 – это номер добавленного экземпляра. 
+- рекомендуется использовать в качестве authority имя пакета с префиксом поясняющим суть провайдера, например для нашего списка контактов можно было бы применить: io.github.ziginsider.peopleprovider
+- URI образуется по схеме <prefix>://<authority>/<data_type>/<id>
+- У ContentProvider'a приложения всегда определен базовый URI. Он складывается из префикса "content://" и authorities. Таким образом, для нашего примера базовый URI = "content://io.github.ziginsider.peopleprovider"
+- Далее, допустим мы хотим создать группу, в которой будет храниться информация о писателях (в рамках базы данных это будет таблица). Тогда URI для этой группы должно выглядеть следующим образом: "content://io.github.ziginsider.peopleprovider/writers". Если мы обратимся к данным в ContentProvider по этому URI, то получим все экземпляры, сохраненные в этой группе.  
+- И наконец, если нам нужно URI для отдельного объекта, то оно будет выглядеть следующим образом: "content://io.github.ziginsider.peopleprovider/writers/4". Где 4 – это номер добавленного экземпляра. 
 
 ## Создание своего СontentProvider'a
 
 На практике нам необходимо наследоваться от класса ContentProvider и реализовать следующие методы:
-- onCreate() - инициализирует ContentProvider. Провайдер будет создан как только вы обратитесь к нему с помощью ContentResolver'a 
-- query() - извлекает данные из БД, и возвращает их в виде Cursor 
-- insert() - добавляет новые данные в БД, возвращает uri новой записи
-- bulkInsert() - добавляет массив элементов 
-- update() - обновляет строки в БД согласно заданным условиям 
-- delete() - удаляет данные 
-- getType() - возвращает MIME-тип для заданной content URI
+{% highlight java %}public boolean onCreate(){% endhighlight %} - инициализирует ContentProvider. Провайдер будет создан как только вы обратитесь к нему с помощью ContentResolver'a. Возвращает true, если ContentProvider создан успешно.
+- public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) -  Возвращает объект Cursor по полученному URI. В случае использования в качестве источника данных БД SQLite извлекает данные из БД, и возвращает их в виде Cursor. 
+- public Uri insert(@NonNull Uri uri, ContentValues values) - добавляет новые данные, возвращает URI новой записи
+- public final int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values) - добавляет массив элементов (не является обязательным для реализации в отличии от всех остальных)
+- public final int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs) - обновляет строки в хранилище данных согласно заданным условиям 
+- public final int delete(@NonNull Uri uri, String selection, String[] selectionArgs) - удаляет данные 
+- public final String getType(@NonNull Uri uri) - возвращает MIME-тип для заданной content URI
 
 
-
+Допустим, мы создали свой ContentProvider, добавили его в манифесте и теперь можем обращаться к нему в качестве интерфейса для работы с данными. Но здесь есть небольшая тонкость – мы создавали объект ContentProvider, но обращаться к данным нужно через объект ContentResolver, который можно получить через метод getContentResolver в классе Context:
+Cursor cursor = mContext.getContentResolver().query(table.getUri(), null, where.where(), where.whereArgs(), where.limit());
 
 
 
