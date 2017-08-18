@@ -62,34 +62,37 @@ public Cursor query(@NonNull Uri uri,
             String selection, 
             String[] selectionArgs, 
             String sortOrder)
-{% endhighlight %} -  Возвращает объект Cursor по полученному URI. В случае использования в качестве источника данных БД SQLite извлекает данные из БД, и возвращает их в виде Cursor. 
+{% endhighlight %} -  Возвращает объект Cursor по полученному URI. URI парсится, согласно заданным нами правилам. В случае использования в качестве источника данных БД SQLite извлекает данные из БД, и возвращает их в виде Cursor. (соответствует HTTP методу GET). 
 {% highlight java %}
 public Uri insert(@NonNull Uri uri, 
             ContentValues values)
-{% endhighlight %} - добавляет новые данные, возвращает URI новой записи
+{% endhighlight %} - добавляет новые данные, возвращает URI новой записи. (соответствует HTTP методу POST)
 {% highlight java %}
 public final int bulkInsert(@NonNull Uri uri, 
             @NonNull ContentValues[] values)
-{% endhighlight %} - добавляет массив элементов (не является обязательным для реализации в отличии от всех остальных)
+{% endhighlight %} - добавляет массив элементов (не является обязательным для реализации в отличии от всех остальных методов)
 {% highlight java %}
 public final int update(@NonNull Uri uri, 
             ContentValues values, 
             String selection, 
             String[] selectionArgs)
-{% endhighlight %} - обновляет строки в хранилище данных согласно заданным условиям 
+{% endhighlight %} - обновляет строки в хранилище данных согласно заданным условиям. (в терминологии HTTP методов – PUT или PATCH)
 {% highlight java %}
 public final int delete(@NonNull Uri uri, 
             String selection, 
             String[] selectionArgs)
-{% endhighlight %} - удаляет данные 
+{% endhighlight %} - удаляет данные. ( единственный метод ContentProvider, HTTP аналог которого имеет такое же название)
 {% highlight java %}
 public final String getType(@NonNull Uri uri)
-{% endhighlight %} - возвращает MIME-тип для заданной content URI
+{% endhighlight %} - возвращает MIME-тип для заданной content URI. Обычно этот метод используют для сопоставления имени таблицы и URI, чтобы потом выполнить запрос к базе данных.
+
+Следует помнить, что все перечисленные методы кроме onCreate() могут выполняться одновременно в нескольких потоках, и поэтому должны быть потоко-безопасными (thread-safe).
 
 Допустим, мы создали свой ContentProvider, добавили его в манифесте и теперь можем обращаться к нему в качестве интерфейса для работы с данными. Но здесь есть небольшая тонкость – мы создавали объект ContentProvider, но обращаться к данным нужно через объект ContentResolver, который можно получить через метод getContentResolver в классе Context:
 {% highlight java %}
 Cursor cursor = mContext.getContentResolver().query(table.getUri(), 
-            null, where.where(), 
+            null, 
+            where.where(), 
             where.whereArgs(), 
             where.limit());
 {% endhighlight %}
