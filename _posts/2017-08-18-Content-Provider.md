@@ -57,19 +57,30 @@ tags:
 public boolean onCreate()
 {% endhighlight %} - инициализирует ContentProvider. Провайдер будет создан как только вы обратитесь к нему с помощью ContentResolver'a. Возвращает true, если ContentProvider создан успешно.
 {% highlight java %}
-public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder)
+public Cursor query(@NonNull Uri uri,
+            String[] projection, 
+            String selection, 
+            String[] selectionArgs, 
+            String sortOrder)
 {% endhighlight %} -  Возвращает объект Cursor по полученному URI. В случае использования в качестве источника данных БД SQLite извлекает данные из БД, и возвращает их в виде Cursor. 
 {% highlight java %}
-public Uri insert(@NonNull Uri uri, ContentValues values)
+public Uri insert(@NonNull Uri uri, 
+            ContentValues values)
 {% endhighlight %} - добавляет новые данные, возвращает URI новой записи
 {% highlight java %}
-public final int bulkInsert(@NonNull Uri uri, @NonNull ContentValues[] values)
+public final int bulkInsert(@NonNull Uri uri, 
+            @NonNull ContentValues[] values)
 {% endhighlight %} - добавляет массив элементов (не является обязательным для реализации в отличии от всех остальных)
 {% highlight java %}
-public final int update(@NonNull Uri uri, ContentValues values, String selection, String[] selectionArgs)
+public final int update(@NonNull Uri uri, 
+            ContentValues values, 
+            String selection, 
+            String[] selectionArgs)
 {% endhighlight %} - обновляет строки в хранилище данных согласно заданным условиям 
 {% highlight java %}
-public final int delete(@NonNull Uri uri, String selection, String[] selectionArgs)
+public final int delete(@NonNull Uri uri, 
+            String selection, 
+            String[] selectionArgs)
 {% endhighlight %} - удаляет данные 
 {% highlight java %}
 public final String getType(@NonNull Uri uri)
@@ -77,7 +88,10 @@ public final String getType(@NonNull Uri uri)
 
 Допустим, мы создали свой ContentProvider, добавили его в манифесте и теперь можем обращаться к нему в качестве интерфейса для работы с данными. Но здесь есть небольшая тонкость – мы создавали объект ContentProvider, но обращаться к данным нужно через объект ContentResolver, который можно получить через метод getContentResolver в классе Context:
 {% highlight java %}
-Cursor cursor = mContext.getContentResolver().query(table.getUri(), null, where.where(), where.whereArgs(), where.limit());
+Cursor cursor = mContext.getContentResolver().query(table.getUri(), 
+            null, where.where(), 
+            where.whereArgs(), 
+            where.limit());
 {% endhighlight %}
 
 
