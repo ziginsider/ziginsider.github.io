@@ -5,11 +5,22 @@ date: 2017-08-18 12:55
 tags:
 - Java
 - Android
-- Content Provider
+- ContentProvider
 ---
-## Определение ContentProvider'a
+<img src="{{ site.baseurl }}/images/content.jpg">
+
+## What?
 
 <a href="https://developer.android.com/guide/topics/providers/content-providers.html?hl=ru">ContentProvider</a> – это класс, предоставляющий унифицированный интерфейс для доступа к данным приложения. Этот класс позволяет вам использовать единый источник данных в вашем приложении.
+
+*Sources:*
+- https://www.youtube.com/watch?v=3HhBKfjuvf4 - ContentProvider & Loader (обзор)
+- https://www.youtube.com/watch?v=QEqGgmMkRDk - ContentProvider & SQLite (опыт использования)
+- https://www.youtube.com/watch?v=zeDzbzLmpLs - ContentProvider (опыт использования)
+- http://www.nerdgrl.org/ru/programming/sqlite-contentprovider-1/ - цикл статей ContentProvider & SQLite
+- https://ru.stackoverflow.com/questions/653346/%D0%A7%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-contentprovider - Ответ на русском StackOverflow "Что такое ContentProvider?"
+- https://www.tutorialspoint.com/android/android_content_providers.htm - Tutorial ContentProvider
+- https://www.youtube.com/watch?v=xHXn3Kg2IQE - классика (паттерны A/B/C)
 
 Задуман, как способ предоставлять данные вашего приложения для сторонних приложений, + для реализации поиска среди данных вашего приложения с использованием search suggestions (подсказки при вводе слов для поиска).
 
@@ -19,9 +30,8 @@ tags:
 
 1) Как уже было сказано, ContentProvider предоставляет унифицированный интерфейс для доступа к данным. Это говорит о том, что не нужно беспокоится о реализации хранения данных. Она может меняться, но данные остаются доступны.
 
-2) Не нужно управлять жизненным циклом объекта для доступа к данным (к примеру, экземпляра SQLiteDatabase). Ведь в случае прямого использования таких объектов возникает немало вопросов: где хранить этот объект? Когда закрывать базу данных? Когда уничтожать этот объект?
+2) Не нужно управлять жизненным циклом объекта для доступа к данным (к примеру, экземпляра SQLiteDatabase). Ведь в случае прямого использования таких объектов возникает немало вопросов: где хранить этот объект? Когда закрывать базу данных? Когда уничтожать этот объект? ContentProvider позволяет получать доступ к данным из любого места, где доступен контекст приложения (экземпляр Context).
 
-ContentProvider позволяет получать доступ к данным из любого места, где доступен контекст приложения (экземпляр Context).
 3) ContentProvider полностью соответствует концепциям REST (о которых мы говорили <a href="https://ziginsider.github.io/rest-api/">в этих заметках</a>)
 
 Немного о последнем пункте. Итак, соответствие REST:
