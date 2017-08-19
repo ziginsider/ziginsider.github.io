@@ -103,7 +103,7 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 
 > проверка микрофона
 
-### Vанифесте
+### Манифест
 
 Регистрация ContentProvider'a в манифесте под тегом &lt;provider&gt;. Подробная иформация <a href="https://developer.android.com/guide/topics/manifest/provider-element.html?hl=ru#prmsn">здесь</a>.
 
@@ -135,6 +135,17 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 Атрибуты android:permission, android:readPermission, android:writePermission - задают ограничения на использование нашего ContentProvider'a сторонними приложениями (на доступ к ContentProvider'у внутри нашего приложения эти атрибуты не влияют). Атрибут android:readPermission и android:writePermission имеют приоритет над атрибутом android:permission, и, соответственно, отвечают за доступ к функции query() и фунциям insert(), bulkInsert(), update(), delete() нашего ContentProvider'a для стороннего приложения.
 
 
+### Формирование URI
+
+Соответсвие ContentProvider'a концепции REST выражается в том, что доступ. данным осуществляется с помощью URI. Соответственно, URI необходимо как-то формировать для запроса к необходимым данным.
+
+URI - это ...
+
+Мы уже говорили, что URI ContentProvider'a формируется по следующей схеме:
+{% highlight xml %}
+<prefix>://<authority>/<data_type>/<id>
+{% endhighlight %}
+   
 
 ### Где используют?
 
