@@ -60,11 +60,11 @@ tags:
 public boolean onCreate()
 {% endhighlight %} - инициализирует ContentProvider. Провайдер будет создан как только вы обратитесь к нему с помощью ContentResolver'a. Возвращает true, если ContentProvider создан успешно. В общем случае, не рекомендуется делать в onCreate() ContentProvider'a длительных операций т.к. это может повесить onCreate() Application (??)
 {% highlight java %}
-public Cursor query(@NonNull Uri uri,
-            String[] projection, 
-            String selection, 
-            String[] selectionArgs, 
-            String sortOrder)
+public Cursor query(@NonNull Uri uri,     // The content URI of the words table (FROM table_name)
+            String[] projection,          // The columns to return for each row (col, col, col, ...)
+            String selection,             // Selection criteria (WHERE col = value)
+            String[] selectionArgs,       // Selection criteria args (instead '?')
+            String sortOrder)             // The sort order for the returned rows (ORDER BY col, col, ...)
 {% endhighlight %} -  Возвращает объект Cursor по полученному URI. URI парсится, согласно заданным нами правилам. В случае использования в качестве источника данных БД SQLite извлекает данные из БД, и возвращает их в виде Cursor. (соответствует HTTP методу GET). 
 {% highlight java %}
 public Uri insert(@NonNull Uri uri, 
@@ -102,6 +102,37 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 
 
 > проверка микрофона
+
+### Vанифесте
+
+Регистрация ContentProvider'a в манифесте под тегом &lt;provider&gt;. Подробная иформация <a href="https://developer.android.com/guide/topics/manifest/provider-element.html?hl=ru#prmsn">здесь</a>.
+
+синтаксис:
+{% highlight xml %}
+<provider android:authorities="list"
+          android:directBootAware=["true" | "false"]
+          android:enabled=["true" | "false"]
+          android:exported=["true" | "false"]
+          android:grantUriPermissions=["true" | "false"]
+          android:icon="drawable resource"
+          android:initOrder="integer"
+          android:label="string resource"
+          android:multiprocess=["true" | "false"]
+          android:name="string"
+          android:permission="string"
+          android:process="string"
+          android:readPermission="string"
+          android:syncable=["true" | "false"]
+          android:writePermission="string" >
+    . . .
+</provider>
+{% endhighlight %}
+
+Атрибут android:exporter задает возможность использования нашего ContentProvider'a сторонними приложениями. До версии Android 16 по умолчанию был true, в версиях >= 16 по умолчанию false. Поэтому необходимо обращать внимание на состояние этого атрибута.
+
+Атрибут android:authorities задает ключ по которому мы будем обращаться к нашему ContentProvider'у. Стоит обратить внимание на его уникальность. Установка приложений с одним и тем же значением authorities на одно устройство выдаст ошибку.
+
+Атрибуты android:permission, android:readPermission, android:writePermission - задают ограничения на использование нашего ContentProvider'a сторонними приложениями (на доступ к ContentProvider'у внутри нашего приложения эти атрибуты не влияют). Атрибут android:readPermission и android:writePermission имеют приоритет над атрибутом android:permission, и, соответственно, отвечают за доступ к функции query() и фунциям insert(), bulkInsert(), update(), delete() нашего ContentProvider'a для стороннего приложения.
 
 
 
