@@ -101,14 +101,12 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 {% endhighlight %}
 
 
-> проверка микрофона
-
 ### Манифест
 
-Регистрация ContentProvider'a в манифесте под тегом &lt;provider&gt;. Подробная иформация <a href="https://developer.android.com/guide/topics/manifest/provider-element.html?hl=ru#prmsn">здесь</a>.
+Регистрация ContentProvider'a в манифесте под тегом &lt;provider&gt;. Подробная иформация <a href="https://developer.android.com/guide/topics/manifest/provider-element.html?hl=ru">здесь</a>.
 
 синтаксис:
-{% highlight xml %}
+{% highlight java %}
 <provider android:authorities="list"
           android:directBootAware=["true" | "false"]
           android:enabled=["true" | "false"]
@@ -134,6 +132,19 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 
 Атрибуты android:permission, android:readPermission, android:writePermission - задают ограничения на использование нашего ContentProvider'a сторонними приложениями (на доступ к ContentProvider'у внутри нашего приложения эти атрибуты не влияют). Атрибут android:readPermission и android:writePermission имеют приоритет над атрибутом android:permission, и, соответственно, отвечают за доступ к функции query() и фунциям insert(), bulkInsert(), update(), delete() нашего ContentProvider'a для стороннего приложения.
 
+Например, в манифесте записано следующее:
+{% highlight xml %}
+<provider android:name="bbct.android.common.BaseballCardProvider"
+              android:label="@string/provider_name"
+              android:authorities="bbct.android.baseballcard"
+              android:readPermission="bbct.android.lite.permission.READ"
+/>
+{% endhighlight %}
+
+Тогда в манифесте стороннего приложения, которое должно иметь доступ на чтение данных из ContentProvider'a должно быть указано разрешение:
+{% highlight xml %}
+<permission android:name="bbct.android.lite.permission.READ" />
+{% endhighlight %}
 
 ### Формирование URI
 
@@ -145,6 +156,8 @@ URI - это ...
 {% highlight xml %}
 <prefix>://<authority>/<data_type>/<id>
 {% endhighlight %}
++ &lt;prefix&gt;:// - "content://" 
++ &lt;authority&gt; - уникальный идентификатор нашего ContentProvider'a. Вместе с &lt;prefix&gt; составляет базовый URI - часть которая будет присутствовать во всех запросах к нашему ContentProvider'у. Еще раз скажем, что его нужно делать уникальным. Обычно составляется по приципу "имя_пакета + имя_приложения + имя_провайдера".
    
 
 ### Где используют?
