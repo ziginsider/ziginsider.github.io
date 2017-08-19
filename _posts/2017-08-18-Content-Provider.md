@@ -37,15 +37,18 @@ tags:
 Немного о последнем пункте. Итак, соответствие REST:
 
 - Для каждой сущности ContentProvider'a есть свой URI. 
-- Регистрация в манифесте ContentProvider'a выглядит следующим образом:
+- Регистрация в манифесте ContentProvider'a выглядит следующим образом (пока без пояснения и др. возможных атрибутов):
 {% highlight xml %}
 <provider
-   android:name=".data.sqlite.peopleContact"
+   android:name=".peopleprovider"
    android:authorities="io.github.ziginsider.peopleprovider"
    android:exported="false"/>
 {% endhighlight %}
 - рекомендуется использовать в качестве authority имя пакета с префиксом поясняющим суть провайдера, например для нашего списка контактов можно было бы применить: io.github.ziginsider.peopleprovider
-- URI образуется по схеме <prefix>://<authority>/<data_type>/<id>
+- URI образуется по схеме:
+{% highlight xml %}
+<prefix>://<authority>/<data_type>/<id>
+{% endhighlight %}
 - У ContentProvider'a приложения всегда определен базовый URI. Он складывается из префикса "content://" и authorities. Таким образом, для нашего примера базовый URI = "content://io.github.ziginsider.peopleprovider"
 - Далее, допустим мы хотим создать группу, в которой будет храниться информация о писателях (в рамках базы данных это будет таблица). Тогда URI для этой группы должно выглядеть следующим образом: "content://io.github.ziginsider.peopleprovider/writers". Если мы обратимся к данным в ContentProvider по этому URI, то получим все экземпляры, сохраненные в этой группе.  
 - И наконец, если нам нужно URI для отдельного объекта, то оно будет выглядеть следующим образом: "content://io.github.ziginsider.peopleprovider/writers/4". Где 4 – это номер добавленного экземпляра. 
@@ -55,7 +58,7 @@ tags:
 На практике нам необходимо наследоваться от класса ContentProvider и реализовать следующие методы:
 {% highlight java %}
 public boolean onCreate()
-{% endhighlight %} - инициализирует ContentProvider. Провайдер будет создан как только вы обратитесь к нему с помощью ContentResolver'a. Возвращает true, если ContentProvider создан успешно.
+{% endhighlight %} - инициализирует ContentProvider. Провайдер будет создан как только вы обратитесь к нему с помощью ContentResolver'a. Возвращает true, если ContentProvider создан успешно. В общем случае, не рекомендуется делать в onCreate() ContentProvider'a длительных операций т.к. это может повесить onCreate() Application (??)
 {% highlight java %}
 public Cursor query(@NonNull Uri uri,
             String[] projection, 
@@ -98,8 +101,10 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 {% endhighlight %}
 
 
+> проверка микрофона
 
 
-## Где используют?
+
+### Где используют?
 
 ## Практика использования Content Provider'a
