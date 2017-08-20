@@ -36,7 +36,6 @@ th{
 
 td{
     border:1px solid #000000;
-    text-align: left;
 }
 </style>
 <table bordercolor="black" border="1" width="100%">
