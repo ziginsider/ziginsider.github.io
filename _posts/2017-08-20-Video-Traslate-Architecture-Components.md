@@ -37,7 +37,7 @@ th{
 td{
     border:1px solid #000000;
 }
-   
+</style>
 <table bordercolor="black" border="2" width="100%">
    <caption>Перевод субтитров</caption>
    <tr>
@@ -86,4 +86,4 @@ today in a lot of detail
 </td></tr>
    <tr><td></td><td></td></tr>
   </table>
-  </style>
+  
