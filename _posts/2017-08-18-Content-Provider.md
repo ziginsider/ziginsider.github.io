@@ -21,6 +21,7 @@ tags:
 - <a href="https://ru.stackoverflow.com/questions/653346/%D0%A7%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-contentprovider">https://ru.stackoverflow.com/questions/653346/%D0%A7%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-contentprovider</a> - Ответ на русском StackOverflow "Что такое ContentProvider?"
 - <a href="https://www.tutorialspoint.com/android/android_content_providers.htm">https://www.tutorialspoint.com/android/android_content_providers.htm</a> - Tutorial ContentProvider
 - <a href="https://www.youtube.com/watch?v=xHXn3Kg2IQE">https://www.youtube.com/watch?v=xHXn3Kg2IQE</a> - классика (паттерны A/B/C)
+- <a href="https://stackoverflow.com/questions/39825125/android-recyclerview-cursorloader-contentprovider-load-more">https://stackoverflow.com/questions/39825125/android-recyclerview-cursorloader-contentprovider-load-more</a> - Tutorial ContentProvider & SQLite 
 
 Задуман, как способ предоставлять данные вашего приложения для сторонних приложений, + для реализации поиска среди данных вашего приложения с использованием search suggestions (подсказки при вводе слов для поиска).
 
