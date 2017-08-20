@@ -38,7 +38,7 @@ td{
     border:1px solid #000000;
 }
 </style>
-<table bordercolor="black" border="1" width="100%">
+<table bordercolor="black" border="1">
    <caption>Перевод субтитров</caption>
    <tr>
     <th>English</th>
