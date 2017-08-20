@@ -38,6 +38,7 @@ th{
 
 td{
     border:1px solid #000000;
+    padding: 10px;
 }
 </style>
 <table bordercolor="black" border="1">
