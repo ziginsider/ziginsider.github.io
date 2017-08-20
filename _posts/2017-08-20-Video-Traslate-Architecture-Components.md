@@ -6,8 +6,8 @@ tags:
 - Java
 - Android
 - архитектура
-- Video
-- Youtube
+- video
+- youtube
 - translate
 - Google I/O '17
 - философия
