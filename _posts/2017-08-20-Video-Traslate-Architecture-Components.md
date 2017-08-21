@@ -501,32 +501,32 @@ ContentProvider это механизм<br>
 <br>
 38<br>
 00:01:39,990 --> 00:01:41,970<br>
-So we think of<br>
-these core classes<br>
+Итак, мы думаем об<br>
+этих основных классах<br>
 <br>
 39<br>
 00:01:41,970 --> 00:01:44,790<br>
-as really being like the<br>
-fundamental laws of physics<br>
+как действительно существующих<br>
+подобно фундаментальным законам физики<br>
 <br>
 40<br>
 00:01:44,790 --> 00:01:47,520<br>
-for Android, hence<br>
-the illustration.<br>
+для Android. Тогда<br>
+иллюстрация.<br>
 <br>
 41<br>
 00:01:47,520 --> 00:01:49,920<br>
-That is the cover<br>
-of the manuscript<br>
+Это обложка книги,<br>
+где впервые<br>
 <br>
 42<br>
 00:01:49,920 --> 00:01:52,170<br>
-where Isaac Newton<br>
-first presented<br>
+Исаак Ньютон<br>
+описал<br>
 <br>
 43<br>
 00:01:52,170 --> 00:01:53,430<br>
-the basic laws of motion.<br>
+фундаментальные законы движения.<br>
 <br>
 44<br>
 00:01:53,430 --> 00:01:56,620<br>
@@ -534,74 +534,74 @@ the basic laws of motion.<br>
 <br>
 45<br>
 00:01:56,620 --> 00:01:59,580<br>
-Now, fundamental laws<br>
-are a good thing.<br>
+Теперь, фундаментальные законы<br>
+это отличная вещь.<br>
 <br>
 46<br>
 00:01:59,580 --> 00:02:01,560<br>
-I use a shorthand when<br>
-talking about this.<br>
+Я использую условные обозначения<br>
+Когда говорю об этом.<br>
 <br>
 47<br>
 00:02:01,560 --> 00:02:04,530<br>
-I say, Android has good bones,<br>
-even though people look at me<br>
+Я говорю "У Android хорошие кости",<br>
+даже если люди смотрят на меня<br>
 <br>
 48<br>
 00:02:04,530 --> 00:02:06,780<br>
-funny after I say that.<br>
+с усмешкой после этого.<br>
 <br>
 49<br>
 00:02:06,780 --> 00:02:09,960<br>
-But what I mean by<br>
-that is that Android<br>
+Но что я имею в виду, когда<br>
+говорю, что Android это Android<br>
 <br>
 50<br>
 00:02:09,960 --> 00:02:13,650<br>
-is based on a small,<br>
-stable, cohesive set<br>
+он небольшой, стабильный,<br>
+имеет связанный набор<br>
 <br>
 51<br>
 00:02:13,650 --> 00:02:15,150<br>
-of core primitives.<br>
+примитивов ядра.<br>
 <br>
 52<br>
 00:02:15,150 --> 00:02:18,390<br>
-And that allows a<br>
-common programming model<br>
+И это позволяет иметь<br>
+общую программную модель Android<br>
 <br>
 53<br>
 00:02:18,390 --> 00:02:20,940<br>
-across a really<br>
-incredibly diverse range<br>
+на очень широком диапазоне<br>
+различных устройств<br>
 <br>
 54<br>
 00:02:20,940 --> 00:02:24,750<br>
-of devices from wearables<br>
-to phones to tablets<br>
+от носимых устройств, телефонов,<br>
+планшетов<br>
 <br>
 55<br>
 00:02:24,750 --> 00:02:27,870<br>
-to TVs to cars, and more.<br>
+до ТВ, автомобилей и т.д.<br>
 <br>
 56<br>
 00:02:27,870 --> 00:02:30,210<br>
-This model also gives<br>
-application developers<br>
+И эта же модель дает<br>
+разработчикам приложений<br>
 <br>
 57<br>
 00:02:30,210 --> 00:02:32,310<br>
-the freedom to choose<br>
-whatever framework<br>
+свободу выбора<br>
+любого фреймворка<br>
 <br>
 58<br>
 00:02:32,310 --> 00:02:34,170<br>
-they want inside<br>
-their application<br>
+какой они хотят использовать<br>
+для своего приложения<br>
 <br>
 59<br>
 00:02:34,170 --> 00:02:36,010<br>
-for their internal framework.<br>
+для их внутренней структуры.<br>
 
 </td></tr> 
   </table>
