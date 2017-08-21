@@ -190,6 +190,139 @@ what's going on inside your app<br>
 00:01:20,790 --> 00:01:23,220<br>
 so we can manage it properly.<br>
 <br>
+<br>
+32<br>
+00:01:23,220 --> 00:01:27,060<br>
+So as an example, if your app<br>
+is running in the background,<br>
+<br>
+33<br>
+00:01:27,060 --> 00:01:29,600<br>
+but is also exposing data<br>
+to another application<br>
+<br>
+34<br>
+00:01:29,600 --> 00:01:32,492<br>
+through a content provider,<br>
+the OS needs to know that.<br>
+<br>
+35<br>
+00:01:32,492 --> 00:01:34,950<br>
+And we need to know that so we<br>
+don't accidentally kill you.<br>
+<br>
+36<br>
+00:01:34,950 --> 00:01:37,500<br>
+The content provider is a<br>
+mechanism that tells us that<br>
+<br>
+37<br>
+00:01:37,500 --> 00:01:39,990<br>
+so that we can keep you alive.<br>
+<br>
+38<br>
+00:01:39,990 --> 00:01:41,970<br>
+So we think of<br>
+these core classes<br>
+<br>
+39<br>
+00:01:41,970 --> 00:01:44,790<br>
+as really being like the<br>
+fundamental laws of physics<br>
+<br>
+40<br>
+00:01:44,790 --> 00:01:47,520<br>
+for Android, hence<br>
+the illustration.<br>
+<br>
+41<br>
+00:01:47,520 --> 00:01:49,920<br>
+That is the cover<br>
+of the manuscript<br>
+<br>
+42<br>
+00:01:49,920 --> 00:01:52,170<br>
+where Isaac Newton<br>
+first presented<br>
+<br>
+43<br>
+00:01:52,170 --> 00:01:53,430<br>
+the basic laws of motion.<br>
+<br>
+44<br>
+00:01:53,430 --> 00:01:56,620<br>
+<br>
+<br>
+45<br>
+00:01:56,620 --> 00:01:59,580<br>
+Now, fundamental laws<br>
+are a good thing.<br>
+<br>
+46<br>
+00:01:59,580 --> 00:02:01,560<br>
+I use a shorthand when<br>
+talking about this.<br>
+<br>
+47<br>
+00:02:01,560 --> 00:02:04,530<br>
+I say, Android has good bones,<br>
+even though people look at me<br>
+<br>
+48<br>
+00:02:04,530 --> 00:02:06,780<br>
+funny after I say that.<br>
+<br>
+49<br>
+00:02:06,780 --> 00:02:09,960<br>
+But what I mean by<br>
+that is that Android<br>
+<br>
+50<br>
+00:02:09,960 --> 00:02:13,650<br>
+is based on a small,<br>
+stable, cohesive set<br>
+<br>
+51<br>
+00:02:13,650 --> 00:02:15,150<br>
+of core primitives.<br>
+<br>
+52<br>
+00:02:15,150 --> 00:02:18,390<br>
+And that allows a<br>
+common programming model<br>
+<br>
+53<br>
+00:02:18,390 --> 00:02:20,940<br>
+across a really<br>
+incredibly diverse range<br>
+<br>
+54<br>
+00:02:20,940 --> 00:02:24,750<br>
+of devices from wearables<br>
+to phones to tablets<br>
+<br>
+55<br>
+00:02:24,750 --> 00:02:27,870<br>
+to TVs to cars, and more.<br>
+<br>
+56<br>
+00:02:27,870 --> 00:02:30,210<br>
+This model also gives<br>
+application developers<br>
+<br>
+57<br>
+00:02:30,210 --> 00:02:32,310<br>
+the freedom to choose<br>
+whatever framework<br>
+<br>
+58<br>
+00:02:32,310 --> 00:02:34,170<br>
+they want inside<br>
+their application<br>
+<br>
+59<br>
+00:02:34,170 --> 00:02:36,010<br>
+for their internal framework.<br>
 
 </td>
       
@@ -336,6 +469,139 @@ Service, ContentProvider,<br>
 00:01:20,790 --> 00:01:23,220<br>
 т.о. мы можем управлять этим правильно.<br>
 <br>
+<br>
+32<br>
+00:01:23,220 --> 00:01:27,060<br>
+Итак, для примера, если ваше<br>
+приложение работает в фоне,<br>
+<br>
+33<br>
+00:01:27,060 --> 00:01:29,600<br>
+но также предоставляет данные<br>
+другому приложению<br>
+<br>
+34<br>
+00:01:29,600 --> 00:01:32,492<br>
+через ContentProvider,<br>
+то ОС должна об этом знать.<br>
+<br>
+35<br>
+00:01:32,492 --> 00:01:34,950<br>
+И мы должны знать, что случайно<br>
+не убьем его.<br>
+<br>
+36<br>
+00:01:34,950 --> 00:01:37,500<br>
+ContentProvider это механизм<br>
+который говорит нам,<br>
+<br>
+37<br>
+00:01:37,500 --> 00:01:39,990<br>
+что мы должны держать вас живыми.<br>
+<br>
+38<br>
+00:01:39,990 --> 00:01:41,970<br>
+So we think of<br>
+these core classes<br>
+<br>
+39<br>
+00:01:41,970 --> 00:01:44,790<br>
+as really being like the<br>
+fundamental laws of physics<br>
+<br>
+40<br>
+00:01:44,790 --> 00:01:47,520<br>
+for Android, hence<br>
+the illustration.<br>
+<br>
+41<br>
+00:01:47,520 --> 00:01:49,920<br>
+That is the cover<br>
+of the manuscript<br>
+<br>
+42<br>
+00:01:49,920 --> 00:01:52,170<br>
+where Isaac Newton<br>
+first presented<br>
+<br>
+43<br>
+00:01:52,170 --> 00:01:53,430<br>
+the basic laws of motion.<br>
+<br>
+44<br>
+00:01:53,430 --> 00:01:56,620<br>
+<br>
+<br>
+45<br>
+00:01:56,620 --> 00:01:59,580<br>
+Now, fundamental laws<br>
+are a good thing.<br>
+<br>
+46<br>
+00:01:59,580 --> 00:02:01,560<br>
+I use a shorthand when<br>
+talking about this.<br>
+<br>
+47<br>
+00:02:01,560 --> 00:02:04,530<br>
+I say, Android has good bones,<br>
+even though people look at me<br>
+<br>
+48<br>
+00:02:04,530 --> 00:02:06,780<br>
+funny after I say that.<br>
+<br>
+49<br>
+00:02:06,780 --> 00:02:09,960<br>
+But what I mean by<br>
+that is that Android<br>
+<br>
+50<br>
+00:02:09,960 --> 00:02:13,650<br>
+is based on a small,<br>
+stable, cohesive set<br>
+<br>
+51<br>
+00:02:13,650 --> 00:02:15,150<br>
+of core primitives.<br>
+<br>
+52<br>
+00:02:15,150 --> 00:02:18,390<br>
+And that allows a<br>
+common programming model<br>
+<br>
+53<br>
+00:02:18,390 --> 00:02:20,940<br>
+across a really<br>
+incredibly diverse range<br>
+<br>
+54<br>
+00:02:20,940 --> 00:02:24,750<br>
+of devices from wearables<br>
+to phones to tablets<br>
+<br>
+55<br>
+00:02:24,750 --> 00:02:27,870<br>
+to TVs to cars, and more.<br>
+<br>
+56<br>
+00:02:27,870 --> 00:02:30,210<br>
+This model also gives<br>
+application developers<br>
+<br>
+57<br>
+00:02:30,210 --> 00:02:32,310<br>
+the freedom to choose<br>
+whatever framework<br>
+<br>
+58<br>
+00:02:32,310 --> 00:02:34,170<br>
+they want inside<br>
+their application<br>
+<br>
+59<br>
+00:02:34,170 --> 00:02:36,010<br>
+for their internal framework.<br>
 
 </td></tr> 
   </table>
