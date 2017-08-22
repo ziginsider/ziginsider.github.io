@@ -323,6 +323,304 @@ their application<br>
 59<br>
 00:02:34,170 --> 00:02:36,010<br>
 for their internal framework.<br>
+<br>
+60<br>
+00:02:36,010 --> 00:02:38,070<br>
+So that means that we<br>
+on the Android team<br>
+<br>
+61<br>
+00:02:38,070 --> 00:02:41,250<br>
+don't have to get involved<br>
+in debates about whether MVC<br>
+<br>
+62<br>
+00:02:41,250 --> 00:02:45,540<br>
+is better than MVP, or whether<br>
+MVP is better than [? MVVBM. ?]<br>
+<br>
+63<br>
+00:02:45,540 --> 00:02:49,260<br>
+You guys can pick whatever<br>
+makes sense to you.<br>
+<br>
+64<br>
+00:02:49,260 --> 00:02:52,680<br>
+Now, that's a pretty good story<br>
+if you are in the operating<br>
+<br>
+65<br>
+00:02:52,680 --> 00:02:55,921<br>
+system business like, say, me.<br>
+<br>
+66<br>
+00:02:55,921 --> 00:02:57,420<br>
+But if you're in<br>
+the app development<br>
+<br>
+67<br>
+00:02:57,420 --> 00:03:01,110<br>
+business like, say,<br>
+all of you, that's<br>
+<br>
+68<br>
+00:03:01,110 --> 00:03:03,120<br>
+really only chapter<br>
+one of the story.<br>
+<br>
+69<br>
+00:03:03,120 --> 00:03:04,890<br>
+And the reason for<br>
+that is because<br>
+<br>
+70<br>
+00:03:04,890 --> 00:03:08,190<br>
+while strong fundamentals<br>
+and freedom of choice<br>
+<br>
+71<br>
+00:03:08,190 --> 00:03:12,000<br>
+are good things, we know that<br>
+in your day to day jobs--<br>
+<br>
+72<br>
+00:03:12,000 --> 00:03:16,730<br>
+and we know this because you<br>
+told us, you want more from us.<br>
+<br>
+73<br>
+00:03:16,730 --> 00:03:19,690<br>
+So I'm going to abuse<br>
+my analogy a bit here.<br>
+<br>
+74<br>
+00:03:19,690 --> 00:03:22,810<br>
+We can all appreciate the<br>
+simple elegance of Newton's laws<br>
+<br>
+75<br>
+00:03:22,810 --> 00:03:27,725<br>
+of motion, but if your job<br>
+is to land a Rover on Mars,<br>
+<br>
+76<br>
+00:03:27,725 --> 00:03:29,350<br>
+you don't want to<br>
+come to work each day<br>
+<br>
+77<br>
+00:03:29,350 --> 00:03:31,810<br>
+and start with only F equals<br>
+ma, and derive everything<br>
+<br>
+78<br>
+00:03:31,810 --> 00:03:35,230<br>
+from first principles.<br>
+<br>
+79<br>
+00:03:35,230 --> 00:03:37,780<br>
+So we've been talking to<br>
+developers, both inside<br>
+<br>
+80<br>
+00:03:37,780 --> 00:03:41,140<br>
+and outside of Google, and<br>
+taking a hard look at the app<br>
+<br>
+81<br>
+00:03:41,140 --> 00:03:42,830<br>
+development experience.<br>
+<br>
+82<br>
+00:03:42,830 --> 00:03:45,230<br>
+And we've realized<br>
+a couple of things.<br>
+<br>
+83<br>
+00:03:45,230 --> 00:03:47,770<br>
+First, there are<br>
+peaks and valleys.<br>
+<br>
+84<br>
+00:03:47,770 --> 00:03:51,550<br>
+Some aspects of app development<br>
+are better served by our APIs<br>
+<br>
+85<br>
+00:03:51,550 --> 00:03:52,570<br>
+than others.<br>
+<br>
+86<br>
+00:03:52,570 --> 00:03:56,470<br>
+For example, we think<br>
+RecyclerView is that the better<br>
+<br>
+87<br>
+00:03:56,470 --> 00:03:57,830<br>
+end of that spectrum.<br>
+<br>
+88<br>
+00:03:57,830 --> 00:04:02,020<br>
+So with RecyclerView, we didn't<br>
+say, hey, we give you events,<br>
+<br>
+89<br>
+00:04:02,020 --> 00:04:03,810<br>
+and you can draw stuff.<br>
+<br>
+90<br>
+00:04:03,810 --> 00:04:07,600<br>
+And in between you have a Turing<br>
+complete language, so good luck<br>
+<br>
+91<br>
+00:04:07,600 --> 00:04:09,550<br>
+with everything else.<br>
+<br>
+92<br>
+00:04:09,550 --> 00:04:12,640<br>
+On the other hand,<br>
+maybe Activity<br>
+<br>
+93<br>
+00:04:12,640 --> 00:04:16,510<br>
+and Fragment Lifecycles belong<br>
+down in that dark shadowy place<br>
+<br>
+94<br>
+00:04:16,510 --> 00:04:18,730<br>
+because there, I<br>
+think, too much of it<br>
+<br>
+95<br>
+00:04:18,730 --> 00:04:21,790<br>
+is indeed left as an<br>
+exercise for the reader.<br>
+<br>
+96<br>
+00:04:21,790 --> 00:04:24,730<br>
+And we want to fix that.<br>
+<br>
+97<br>
+00:04:24,730 --> 00:04:27,250<br>
+So as we thought about this,<br>
+we realized the good solution<br>
+<br>
+98<br>
+00:04:27,250 --> 00:04:29,930<br>
+has key properties.<br>
+<br>
+99<br>
+00:04:29,930 --> 00:04:32,194<br>
+First, we have to solve<br>
+the right problems.<br>
+<br>
+100<br>
+00:04:32,194 --> 00:04:33,860<br>
+This is going to be<br>
+a sustained effort--<br>
+<br>
+101<br>
+00:04:33,860 --> 00:04:36,320<br>
+like sustained<br>
+for us on Android.<br>
+<br>
+102<br>
+00:04:36,320 --> 00:04:38,410<br>
+But for the first cut,<br>
+we want to make sure<br>
+<br>
+103<br>
+00:04:38,410 --> 00:04:39,910<br>
+that we are going<br>
+after the problems<br>
+<br>
+104<br>
+00:04:39,910 --> 00:04:42,040<br>
+that every developer<br>
+faces, the things that<br>
+<br>
+105<br>
+00:04:42,040 --> 00:04:45,040<br>
+are hard to do right right now.<br>
+<br>
+106<br>
+00:04:45,040 --> 00:04:47,574<br>
+Again, app Lifecycles is<br>
+a really good example.<br>
+<br>
+107<br>
+00:04:47,574 --> 00:04:49,240<br>
+If you don't get that<br>
+right in your app,<br>
+<br>
+108<br>
+00:04:49,240 --> 00:04:51,236<br>
+nothing is going to<br>
+work on top of that.<br>
+<br>
+109<br>
+00:04:51,236 --> 00:04:53,110<br>
+And that's true for your<br>
+app, but that's also<br>
+<br>
+110<br>
+00:04:53,110 --> 00:04:55,026<br>
+true for the frameworks<br>
+we're trying to build.<br>
+<br>
+111<br>
+00:04:55,026 --> 00:04:58,420<br>
+We have to get that right<br>
+before we can do anything else.<br>
+<br>
+112<br>
+00:04:58,420 --> 00:05:00,370<br>
+Second, we have to<br>
+play well with others.<br>
+<br>
+113<br>
+00:05:00,370 --> 00:05:02,830<br>
+We know that you all have huge<br>
+investments in your existing<br>
+<br>
+114<br>
+00:05:02,830 --> 00:05:05,196<br>
+code bases, and we<br>
+can't create a model<br>
+<br>
+115<br>
+00:05:05,196 --> 00:05:06,820<br>
+where the first thing<br>
+we say to you is,<br>
+<br>
+116<br>
+00:05:06,820 --> 00:05:08,940<br>
+throw all that out<br>
+and start over.<br>
+<br>
+117<br>
+00:05:08,940 --> 00:05:12,070<br>
+So we're trying to create APIs<br>
+that you can adopt a little bit<br>
+<br>
+118<br>
+00:05:12,070 --> 00:05:15,580<br>
+at a time, and also<br>
+that interoperate well<br>
+<br>
+119<br>
+00:05:15,580 --> 00:05:19,710<br>
+with other libraries<br>
+or other frameworks.<br>
+<br>
+120<br>
+00:05:19,710 --> 00:05:22,054<br>
+Third, we want to<br>
+be more opinionated.<br>
+<br>
+
+
 
 </td>
       
@@ -602,6 +900,302 @@ ContentProvider это механизм<br>
 59<br>
 00:02:34,170 --> 00:02:36,010<br>
 для их внутренней структуры.<br>
+<br>
+60<br>
+00:02:36,010 --> 00:02:38,070<br>
+Это означает, что нам<br>
+в команде Android<br>
+<br>
+61<br>
+00:02:38,070 --> 00:02:41,250<br>
+не следует заниматься дебатами<br>
+что лучше: MVC<br>
+<br>
+62<br>
+00:02:41,250 --> 00:02:45,540<br>
+или MVP, или что<br>
+MVP лучше чем [? MVVBM. ?]<br>
+<br>
+63<br>
+00:02:45,540 --> 00:02:49,260<br>
+Вы, ребята, выбирайте что угодно<br>
+что имеет смысл для вас.<br>
+<br>
+64<br>
+00:02:49,260 --> 00:02:52,680<br>
+И это звучит хорошо для нас,<br>
+находящихся<br>
+<br>
+65<br>
+00:02:52,680 --> 00:02:55,921<br>
+в разработке ОС, как я<br>
+<br>
+66<br>
+00:02:55,921 --> 00:02:57,420<br>
+Но если вы разработчик<br>
+приложений<br>
+<br>
+67<br>
+00:02:57,420 --> 00:03:01,110<br>
+скажем, каждый из вас.<br>
+Что ж, тогда<br>
+<br>
+68<br>
+00:03:01,110 --> 00:03:03,120<br>
+это только одна глава<br>
+в этой истории.<br>
+<br>
+69<br>
+00:03:03,120 --> 00:03:04,890<br>
+И причина в том,<br>
+что хотяbr>
+<br>
+70<br>
+00:03:04,890 --> 00:03:08,190<br>
+строгие фундаментальные основы<br>
+и свобода выбора [реализации]<br>
+<br>
+71<br>
+00:03:08,190 --> 00:03:12,000<br>
+это хорошие вещи, мы знаем, что<br>
+в повседневной работе [этого мало]-<br>
+<br>
+72<br>
+00:03:12,000 --> 00:03:16,730<br>
+и мы знаем это потому, что<br>
+вы говорите, что хотите большего от нас.<br>
+<br>
+73<br>
+00:03:16,730 --> 00:03:19,690<br>
+Так что я буду немного надоедать<br>
+моей аналогией.<br>
+<br>
+74<br>
+00:03:19,690 --> 00:03:22,810<br>
+Мы все можем оценить<br>
+простую элегантность законов Ньютона<br>
+<br>
+75<br>
+00:03:22,810 --> 00:03:27,725<br>
+о движении, но если вы собираетесь<br>
+высадить марсоход на Марс,<br>
+<br>
+76<br>
+00:03:27,725 --> 00:03:29,350<br>
+вам не захочется, приходить<br>
+на работу каждый день и<br>
+<br>
+77<br>
+00:03:29,350 --> 00:03:31,810<br>
+и начинать с того, что сила равна<br>
+масса на ускорение, и получить все<br>
+<br>
+78<br>
+00:03:31,810 --> 00:03:35,230<br>
+из оснований классической механики Ньютона.<br>
+<br>
+79<br>
+00:03:35,230 --> 00:03:37,780<br>
+Итак, мы поговорили с разработчиками<br>
+с обеих сторон, внутри<br>
+<br>
+80<br>
+00:03:37,780 --> 00:03:41,140<br>
+и вне Google, и при этом<br>
+внимательно изучали<br>
+<br>
+81<br>
+00:03:41,140 --> 00:03:42,830<br>
+опыт разработки приложений.<br>
+<br>
+82<br>
+00:03:42,830 --> 00:03:45,230<br>
+И нам удалось понять<br>
+несколько вещей.<br>
+<br>
+83<br>
+00:03:45,230 --> 00:03:47,770<br>
+Первое, существую удачные<br>
+и не слишком удачные решения.<br>
+<br>
+84<br>
+00:03:47,770 --> 00:03:51,550<br>
+Некоторые аспекты разработкиt<br>
+прекрасно обслуживаются нашими API<br>
+<br>
+85<br>
+00:03:51,550 --> 00:03:52,570<br>
+другие - хуже.<br>
+<br>
+86<br>
+00:03:52,570 --> 00:03:56,470<br>
+Например, мы думаем, что<br>
+RecyclerView is that the better<br>
+<br>
+87<br>
+00:03:56,470 --> 00:03:57,830<br>
+end of that spectrum.<br>
+<br>
+88<br>
+00:03:57,830 --> 00:04:02,020<br>
+So with RecyclerView, we didn't<br>
+say, hey, we give you events,<br>
+<br>
+89<br>
+00:04:02,020 --> 00:04:03,810<br>
+and you can draw stuff.<br>
+<br>
+90<br>
+00:04:03,810 --> 00:04:07,600<br>
+And in between you have a Turing<br>
+complete language, so good luck<br>
+<br>
+91<br>
+00:04:07,600 --> 00:04:09,550<br>
+with everything else.<br>
+<br>
+92<br>
+00:04:09,550 --> 00:04:12,640<br>
+On the other hand,<br>
+maybe Activity<br>
+<br>
+93<br>
+00:04:12,640 --> 00:04:16,510<br>
+and Fragment Lifecycles belong<br>
+down in that dark shadowy place<br>
+<br>
+94<br>
+00:04:16,510 --> 00:04:18,730<br>
+because there, I<br>
+think, too much of it<br>
+<br>
+95<br>
+00:04:18,730 --> 00:04:21,790<br>
+is indeed left as an<br>
+exercise for the reader.<br>
+<br>
+96<br>
+00:04:21,790 --> 00:04:24,730<br>
+And we want to fix that.<br>
+<br>
+97<br>
+00:04:24,730 --> 00:04:27,250<br>
+So as we thought about this,<br>
+we realized the good solution<br>
+<br>
+98<br>
+00:04:27,250 --> 00:04:29,930<br>
+has key properties.<br>
+<br>
+99<br>
+00:04:29,930 --> 00:04:32,194<br>
+First, we have to solve<br>
+the right problems.<br>
+<br>
+100<br>
+00:04:32,194 --> 00:04:33,860<br>
+This is going to be<br>
+a sustained effort--<br>
+<br>
+101<br>
+00:04:33,860 --> 00:04:36,320<br>
+like sustained<br>
+for us on Android.<br>
+<br>
+102<br>
+00:04:36,320 --> 00:04:38,410<br>
+But for the first cut,<br>
+we want to make sure<br>
+<br>
+103<br>
+00:04:38,410 --> 00:04:39,910<br>
+that we are going<br>
+after the problems<br>
+<br>
+104<br>
+00:04:39,910 --> 00:04:42,040<br>
+that every developer<br>
+faces, the things that<br>
+<br>
+105<br>
+00:04:42,040 --> 00:04:45,040<br>
+are hard to do right right now.<br>
+<br>
+106<br>
+00:04:45,040 --> 00:04:47,574<br>
+Again, app Lifecycles is<br>
+a really good example.<br>
+<br>
+107<br>
+00:04:47,574 --> 00:04:49,240<br>
+If you don't get that<br>
+right in your app,<br>
+<br>
+108<br>
+00:04:49,240 --> 00:04:51,236<br>
+nothing is going to<br>
+work on top of that.<br>
+<br>
+109<br>
+00:04:51,236 --> 00:04:53,110<br>
+And that's true for your<br>
+app, but that's also<br>
+<br>
+110<br>
+00:04:53,110 --> 00:04:55,026<br>
+true for the frameworks<br>
+we're trying to build.<br>
+<br>
+111<br>
+00:04:55,026 --> 00:04:58,420<br>
+We have to get that right<br>
+before we can do anything else.<br>
+<br>
+112<br>
+00:04:58,420 --> 00:05:00,370<br>
+Second, we have to<br>
+play well with others.<br>
+<br>
+113<br>
+00:05:00,370 --> 00:05:02,830<br>
+We know that you all have huge<br>
+investments in your existing<br>
+<br>
+114<br>
+00:05:02,830 --> 00:05:05,196<br>
+code bases, and we<br>
+can't create a model<br>
+<br>
+115<br>
+00:05:05,196 --> 00:05:06,820<br>
+where the first thing<br>
+we say to you is,<br>
+<br>
+116<br>
+00:05:06,820 --> 00:05:08,940<br>
+throw all that out<br>
+and start over.<br>
+<br>
+117<br>
+00:05:08,940 --> 00:05:12,070<br>
+So we're trying to create APIs<br>
+that you can adopt a little bit<br>
+<br>
+118<br>
+00:05:12,070 --> 00:05:15,580<br>
+at a time, and also<br>
+that interoperate well<br>
+<br>
+119<br>
+00:05:15,580 --> 00:05:19,710<br>
+with other libraries<br>
+or other frameworks.<br>
+<br>
+120<br>
+00:05:19,710 --> 00:05:22,054<br>
+Third, we want to<br>
+be more opinionated.<br>
+<br>
 
 </td></tr> 
   </table>
