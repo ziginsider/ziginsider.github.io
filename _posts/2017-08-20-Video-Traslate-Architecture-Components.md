@@ -619,6 +619,382 @@ or other frameworks.<br>
 Third, we want to<br>
 be more opinionated.<br>
 <br>
+121<br>
+00:05:22,054 --> 00:05:23,970<br>
+We're going to take a<br>
+stronger, clearer stance<br>
+<br>
+122<br>
+00:05:23,970 --> 00:05:26,000<br>
+on how to Android and<br>
+app the right way,<br>
+<br>
+123<br>
+00:05:26,000 --> 00:05:27,100<br>
+at least as we see it.<br>
+<br>
+124<br>
+00:05:27,100 --> 00:05:29,100<br>
+Now, this is all still optional.<br>
+<br>
+125<br>
+00:05:29,100 --> 00:05:31,330<br>
+And if you already have<br>
+something that works for you,<br>
+<br>
+126<br>
+00:05:31,330 --> 00:05:33,030<br>
+then great.<br>
+<br>
+127<br>
+00:05:33,030 --> 00:05:36,210<br>
+But developers are telling us<br>
+that they want more guidance<br>
+<br>
+128<br>
+00:05:36,210 --> 00:05:38,590<br>
+on how apps should be<br>
+built. And by the way,<br>
+<br>
+129<br>
+00:05:38,590 --> 00:05:40,770<br>
+we're not changing any of<br>
+the laws of physics here,<br>
+<br>
+130<br>
+00:05:40,770 --> 00:05:43,860<br>
+we're just layering some<br>
+higher level constructs on top.<br>
+<br>
+131<br>
+00:05:43,860 --> 00:05:46,620<br>
+Because after all, F is<br>
+going to equal ma whether you<br>
+<br>
+132<br>
+00:05:46,620 --> 00:05:49,860<br>
+believe it should or not.<br>
+<br>
+133<br>
+00:05:49,860 --> 00:05:52,140<br>
+Next, it needs to scale.<br>
+<br>
+134<br>
+00:05:52,140 --> 00:05:54,420<br>
+We want solutions that<br>
+are industrial strength,<br>
+<br>
+135<br>
+00:05:54,420 --> 00:05:56,760<br>
+and that will scale to the<br>
+real world requirements<br>
+<br>
+136<br>
+00:05:56,760 --> 00:05:58,474<br>
+of real world applications.<br>
+<br>
+137<br>
+00:05:58,474 --> 00:06:01,140<br>
+We don't want to build something<br>
+that's awesome for Hello World,<br>
+<br>
+138<br>
+00:06:01,140 --> 00:06:03,181<br>
+but then it's going to<br>
+collapse the first time it<br>
+<br>
+139<br>
+00:06:03,181 --> 00:06:07,620<br>
+bumps into the messy<br>
+complexities of reality.<br>
+<br>
+140<br>
+00:06:07,620 --> 00:06:09,410<br>
+And finally, reach.<br>
+<br>
+141<br>
+00:06:09,410 --> 00:06:11,310<br>
+For this problem,<br>
+for making it easier<br>
+<br>
+142<br>
+00:06:11,310 --> 00:06:13,830<br>
+for you to write Android<br>
+applications the right way--<br>
+<br>
+143<br>
+00:06:13,830 --> 00:06:15,690<br>
+what we think is<br>
+the right way, we<br>
+<br>
+144<br>
+00:06:15,690 --> 00:06:18,390<br>
+want to use libraries like<br>
+Support Lib wherever possible<br>
+<br>
+145<br>
+00:06:18,390 --> 00:06:21,150<br>
+rather than adding new<br>
+APIs to the platform,<br>
+<br>
+146<br>
+00:06:21,150 --> 00:06:24,030<br>
+because lets our solution<br>
+reach older versions of the OS<br>
+<br>
+147<br>
+00:06:24,030 --> 00:06:26,745<br>
+as well.<br>
+<br>
+148<br>
+00:06:26,745 --> 00:06:29,370<br>
+OK, so that's the background on<br>
+what we're trying to accomplish<br>
+<br>
+149<br>
+00:06:29,370 --> 00:06:30,440<br>
+and why we're here.<br>
+<br>
+150<br>
+00:06:30,440 --> 00:06:33,309<br>
+Now we'd like to introduce<br>
+Yigit, tool kit engineer<br>
+<br>
+151<br>
+00:06:33,309 --> 00:06:35,600<br>
+extraordinaire, and he's<br>
+going to walk you through what<br>
+<br>
+152<br>
+00:06:35,600 --> 00:06:36,860<br>
+we actually built. Thank you.<br>
+<br>
+153<br>
+00:06:36,860 --> 00:06:37,290<br>
+[APPLAUSE]<br>
+<br>
+154<br>
+00:06:37,290 --> 00:06:38,248<br>
+YIGIT BOYAR: All right.<br>
+<br>
+155<br>
+00:06:38,248 --> 00:06:39,322<br>
+Thanks, Frank.<br>
+<br>
+156<br>
+00:06:39,322 --> 00:06:43,610<br>
+<br>
+<br>
+157<br>
+00:06:43,610 --> 00:06:44,410<br>
+Hello everybody.<br>
+<br>
+158<br>
+00:06:44,410 --> 00:06:46,930<br>
+So that was the background.<br>
+<br>
+159<br>
+00:06:46,930 --> 00:06:49,050<br>
+What are we shipping today?<br>
+<br>
+160<br>
+00:06:49,050 --> 00:06:51,210<br>
+The very first thing<br>
+we are shipping<br>
+<br>
+161<br>
+00:06:51,210 --> 00:06:55,230<br>
+is an architecture guide<br>
+on developer Android com.<br>
+<br>
+162<br>
+00:06:55,230 --> 00:06:58,440<br>
+Now for over years, you've<br>
+been asking us for our opinion.<br>
+<br>
+163<br>
+00:06:58,440 --> 00:07:02,220<br>
+Like how do we think that an<br>
+application should be built?<br>
+<br>
+164<br>
+00:07:02,220 --> 00:07:03,900<br>
+And this is that guide.<br>
+<br>
+165<br>
+00:07:03,900 --> 00:07:06,270<br>
+So we believe that<br>
+it's very good,<br>
+<br>
+166<br>
+00:07:06,270 --> 00:07:08,730<br>
+covers lots of<br>
+application cases.<br>
+<br>
+167<br>
+00:07:08,730 --> 00:07:10,890<br>
+But even if you<br>
+have an architecture<br>
+<br>
+168<br>
+00:07:10,890 --> 00:07:14,040<br>
+that you are comfortable<br>
+with, you can keep it.<br>
+<br>
+169<br>
+00:07:14,040 --> 00:07:18,300<br>
+But you can probably learn<br>
+something from this guide.<br>
+<br>
+170<br>
+00:07:18,300 --> 00:07:20,910<br>
+Second, we are shipping<br>
+a new set of libraries<br>
+<br>
+171<br>
+00:07:20,910 --> 00:07:23,290<br>
+that we call<br>
+architecture components.<br>
+<br>
+172<br>
+00:07:23,290 --> 00:07:24,900<br>
+These are more<br>
+fundamental components<br>
+<br>
+173<br>
+00:07:24,900 --> 00:07:28,440<br>
+where you can build<br>
+your application on top.<br>
+<br>
+174<br>
+00:07:28,440 --> 00:07:29,760<br>
+The first thing is Lifecycles.<br>
+<br>
+175<br>
+00:07:29,760 --> 00:07:33,000<br>
+So this is the biggest developer<br>
+complaint that we have.<br>
+<br>
+176<br>
+00:07:33,000 --> 00:07:35,610<br>
+Lifecycles are hard,<br>
+Lifecycles are hard.<br>
+<br>
+177<br>
+00:07:35,610 --> 00:07:38,020<br>
+And we said, OK, we<br>
+should solve this problem.<br>
+<br>
+178<br>
+00:07:38,020 --> 00:07:41,850<br>
+And the first level of this,<br>
+this new set of components.<br>
+<br>
+179<br>
+00:07:41,850 --> 00:07:44,070<br>
+Second one is<br>
+Lifecycle-aware observables,<br>
+<br>
+180<br>
+00:07:44,070 --> 00:07:46,860<br>
+which will go in detail<br>
+later, but this is basically<br>
+<br>
+181<br>
+00:07:46,860 --> 00:07:51,730<br>
+things that can do something<br>
+based on the Lifecycle.<br>
+<br>
+182<br>
+00:07:51,730 --> 00:07:54,810<br>
+Third, we are going to introduce<br>
+a lightweight ViewModel, which<br>
+<br>
+183<br>
+00:07:54,810 --> 00:07:58,020<br>
+is all of our effort<br>
+to take out that code<br>
+<br>
+184<br>
+00:07:58,020 --> 00:08:00,150<br>
+outside of your<br>
+Activities and Fragments,<br>
+<br>
+185<br>
+00:08:00,150 --> 00:08:03,550<br>
+and put it somewhere else<br>
+where you can easily test it.<br>
+<br>
+186<br>
+00:08:03,550 --> 00:08:06,630<br>
+Last but not least, we are<br>
+going to introduce a new object<br>
+<br>
+187<br>
+00:08:06,630 --> 00:08:10,290<br>
+mapping library for SQLite.<br>
+<br>
+188<br>
+00:08:10,290 --> 00:08:15,248<br>
+And all of this is available for<br>
+you today on Maven Google com.<br>
+<br>
+189<br>
+00:08:15,248 --> 00:08:24,290<br>
+[APPLAUSE]<br>
+<br>
+190<br>
+00:08:24,290 --> 00:08:25,790<br>
+Let's talk about Lifecycles.<br>
+<br>
+191<br>
+00:08:25,790 --> 00:08:27,830<br>
+So what is what's<br>
+hard about Lifecycles?<br>
+<br>
+192<br>
+00:08:27,830 --> 00:08:29,970<br>
+Why do we hear so many<br>
+complaints about that?<br>
+<br>
+193<br>
+00:08:29,970 --> 00:08:31,510<br>
+Let's go through an example.<br>
+<br>
+194<br>
+00:08:31,510 --> 00:08:33,440<br>
+Assume we have an<br>
+activity where we<br>
+<br>
+195<br>
+00:08:33,440 --> 00:08:36,591<br>
+want to show the location<br>
+of the device on the screen.<br>
+<br>
+196<br>
+00:08:36,591 --> 00:08:38,090<br>
+So you will try<br>
+something like this.<br>
+<br>
+197<br>
+00:08:38,090 --> 00:08:41,280<br>
+You create a LocationListener<br>
+on Create method,<br>
+<br>
+198<br>
+00:08:41,280 --> 00:08:43,250<br>
+you need to initialize<br>
+it with the context,<br>
+<br>
+199<br>
+00:08:43,250 --> 00:08:46,520<br>
+and you have a callback that<br>
+it calls whenever the location<br>
+<br>
+200<br>
+00:08:46,520 --> 00:08:48,800<br>
+changes, and you update the UI.<br>
+<br>
 
 
 
@@ -948,7 +1324,7 @@ MVP лучше чем [? MVVBM. ?]<br>
 69<br>
 00:03:03,120 --> 00:03:04,890<br>
 И причина в том,<br>
-что хотяbr>
+что хотя<br>
 <br>
 70<br>
 00:03:04,890 --> 00:03:08,190<br>
@@ -1015,12 +1391,12 @@ MVP лучше чем [? MVVBM. ?]<br>
 <br>
 83<br>
 00:03:45,230 --> 00:03:47,770<br>
-Первое, существую удачные<br>
-и не слишком удачные решения.<br>
+Первое, у нас есть вершины<br>
+и есть долины.<br>
 <br>
 84<br>
 00:03:47,770 --> 00:03:51,550<br>
-Некоторые аспекты разработкиt<br>
+Некоторые аспекты разработки<br>
 прекрасно обслуживаются нашими API<br>
 <br>
 85<br>
@@ -1030,171 +1406,547 @@ MVP лучше чем [? MVVBM. ?]<br>
 86<br>
 00:03:52,570 --> 00:03:56,470<br>
 Например, мы думаем, что<br>
-RecyclerView is that the better<br>
+RecyclerView это лучшая вершина<br>
 <br>
 87<br>
 00:03:56,470 --> 00:03:57,830<br>
-end of that spectrum.<br>
+из этого спектра.<br>
 <br>
 88<br>
 00:03:57,830 --> 00:04:02,020<br>
-So with RecyclerView, we didn't<br>
-say, hey, we give you events,<br>
+С RecyclerView, мы не говорим:<br>
+эй, мы даем вам события,<br>
 <br>
 89<br>
 00:04:02,020 --> 00:04:03,810<br>
-and you can draw stuff.<br>
+и вы можете рисовать вещи.<br>
 <br>
 90<br>
 00:04:03,810 --> 00:04:07,600<br>
-And in between you have a Turing<br>
-complete language, so good luck<br>
+И у вас есть тьюринг-полный язык,<br>
+так что удачи<br>
 <br>
 91<br>
 00:04:07,600 --> 00:04:09,550<br>
-with everything else.<br>
+со всем остальным!<br>
 <br>
 92<br>
 00:04:09,550 --> 00:04:12,640<br>
-On the other hand,<br>
-maybe Activity<br>
+С другой стороны,<br>
+возможно жизненные циклы<br>
 <br>
 93<br>
 00:04:12,640 --> 00:04:16,510<br>
-and Fragment Lifecycles belong<br>
-down in that dark shadowy place<br>
+Activity и Fragment принадлежат<br>
+к темным впадинам<br>
 <br>
 94<br>
 00:04:16,510 --> 00:04:18,730<br>
-because there, I<br>
-think, too much of it<br>
+потому что там, я<br>
+думаю, оставлено действительно<br>
 <br>
 95<br>
 00:04:18,730 --> 00:04:21,790<br>
-is indeed left as an<br>
-exercise for the reader.<br>
+слишком много упражнений<br>
+для читателя [необходимо много читать].<br>
 <br>
 96<br>
 00:04:21,790 --> 00:04:24,730<br>
-And we want to fix that.<br>
+И мы хотим исправить это.<br>
 <br>
 97<br>
 00:04:24,730 --> 00:04:27,250<br>
-So as we thought about this,<br>
-we realized the good solution<br>
+Итак, мы думаем,<br>
+что хорошее решение имеет<br>
 <br>
 98<br>
 00:04:27,250 --> 00:04:29,930<br>
-has key properties.<br>
+ключевые свойства.<br>
 <br>
 99<br>
 00:04:29,930 --> 00:04:32,194<br>
-First, we have to solve<br>
-the right problems.<br>
+Во-первых, мы обязаны находить<br>
+правильные проблемы.<br>
 <br>
 100<br>
 00:04:32,194 --> 00:04:33,860<br>
-This is going to be<br>
-a sustained effort--<br>
+И это будет<br>
+непрерывным усилием --<br>
 <br>
 101<br>
 00:04:33,860 --> 00:04:36,320<br>
-like sustained<br>
-for us on Android.<br>
+так же как и с нашей стороны<br>
+для нас на Android.<br>
 <br>
 102<br>
 00:04:36,320 --> 00:04:38,410<br>
-But for the first cut,<br>
-we want to make sure<br>
+Но для первого сокращения,<br>
+мы хотим убедиться,<br>
 <br>
 103<br>
 00:04:38,410 --> 00:04:39,910<br>
-that we are going<br>
-after the problems<br>
+что мы будем решать<br>
+проблемы, с которыми<br>
 <br>
 104<br>
 00:04:39,910 --> 00:04:42,040<br>
-that every developer<br>
-faces, the things that<br>
+сталкивается каждый разработчик.<br>
+Те, которые трудно решить<br>
 <br>
 105<br>
 00:04:42,040 --> 00:04:45,040<br>
-are hard to do right right now.<br>
+прямо сейчас. Опять же,<br>
 <br>
 106<br>
 00:04:45,040 --> 00:04:47,574<br>
-Again, app Lifecycles is<br>
-a really good example.<br>
+жизненный цикл приложения - <br>
+на самом деле хороший пример.<br>
 <br>
 107<br>
 00:04:47,574 --> 00:04:49,240<br>
-If you don't get that<br>
-right in your app,<br>
+Если вы не получите это право<br>
+[управлять циклом] в своем приложении,<br>
 <br>
 108<br>
 00:04:49,240 --> 00:04:51,236<br>
-nothing is going to<br>
-work on top of that.<br>
+на нем ничего<br>
+не будет работать.<br>
 <br>
 109<br>
 00:04:51,236 --> 00:04:53,110<br>
-And that's true for your<br>
-app, but that's also<br>
+Это верно для вашего<br>
+приложения, но так же<br>
 <br>
 110<br>
 00:04:53,110 --> 00:04:55,026<br>
-true for the frameworks<br>
-we're trying to build.<br>
+верно для фреймворков,<br>
+которые мы пытаемся создавать.<br>
 <br>
 111<br>
 00:04:55,026 --> 00:04:58,420<br>
-We have to get that right<br>
-before we can do anything else.<br>
+Мы должны получить это право<br>
+до того как можем сделать что-нибудь еще.<br>
 <br>
 112<br>
 00:04:58,420 --> 00:05:00,370<br>
-Second, we have to<br>
-play well with others.<br>
+Второе, мы должны хорошо<br>
+координировать свою работу с другими.<br>
 <br>
 113<br>
 00:05:00,370 --> 00:05:02,830<br>
-We know that you all have huge<br>
-investments in your existing<br>
+Мы знаем, что вы здорово<br>
+вкладываетесь в существующие<br>
 <br>
 114<br>
 00:05:02,830 --> 00:05:05,196<br>
-code bases, and we<br>
-can't create a model<br>
+модели программирования, и мы<br>
+не можем создать модель,<br>
 <br>
 115<br>
 00:05:05,196 --> 00:05:06,820<br>
-where the first thing<br>
-we say to you is,<br>
+где сразу скажем<br>
+вам, чтобы вы,<br>
 <br>
 116<br>
 00:05:06,820 --> 00:05:08,940<br>
-throw all that out<br>
-and start over.<br>
+бросили все старое<br>
+и начали сначала.<br>
 <br>
 117<br>
 00:05:08,940 --> 00:05:12,070<br>
-So we're trying to create APIs<br>
-that you can adopt a little bit<br>
+Итак, мы стараемся создать API,<br>
+на которое вы не потратите много<br>
 <br>
 118<br>
 00:05:12,070 --> 00:05:15,580<br>
-at a time, and also<br>
-that interoperate well<br>
+времени, и также которое<br>
+хорошо взаимодействует<br>
 <br>
 119<br>
 00:05:15,580 --> 00:05:19,710<br>
-with other libraries<br>
-or other frameworks.<br>
+с другими библиотеками<br>
+и другими фреймворками.<br>
 <br>
 120<br>
 00:05:19,710 --> 00:05:22,054<br>
-Third, we want to<br>
-be more opinionated.<br>
+В-третьих, мы хотим быть<br>
+более настойчивыми.<br>
+<br>
+121<br>
+00:05:22,054 --> 00:05:23,970<br>
+Мы собираемся занять более<br>
+сильную и четкую позицию<br>
+<br>
+122<br>
+00:05:23,970 --> 00:05:26,000<br>
+о том, каким должен быть<br>
+правильный путь развития Android,<br>
+<br>
+123<br>
+00:05:26,000 --> 00:05:27,100<br>
+По крайней мере, как мы это видим.<br>
+<br>
+124<br>
+00:05:27,100 --> 00:05:29,100<br>
+Теперь, это все еще необязательно.<br>
+<br>
+125<br>
+00:05:29,100 --> 00:05:31,330<br>
+И если у вас уже есть,<br>
+то, что работает для вас,<br>
+<br>
+126<br>
+00:05:31,330 --> 00:05:33,030<br>
+то это здорово.<br>
+<br>
+127<br>
+00:05:33,030 --> 00:05:36,210<br>
+But developers are telling us<br>
+that they want more guidance<br>
+<br>
+128<br>
+00:05:36,210 --> 00:05:38,590<br>
+on how apps should be<br>
+built. And by the way,<br>
+<br>
+129<br>
+00:05:38,590 --> 00:05:40,770<br>
+we're not changing any of<br>
+the laws of physics here,<br>
+<br>
+130<br>
+00:05:40,770 --> 00:05:43,860<br>
+we're just layering some<br>
+higher level constructs on top.<br>
+<br>
+131<br>
+00:05:43,860 --> 00:05:46,620<br>
+Because after all, F is<br>
+going to equal ma whether you<br>
+<br>
+132<br>
+00:05:46,620 --> 00:05:49,860<br>
+believe it should or not.<br>
+<br>
+133<br>
+00:05:49,860 --> 00:05:52,140<br>
+Next, it needs to scale.<br>
+<br>
+134<br>
+00:05:52,140 --> 00:05:54,420<br>
+We want solutions that<br>
+are industrial strength,<br>
+<br>
+135<br>
+00:05:54,420 --> 00:05:56,760<br>
+and that will scale to the<br>
+real world requirements<br>
+<br>
+136<br>
+00:05:56,760 --> 00:05:58,474<br>
+of real world applications.<br>
+<br>
+137<br>
+00:05:58,474 --> 00:06:01,140<br>
+We don't want to build something<br>
+that's awesome for Hello World,<br>
+<br>
+138<br>
+00:06:01,140 --> 00:06:03,181<br>
+but then it's going to<br>
+collapse the first time it<br>
+<br>
+139<br>
+00:06:03,181 --> 00:06:07,620<br>
+bumps into the messy<br>
+complexities of reality.<br>
+<br>
+140<br>
+00:06:07,620 --> 00:06:09,410<br>
+And finally, reach.<br>
+<br>
+141<br>
+00:06:09,410 --> 00:06:11,310<br>
+For this problem,<br>
+for making it easier<br>
+<br>
+142<br>
+00:06:11,310 --> 00:06:13,830<br>
+for you to write Android<br>
+applications the right way--<br>
+<br>
+143<br>
+00:06:13,830 --> 00:06:15,690<br>
+what we think is<br>
+the right way, we<br>
+<br>
+144<br>
+00:06:15,690 --> 00:06:18,390<br>
+want to use libraries like<br>
+Support Lib wherever possible<br>
+<br>
+145<br>
+00:06:18,390 --> 00:06:21,150<br>
+rather than adding new<br>
+APIs to the platform,<br>
+<br>
+146<br>
+00:06:21,150 --> 00:06:24,030<br>
+because lets our solution<br>
+reach older versions of the OS<br>
+<br>
+147<br>
+00:06:24,030 --> 00:06:26,745<br>
+as well.<br>
+<br>
+148<br>
+00:06:26,745 --> 00:06:29,370<br>
+OK, so that's the background on<br>
+what we're trying to accomplish<br>
+<br>
+149<br>
+00:06:29,370 --> 00:06:30,440<br>
+and why we're here.<br>
+<br>
+150<br>
+00:06:30,440 --> 00:06:33,309<br>
+Now we'd like to introduce<br>
+Yigit, tool kit engineer<br>
+<br>
+151<br>
+00:06:33,309 --> 00:06:35,600<br>
+extraordinaire, and he's<br>
+going to walk you through what<br>
+<br>
+152<br>
+00:06:35,600 --> 00:06:36,860<br>
+we actually built. Thank you.<br>
+<br>
+153<br>
+00:06:36,860 --> 00:06:37,290<br>
+[APPLAUSE]<br>
+<br>
+154<br>
+00:06:37,290 --> 00:06:38,248<br>
+YIGIT BOYAR: All right.<br>
+<br>
+155<br>
+00:06:38,248 --> 00:06:39,322<br>
+Thanks, Frank.<br>
+<br>
+156<br>
+00:06:39,322 --> 00:06:43,610<br>
+<br>
+<br>
+157<br>
+00:06:43,610 --> 00:06:44,410<br>
+Hello everybody.<br>
+<br>
+158<br>
+00:06:44,410 --> 00:06:46,930<br>
+So that was the background.<br>
+<br>
+159<br>
+00:06:46,930 --> 00:06:49,050<br>
+What are we shipping today?<br>
+<br>
+160<br>
+00:06:49,050 --> 00:06:51,210<br>
+The very first thing<br>
+we are shipping<br>
+<br>
+161<br>
+00:06:51,210 --> 00:06:55,230<br>
+is an architecture guide<br>
+on developer Android com.<br>
+<br>
+162<br>
+00:06:55,230 --> 00:06:58,440<br>
+Now for over years, you've<br>
+been asking us for our opinion.<br>
+<br>
+163<br>
+00:06:58,440 --> 00:07:02,220<br>
+Like how do we think that an<br>
+application should be built?<br>
+<br>
+164<br>
+00:07:02,220 --> 00:07:03,900<br>
+And this is that guide.<br>
+<br>
+165<br>
+00:07:03,900 --> 00:07:06,270<br>
+So we believe that<br>
+it's very good,<br>
+<br>
+166<br>
+00:07:06,270 --> 00:07:08,730<br>
+covers lots of<br>
+application cases.<br>
+<br>
+167<br>
+00:07:08,730 --> 00:07:10,890<br>
+But even if you<br>
+have an architecture<br>
+<br>
+168<br>
+00:07:10,890 --> 00:07:14,040<br>
+that you are comfortable<br>
+with, you can keep it.<br>
+<br>
+169<br>
+00:07:14,040 --> 00:07:18,300<br>
+But you can probably learn<br>
+something from this guide.<br>
+<br>
+170<br>
+00:07:18,300 --> 00:07:20,910<br>
+Second, we are shipping<br>
+a new set of libraries<br>
+<br>
+171<br>
+00:07:20,910 --> 00:07:23,290<br>
+that we call<br>
+architecture components.<br>
+<br>
+172<br>
+00:07:23,290 --> 00:07:24,900<br>
+These are more<br>
+fundamental components<br>
+<br>
+173<br>
+00:07:24,900 --> 00:07:28,440<br>
+where you can build<br>
+your application on top.<br>
+<br>
+174<br>
+00:07:28,440 --> 00:07:29,760<br>
+The first thing is Lifecycles.<br>
+<br>
+175<br>
+00:07:29,760 --> 00:07:33,000<br>
+So this is the biggest developer<br>
+complaint that we have.<br>
+<br>
+176<br>
+00:07:33,000 --> 00:07:35,610<br>
+Lifecycles are hard,<br>
+Lifecycles are hard.<br>
+<br>
+177<br>
+00:07:35,610 --> 00:07:38,020<br>
+And we said, OK, we<br>
+should solve this problem.<br>
+<br>
+178<br>
+00:07:38,020 --> 00:07:41,850<br>
+And the first level of this,<br>
+this new set of components.<br>
+<br>
+179<br>
+00:07:41,850 --> 00:07:44,070<br>
+Second one is<br>
+Lifecycle-aware observables,<br>
+<br>
+180<br>
+00:07:44,070 --> 00:07:46,860<br>
+which will go in detail<br>
+later, but this is basically<br>
+<br>
+181<br>
+00:07:46,860 --> 00:07:51,730<br>
+things that can do something<br>
+based on the Lifecycle.<br>
+<br>
+182<br>
+00:07:51,730 --> 00:07:54,810<br>
+Third, we are going to introduce<br>
+a lightweight ViewModel, which<br>
+<br>
+183<br>
+00:07:54,810 --> 00:07:58,020<br>
+is all of our effort<br>
+to take out that code<br>
+<br>
+184<br>
+00:07:58,020 --> 00:08:00,150<br>
+outside of your<br>
+Activities and Fragments,<br>
+<br>
+185<br>
+00:08:00,150 --> 00:08:03,550<br>
+and put it somewhere else<br>
+where you can easily test it.<br>
+<br>
+186<br>
+00:08:03,550 --> 00:08:06,630<br>
+Last but not least, we are<br>
+going to introduce a new object<br>
+<br>
+187<br>
+00:08:06,630 --> 00:08:10,290<br>
+mapping library for SQLite.<br>
+<br>
+188<br>
+00:08:10,290 --> 00:08:15,248<br>
+And all of this is available for<br>
+you today on Maven Google com.<br>
+<br>
+189<br>
+00:08:15,248 --> 00:08:24,290<br>
+[APPLAUSE]<br>
+<br>
+190<br>
+00:08:24,290 --> 00:08:25,790<br>
+Let's talk about Lifecycles.<br>
+<br>
+191<br>
+00:08:25,790 --> 00:08:27,830<br>
+So what is what's<br>
+hard about Lifecycles?<br>
+<br>
+192<br>
+00:08:27,830 --> 00:08:29,970<br>
+Why do we hear so many<br>
+complaints about that?<br>
+<br>
+193<br>
+00:08:29,970 --> 00:08:31,510<br>
+Let's go through an example.<br>
+<br>
+194<br>
+00:08:31,510 --> 00:08:33,440<br>
+Assume we have an<br>
+activity where we<br>
+<br>
+195<br>
+00:08:33,440 --> 00:08:36,591<br>
+want to show the location<br>
+of the device on the screen.<br>
+<br>
+196<br>
+00:08:36,591 --> 00:08:38,090<br>
+So you will try<br>
+something like this.<br>
+<br>
+197<br>
+00:08:38,090 --> 00:08:41,280<br>
+You create a LocationListener<br>
+on Create method,<br>
+<br>
+198<br>
+00:08:41,280 --> 00:08:43,250<br>
+you need to initialize<br>
+it with the context,<br>
+<br>
+199<br>
+00:08:43,250 --> 00:08:46,520<br>
+and you have a callback that<br>
+it calls whenever the location<br>
+<br>
+200<br>
+00:08:46,520 --> 00:08:48,800<br>
+changes, and you update the UI.<br>
 <br>
 
 </td></tr> 
