@@ -1019,7 +1019,7 @@ MIKE CLERON: Привет! <br>
 5<br>
 00:00:08,650 --> 00:00:14,120<br>
 Я разрабатываю UI фреймворк<br>
-и UI инструментарий (toolkit) <br>
+и UI средства разработки [toolkit] <br>
 <br>
 6<br>
 00:00:14,120 --> 00:00:17,650<br>
@@ -1601,138 +1601,138 @@ Activity и Fragment принадлежат<br>
 <br>
 127<br>
 00:05:33,030 --> 00:05:36,210<br>
-But developers are telling us<br>
-that they want more guidance<br>
+Но разработчики говорят нам,<br>
+что хотели бы большей ясности о том,<br>
 <br>
 128<br>
 00:05:36,210 --> 00:05:38,590<br>
-on how apps should be<br>
-built. And by the way,<br>
+как следует строить приложения.<br>
+И к слову<br>
 <br>
 129<br>
 00:05:38,590 --> 00:05:40,770<br>
-we're not changing any of<br>
-the laws of physics here,<br>
+мы не меняем "законов<br>
+физики" [core Android] здесь,<br>
 <br>
 130<br>
 00:05:40,770 --> 00:05:43,860<br>
-we're just layering some<br>
-higher level constructs on top.<br>
+мы просто меняем конструкции<br>
+более высокого уровня.<br>
 <br>
 131<br>
 00:05:43,860 --> 00:05:46,620<br>
-Because after all, F is<br>
-going to equal ma whether you<br>
+Потому что сила будет равна масса<br>
+умножить на ускорение несмотря на то<br>
 <br>
 132<br>
 00:05:46,620 --> 00:05:49,860<br>
-believe it should or not.<br>
+верите ли вы в это или нет.<br>
 <br>
 133<br>
 00:05:49,860 --> 00:05:52,140<br>
-Next, it needs to scale.<br>
+Следующее, необходимо масштабировать.<br>
 <br>
 134<br>
 00:05:52,140 --> 00:05:54,420<br>
-We want solutions that<br>
-are industrial strength,<br>
+Нам нужны решения, которые<br>
+обладают индустриальной мощью<br>
 <br>
 135<br>
 00:05:54,420 --> 00:05:56,760<br>
-and that will scale to the<br>
-real world requirements<br>
+и могут масштабироваться<br>
+под реальные мировые требования<br>
 <br>
 136<br>
 00:05:56,760 --> 00:05:58,474<br>
-of real world applications.<br>
+реальных приложений.<br>
 <br>
 137<br>
 00:05:58,474 --> 00:06:01,140<br>
-We don't want to build something<br>
-that's awesome for Hello World,<br>
+Мы не хотим создавать что-то,<br>
+что хорошо работает для Hello World,<br>
 <br>
 138<br>
 00:06:01,140 --> 00:06:03,181<br>
-but then it's going to<br>
-collapse the first time it<br>
+но сдает позиции сразу же <br>
+при первом использовании,<br>
 <br>
 139<br>
 00:06:03,181 --> 00:06:07,620<br>
-bumps into the messy<br>
-complexities of reality.<br>
+когда сталкивается с суровой,<br>
+сложной реальностью.<br>
 <br>
 140<br>
 00:06:07,620 --> 00:06:09,410<br>
-And finally, reach.<br>
+И наконец, поддержка и обогащение [версий Android].<br>
 <br>
 141<br>
 00:06:09,410 --> 00:06:11,310<br>
-For this problem,<br>
-for making it easier<br>
+Для [решения] этой проблемы,<br>
+для упрощения<br>
 <br>
 142<br>
 00:06:11,310 --> 00:06:13,830<br>
-for you to write Android<br>
-applications the right way--<br>
+написания приложений Android<br>
+правильным способом --<br>
 <br>
 143<br>
 00:06:13,830 --> 00:06:15,690<br>
-what we think is<br>
-the right way, we<br>
+мы думаем,<br>
+что будет правильным<br>
 <br>
 144<br>
 00:06:15,690 --> 00:06:18,390<br>
-want to use libraries like<br>
-Support Lib wherever possible<br>
+использовать библиотеки наподобие<br>
+Support Lib где это только возможно,<br>
 <br>
 145<br>
 00:06:18,390 --> 00:06:21,150<br>
-rather than adding new<br>
-APIs to the platform,<br>
+а не добавлять новые<br>
+API на платформу,<br>
 <br>
 146<br>
 00:06:21,150 --> 00:06:24,030<br>
-because lets our solution<br>
-reach older versions of the OS<br>
+потому что таким образом мы<br>
+сможем обогатить старые версии ОС<br>
 <br>
 147<br>
 00:06:24,030 --> 00:06:26,745<br>
-as well.<br>
+так же.<br>
 <br>
 148<br>
 00:06:26,745 --> 00:06:29,370<br>
-OK, so that's the background on<br>
-what we're trying to accomplish<br>
+OK, это то на чем мы основываемся,<br>
+что, что мы пытаемся осуществить,<br>
 <br>
 149<br>
 00:06:29,370 --> 00:06:30,440<br>
-and why we're here.<br>
+и почему мы находимся здесь.<br>
 <br>
 150<br>
 00:06:30,440 --> 00:06:33,309<br>
-Now we'd like to introduce<br>
-Yigit, tool kit engineer<br>
+Теперь мы бы хотели представить<br>
+Yigit, инженера средств разработки.<br>
 <br>
 151<br>
 00:06:33,309 --> 00:06:35,600<br>
-extraordinaire, and he's<br>
-going to walk you through what<br>
+И он собирается рассказать вам<br>
+как мы это<br>
 <br>
 152<br>
 00:06:35,600 --> 00:06:36,860<br>
-we actually built. Thank you.<br>
+осуществляли на практике. Спасибо.<br>
 <br>
 153<br>
 00:06:36,860 --> 00:06:37,290<br>
-[APPLAUSE]<br>
+[АПЛОДИСМЕНТЫ]<br>
 <br>
 154<br>
 00:06:37,290 --> 00:06:38,248<br>
-YIGIT BOYAR: All right.<br>
+YIGIT BOYAR: Хорошо.<br>
 <br>
 155<br>
 00:06:38,248 --> 00:06:39,322<br>
-Thanks, Frank.<br>
+Спасибо, Frank.<br>
 <br>
 156<br>
 00:06:39,322 --> 00:06:43,610<br>
@@ -1740,11 +1740,11 @@ Thanks, Frank.<br>
 <br>
 157<br>
 00:06:43,610 --> 00:06:44,410<br>
-Hello everybody.<br>
+Привет всем.<br>
 <br>
 158<br>
 00:06:44,410 --> 00:06:46,930<br>
-So that was the background.<br>
+Итак, это было то, на чем мы основываемся.<br>
 <br>
 159<br>
 00:06:46,930 --> 00:06:49,050<br>
