@@ -1748,205 +1748,205 @@ YIGIT BOYAR: Хорошо.<br>
 <br>
 159<br>
 00:06:46,930 --> 00:06:49,050<br>
-What are we shipping today?<br>
+К чему мы идем сегодня?<br>
 <br>
 160<br>
 00:06:49,050 --> 00:06:51,210<br>
-The very first thing<br>
-we are shipping<br>
+Первая вещь<br>
+к которой мы идем<br>
 <br>
 161<br>
 00:06:51,210 --> 00:06:55,230<br>
-is an architecture guide<br>
-on developer Android com.<br>
+это руководство по архитектуре<br>
+на developer Android com.<br>
 <br>
 162<br>
 00:06:55,230 --> 00:06:58,440<br>
-Now for over years, you've<br>
-been asking us for our opinion.<br>
+На протяжении многих лет вы<br>
+спрашивали наше мнение,<br>
 <br>
 163<br>
 00:06:58,440 --> 00:07:02,220<br>
-Like how do we think that an<br>
-application should be built?<br>
+как по-нашему приложение<br>
+должно быть построено?<br>
 <br>
 164<br>
 00:07:02,220 --> 00:07:03,900<br>
-And this is that guide.<br>
+И это и есть это руководство.<br>
 <br>
 165<br>
 00:07:03,900 --> 00:07:06,270<br>
-So we believe that<br>
-it's very good,<br>
+И мы считаем, что<br>
+оно достаточно хорошо,<br>
 <br>
 166<br>
 00:07:06,270 --> 00:07:08,730<br>
-covers lots of<br>
-application cases.<br>
+и покрывает большинство<br>
+видов приложений.<br>
 <br>
 167<br>
 00:07:08,730 --> 00:07:10,890<br>
-But even if you<br>
-have an architecture<br>
+Но даже если вы имеете<br>
+свою архитектуру<br>
 <br>
 168<br>
 00:07:10,890 --> 00:07:14,040<br>
-that you are comfortable<br>
-with, you can keep it.<br>
+которая удобна для вас,<br>
+вы можете сохранять ее.<br>
 <br>
 169<br>
 00:07:14,040 --> 00:07:18,300<br>
-But you can probably learn<br>
-something from this guide.<br>
+Но вы можете попробовать узнать<br>
+что-то новое из этого руководства<br>
 <br>
 170<br>
 00:07:18,300 --> 00:07:20,910<br>
-Second, we are shipping<br>
-a new set of libraries<br>
+Во-вторых, мы движемся к созданию <br>
+нового набора библиотек,<br>
 <br>
 171<br>
 00:07:20,910 --> 00:07:23,290<br>
-that we call<br>
-architecture components.<br>
+которые мы называем<br>
+архитектурные компоненты.<br>
 <br>
 172<br>
 00:07:23,290 --> 00:07:24,900<br>
-These are more<br>
-fundamental components<br>
+Это более фундаментальные<br>
+компоненты [строительные блоки]<br>
 <br>
 173<br>
 00:07:24,900 --> 00:07:28,440<br>
-where you can build<br>
-your application on top.<br>
+на вы можете основывать<br>
+ваше приложение.<br>
 <br>
 174<br>
 00:07:28,440 --> 00:07:29,760<br>
-The first thing is Lifecycles.<br>
+Первая вещь - жизненный цикл.<br>
 <br>
 175<br>
 00:07:29,760 --> 00:07:33,000<br>
-So this is the biggest developer<br>
-complaint that we have.<br>
+Это самая частая жалоба,<br>
+которую мы получаем от разработчиков.<br>
 <br>
 176<br>
 00:07:33,000 --> 00:07:35,610<br>
-Lifecycles are hard,<br>
-Lifecycles are hard.<br>
+Жизненный цикл сложен,<br>
+Жизненный цикл сложен.<br>
 <br>
 177<br>
 00:07:35,610 --> 00:07:38,020<br>
-And we said, OK, we<br>
-should solve this problem.<br>
+И мы сказали "ОК", нам<br>
+следует решить эту проблему.<br>
 <br>
 178<br>
 00:07:38,020 --> 00:07:41,850<br>
-And the first level of this,<br>
-this new set of components.<br>
+И первый шаг для этого,<br>
+это новый набор компонентов.<br>
 <br>
 179<br>
 00:07:41,850 --> 00:07:44,070<br>
-Second one is<br>
-Lifecycle-aware observables,<br>
+Второе - это учитывающие<br>
+жизненный цикл Observables,<br>
 <br>
 180<br>
 00:07:44,070 --> 00:07:46,860<br>
-which will go in detail<br>
-later, but this is basically<br>
+которые в деталях будут рассмотрены<br>
+позже, но базово это<br>
 <br>
 181<br>
 00:07:46,860 --> 00:07:51,730<br>
-things that can do something<br>
-based on the Lifecycle.<br>
+сделать что-то, базируясь<br>
+на жизненном цикле.<br>
 <br>
 182<br>
 00:07:51,730 --> 00:07:54,810<br>
-Third, we are going to introduce<br>
-a lightweight ViewModel, which<br>
+В-третьих, мы собираемся представить<br>
+легковесные ViewModel, которые<br>
 <br>
 183<br>
 00:07:54,810 --> 00:07:58,020<br>
-is all of our effort<br>
-to take out that code<br>
+помогут вывести<br>
+ваш код<br>
 <br>
 184<br>
 00:07:58,020 --> 00:08:00,150<br>
-outside of your<br>
-Activities and Fragments,<br>
+наружу из ваших<br>
+Activities и Fragments,<br>
 <br>
 185<br>
 00:08:00,150 --> 00:08:03,550<br>
-and put it somewhere else<br>
-where you can easily test it.<br>
+и поместить его где-нибудь еще,<br>
+где вы сможете легко протестировать его.<br>
 <br>
 186<br>
 00:08:03,550 --> 00:08:06,630<br>
-Last but not least, we are<br>
-going to introduce a new object<br>
+И последнее, но не менее важное,<br>
+мы собираемся представить новый объект<br>
 <br>
 187<br>
 00:08:06,630 --> 00:08:10,290<br>
-mapping library for SQLite.<br>
+mapping library для SQLite.<br>
 <br>
 188<br>
 00:08:10,290 --> 00:08:15,248<br>
-And all of this is available for<br>
-you today on Maven Google com.<br>
+И все это доступно для вас<br>
+сегодня на Maven Google com.<br>
 <br>
 189<br>
 00:08:15,248 --> 00:08:24,290<br>
-[APPLAUSE]<br>
+[АПЛОДИСМЕНТЫ]<br>
 <br>
 190<br>
 00:08:24,290 --> 00:08:25,790<br>
-Let's talk about Lifecycles.<br>
+Давайте поговорим о жизненных циклах.<br>
 <br>
 191<br>
 00:08:25,790 --> 00:08:27,830<br>
-So what is what's<br>
-hard about Lifecycles?<br>
+Итак, что же сложного<br>
+в жизненных циклах?<br>
 <br>
 192<br>
 00:08:27,830 --> 00:08:29,970<br>
-Why do we hear so many<br>
-complaints about that?<br>
+Почему мы слышим так много<br>
+жалоб об этом?<br>
 <br>
 193<br>
 00:08:29,970 --> 00:08:31,510<br>
-Let's go through an example.<br>
+Давайте перейдем к примеру.<br>
 <br>
 194<br>
 00:08:31,510 --> 00:08:33,440<br>
-Assume we have an<br>
-activity where we<br>
+Предположим, что у нас есть<br>
+Activity где мы<br>
 <br>
 195<br>
 00:08:33,440 --> 00:08:36,591<br>
-want to show the location<br>
-of the device on the screen.<br>
+хотим выводить местоположение<br>
+устройства на экран.<br>
 <br>
 196<br>
 00:08:36,591 --> 00:08:38,090<br>
-So you will try<br>
-something like this.<br>
+Итак, вы попробуете сделать<br>
+что-то вроде этого.<br>
 <br>
 197<br>
 00:08:38,090 --> 00:08:41,280<br>
-You create a LocationListener<br>
-on Create method,<br>
+Вы создадите LocationListener<br>
+в методе onCreate(),<br>
 <br>
 198<br>
 00:08:41,280 --> 00:08:43,250<br>
-you need to initialize<br>
-it with the context,<br>
+вам нужно будет инициализировать<br>
+его контекстом [Context],<br>
 <br>
 199<br>
 00:08:43,250 --> 00:08:46,520<br>
-and you have a callback that<br>
-it calls whenever the location<br>
+и у вас будет обратный вызов [callback],<br>
+который вызывается всякий раз, когда<br>
 <br>
 200<br>
 00:08:46,520 --> 00:08:48,800<br>
-changes, and you update the UI.<br>
+локация меняется, и вы обновляете UI.<br>
 <br>
 
 </td></tr> 
