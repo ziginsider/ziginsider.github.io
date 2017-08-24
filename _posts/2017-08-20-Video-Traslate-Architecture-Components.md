@@ -2282,27 +2282,27 @@ LifecycleOwner.<br>
 <br>
 272<br>
 00:11:48,240 --> 00:11:50,390<br>
-And that's all we will do.<br>
+И это все, что мы делаем.<br>
 <br>
 273<br>
 00:11:50,390 --> 00:11:54,410<br>
-But as it's the same, it<br>
-calls back the update UI.<br>
+Но поскольку это то же самое,<br>
+он вызывает обновление UI.<br>
 <br>
 274<br>
 00:11:54,410 --> 00:11:57,020<br>
-So how can we change<br>
-our LocationListener<br>
+Итак, как мы можем изменить<br>
+наш LocationListener<br>
 <br>
 275<br>
 00:11:57,020 --> 00:12:00,890<br>
-to take advantage<br>
-of this Lifecycle?<br>
+используя преимущества<br>
+этого жизненного цикла?<br>
 <br>
 276<br>
 00:12:00,890 --> 00:12:03,500<br>
-Oh, we do the same thing<br>
-for the UserStatus as well.<br>
+О, мы делаем тоже самое<br>
+для UserStatus также.<br>
 <br>
 277<br>
 00:12:03,500 --> 00:12:06,240<br>
@@ -2310,114 +2310,113 @@ for the UserStatus as well.<br>
 <br>
 278<br>
 00:12:06,240 --> 00:12:08,880<br>
-So there's some boilerplate<br>
-code here to get the fields.<br>
+Итак, есть некоторые шаблоны<br>
+кода здесь, чтобы получить поля.<br>
 <br>
 279<br>
 00:12:08,880 --> 00:12:10,950<br>
-It doesn't really<br>
-matter, but we have<br>
+Это на самом деле<br>
+не важно, но у нас есть<br>
 <br>
 280<br>
 00:12:10,950 --> 00:12:14,850<br>
-this enabled method which gets<br>
-called if the user is enrolled.<br>
+этот метод, enable(), который вызывается,<br>
+если пользователь зарегистрирован.<br>
 <br>
 281<br>
 00:12:14,850 --> 00:12:16,500<br>
-Inside this enabled<br>
-method, now we<br>
+Внутри этого метода<br>
+мы теперь<br>
 <br>
 282<br>
 00:12:16,500 --> 00:12:18,420<br>
-want to start<br>
-listening to location<br>
+хотим начать<br>
+отслеживать местоположение<br>
 <br>
 283<br>
 00:12:18,420 --> 00:12:21,360<br>
-only if the activity is started.<br>
+только, если Activity запущена.<br>
 <br>
 284<br>
 00:12:21,360 --> 00:12:23,040<br>
-Now you can do this.<br>
+Теперь вы можете сделать это.<br>
 <br>
 285<br>
 00:12:23,040 --> 00:12:26,590<br>
-You can say, what is my current<br>
-state, which is amazing.<br>
+Вы можете узнать, какое ваше текущее<br>
+состояние, и это удивительно.<br>
 <br>
 286<br>
 00:12:26,590 --> 00:12:29,370<br>
-We didn't have<br>
-this API until now.<br>
+У нас не было<br>
+такого API до сих пор.<br>
 <br>
 287<br>
 00:12:29,370 --> 00:12:32,010<br>
-Well now you can.<br>
+Ну, теперь вы можете это.<br>
 <br>
 288<br>
 00:12:32,010 --> 00:12:34,110<br>
-So OK, that was a simple change.<br>
+Итак, хорошо, это было простое изменение.<br>
 <br>
 289<br>
 00:12:34,110 --> 00:12:36,510<br>
-But we also get<br>
-notified, what if we get<br>
+Но мы также получаем уведомление,<br>
+что мы зарегистрированы,<br>
 <br>
 290<br>
 00:12:36,510 --> 00:12:38,710<br>
-enrolled when the activity<br>
-was in back state,<br>
+когда Activity<br>
+будет не в активном состоянии,<br>
 <br>
 291<br>
 00:12:38,710 --> 00:12:40,800<br>
-and user comes back<br>
-to the activity.<br>
+и пользователь<br>
+вернется к Activity.<br>
 <br>
 292<br>
 00:12:40,800 --> 00:12:43,290<br>
-Now we should actually<br>
-start the LocationManager.<br>
+Теперь нам следует на самом деле<br>
+запустить LocationManager.<br>
 <br>
 293<br>
 00:12:43,290 --> 00:12:46,290<br>
-For this, we want to<br>
-observe that Lifecycle.<br>
+Для этого мы хотим наблюдать за<br>
+жизненным циклом.<br>
 <br>
 294<br>
 00:12:46,290 --> 00:12:48,690<br>
-To do that, we implement<br>
-this interface,<br>
-<br>
+Здесь мы имплементируем<br>
+этот интерфейс,<br>
 295<br>
 00:12:48,690 --> 00:12:50,670<br>
-which allows us to<br>
-write these methods.<br>
+который позволяет нам<br>
+использовать эти методы.<br>
 <br>
 296<br>
 00:12:50,670 --> 00:12:52,710<br>
-You can annotate<br>
-the methods saying<br>
+Вы можете аннотировать эти<br>
+методы, говоря что,<br>
 <br>
 297<br>
 00:12:52,710 --> 00:12:56,152<br>
-that, if ON_START<br>
-happens, call this method.<br>
+если ON_START<br>
+случился, вызывай этот метод.<br>
 <br>
 298<br>
 00:12:56,152 --> 00:12:58,360<br>
-And the new components will<br>
-take care of calling you.<br>
+И новые компоненты будут<br>
+заботиться о вызовах.<br>
 <br>
 299<br>
 00:12:58,360 --> 00:13:00,660<br>
-So if you are already<br>
-enabled, now you<br>
+Итак, если вы теперь доступны,<br>
+то теперь вы начинаете,<br>
 <br>
 300<br>
 00:13:00,660 --> 00:13:03,540<br>
-start, and ON_STOP<br>
-you disconnect.<br>
+и если ON_STOP<br>
+вы отключаетесь.<br>
 <br>
 
 </td></tr> 
