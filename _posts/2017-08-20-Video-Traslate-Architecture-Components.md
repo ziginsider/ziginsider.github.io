@@ -2159,6 +2159,266 @@ Activity, и она также<br>
 00:10:40,220 --> 00:10:41,840<br>
 Мы хотим положить этому конец.<br>
 <br>
+247<br>
+00:10:41,840 --> 00:10:43,950<br>
+Итак, мы говорим "OK", нам<br>
+нужно признать -<br>
+<br>
+248<br>
+00:10:43,950 --> 00:10:46,670<br>
+как упоминал Майк,<br>
+мы не можем изменить законы.<br>
+<br>
+249<br>
+00:10:46,670 --> 00:10:49,670<br>
+Но мы можем поступить проще:<br>
+иметь дело с вещами.<br>
+<br>
+250<br>
+00:10:49,670 --> 00:10:52,430<br>
+Поэтому мы решили ввести<br>
+новый интерфейс называемый<br>
+<br>
+251<br>
+00:10:52,430 --> 00:10:53,970<br>
+LifecycleOwner.<br>
+<br>
+252<br>
+00:10:53,970 --> 00:10:55,970<br>
+Эта вещь идет вместе с<br>
+жизненным циклом.<br>
+<br>
+253<br>
+00:10:55,970 --> 00:10:58,400<br>
+Если у вас Activity, или<br>
+ваш Fragment - или, возможно,<br>
+<br>
+254<br>
+00:10:58,400 --> 00:11:02,270<br>
+ваш собственный UI фреймворк,<br>
+независимо от того, что у вас есть,<br>
+<br>
+255<br>
+00:11:02,270 --> 00:11:05,570<br>
+это можно представить, как LifecycleOwner.<br>
+<br>
+256<br>
+00:11:05,570 --> 00:11:08,780<br>
+И у нас есть [наблюдатели] <br>
+LifecycleObservers,<br>
+<br>
+257<br>
+00:11:08,780 --> 00:11:11,180<br>
+цель которых заботиться<br>
+о жизненном цикле.<br>
+<br>
+258<br>
+00:11:11,180 --> 00:11:13,310<br>
+Как и в<br>
+LocationListener у нас было,<br>
+<br>
+259<br>
+00:11:13,310 --> 00:11:16,580<br>
+он заботится о жизненном цикле,<br>
+хочет остановить себя<br>
+<br>
+260<br>
+00:11:16,580 --> 00:11:18,680<br>
+Если жизненный цикл не активен.<br>
+<br>
+261<br>
+00:11:18,680 --> 00:11:21,130<br>
+Итак, мы сказали "OK, <br>
+мы признаем это.<br>
+<br>
+262<br>
+00:11:21,130 --> 00:11:23,600<br>
+И у нас есть<br>
+LifecycleObservers."<br>
+<br>
+263<br>
+00:11:23,600 --> 00:11:26,090<br>
+Мы пройдем через код<br>
+в нашей Acivity.<br>
+<br>
+264<br>
+00:11:26,090 --> 00:11:30,080<br>
+Сейчас мы наследуем нашу Activity<br>
+от класса LifecycleActivity.<br>
+<br>
+265<br>
+00:11:30,080 --> 00:11:33,320<br>
+Это лишь временный класс<br>
+пока эти компоненты дойдут<br>
+<br>
+266<br>
+00:11:33,320 --> 00:11:34,410<br>
+до версии 1.0.<br>
+<br>
+267<br>
+00:11:34,410 --> 00:11:35,900<br>
+Затем все в<br>
+Support Library<br>
+<br>
+268<br>
+00:11:35,900 --> 00:11:39,980<br>
+реализует интерфейс<br>
+LifecycleOwner.<br>
+<br>
+269<br>
+00:11:39,980 --> 00:11:42,550<br>
+Внутри нашей Activity,<br>
+где мы инициализируем<br>
+<br>
+270<br>
+00:11:42,550 --> 00:11:45,710<br>
+наш LocationListener,<br>
+мы собираемя сказать, что<br>
+<br>
+271<br>
+00:11:45,710 --> 00:11:48,240<br>
+это наш жизненный цикл,<br>
+о котором мы заботимся.<br>
+<br>
+272<br>
+00:11:48,240 --> 00:11:50,390<br>
+And that's all we will do.<br>
+<br>
+273<br>
+00:11:50,390 --> 00:11:54,410<br>
+But as it's the same, it<br>
+calls back the update UI.<br>
+<br>
+274<br>
+00:11:54,410 --> 00:11:57,020<br>
+So how can we change<br>
+our LocationListener<br>
+<br>
+275<br>
+00:11:57,020 --> 00:12:00,890<br>
+to take advantage<br>
+of this Lifecycle?<br>
+<br>
+276<br>
+00:12:00,890 --> 00:12:03,500<br>
+Oh, we do the same thing<br>
+for the UserStatus as well.<br>
+<br>
+277<br>
+00:12:03,500 --> 00:12:06,240<br>
+<br>
+<br>
+278<br>
+00:12:06,240 --> 00:12:08,880<br>
+So there's some boilerplate<br>
+code here to get the fields.<br>
+<br>
+279<br>
+00:12:08,880 --> 00:12:10,950<br>
+It doesn't really<br>
+matter, but we have<br>
+<br>
+280<br>
+00:12:10,950 --> 00:12:14,850<br>
+this enabled method which gets<br>
+called if the user is enrolled.<br>
+<br>
+281<br>
+00:12:14,850 --> 00:12:16,500<br>
+Inside this enabled<br>
+method, now we<br>
+<br>
+282<br>
+00:12:16,500 --> 00:12:18,420<br>
+want to start<br>
+listening to location<br>
+<br>
+283<br>
+00:12:18,420 --> 00:12:21,360<br>
+only if the activity is started.<br>
+<br>
+284<br>
+00:12:21,360 --> 00:12:23,040<br>
+Now you can do this.<br>
+<br>
+285<br>
+00:12:23,040 --> 00:12:26,590<br>
+You can say, what is my current<br>
+state, which is amazing.<br>
+<br>
+286<br>
+00:12:26,590 --> 00:12:29,370<br>
+We didn't have<br>
+this API until now.<br>
+<br>
+287<br>
+00:12:29,370 --> 00:12:32,010<br>
+Well now you can.<br>
+<br>
+288<br>
+00:12:32,010 --> 00:12:34,110<br>
+So OK, that was a simple change.<br>
+<br>
+289<br>
+00:12:34,110 --> 00:12:36,510<br>
+But we also get<br>
+notified, what if we get<br>
+<br>
+290<br>
+00:12:36,510 --> 00:12:38,710<br>
+enrolled when the activity<br>
+was in back state,<br>
+<br>
+291<br>
+00:12:38,710 --> 00:12:40,800<br>
+and user comes back<br>
+to the activity.<br>
+<br>
+292<br>
+00:12:40,800 --> 00:12:43,290<br>
+Now we should actually<br>
+start the LocationManager.<br>
+<br>
+293<br>
+00:12:43,290 --> 00:12:46,290<br>
+For this, we want to<br>
+observe that Lifecycle.<br>
+<br>
+294<br>
+00:12:46,290 --> 00:12:48,690<br>
+To do that, we implement<br>
+this interface,<br>
+<br>
+295<br>
+00:12:48,690 --> 00:12:50,670<br>
+which allows us to<br>
+write these methods.<br>
+<br>
+296<br>
+00:12:50,670 --> 00:12:52,710<br>
+You can annotate<br>
+the methods saying<br>
+<br>
+297<br>
+00:12:52,710 --> 00:12:56,152<br>
+that, if ON_START<br>
+happens, call this method.<br>
+<br>
+298<br>
+00:12:56,152 --> 00:12:58,360<br>
+And the new components will<br>
+take care of calling you.<br>
+<br>
+299<br>
+00:12:58,360 --> 00:13:00,660<br>
+So if you are already<br>
+enabled, now you<br>
+<br>
+300<br>
+00:13:00,660 --> 00:13:03,540<br>
+start, and ON_STOP<br>
+you disconnect.<br>
+<br>
 
 </td></tr> 
   </table>
