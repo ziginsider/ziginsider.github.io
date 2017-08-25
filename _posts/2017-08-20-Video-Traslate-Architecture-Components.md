@@ -2958,181 +2958,181 @@ OK, давайте поговорим<br>
 <br>
 414<br>
 00:18:11,520 --> 00:18:14,460<br>
-Now, that example was easy<br>
-because location is global,<br>
+Ну, этот пример был легким<br>
+т.к. местоположение является глобальным,<br>
 <br>
 415<br>
 00:18:14,460 --> 00:18:17,550<br>
-but most of the time,<br>
-the data belongs to a UI.<br>
+Но в большинстве случаев,<br>
+данные связаны с UI.<br>
 <br>
 416<br>
 00:18:17,550 --> 00:18:22,770<br>
-So if we had an activity<br>
-where we show a user profile,<br>
+Итак, если у нас есть Activity,<br>
+где показывается профиль пользователя,<br>
 <br>
 417<br>
 00:18:22,770 --> 00:18:24,660<br>
-and we implemented<br>
-a web service that<br>
+и мы добавили веб-сервис<br>
+который может вернуть<br>
 <br>
 418<br>
 00:18:24,660 --> 00:18:28,260<br>
-can return the data as a<br>
-LiveData which we can safely<br>
+данные как LiveData,<br>
+которые мы можем безопасно<br>
 <br>
 419<br>
 00:18:28,260 --> 00:18:32,580<br>
-observe without risking<br>
-leaking overactivity,<br>
+наблюдать, не опасаясь<br>
+утечки из Activity,<br>
 <br>
 420<br>
 00:18:32,580 --> 00:18:33,470<br>
-this all looks nice.<br>
+это выглядит прекрасно.<br>
 <br>
 421<br>
 00:18:33,470 --> 00:18:35,030<br>
-You will never<br>
-leak this activity,<br>
+Мы никогда не упустим<br>
+эту Activity,<br>
 <br>
 422<br>
 00:18:35,030 --> 00:18:36,390<br>
-it will work very well.<br>
+это будет работать очень хорошо.<br>
 <br>
 423<br>
 00:18:36,390 --> 00:18:40,340<br>
-Except, what happens if the<br>
-user rotates to the device?<br>
+Исключая... Что случится если<br>
+пользователь повернет устройство?<br>
 <br>
 424<br>
 00:18:40,340 --> 00:18:42,850<br>
-Let's look at the<br>
-LifeCycle graph again.<br>
+Давайте взглянем на линию<br>
+жизненного цикла снова.<br>
 <br>
 425<br>
 00:18:42,850 --> 00:18:44,790<br>
-So activity is<br>
-created, it saves, OK.<br>
+Итак, Activity создано,<br>
+это запомнили, OK.<br>
 <br>
 426<br>
 00:18:44,790 --> 00:18:46,752<br>
-Fetch the user.<br>
+Получаем пользователя.<br>
 <br>
 427<br>
 00:18:46,752 --> 00:18:48,460<br>
-And then while you<br>
-are fetching the user,<br>
+И пока мы получаем<br>
+[проверяем accaunt] пользователя,<br>
 <br>
 428<br>
 00:18:48,460 --> 00:18:51,390<br>
-user decides, oh, I want<br>
-to rotate the phone.<br>
+пользователь решает<br>
+поверну-ка я телефон.<br>
 <br>
 429<br>
 00:18:51,390 --> 00:18:53,130<br>
-And then that<br>
-activity is destroyed.<br>
+и тогда Activity<br>
+разрушится.<br>
 <br>
 430<br>
 00:18:53,130 --> 00:18:55,740<br>
-Luckily we don't leak<br>
-it, which is great.<br>
+К счастью, мы не получили<br>
+утечку, это здорово.<br>
 <br>
 431<br>
 00:18:55,740 --> 00:18:57,810<br>
-But then the new<br>
-activity starts,<br>
+Но когда наше новое<br>
+Activity запустилось,<br>
 <br>
 432<br>
 00:18:57,810 --> 00:18:59,620<br>
-which makes this new call.<br>
+делаем новый вызов.<br>
 <br>
 433<br>
 00:18:59,620 --> 00:19:02,160<br>
-Now, this is OK, but not great.<br>
+Ну, ничего страшного, но не айс.<br>
 <br>
 434<br>
 00:19:02,160 --> 00:19:03,640<br>
-What do we want?<br>
+Чего мы хотим?<br>
 <br>
 435<br>
 00:19:03,640 --> 00:19:05,700<br>
-We want to actually<br>
-retain that data, right?<br>
+Мы хотим реально удерживать<br>
+эти данные, правильно?<br>
 <br>
 436<br>
 00:19:05,700 --> 00:19:09,870<br>
-We are already making that<br>
-request, why remake it?<br>
+Мы уже отправляли это запрос,<br>
+зачем отправлять его опять?<br>
 <br>
 437<br>
 00:19:09,870 --> 00:19:12,780<br>
-So we want our graph<br>
-to look like this.<br>
+Мы хотим, чтобы наш график<br>
+выглядел так.<br>
 <br>
 438<br>
 00:19:12,780 --> 00:19:14,640<br>
-So if the new activity<br>
-comes, we should<br>
+Итак, если новая Activity<br>
+появляется, нам следует<br>
 <br>
 439<br>
 00:19:14,640 --> 00:19:18,330<br>
-be able to give it back the<br>
-same view model, which is<br>
+быть способными вернуть ту же<br>
+view model, которая и есть<br>
 <br>
 440<br>
 00:19:18,330 --> 00:19:20,340<br>
-a new class called ViewModel.<br>
+новый класс называемый ViewModel.<br>
 <br>
 441<br>
 00:19:20,340 --> 00:19:22,290<br>
-So we are introducing<br>
-this new class<br>
+Итак, мы представляем этот<br>
+новый класс<br>
 <br>
 442<br>
 00:19:22,290 --> 00:19:23,760<br>
-very specific to<br>
-this thing, where<br>
+очень спецефичный для<br>
+этой вещи, где<br>
 <br>
 443<br>
 00:19:23,760 --> 00:19:27,210<br>
-you should put the data<br>
-inside your activities<br>
+вам следует поместить данные<br>
+внутри вашей Activity<br>
 <br>
 444<br>
 00:19:27,210 --> 00:19:30,940<br>
-into the ViewModel, and make<br>
-the activities data-free.<br>
+во ViewModel, и сделать вашу<br>
+Activity свободной от данных.<br>
 <br>
 445<br>
 00:19:30,940 --> 00:19:33,000<br>
-So if you want to<br>
-change this activity,<br>
+Итак, если вы хотите<br>
+изменить эту Activity,<br>
 <br>
 446<br>
 00:19:33,000 --> 00:19:36,910<br>
-we create this new class, it<br>
-extends the VewModel class.<br>
+вы создаете этот новый класс,<br>
+наследуемый от VewModel class.<br>
 <br>
 447<br>
 00:19:36,910 --> 00:19:41,830<br>
-Whatever data we had inside<br>
-the activity, we move it there.<br>
+Независимо от того, какие данные<br>
+были внутри Activity, мы помещаем их<br>
 <br>
 448<br>
 00:19:41,830 --> 00:19:45,630<br>
-And in the ViewModel, all we do<br>
-is, inside the getUser method,<br>
+во ViewModel, и там, все, что мы<br>
+делаем, внутри getUser(),<br>
 <br>
 449<br>
 00:19:45,630 --> 00:19:48,790<br>
-if this is the first goal,<br>
-get it from the web service.<br>
+если это первая цель,<br>
+получаем его из веб-службы.<br>
 <br>
 450<br>
 00:19:48,790 --> 00:19:51,800<br>
-Otherwise, return<br>
-to existing value.<br>
+Иначе, возвращаем<br>
+текущее значение.<br>
 <br>
 
 
