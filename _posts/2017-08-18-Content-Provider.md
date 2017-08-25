@@ -149,9 +149,9 @@ Cursor cursor = mContext.getContentResolver().query(table.getUri(),
 
 ### Формирование URI
 
-Соответсвие ContentProvider'a концепции REST выражается в том, что доступ. данным осуществляется с помощью URI. Соответственно, URI необходимо как-то формировать для запроса к необходимым данным.
+Соответсвие ContentProvider'a концепции REST выражается в том, что доступ к данным осуществляется с помощью URI. Соответственно, URI необходимо как-то формировать для запроса к необходимым данным.
 
-URI - это ...
+URI - (*Uniform Resource Identifier*) унифицированный (единообразный) идентификатор ресурса. По-сути, символьная строка, позволяющая идентифицировать какой-либо ресурс. 
 
 Мы уже говорили, что URI ContentProvider'a формируется по следующей схеме:
 {% highlight xml %}
@@ -161,6 +161,34 @@ URI - это ...
 + &lt;authority&gt; - уникальный идентификатор нашего ContentProvider'a. Вместе с &lt;prefix&gt; составляет базовый URI - часть которая будет присутствовать во всех запросах к нашему ContentProvider'у. Еще раз скажем, что его нужно делать уникальным. Обычно составляется по приципу "имя_пакета + имя_приложения + имя_провайдера".
    
 
-### Где используют?
+### UriMatcher
+
+UriMatcher - <a href="https://developer.android.com/reference/android/content/UriMatcher.html">класс Android SDK</a>, который хранит соответствие между URI и неким заданным значением integer. Это значение можно использовать в операторе switch, чтобы описать поведение для каждого Content URI. Весьма нужная штука для работы c ContentProvider'ом.
+
+Два метода, которые необходимо знать void AddUri(String authority, String path, int code) и int match(Uri uri). Первый ставит в соответствие path (т.е., по-сути, Uri) и code (надеюсь, что такое authority объяснять не надо), второй по uri возвращает code. Данный класс используется для разбора Uri в REST-методах ContentProvider'a (getType(), query(), etc.) для идентификации действия по URI-запросу. Ниже мы полностью рассмотрим его применение на своем месте, пока - основновные моменты использования:
+
+Объявление:
+{% highlight java %}
+private static final UriMatcher sUriMatcher;
+{% endhighlight %}
+
+Задаем соответствие:
+{% highlight java %}
+sURIMatcher.addURI("contacts", "people", PEOPLE);
+// PEOPLE = unique integer constant
+{% endhighlight %}
+
+Проверяем на соответствие в операторе Switch:
+{% highlight java %}
+public String getType(Uri url)
+    {
+        int match = sURIMatcher.match(url);
+        switch (match)
+        {
+            case PEOPLE:
+                return "vnd.android.cursor.dir/person";
+. . .
+{% endhighlight %}
+
 
 ## Практика использования Content Provider'a
