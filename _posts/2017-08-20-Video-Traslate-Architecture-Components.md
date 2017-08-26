@@ -28,7 +28,8 @@ tags:
 - <a href="https://developer.android.com/topic/libraries/architecture/room.html">Абстрация над SQLite базой данных, называемая Room</a> - documentation about Room Persistence Library, и еще <a href="https://medium.com/@tonyowen/a-room-with-a-view-getting-started-ec010f9f5448">о ней же</a> - article with Kotlin.
 - <a href="https://academy.realm.io/posts/android-architecture-components-and-realm/">Room, ViewModel, LifeCycle, LiveData</a> - article
 - <a href="https://codelabs.developers.google.com/codelabs/android-lifecycles/#0">Android lifecycle-aware components</a> - tutorial codelab.
-- <a href=https://codelabs.developers.google.com/codelabs/android-persistence/#0"">Android Persistence: Room Library</a> - tutorial codelab.
+- <a href="https://codelabs.developers.google.com/codelabs/android-persistence/#0">Android Persistence: Room Library</a> - tutorial codelab.
+- <a href="https://www.youtube.com/watch?v=vOJCrbr144o">Architecture Components: Improve Your App's Design</a> - видео-обзор от Google новых архитектурных компонентов, 5 мин 41 сек на просмотр.
 
 
 <style type="text/css">
@@ -3545,7 +3546,7 @@ Data Access Object.<br>
 <br>
 537<br>
 00:23:27,430 --> 00:23:29,350<br>
-это сделать это через интерфейс.<br>
+это сделать это через абстракцию.<br>
 <br>
 538<br>
 00:23:29,350 --> 00:23:32,252<br>
