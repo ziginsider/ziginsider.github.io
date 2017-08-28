@@ -3618,6 +3618,487 @@ deleteAll() это, or updateAll() -<br>
 Вы можете задавать<br>
 множесто параметров.<br>
 <br>
+553<br>
+00:24:08,710 --> 00:24:11,115<br>
+Так много, пока сможете читать.<br>
+И это имеет смысл,<br>
+<br>
+554<br>
+00:24:11,115 --> 00:24:13,930<br>
+Room поймет их.<br>
+<br>
+555<br>
+00:24:13,930 --> 00:24:16,000<br>
+Но наиболее важная<br>
+часть Room - это то,<br>
+<br>
+556<br>
+00:24:16,000 --> 00:24:18,680<br>
+что он понимает ваш SQL.<br>
+<br>
+557<br>
+00:24:18,680 --> 00:24:20,320<br>
+Итак часть - все те<br>
+константы, о которых<br>
+<br>
+558<br>
+00:24:20,320 --> 00:24:23,630<br>
+я упомянул, мы определили, чтобы<br>
+избежать ошибок во время компиляции,<br>
+<br>
+559<br>
+00:24:23,630 --> 00:24:26,560<br>
+Room реально дает это<br>
+все бесплатно.<br>
+<br>
+560<br>
+00:24:26,560 --> 00:24:28,380<br>
+Поэтому, когда Room видит<br>
+этот запрос, то говорит:<br>
+<br>
+561<br>
+00:24:28,380 --> 00:24:31,060<br>
+"ОК, вы получаете эти<br>
+три столбца<br>
+<br>
+562<br>
+00:24:31,060 --> 00:24:34,900<br>
+из этой таблицы, где название<br>
+похоже на это ключевое слово.<br>
+<br>
+563<br>
+00:24:34,900 --> 00:24:36,705<br>
+Откуда это<br>
+ключевое слово?<br>
+<br>
+564<br>
+00:24:36,705 --> 00:24:38,710<br>
+О, да оно приходит<br>
+из параметров функции.<br>
+<br>
+565<br>
+00:24:38,710 --> 00:24:39,567<br>
+Имеет смысл.<br>
+<br>
+566<br>
+00:24:39,567 --> 00:24:40,900<br>
+И что она хочет вернуть?<br>
+<br>
+567<br>
+00:24:40,900 --> 00:24:42,970<br>
+Она хочет вернуть<br>
+список объектов Feed."<br>
+<br>
+568<br>
+00:24:42,970 --> 00:24:45,330<br>
+И тогда Room идет и проверяет.<br>
+<br>
+569<br>
+00:24:45,330 --> 00:24:47,980<br>
+"Подходят ли эти столбцы<br>
+к объекту, который<br>
+<br>
+570<br>
+00:24:47,980 --> 00:24:49,690<br>
+пользователь хочет вернуть?"<br>
+<br>
+571<br>
+00:24:49,690 --> 00:24:53,812<br>
+И, как только они равны, говорится:<br>
+"OK, я могу сгенерировать этот код."<br>
+<br>
+572<br>
+00:24:53,812 --> 00:24:55,270<br>
+Вы можете даже, скажем,<br>
+выбрать звездочку [все столбцы].<br>
+<br>
+573<br>
+00:24:55,270 --> 00:24:56,600<br>
+Вам не нужно их перечислять.<br>
+<br>
+574<br>
+00:24:56,600 --> 00:25:00,190<br>
+Room реально, реально<br>
+понимает ваш запрос.<br>
+<br>
+575<br>
+00:25:00,190 --> 00:25:03,130<br>
+Вы можете даже соединить 10<br>
+таблиц, и это все еще будет работать.<br>
+<br>
+576<br>
+00:25:03,130 --> 00:25:05,020<br>
+Но что, если вы сделали опечатку?<br>
+<br>
+577<br>
+00:25:05,020 --> 00:25:07,750<br>
+Вместо того, чтобы написать<br>
+"feed" вы пишите "feeds".<br>
+<br>
+578<br>
+00:25:07,750 --> 00:25:10,750<br>
+Теперь, если это случится,<br>
+Room собирается дать вам<br>
+<br>
+579<br>
+00:25:10,750 --> 00:25:12,940<br>
+ошибку времени компиляции.<br>
+<br>
+580<br>
+00:25:12,940 --> 00:25:15,040<br>
+Так что выходит, что<br>
+ваш запрос проверяется<br>
+<br>
+581<br>
+00:25:15,040 --> 00:25:17,080<br>
+по схеме, которую<br>
+вы определили.<br>
+<br>
+582<br>
+00:25:17,080 --> 00:25:19,562<br>
+И вам сообщается, если<br>
+вы где-то ошиблись.<br>
+<br>
+583<br>
+00:25:19,562 --> 00:25:22,508<br>
+[АПЛОДИСМЕНТЫ]<br>
+<br>
+584<br>
+00:25:22,508 --> 00:25:27,797<br>
+<br>
+<br>
+585<br>
+00:25:27,797 --> 00:25:29,380<br>
+But that's not the<br>
+only thing it does.<br>
+<br>
+586<br>
+00:25:29,380 --> 00:25:30,860<br>
+So if you said--<br>
+<br>
+587<br>
+00:25:30,860 --> 00:25:34,070<br>
+if your query is correct, you<br>
+want to fetch ID and title.<br>
+<br>
+588<br>
+00:25:34,070 --> 00:25:35,870<br>
+This said, well,<br>
+it's query, but you<br>
+<br>
+589<br>
+00:25:35,870 --> 00:25:37,350<br>
+want to return it as a string.<br>
+<br>
+590<br>
+00:25:37,350 --> 00:25:40,460<br>
+And then Room says, well, you<br>
+are returning two columns,<br>
+<br>
+591<br>
+00:25:40,460 --> 00:25:42,260<br>
+but you only have one string.<br>
+<br>
+592<br>
+00:25:42,260 --> 00:25:43,320<br>
+That doesn't make sense.<br>
+<br>
+593<br>
+00:25:43,320 --> 00:25:46,800<br>
+And it's going to give you<br>
+a compile time error again.<br>
+<br>
+594<br>
+00:25:46,800 --> 00:25:49,220<br>
+And there's a really nice<br>
+way to fix this in Room.<br>
+<br>
+595<br>
+00:25:49,220 --> 00:25:51,095<br>
+You can basically<br>
+create any Java class.<br>
+<br>
+596<br>
+00:25:51,095 --> 00:25:52,580<br>
+It doesn't need<br>
+to be annotating,<br>
+<br>
+597<br>
+00:25:52,580 --> 00:25:55,170<br>
+there's nothing special<br>
+about that Pojo,<br>
+<br>
+598<br>
+00:25:55,170 --> 00:25:57,080<br>
+and tell Room to return it.<br>
+<br>
+599<br>
+00:25:57,080 --> 00:25:59,780<br>
+As long as whatever<br>
+query it returns<br>
+<br>
+600<br>
+00:25:59,780 --> 00:26:01,880<br>
+matches what you<br>
+want it to return,<br>
+<br>
+601<br>
+00:26:01,880 --> 00:26:05,250<br>
+Room will write<br>
+the code for you.<br>
+<br>
+602<br>
+00:26:05,250 --> 00:26:07,470<br>
+And observability, which<br>
+is very important, right?<br>
+<br>
+603<br>
+00:26:07,470 --> 00:26:09,390<br>
+If you have a query<br>
+like this, now you're<br>
+<br>
+604<br>
+00:26:09,390 --> 00:26:11,460<br>
+showing lists of<br>
+feeds, you obviously<br>
+<br>
+605<br>
+00:26:11,460 --> 00:26:14,295<br>
+want to get notified<br>
+when the data changes.<br>
+<br>
+606<br>
+00:26:14,295 --> 00:26:17,842<br>
+And in Room, if you want to<br>
+do this, all you have to do<br>
+<br>
+607<br>
+00:26:17,842 --> 00:26:19,290<br>
+is tell it.<br>
+<br>
+608<br>
+00:26:19,290 --> 00:26:22,980<br>
+Tell it to return a LiveData,<br>
+and it will do it for you.<br>
+<br>
+609<br>
+00:26:22,980 --> 00:26:26,400<br>
+Because it knows your query,<br>
+it knows what things affect it.<br>
+<br>
+610<br>
+00:26:26,400 --> 00:26:29,520<br>
+So it can let you know<br>
+if that query changes.<br>
+<br>
+611<br>
+00:26:29,520 --> 00:26:32,280<br>
+And this is the part where all<br>
+these architectural components<br>
+<br>
+612<br>
+00:26:32,280 --> 00:26:33,750<br>
+work well together.<br>
+<br>
+613<br>
+00:26:33,750 --> 00:26:36,640<br>
+Room already knows<br>
+about LiveData.<br>
+<br>
+614<br>
+00:26:36,640 --> 00:26:40,340<br>
+So your ViewModel, all you would<br>
+write is-- from the data is,<br>
+<br>
+615<br>
+00:26:40,340 --> 00:26:42,600<br>
+call this query, and<br>
+this all it will do.<br>
+<br>
+616<br>
+00:26:42,600 --> 00:26:46,650<br>
+Whenever that data changes,<br>
+your UI will get a new update.<br>
+<br>
+617<br>
+00:26:46,650 --> 00:26:49,470<br>
+And it only happens<br>
+if the UI is visible.<br>
+<br>
+618<br>
+00:26:49,470 --> 00:26:52,958<br>
+Last but not least, Room<br>
+also supports RxJava 2.<br>
+<br>
+619<br>
+00:26:52,958 --> 00:26:55,448<br>
+[APPLAUSE]<br>
+<br>
+620<br>
+00:26:55,448 --> 00:27:01,930<br>
+<br>
+<br>
+621<br>
+00:27:01,930 --> 00:27:04,390<br>
+OK, if we look at<br>
+Room in a nutshell,<br>
+<br>
+622<br>
+00:27:04,390 --> 00:27:06,730<br>
+it writes the<br>
+boilerplate code for you.<br>
+<br>
+623<br>
+00:27:06,730 --> 00:27:08,050<br>
+It has full SQLite support.<br>
+<br>
+624<br>
+00:27:08,050 --> 00:27:10,990<br>
+You can just write in<br>
+SQLite, there's no builders.<br>
+<br>
+625<br>
+00:27:10,990 --> 00:27:14,070<br>
+It verifies your<br>
+queries at compile time.<br>
+<br>
+626<br>
+00:27:14,070 --> 00:27:17,350<br>
+It incentivizes best<br>
+practices, which helps you<br>
+<br>
+627<br>
+00:27:17,350 --> 00:27:19,480<br>
+with testing migrations.<br>
+<br>
+628<br>
+00:27:19,480 --> 00:27:23,020<br>
+And it's also observable<br>
+out of the box.<br>
+<br>
+629<br>
+00:27:23,020 --> 00:27:28,000<br>
+OK, architecture,<br>
+our last topic today.<br>
+<br>
+630<br>
+00:27:28,000 --> 00:27:30,000<br>
+So where we started, right?<br>
+<br>
+631<br>
+00:27:30,000 --> 00:27:31,860<br>
+And now, you might<br>
+be asking yourselves,<br>
+<br>
+632<br>
+00:27:31,860 --> 00:27:34,335<br>
+what has changed<br>
+in 2017 that you<br>
+<br>
+633<br>
+00:27:34,335 --> 00:27:36,930<br>
+are talking about architecture?<br>
+<br>
+634<br>
+00:27:36,930 --> 00:27:38,740<br>
+Well, actually<br>
+nothing has changed.<br>
+<br>
+635<br>
+00:27:38,740 --> 00:27:40,560<br>
+We've been talking<br>
+about this topic a lot.<br>
+<br>
+636<br>
+00:27:40,560 --> 00:27:44,460<br>
+Adam Powell and I gave a<br>
+lot of talks on this topic.<br>
+<br>
+637<br>
+00:27:44,460 --> 00:27:49,050<br>
+There's even a talk from 2010<br>
+which I watch as a developer.<br>
+<br>
+638<br>
+00:27:49,050 --> 00:27:51,630<br>
+So this is a topic we have<br>
+been more clear about.<br>
+<br>
+639<br>
+00:27:51,630 --> 00:27:54,720<br>
+But what is missing was<br>
+a well-defined reference<br>
+<br>
+640<br>
+00:27:54,720 --> 00:27:56,022<br>
+architecture.<br>
+<br>
+641<br>
+00:27:56,022 --> 00:27:57,480<br>
+So it's what we<br>
+are shipping today.<br>
+<br>
+642<br>
+00:27:57,480 --> 00:27:59,370<br>
+If you go to<br>
+developer.android.com today<br>
+<br>
+643<br>
+00:27:59,370 --> 00:28:01,680<br>
+after the session,<br>
+there's a section<br>
+<br>
+644<br>
+00:28:01,680 --> 00:28:05,246<br>
+about how to architect<br>
+an Android application.<br>
+<br>
+645<br>
+00:28:05,246 --> 00:28:08,697<br>
+[APPLAUSE]<br>
+<br>
+646<br>
+00:28:08,697 --> 00:28:13,640<br>
+<br>
+<br>
+647<br>
+00:28:13,640 --> 00:28:15,890<br>
+So by the way, this<br>
+is a reference guide.<br>
+<br>
+648<br>
+00:28:15,890 --> 00:28:17,780<br>
+This is not your religious book.<br>
+<br>
+649<br>
+00:28:17,780 --> 00:28:20,600<br>
+We believe this is a very good<br>
+way to write applications,<br>
+<br>
+650<br>
+00:28:20,600 --> 00:28:24,320<br>
+but you don't need to<br>
+follow it line by line.<br>
+<br>
+651<br>
+00:28:24,320 --> 00:28:27,400<br>
+So I'm going to briefly go<br>
+through this architecture,<br>
+<br>
+652<br>
+00:28:27,400 --> 00:28:28,960<br>
+but if you get<br>
+lost, don't worry.<br>
+<br>
+653<br>
+00:28:28,960 --> 00:28:31,950<br>
+We have all of this documented<br>
+on developer Android com<br>
+<br>
+654<br>
+00:28:31,950 --> 00:28:34,264<br>
+with sample applications.<br>
+<br>
 
 
 </td></tr> 
