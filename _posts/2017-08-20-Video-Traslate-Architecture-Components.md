@@ -3450,7 +3450,7 @@ developer.android.com/ это<br>
 <br>
 516<br>
 00:22:32,060 --> 00:22:34,890<br>
-Когда вы пиштте на Java,<br>
+Когда вы пишете на Java,<br>
 если вы делаете опечатку в Java,<br>
 <br>
 517<br>
@@ -3496,7 +3496,7 @@ Room, которая является объектом<br>
 <br>
 526<br>
 00:22:56,220 --> 00:22:59,649<br>
-mapping library для SQLite".<br>
+mapping library для SQLite". [т.е. ORM]<br>
 <br>
 527<br>
 00:22:59,649 --> 00:23:05,800<br>
@@ -3519,7 +3519,7 @@ mapping library для SQLite".<br>
 531<br>
 00:23:12,610 --> 00:23:14,560<br>
 И у нас есть объект<br>
-для сохранения, который<br>
+Feed, который<br>
 <br>
 532<br>
 00:23:14,560 --> 00:23:16,360<br>
@@ -3550,73 +3550,73 @@ Data Access Object.<br>
 <br>
 538<br>
 00:23:29,350 --> 00:23:32,252<br>
-Then we just need to tell<br>
-the Room, this is a Dow.<br>
+Тогда, нам всего лишь нужно<br>
+сказать Room "это DAO".<br>
 <br>
 539<br>
 00:23:32,252 --> 00:23:34,360<br>
-Tell Room this is an entity.<br>
+Сказать Room: "это сущность".<br>
 <br>
 540<br>
 00:23:34,360 --> 00:23:37,960<br>
-And finally, we had a<br>
-database class which says,<br>
+И наконец, у нас был класс<br>
+базы данных, который говорил:<br>
 <br>
 541<br>
 00:23:37,960 --> 00:23:41,050<br>
-I have these entities-- so<br>
-you have multiple entities,<br>
+"Что у меня есть сущности -<br>
+поэтому есть несколько сущностей,<br>
 <br>
 542<br>
 00:23:41,050 --> 00:23:45,240<br>
-and I have these data access<br>
-objects, as you saw them.<br>
+и у меня есть данные для доступа<br>
+к объектам, которые вы видели.<br>
 <br>
 543<br>
 00:23:45,240 --> 00:23:46,210<br>
-This is all you write.<br>
+Это все, что вы пишите.<br>
 <br>
 544<br>
 00:23:46,210 --> 00:23:48,760<br>
-Once you write that, you can<br>
-get an implementation of it<br>
+Как только вы напишите это, вы<br>
+можете получить реализацию этого<br>
 <br>
 545<br>
 00:23:48,760 --> 00:23:49,590<br>
-from Room.<br>
+с помощью Room.<br>
 <br>
 546<br>
 00:23:49,590 --> 00:23:52,750<br>
-It's very similar to how<br>
-you use Retrofit or Dagger--<br>
+Это очень похоже на то, когда<br>
+вы используете Retrofit или Dagger -<br>
 <br>
 547<br>
 00:23:52,750 --> 00:23:57,080<br>
-you define the interfaces, we<br>
-provide the implementation.<br>
+вы определяете интерфейсы,<br>
+мы обеспечиваем реализацию.<br>
 <br>
 548<br>
 00:23:57,080 --> 00:23:59,740<br>
-Now, once we know<br>
-this is a Dow, we<br>
+Теперь, как только мы узнали,<br>
+что это DAO, мы можем<br>
 <br>
 549<br>
 00:23:59,740 --> 00:24:01,210<br>
-can do these shortcut methods.<br>
+использовать методы быстрого доступа.<br>
 <br>
 550<br>
 00:24:01,210 --> 00:24:05,350<br>
-Like, insert these items, or<br>
-delete these items, or update--<br>
+Такие как, insert() это, или<br>
+deleteAll() это, or updateAll() -<br>
 <br>
 551<br>
 00:24:05,350 --> 00:24:06,930<br>
-a bunch of shortcut methods.<br>
+Куча методов бытрого доступа.<br>
 <br>
 552<br>
 00:24:06,930 --> 00:24:08,710<br>
-And you can press<br>
-multiple parameters.<br>
+Вы можете задавать<br>
+множесто параметров.<br>
 <br>
 
 
