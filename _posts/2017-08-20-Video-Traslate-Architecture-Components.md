@@ -3769,88 +3769,88 @@ Room собирается дать вам<br>
 <br>
 585<br>
 00:25:27,797 --> 00:25:29,380<br>
-But that's not the<br>
-only thing it does.<br>
+Но это не единственное,<br>
+что Room делает.<br>
 <br>
 586<br>
 00:25:29,380 --> 00:25:30,860<br>
-So if you said--<br>
+Итак, если вы скажите -<br>
 <br>
 587<br>
 00:25:30,860 --> 00:25:34,070<br>
-if your query is correct, you<br>
-want to fetch ID and title.<br>
+если ваш запрос верен, вы<br>
+хотите получить ID и title.<br>
 <br>
 588<br>
 00:25:34,070 --> 00:25:35,870<br>
-This said, well,<br>
-it's query, but you<br>
+Говорится: "Хорошо,<br>
+это запрос, но вы<br>
 <br>
 589<br>
 00:25:35,870 --> 00:25:37,350<br>
-want to return it as a string.<br>
+хотите вернуть это как строку."<br>
 <br>
 590<br>
 00:25:37,350 --> 00:25:40,460<br>
-And then Room says, well, you<br>
-are returning two columns,<br>
+И тогда Room отвечает: "ОК, ты<br>
+возвращаешь две колонки,<br>
 <br>
 591<br>
 00:25:40,460 --> 00:25:42,260<br>
-but you only have one string.<br>
+но у тебя есть только одна строка.<br>
 <br>
 592<br>
 00:25:42,260 --> 00:25:43,320<br>
-That doesn't make sense.<br>
+Это не имеет смысла."<br>
 <br>
 593<br>
 00:25:43,320 --> 00:25:46,800<br>
-And it's going to give you<br>
-a compile time error again.<br>
+И это обратно выдаст вам<br>
+ошибку во время компиляции.<br>
 <br>
 594<br>
 00:25:46,800 --> 00:25:49,220<br>
-And there's a really nice<br>
-way to fix this in Room.<br>
+И это действительно хороший<br>
+способ исправить это в Room.<br>
 <br>
 595<br>
 00:25:49,220 --> 00:25:51,095<br>
-You can basically<br>
-create any Java class.<br>
+Вы можете в принципе<br>
+создать любой Java класс.<br>
 <br>
 596<br>
 00:25:51,095 --> 00:25:52,580<br>
-It doesn't need<br>
-to be annotating,<br>
+Это не нужно<br>
+аннотировать,<br>
 <br>
 597<br>
 00:25:52,580 --> 00:25:55,170<br>
-there's nothing special<br>
-about that Pojo,<br>
+Не надо говорить ничего<br>
+специально об этом Pojo,<br>
 <br>
 598<br>
 00:25:55,170 --> 00:25:57,080<br>
-and tell Room to return it.<br>
+просто сказать Room вернуть его.<br>
 <br>
 599<br>
 00:25:57,080 --> 00:25:59,780<br>
-As long as whatever<br>
-query it returns<br>
+Пока какой-либо запрос<br>
+возвращает то, что<br>
 <br>
 600<br>
 00:25:59,780 --> 00:26:01,880<br>
-matches what you<br>
-want it to return,<br>
+соответствует тому,<br>
+что вы хотите вернуть,<br>
 <br>
 601<br>
 00:26:01,880 --> 00:26:05,250<br>
-Room will write<br>
-the code for you.<br>
+Room напишет этот код<br>
+вместо вас.<br>
 <br>
 602<br>
 00:26:05,250 --> 00:26:07,470<br>
-And observability, which<br>
-is very important, right?<br>
+И теперь наблюдатели, которые<br>
+очень важны, не так ли?<br>
 <br>
 603<br>
 00:26:07,470 --> 00:26:09,390<br>
