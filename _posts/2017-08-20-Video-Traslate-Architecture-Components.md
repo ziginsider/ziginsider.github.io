@@ -3854,85 +3854,85 @@ Room напишет этот код<br>
 <br>
 603<br>
 00:26:07,470 --> 00:26:09,390<br>
-If you have a query<br>
-like this, now you're<br>
+Если у вас есть запрос,<br>
+подобный этому, то вы<br>
 <br>
 604<br>
 00:26:09,390 --> 00:26:11,460<br>
-showing lists of<br>
-feeds, you obviously<br>
+показывая список Feed'ов,<br>
+вы очевидно<br>
 <br>
 605<br>
 00:26:11,460 --> 00:26:14,295<br>
-want to get notified<br>
-when the data changes.<br>
+захотите получить уведомление,<br>
+когда данные изменятся.<br>
 <br>
 606<br>
 00:26:14,295 --> 00:26:17,842<br>
-And in Room, if you want to<br>
-do this, all you have to do<br>
+И в Room, если вы хотите<br>
+сделать это, вы можете<br>
 <br>
 607<br>
 00:26:17,842 --> 00:26:19,290<br>
-is tell it.<br>
+сказать и сделать. Скажите,<br>
 <br>
 608<br>
 00:26:19,290 --> 00:26:22,980<br>
-Tell it to return a LiveData,<br>
-and it will do it for you.<br>
+чтобы она вернул LiveData,<br>
+и она сделает это для вас.<br>
 <br>
 609<br>
 00:26:22,980 --> 00:26:26,400<br>
-Because it knows your query,<br>
-it knows what things affect it.<br>
+Потому что она знает ваш запрос,<br>
+знает, что на него влияет.<br>
 <br>
 610<br>
 00:26:26,400 --> 00:26:29,520<br>
-So it can let you know<br>
-if that query changes.<br>
+Таким образом это поможет вам<br>
+узнать, если запрос изменится.<br>
 <br>
 611<br>
 00:26:29,520 --> 00:26:32,280<br>
-And this is the part where all<br>
-these architectural components<br>
+И это та часть, где все эти<br>
+архитектурные компоненты<br>
 <br>
 612<br>
 00:26:32,280 --> 00:26:33,750<br>
-work well together.<br>
+прекрасно работают вместе.<br>
 <br>
 613<br>
 00:26:33,750 --> 00:26:36,640<br>
-Room already knows<br>
-about LiveData.<br>
+Room уже знает<br>
+о LiveData.<br>
 <br>
 614<br>
 00:26:36,640 --> 00:26:40,340<br>
-So your ViewModel, all you would<br>
-write is-- from the data is,<br>
+Итак ваша ViewModel, все, что вы<br>
+можете написать - из данных,<br>
 <br>
 615<br>
 00:26:40,340 --> 00:26:42,600<br>
-call this query, and<br>
-this all it will do.<br>
+вызовите этот запрос, и<br>
+это все он сделает.<br>
 <br>
 616<br>
 00:26:42,600 --> 00:26:46,650<br>
-Whenever that data changes,<br>
-your UI will get a new update.<br>
+Всякий раз, когда данные меняются,<br>
+ваш UI обновляется также.<br>
 <br>
 617<br>
 00:26:46,650 --> 00:26:49,470<br>
-And it only happens<br>
-if the UI is visible.<br>
+И это только тогда происходит<br>
+когда ваш UI виден [visible]<br>
 <br>
 618<br>
 00:26:49,470 --> 00:26:52,958<br>
-Last but not least, Room<br>
-also supports RxJava 2.<br>
+И последнее, но не менее важное,<br>
+Room также поддерживает RxJava 2.<br>
 <br>
 619<br>
 00:26:52,958 --> 00:26:55,448<br>
-[APPLAUSE]<br>
+[ОВАЦИИ]<br>
 <br>
 620<br>
 00:26:55,448 --> 00:27:01,930<br>
@@ -3940,122 +3940,122 @@ also supports RxJava 2.<br>
 <br>
 621<br>
 00:27:01,930 --> 00:27:04,390<br>
-OK, if we look at<br>
-Room in a nutshell,<br>
+OK, если сказать о<br>
+Room в двух словах,<br>
 <br>
 622<br>
 00:27:04,390 --> 00:27:06,730<br>
-it writes the<br>
-boilerplate code for you.<br>
+Она пишет шаблонный<br>
+код для вас [вместо вас].<br>
 <br>
 623<br>
 00:27:06,730 --> 00:27:08,050<br>
-It has full SQLite support.<br>
+И она полностью поддерживает SQLite.<br>
 <br>
 624<br>
 00:27:08,050 --> 00:27:10,990<br>
-You can just write in<br>
-SQLite, there's no builders.<br>
+Вы можете все просто писать на<br>
+SQLite, будет работать и так.<br>
 <br>
 625<br>
 00:27:10,990 --> 00:27:14,070<br>
-It verifies your<br>
-queries at compile time.<br>
+Она проверяет ваши запросы<br>
+во время компиляции.<br>
 <br>
 626<br>
 00:27:14,070 --> 00:27:17,350<br>
-It incentivizes best<br>
-practices, which helps you<br>
+Это стимулирует лучшие практики,<br>
+которые помогают вам<br>
 <br>
 627<br>
 00:27:17,350 --> 00:27:19,480<br>
-with testing migrations.<br>
+с тестами, миграцией и.<br>
 <br>
 628<br>
 00:27:19,480 --> 00:27:23,020<br>
-And it's also observable<br>
-out of the box.<br>
+также наблюдателями, и все<br>
+это прямо из коробки.<br>
 <br>
 629<br>
 00:27:23,020 --> 00:27:28,000<br>
-OK, architecture,<br>
-our last topic today.<br>
+OK, архитектура,<br>
+наша последняя тема на сегодня.<br>
 <br>
 630<br>
 00:27:28,000 --> 00:27:30,000<br>
-So where we started, right?<br>
+Итак, с чего мы начали, верно?<br>
 <br>
 631<br>
 00:27:30,000 --> 00:27:31,860<br>
-And now, you might<br>
-be asking yourselves,<br>
+И теперь вы, возможно,<br>
+спросите себя:<br>
 <br>
 632<br>
 00:27:31,860 --> 00:27:34,335<br>
-what has changed<br>
-in 2017 that you<br>
+"Что изменилось в<br>
+2017 году, что вы вдруг<br>
 <br>
 633<br>
 00:27:34,335 --> 00:27:36,930<br>
-are talking about architecture?<br>
+заговорили про архитектуру?"<br>
 <br>
 634<br>
 00:27:36,930 --> 00:27:38,740<br>
-Well, actually<br>
-nothing has changed.<br>
+Хорошо, реально<br>
+ничего не изменилось.<br>
 <br>
 635<br>
 00:27:38,740 --> 00:27:40,560<br>
-We've been talking<br>
-about this topic a lot.<br>
+Мы говорим об этой теме<br>
+много.<br>
 <br>
 636<br>
 00:27:40,560 --> 00:27:44,460<br>
-Adam Powell and I gave a<br>
-lot of talks on this topic.<br>
+Adam Powell и я вели много<br>
+разговоров на эту тему.<br>
 <br>
 637<br>
 00:27:44,460 --> 00:27:49,050<br>
-There's even a talk from 2010<br>
-which I watch as a developer.<br>
+Этот разговор начался с 2010,<br>
+который я наблюдаю как разработчик.<br>
 <br>
 638<br>
 00:27:49,050 --> 00:27:51,630<br>
-So this is a topic we have<br>
-been more clear about.<br>
+И это та тема, которую мы<br>
+вполне четко обсуждали.<br>
 <br>
 639<br>
 00:27:51,630 --> 00:27:54,720<br>
-But what is missing was<br>
-a well-defined reference<br>
+Но чего не хватало, так это <br>
+четко определенной ссылки<br>
 <br>
 640<br>
 00:27:54,720 --> 00:27:56,022<br>
-architecture.<br>
+на архитектуру.<br>
 <br>
 641<br>
 00:27:56,022 --> 00:27:57,480<br>
-So it's what we<br>
-are shipping today.<br>
+И это то, что мы<br>
+запускаем в эти дни.<br>
 <br>
 642<br>
 00:27:57,480 --> 00:27:59,370<br>
-If you go to<br>
-developer.android.com today<br>
+Если вы пройдете сегодня на<br>
+developer.android.com,<br>
 <br>
 643<br>
 00:27:59,370 --> 00:28:01,680<br>
-after the session,<br>
-there's a section<br>
+после нашей сессии,<br>
+есть секция<br>
 <br>
 644<br>
 00:28:01,680 --> 00:28:05,246<br>
-about how to architect<br>
-an Android application.<br>
+о том, как быть архитектором<br>
+в Android приложении.<br>
 <br>
 645<br>
 00:28:05,246 --> 00:28:08,697<br>
-[APPLAUSE]<br>
+[АПЛОДИСМЕНТЫ]<br>
 <br>
 646<br>
 00:28:08,697 --> 00:28:13,640<br>
@@ -4063,41 +4063,41 @@ an Android application.<br>
 <br>
 647<br>
 00:28:13,640 --> 00:28:15,890<br>
-So by the way, this<br>
-is a reference guide.<br>
+И, таким образом, это<br>
+гид по архитектуре.<br>
 <br>
 648<br>
 00:28:15,890 --> 00:28:17,780<br>
-This is not your religious book.<br>
+Это не книга догматических правил.<br>
 <br>
 649<br>
 00:28:17,780 --> 00:28:20,600<br>
-We believe this is a very good<br>
-way to write applications,<br>
+Мы верим, что это очень хороший<br>
+путь, чтобы писать приложения,<br>
 <br>
 650<br>
 00:28:20,600 --> 00:28:24,320<br>
-but you don't need to<br>
-follow it line by line.<br>
+но вы не обязаны, следовать<br>
+за нами строчка за строчкой.<br>
 <br>
 651<br>
 00:28:24,320 --> 00:28:27,400<br>
-So I'm going to briefly go<br>
-through this architecture,<br>
+Поэтому я кратко остановлюсь<br>
+на архитектуре,<br>
 <br>
 652<br>
 00:28:27,400 --> 00:28:28,960<br>
-but if you get<br>
-lost, don't worry.<br>
+но если вы потеряетесь немного,<br>
+не волнуйтесь.<br>
 <br>
 653<br>
 00:28:28,960 --> 00:28:31,950<br>
-We have all of this documented<br>
-on developer Android com<br>
+У нас есть вся документации на<br>
+developer.аndroid.com<br>
 <br>
 654<br>
 00:28:31,950 --> 00:28:34,264<br>
-with sample applications.<br>
+с простыми примерами.<br>
 <br>
 
 
