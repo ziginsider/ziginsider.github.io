@@ -4345,187 +4345,187 @@ GRAM, это не слишком важно.<br>
 <br>
 708<br>
 00:30:39,090 --> 00:30:41,940<br>
-And we think that<br>
-all of these layers<br>
+И мы думаем, что<br>
+все эти слои<br>
 <br>
 709<br>
 00:30:41,940 --> 00:30:43,830<br>
-can discover each<br>
-other to create<br>
+могут обнаруживать друг<br>
+друга чтобы создавать<br>
 <br>
 710<br>
 00:30:43,830 --> 00:30:45,630<br>
-dependency checks<br>
-to the system which<br>
+проверки зависимостей<br>
+в системе, которые мы будем<br>
 <br>
 711<br>
 00:30:45,630 --> 00:30:47,370<br>
-we'll command using Dagger.<br>
+использовать с помощью Dagger.<br>
 <br>
 712<br>
 00:30:47,370 --> 00:30:49,800<br>
-But we also realize that<br>
-understanding dependency<br>
+Но мы также озознаем, что<br>
+понимание ситуации зависимости<br>
 <br>
 713<br>
 00:30:49,800 --> 00:30:51,810<br>
-situation is not very trivial.<br>
+не очень легко.<br>
 <br>
 714<br>
 00:30:51,810 --> 00:30:55,560<br>
-It's a more complex topic, and<br>
-sometimes might be an overkill.<br>
+Это более сложная тема, и<br>
+иногда может быть излишней.<br>
 <br>
 715<br>
 00:30:55,560 --> 00:30:57,750<br>
-And you could also<br>
-use a service locator<br>
+И вы могли бы использовать<br>
+Service Locator, если<br>
 <br>
 716<br>
 00:30:57,750 --> 00:31:01,560<br>
-if you feel more<br>
-comfortable with it.<br>
+вы чувствуете себя более<br>
+комфортно с ним.<br>
 <br>
 717<br>
 00:31:01,560 --> 00:31:04,050<br>
-So let's go back to--<br>
+Итак, давайте вернемся к конкретному -<br>
 <br>
 718<br>
 00:31:04,050 --> 00:31:06,700<br>
-go through a concrete example.<br>
+пройдем через конкретный пример.<br>
 <br>
 719<br>
 00:31:06,700 --> 00:31:10,110<br>
-Let's say we have a UI<br>
-that shows a user profile,<br>
+Допустим, у нас есть UI, который<br>
+показывает профиль пользователя,<br>
 <br>
 720<br>
 00:31:10,110 --> 00:31:12,380<br>
-and we have the<br>
-data sources which--<br>
+и у нас есть источник<br>
+данных который - мы сохраняем<br>
 <br>
 721<br>
 00:31:12,380 --> 00:31:16,080<br>
-we save it to database, we also<br>
-can get it from the network.<br>
+данные в базе данных, также<br>
+можем получить их через сеть.<br>
 <br>
 722<br>
 00:31:16,080 --> 00:31:18,210<br>
-How do we connect<br>
-these two things?<br>
+Как мы получаем<br>
+эти две вещи?<br>
 <br>
 723<br>
 00:31:18,210 --> 00:31:21,240<br>
-Well, we said we first<br>
-need a user repository.<br>
+Хорошо, мы говорим, что сначала<br>
+нужен репозиторий пользователя.<br>
 <br>
 724<br>
 00:31:21,240 --> 00:31:23,880<br>
-User repository knows it<br>
-should check the database.<br>
+Пользовательский репозиторий знает,<br>
+что он должен проверять базу данных.<br>
 <br>
 725<br>
 00:31:23,880 --> 00:31:25,680<br>
-It's not there,<br>
-make a web request.<br>
+Если там нет,<br>
+то сделать веб-запрос.<br>
 <br>
 726<br>
 00:31:25,680 --> 00:31:28,500<br>
-Or meanwhile, also try<br>
-to run the database.<br>
+Или между тем, также попытаться<br>
+запустить базу данных.<br>
 <br>
 727<br>
 00:31:28,500 --> 00:31:30,750<br>
-It doesn't matter<br>
-how it does it,<br>
+Не имеет значения,<br>
+как делать это,<br>
 <br>
 728<br>
 00:31:30,750 --> 00:31:32,820<br>
-but it knows how to<br>
-create a LiveData<br>
+но он [репозиторий] знает,<br>
+как создать LiveData<br>
 <br>
 729<br>
 00:31:32,820 --> 00:31:36,780<br>
-of a user or an<br>
-observable, doesn't matter.<br>
+пользователя или наблюдателя,<br>
+все равно кого.<br>
 <br>
 730<br>
 00:31:36,780 --> 00:31:38,430<br>
-And then we need the<br>
-ViewModel, right,<br>
+И тогда нам нужна<br>
+ViewModel, правильно,<br>
 <br>
 731<br>
 00:31:38,430 --> 00:31:41,670<br>
-because the data for the<br>
-UI lives in the ViewModel.<br>
+потому что данные для<br>
+UI живут в ViewModel.<br>
 <br>
 732<br>
 00:31:41,670 --> 00:31:44,220<br>
-So we create this<br>
+Итак мы создаем<br>
 ProfileViewModel,<br>
 <br>
 733<br>
 00:31:44,220 --> 00:31:48,030<br>
-which talks to the repository<br>
-to get this information.<br>
+который "говорит" с репозиторием,<br>
+чтобы получить эту информацию.<br>
 <br>
 734<br>
 00:31:48,030 --> 00:31:50,850<br>
-And then the actual<br>
-fragment gets the data<br>
+А затем реальный фрагиент<br>
+получает данные<br>
 <br>
 735<br>
 00:31:50,850 --> 00:31:54,450<br>
-from the view model so that<br>
-if the fragment comes back,<br>
+из ViewModel, так что,<br>
+если фрагмент возвращается,<br>
 <br>
 736<br>
 00:31:54,450 --> 00:31:57,270<br>
-the LiveData will be there<br>
-in the ProfileViewModel.<br>
+то LiveData будет в<br>
+ProfileViewModel.<br>
 <br>
 737<br>
 00:31:57,270 --> 00:32:00,070<br>
-But if the fragment<br>
-disappears completely,<br>
+Но если фрагмент<br>
+исчезает полностью,<br>
 <br>
 738<br>
 00:32:00,070 --> 00:32:01,680<br>
-we will get rid<br>
-of the ViewModel,<br>
+мы избавляемя<br>
+от ViewModel,<br>
 <br>
 739<br>
 00:32:01,680 --> 00:32:05,240<br>
-and the data can be<br>
-garbage collected.<br>
+и данных, которые могут быть<br>
+собраны сборщиком мусора.<br>
 <br>
 740<br>
 00:32:05,240 --> 00:32:07,100<br>
-Now, all this<br>
-abstraction we made,<br>
+Теперь, вся эта абстракция,<br>
+которую мы создали,<br>
 <br>
 741<br>
 00:32:07,100 --> 00:32:10,640<br>
-if you notice, every single<br>
-component only talks to the one<br>
+если вы заметели, каждый отдельный<br>
+компонент говорит только о том, что<br>
 <br>
 742<br>
 00:32:10,640 --> 00:32:14,520<br>
-right below it, which is--<br>
-helps to scale your application.<br>
+находится прямо по ним, что помогает<br>
+массштабировать ваше приложение.<br>
 <br>
 743<br>
 00:32:14,520 --> 00:32:16,340<br>
-It also has a<br>
-great side benefit,<br>
+И это также имеет<br>
+огромную побочную выгоду,<br>
 <br>
 744<br>
 00:32:16,340 --> 00:32:18,260<br>
-which is called testing.<br>
+которая называется тестированием.<br>
 <br>
 745<br>
 00:32:18,260 --> 00:32:19,230<br>
-You're testing, right?<br>
+Вы же тестируете, правильно?<br>
 <br>
 746<br>
 00:32:19,230 --> 00:32:24,500<br>
@@ -4533,62 +4533,603 @@ You're testing, right?<br>
 <br>
 747<br>
 00:32:24,500 --> 00:32:26,210<br>
-So let's say you<br>
-want to test your UI.<br>
+Итак, скажем, вы хотите<br>
+протестировать ваш UI.<br>
 <br>
 748<br>
 00:32:26,210 --> 00:32:27,880<br>
-Now, people say UI<br>
-testing is hard.<br>
+Сейчас люди говорят UI-<br>
+тестирование сложное.<br>
 <br>
 749<br>
 00:32:27,880 --> 00:32:30,990<br>
-UI testing is--<br>
-yes, it's harder.<br>
+UI-тестирование -<br>
+да, это сложно.<br>
 <br>
 750<br>
 00:32:30,990 --> 00:32:33,320<br>
-But it's usually hard because<br>
-you put all of your code<br>
+Но часто это сложно потому,<br>
+что вы пишете много кода<br>
 <br>
 751<br>
 00:32:33,320 --> 00:32:35,290<br>
-into that activity.<br>
+внутри Activity.<br>
 <br>
 752<br>
 00:32:35,290 --> 00:32:38,630<br>
-Now, we said, put most<br>
-of it into the ViewModel,<br>
+Теперь мы говорим, пиши<br>
+больше во ViewModel,<br>
 <br>
 753<br>
 00:32:38,630 --> 00:32:41,510<br>
-and you know that UI only<br>
-talks to the ViewModel,<br>
+и вы знаете, что UI только<br>
+говорит к ViewModel,<br>
 <br>
 754<br>
 00:32:41,510 --> 00:32:43,520<br>
-so you can get rid<br>
-of the other two.<br>
+так что вы можете избавиться от<br>
+двух остальных [частей архитектуры].<br>
 <br>
 755<br>
 00:32:43,520 --> 00:32:47,170<br>
-You only need to create a fake<br>
-ViewModel to test your UI.<br>
+Вам только нужно создать фальшивку<br>
+ViewModel для тестирование вашего UI.<br>
 <br>
 756<br>
 00:32:47,170 --> 00:32:50,900<br>
-Testing your UI become super,<br>
-super easy with Espresso.<br>
+Тестирование вашего UI становится супер,<br>
+супер easy with Espresso.<br>
 <br>
 757<br>
 00:32:50,900 --> 00:32:52,880<br>
-And we have a<br>
-sample app on GitHub<br>
+И у нас есть пример<br>
+приложения на GitHub<br>
 <br>
 758<br>
 00:32:52,880 --> 00:32:56,346<br>
-that you can check<br>
-out with [INAUDIBLE].<br>
+где вы можете проверить<br>
+с [НЕРАЗБОРЧИВО].<br>
+<br>
+759<br>
+00:32:56,346 --> 00:32:58,220<br>
+And the same thing as<br>
+well as for ViewModels.<br>
+<br>
+760<br>
+00:32:58,220 --> 00:32:59,660<br>
+If you want to<br>
+test the ViewModel,<br>
+<br>
+761<br>
+00:32:59,660 --> 00:33:02,330<br>
+you know it's only talks<br>
+to the repositories.<br>
+<br>
+762<br>
+00:33:02,330 --> 00:33:05,860<br>
+You replace it with a mock<br>
+respository, and it works.<br>
+<br>
+763<br>
+00:33:05,860 --> 00:33:08,570<br>
+And you can even<br>
+test your ViewModels<br>
+<br>
+764<br>
+00:33:08,570 --> 00:33:11,150<br>
+on your host machine, on JVM.<br>
+<br>
+765<br>
+00:33:11,150 --> 00:33:12,780<br>
+And last but not<br>
+least, you can test<br>
+<br>
+766<br>
+00:33:12,780 --> 00:33:14,030<br>
+the respository the same way.<br>
+<br>
+767<br>
+00:33:14,030 --> 00:33:16,040<br>
+You just mock the data sources.<br>
+<br>
+768<br>
+00:33:16,040 --> 00:33:21,000<br>
+You can easily test your<br>
+repositories as JUnit test.<br>
+<br>
+769<br>
+00:33:21,000 --> 00:33:23,060<br>
+Now, I know this has been<br>
+a lot of information.<br>
+<br>
+770<br>
+00:33:23,060 --> 00:33:26,420<br>
+We have two sessions tomorrow,<br>
+and also documentation.<br>
+<br>
+771<br>
+00:33:26,420 --> 00:33:29,630<br>
+But now I want to call<br>
+our product manager lUKAS<br>
+<br>
+772<br>
+00:33:29,630 --> 00:33:32,646<br>
+to talk about what to do next.<br>
+<br>
+773<br>
+00:33:32,646 --> 00:33:35,574<br>
+[APPLAUSE]<br>
+<br>
+774<br>
+00:33:35,574 --> 00:33:41,425<br>
+<br>
+<br>
+775<br>
+00:33:41,425 --> 00:33:42,800<br>
+LUKAS BERGSTROM:<br>
+Like Yigit said,<br>
+<br>
+776<br>
+00:33:42,800 --> 00:33:44,870<br>
+we just covered a lot of ground.<br>
+<br>
+777<br>
+00:33:44,870 --> 00:33:46,820<br>
+And actually, we glossed<br>
+over a lot of detail<br>
+<br>
+778<br>
+00:33:46,820 --> 00:33:48,080<br>
+while we did that.<br>
+<br>
+779<br>
+00:33:48,080 --> 00:33:50,420<br>
+But luckily, you don't<br>
+have to remember everything<br>
+<br>
+780<br>
+00:33:50,420 --> 00:33:51,950<br>
+that you just heard.<br>
+<br>
+781<br>
+00:33:51,950 --> 00:33:56,180<br>
+We have a lot of material<br>
+for you to check out<br>
+<br>
+782<br>
+00:33:56,180 --> 00:33:58,910<br>
+at developer.android.com/arch.<br>
+<br>
+783<br>
+00:33:58,910 --> 00:34:03,305<br>
+And that link should start<br>
+working in 21 minutes.<br>
+<br>
+784<br>
+00:34:03,305 --> 00:34:06,260<br>
+<br>
+<br>
+785<br>
+00:34:06,260 --> 00:34:07,790<br>
+We wanted to give<br>
+you guys a chance<br>
+<br>
+786<br>
+00:34:07,790 --> 00:34:10,219<br>
+to kind of blog and tweet<br>
+about this before anybody else.<br>
+<br>
+787<br>
+00:34:10,219 --> 00:34:13,190<br>
+So that's why we held it back.<br>
+<br>
+788<br>
+00:34:13,190 --> 00:34:15,560<br>
+So yeah, we made having<br>
+good documentation<br>
+<br>
+789<br>
+00:34:15,560 --> 00:34:18,469<br>
+and samples a priority from<br>
+the beginning of this project,<br>
+<br>
+790<br>
+00:34:18,469 --> 00:34:22,310<br>
+since providing good guidance is<br>
+really one of the major goals.<br>
+<br>
+791<br>
+00:34:22,310 --> 00:34:24,800<br>
+So you're going to find<br>
+in-depth documentation that's<br>
+<br>
+792<br>
+00:34:24,800 --> 00:34:27,337<br>
+written from the perspective<br>
+of an app developer.<br>
+<br>
+793<br>
+00:34:27,337 --> 00:34:29,420<br>
+You're going to find really<br>
+meaty sample apps that<br>
+<br>
+794<br>
+00:34:29,420 --> 00:34:31,280<br>
+show how to build a real app.<br>
+<br>
+795<br>
+00:34:31,280 --> 00:34:34,650<br>
+And just as an example of<br>
+how much work went into this,<br>
+<br>
+796<br>
+00:34:34,650 --> 00:34:36,139<br>
+we have a GitHub<br>
+browser sample app<br>
+<br>
+797<br>
+00:34:36,139 --> 00:34:39,440<br>
+that probably has better test<br>
+coverage than many real world<br>
+<br>
+798<br>
+00:34:39,440 --> 00:34:42,170<br>
+apps, written by that guy.<br>
+<br>
+799<br>
+00:34:42,170 --> 00:34:44,820<br>
+<br>
+<br>
+800<br>
+00:34:44,820 --> 00:34:47,420<br>
+And of course, we have the<br>
+guide to app architecture,<br>
+<br>
+801<br>
+00:34:47,420 --> 00:34:50,929<br>
+which internally, we called the<br>
+Opinionated Guide for a while.<br>
+<br>
+802<br>
+00:34:50,929 --> 00:34:53,210<br>
+And we think that<br>
+label still applies.<br>
+<br>
+803<br>
+00:34:53,210 --> 00:34:55,639<br>
+But even if you're not<br>
+planning to use our recommended<br>
+<br>
+804<br>
+00:34:55,639 --> 00:34:58,580<br>
+architecture, we think people<br>
+should check out the guide.<br>
+<br>
+805<br>
+00:34:58,580 --> 00:35:04,010<br>
+It has principles that we think<br>
+apply to all apps on Android.<br>
+<br>
+806<br>
+00:35:04,010 --> 00:35:07,760<br>
+And you're probably asking<br>
+yourself, do I not--<br>
+<br>
+807<br>
+00:35:07,760 --> 00:35:09,830<br>
+what's the impact of<br>
+this going to be on me?<br>
+<br>
+808<br>
+00:35:09,830 --> 00:35:13,160<br>
+Am I going to have to change the<br>
+way that I'm doing everything?<br>
+<br>
+809<br>
+00:35:13,160 --> 00:35:15,315<br>
+You know, if you're<br>
+starting a new project,<br>
+<br>
+810<br>
+00:35:15,315 --> 00:35:16,940<br>
+or if you have an<br>
+existing app, but you<br>
+<br>
+811<br>
+00:35:16,940 --> 00:35:19,190<br>
+want to improve the<br>
+core architecture,<br>
+<br>
+812<br>
+00:35:19,190 --> 00:35:22,100<br>
+then yeah, we recommend<br>
+taking a look at this stuff.<br>
+<br>
+813<br>
+00:35:22,100 --> 00:35:24,050<br>
+It's still preview.<br>
+<br>
+814<br>
+00:35:24,050 --> 00:35:26,790<br>
+We won't be hitting<br>
+1.0 for a few months,<br>
+<br>
+815<br>
+00:35:26,790 --> 00:35:30,050<br>
+but we think it's definitely<br>
+ready for you guys<br>
+<br>
+816<br>
+00:35:30,050 --> 00:35:32,460<br>
+to check out, and<br>
+use in projects.<br>
+<br>
+817<br>
+00:35:32,460 --> 00:35:34,250<br>
+But if you're happy<br>
+with what you have,<br>
+<br>
+818<br>
+00:35:34,250 --> 00:35:37,360<br>
+you don't need to<br>
+rewrite your app.<br>
+<br>
+819<br>
+00:35:37,360 --> 00:35:39,530<br>
+So in the spirit of be<br>
+together, not the same,<br>
+<br>
+820<br>
+00:35:39,530 --> 00:35:41,890<br>
+we're not dictating what<br>
+everyone has to use.<br>
+<br>
+821<br>
+00:35:41,890 --> 00:35:44,590<br>
+If you're happy with your app<br>
+architecture, you can keep it.<br>
+<br>
+822<br>
+00:35:44,590 --> 00:35:46,510<br>
+If you're happy with<br>
+your existing ORM,<br>
+<br>
+823<br>
+00:35:46,510 --> 00:35:48,820<br>
+you don't have to use Room.<br>
+<br>
+824<br>
+00:35:48,820 --> 00:35:51,910<br>
+Architecture components are<br>
+designed to work well together,<br>
+<br>
+825<br>
+00:35:51,910 --> 00:35:55,780<br>
+but they do work<br>
+perfectly fine standalone.<br>
+<br>
+826<br>
+00:35:55,780 --> 00:35:58,300<br>
+And mixing and matching<br>
+applies not only<br>
+<br>
+827<br>
+00:35:58,300 --> 00:36:04,730<br>
+to architecture components,<br>
+but also third party libraries.<br>
+<br>
+828<br>
+00:36:04,730 --> 00:36:11,760<br>
+So-- I'm waiting for<br>
+this slide to come up.<br>
+<br>
+829<br>
+00:36:11,760 --> 00:36:14,389<br>
+So yeah, so you can<br>
+use what you have,<br>
+<br>
+830<br>
+00:36:14,389 --> 00:36:16,680<br>
+and to start to integrate<br>
+architecture components where<br>
+<br>
+831<br>
+00:36:16,680 --> 00:36:18,310<br>
+they make sense.<br>
+<br>
+832<br>
+00:36:18,310 --> 00:36:21,000<br>
+So for example, if you're<br>
+happy with Rx Java,<br>
+<br>
+833<br>
+00:36:21,000 --> 00:36:24,510<br>
+but you really like the<br>
+Lifecycle aware component stuff<br>
+<br>
+834<br>
+00:36:24,510 --> 00:36:27,360<br>
+that Yigit just showed, so that<br>
+you have these self-sufficient<br>
+<br>
+835<br>
+00:36:27,360 --> 00:36:31,590<br>
+components, you can use<br>
+LiveData together with Rx Java.<br>
+<br>
+836<br>
+00:36:31,590 --> 00:36:34,800<br>
+So you can get all the<br>
+power of Rx Java operators,<br>
+<br>
+837<br>
+00:36:34,800 --> 00:36:36,420<br>
+and now it's Lifecycle safe.<br>
+<br>
+838<br>
+00:36:36,420 --> 00:36:39,510<br>
+So kind of the best<br>
+of both worlds.<br>
+<br>
+839<br>
+00:36:39,510 --> 00:36:41,760<br>
+And we've got additional<br>
+integrations to come.<br>
+<br>
+840<br>
+00:36:41,760 --> 00:36:45,890<br>
+We're definitely looking at<br>
+a lot of stuff internally<br>
+<br>
+841<br>
+00:36:45,890 --> 00:36:48,480<br>
+that would be nice if<br>
+it were self-sufficient<br>
+<br>
+842<br>
+00:36:48,480 --> 00:36:50,500<br>
+and Lifecycle aware.<br>
+<br>
+843<br>
+00:36:50,500 --> 00:36:53,460<br>
+And if you're a<br>
+library developer,<br>
+<br>
+844<br>
+00:36:53,460 --> 00:36:55,920<br>
+we really recommend<br>
+checking out Lifecycles<br>
+<br>
+845<br>
+00:36:55,920 --> 00:36:57,690<br>
+and LifecycleObserver<br>
+because we think<br>
+<br>
+846<br>
+00:36:57,690 --> 00:37:00,480<br>
+there is a really bright<br>
+future, and a lot of potential<br>
+<br>
+847<br>
+00:37:00,480 --> 00:37:03,420<br>
+in making libraries and<br>
+components that are Lifecycle<br>
+<br>
+848<br>
+00:37:03,420 --> 00:37:07,870<br>
+aware by default.<br>
+But before you go<br>
+<br>
+849<br>
+00:37:07,870 --> 00:37:11,110<br>
+do that, we have a lot more<br>
+for you at I/O this year.<br>
+<br>
+850<br>
+00:37:11,110 --> 00:37:15,310<br>
+We have two more talks,<br>
+one on Lifecycles<br>
+<br>
+851<br>
+00:37:15,310 --> 00:37:18,280<br>
+that's even more in-depth than<br>
+what we just showed tomorrow<br>
+<br>
+852<br>
+00:37:18,280 --> 00:37:20,020<br>
+morning.<br>
+<br>
+853<br>
+00:37:20,020 --> 00:37:24,040<br>
+We have another one on<br>
+Room and Persistence,<br>
+<br>
+854<br>
+00:37:24,040 --> 00:37:25,480<br>
+and going a little<br>
+bit beyond Room<br>
+<br>
+855<br>
+00:37:25,480 --> 00:37:27,790<br>
+starting at 12:30 tomorrow.<br>
+<br>
+856<br>
+00:37:27,790 --> 00:37:31,950<br>
+And we'll have people who are<br>
+well-versed in architecture<br>
+<br>
+857<br>
+00:37:31,950 --> 00:37:36,740<br>
+components in the<br>
+sandbox for all of I/O.<br>
+<br>
+858<br>
+00:37:36,740 --> 00:37:41,600<br>
+And we also have codelabs,<br>
+which we're pretty happy with.<br>
+<br>
+859<br>
+00:37:41,600 --> 00:37:43,890<br>
+And there's more to come.<br>
+<br>
+860<br>
+00:37:43,890 --> 00:37:46,100<br>
+So we think we've just<br>
+scratched the surface of ways<br>
+<br>
+861<br>
+00:37:46,100 --> 00:37:48,260<br>
+that we can improve the<br>
+experience of using Android<br>
+<br>
+862<br>
+00:37:48,260 --> 00:37:51,320<br>
+Frameworks, and we're looking<br>
+at applying this approach<br>
+<br>
+863<br>
+00:37:51,320 --> 00:37:53,310<br>
+in other areas as well.<br>
+<br>
+864<br>
+00:37:53,310 --> 00:37:54,980<br>
+So some things<br>
+already in the works.<br>
+<br>
+865<br>
+00:37:54,980 --> 00:37:58,310<br>
+And we're also interested in<br>
+hearing from you on what else<br>
+<br>
+866<br>
+00:37:58,310 --> 00:37:59,720<br>
+you'd like to see.<br>
+<br>
+867<br>
+00:37:59,720 --> 00:38:04,010<br>
+So come by, talk to us, tell us<br>
+what you like, what you don't.<br>
+<br>
+868<br>
+00:38:04,010 --> 00:38:06,800<br>
+And stay tuned, because we're<br>
+really excited about the future<br>
+<br>
+869<br>
+00:38:06,800 --> 00:38:08,570<br>
+of Android development.<br>
+<br>
+870<br>
+00:38:08,570 --> 00:38:09,310<br>
+Thank you.<br>
+<br>
+871<br>
+00:38:09,310 --> 00:38:11,460<br>
+[APPLAUSE]<br>
+<br>
+872<br>
+00:38:11,460 --> 00:00:00,000<br>
+<br>
 <br>
 
 
