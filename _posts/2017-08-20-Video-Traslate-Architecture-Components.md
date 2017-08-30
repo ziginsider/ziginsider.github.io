@@ -4099,6 +4099,497 @@ developer.аndroid.com<br>
 00:28:31,950 --> 00:28:34,264<br>
 с простыми примерами.<br>
 <br>
+655<br>
+00:28:34,264 --> 00:28:35,680<br>
+Итак, мы считаем, что<br>
+приложение состоит<br>
+<br>
+656<br>
+00:28:35,680 --> 00:28:37,300<br>
+из четырех главных частей -<br>
+<br>
+657<br>
+00:28:37,300 --> 00:28:41,680<br>
+это UI-контроллеры, <br>
+ViewModels, хранилище данных,<br>
+<br>
+658<br>
+00:28:41,680 --> 00:28:43,030<br>
+и источники данных.<br>
+<br>
+659<br>
+00:28:43,030 --> 00:28:45,640<br>
+Давайте разберем это<br>
+в деталях.<br>
+<br>
+660<br>
+00:28:45,640 --> 00:28:47,980<br>
+UI-контроллеры это<br>
+ваши Activities,<br>
+<br>
+661<br>
+00:28:47,980 --> 00:28:51,100<br>
+Fragments, custom Views.<br>
+<br>
+662<br>
+00:28:51,100 --> 00:28:52,750<br>
+У них действительно простые задачи.<br>
+<br>
+663<br>
+00:28:52,750 --> 00:28:55,270<br>
+Они наблюдают за полями<br>
+у ViewModel<br>
+<br>
+664<br>
+00:28:55,270 --> 00:28:56,720<br>
+и обновляют себя.<br>
+<br>
+665<br>
+00:28:56,720 --> 00:28:58,540<br>
+И они хотят больше<br>
+ответственности.<br>
+<br>
+666<br>
+00:28:58,540 --> 00:29:01,540<br>
+Всякий раз, когда пользователь<br>
+совершает действие в UI,<br>
+<br>
+667<br>
+00:29:01,540 --> 00:29:04,450<br>
+они понимают это действие,<br>
+и сообщают о нем во ViewModel<br>
+<br>
+668<br>
+00:29:04,450 --> 00:29:07,540<br>
+так, что становится понятно,<br>
+что пользователь хотел сделать.<br>
+<br>
+669<br>
+00:29:07,540 --> 00:29:10,390<br>
+Если мы посмотрим на ViewModel,<br>
+то это та сущность, которая<br>
+<br>
+670<br>
+00:29:10,390 --> 00:29:13,450<br>
+готовит данные<br>
+для UI,<br>
+<br>
+671<br>
+00:29:13,450 --> 00:29:14,480<br>
+и держит их.<br>
+<br>
+672<br>
+00:29:14,480 --> 00:29:16,740<br>
+Это то, где данные<br>
+для UI-интерфейса.<br>
+<br>
+673<br>
+00:29:16,740 --> 00:29:20,050<br>
+ViewModel знает как<br>
+получить эти данные.<br>
+<br>
+674<br>
+00:29:20,050 --> 00:29:21,949<br>
+Обычно есть LiveData.<br>
+<br>
+675<br>
+00:29:21,949 --> 00:29:23,740<br>
+Если вы используете RxJava,<br>
+это наблюдение за данными,<br>
+<br>
+676<br>
+00:29:23,740 --> 00:29:26,940<br>
+или сбор информации от наблюдений.<br>
+<br>
+677<br>
+00:29:26,940 --> 00:29:28,830<br>
+Это помогает "пережить"<br>
+изменения конфигурации.<br>
+<br>
+678<br>
+00:29:28,830 --> 00:29:32,200<br>
+И это то, почему мы помещаем<br>
+данные во ViewModels.<br>
+<br>
+679<br>
+00:29:32,200 --> 00:29:33,680<br>
+И это также шлюз.<br>
+<br>
+680<br>
+00:29:33,680 --> 00:29:37,040<br>
+И это тоже понятно т.к.<br>
+ваш UI-контроллер, когда<br>
+<br>
+681<br>
+00:29:37,040 --> 00:29:39,230<br>
+говорит с ViewModel,<br>
+связывается с остальными<br>
+<br>
+682<br>
+00:29:39,230 --> 00:29:42,690<br>
+частями приложения.<br>
+<br>
+683<br>
+00:29:42,690 --> 00:29:44,360<br>
+И что же тгда репозиторий?<br>
+<br>
+684<br>
+00:29:44,360 --> 00:29:47,100<br>
+ViewModel выполняет функцию<br>
+хранилища данных<br>
+<br>
+685<br>
+00:29:47,100 --> 00:29:48,920<br>
+для UI-контроллера, правильно?<br>
+<br>
+686<br>
+00:29:48,920 --> 00:29:51,060<br>
+Репозиторий хранит их,<br>
+в предсталении хранилища данных<br>
+<br>
+687<br>
+00:29:51,060 --> 00:29:53,520<br>
+для всего вашего приложения.<br>
+<br>
+688<br>
+00:29:53,520 --> 00:29:56,070<br>
+Таким образом, это полная<br>
+модель данных для приложения,<br>
+<br>
+689<br>
+00:29:56,070 --> 00:29:58,560<br>
+и он обеспечивает обмен [предоставление]<br>
+данными через простые API<br>
+<br>
+690<br>
+00:29:58,560 --> 00:30:00,210<br>
+для остальной части приложения.<br>
+<br>
+691<br>
+00:30:00,210 --> 00:30:03,420<br>
+У вас может быть пользовательский<br>
+репозиторий, где вы даете user-ID,<br>
+<br>
+692<br>
+00:30:03,420 --> 00:30:06,000<br>
+И получаете<br>
+LiveData о пользователе<br>
+<br>
+693<br>
+00:30:06,000 --> 00:30:07,650<br>
+Откуда у него данные?<br>
+<br>
+694<br>
+00:30:07,650 --> 00:30:10,260<br>
+Вы не должны заботиться,<br>
+это работа репозитория.<br>
+<br>
+695<br>
+00:30:10,260 --> 00:30:11,280<br>
+Но как он это делает?<br>
+<br>
+696<br>
+00:30:11,280 --> 00:30:12,420<br>
+Он беседует с - <br>
+<br>
+697<br>
+00:30:12,420 --> 00:30:15,920<br>
+выборкой, синхронизацией,<br>
+глядя на базу данных,<br>
+<br>
+698<br>
+00:30:15,920 --> 00:30:17,990<br>
+или общаясь через ваш<br>
+Retrofit.<br>
+<br>
+699<br>
+00:30:17,990 --> 00:30:20,770<br>
+Это работа репозитория.<br>
+<br>
+700<br>
+00:30:20,770 --> 00:30:23,100<br>
+И последнее но не менее важное,<br>
+у нас есть источники данных,<br>
+<br>
+701<br>
+00:30:23,100 --> 00:30:25,020<br>
+наподобие ваших REST API клиентов.<br>
+<br>
+702<br>
+00:30:25,020 --> 00:30:28,470<br>
+Вы можете использовать Retrofit,<br>
+или у вас есть SQLite база.<br>
+<br>
+703<br>
+00:30:28,470 --> 00:30:30,500<br>
+Вы можете использовать Room,<br>
+или вы можете использовать<br>
+<br>
+704<br>
+00:30:30,500 --> 00:30:32,460<br>
+GRAM, это не слишком важно.<br>
+<br>
+705<br>
+00:30:32,460 --> 00:30:34,920<br>
+И вы можете говорить<br>
+другим провайдерам контента<br>
+<br>
+706<br>
+00:30:34,920 --> 00:30:36,390<br>
+из других процессов.<br>
+<br>
+707<br>
+00:30:36,390 --> 00:30:39,090<br>
+Эти вещи мы называем<br>
+источниками данных.<br>
+<br>
+708<br>
+00:30:39,090 --> 00:30:41,940<br>
+And we think that<br>
+all of these layers<br>
+<br>
+709<br>
+00:30:41,940 --> 00:30:43,830<br>
+can discover each<br>
+other to create<br>
+<br>
+710<br>
+00:30:43,830 --> 00:30:45,630<br>
+dependency checks<br>
+to the system which<br>
+<br>
+711<br>
+00:30:45,630 --> 00:30:47,370<br>
+we'll command using Dagger.<br>
+<br>
+712<br>
+00:30:47,370 --> 00:30:49,800<br>
+But we also realize that<br>
+understanding dependency<br>
+<br>
+713<br>
+00:30:49,800 --> 00:30:51,810<br>
+situation is not very trivial.<br>
+<br>
+714<br>
+00:30:51,810 --> 00:30:55,560<br>
+It's a more complex topic, and<br>
+sometimes might be an overkill.<br>
+<br>
+715<br>
+00:30:55,560 --> 00:30:57,750<br>
+And you could also<br>
+use a service locator<br>
+<br>
+716<br>
+00:30:57,750 --> 00:31:01,560<br>
+if you feel more<br>
+comfortable with it.<br>
+<br>
+717<br>
+00:31:01,560 --> 00:31:04,050<br>
+So let's go back to--<br>
+<br>
+718<br>
+00:31:04,050 --> 00:31:06,700<br>
+go through a concrete example.<br>
+<br>
+719<br>
+00:31:06,700 --> 00:31:10,110<br>
+Let's say we have a UI<br>
+that shows a user profile,<br>
+<br>
+720<br>
+00:31:10,110 --> 00:31:12,380<br>
+and we have the<br>
+data sources which--<br>
+<br>
+721<br>
+00:31:12,380 --> 00:31:16,080<br>
+we save it to database, we also<br>
+can get it from the network.<br>
+<br>
+722<br>
+00:31:16,080 --> 00:31:18,210<br>
+How do we connect<br>
+these two things?<br>
+<br>
+723<br>
+00:31:18,210 --> 00:31:21,240<br>
+Well, we said we first<br>
+need a user repository.<br>
+<br>
+724<br>
+00:31:21,240 --> 00:31:23,880<br>
+User repository knows it<br>
+should check the database.<br>
+<br>
+725<br>
+00:31:23,880 --> 00:31:25,680<br>
+It's not there,<br>
+make a web request.<br>
+<br>
+726<br>
+00:31:25,680 --> 00:31:28,500<br>
+Or meanwhile, also try<br>
+to run the database.<br>
+<br>
+727<br>
+00:31:28,500 --> 00:31:30,750<br>
+It doesn't matter<br>
+how it does it,<br>
+<br>
+728<br>
+00:31:30,750 --> 00:31:32,820<br>
+but it knows how to<br>
+create a LiveData<br>
+<br>
+729<br>
+00:31:32,820 --> 00:31:36,780<br>
+of a user or an<br>
+observable, doesn't matter.<br>
+<br>
+730<br>
+00:31:36,780 --> 00:31:38,430<br>
+And then we need the<br>
+ViewModel, right,<br>
+<br>
+731<br>
+00:31:38,430 --> 00:31:41,670<br>
+because the data for the<br>
+UI lives in the ViewModel.<br>
+<br>
+732<br>
+00:31:41,670 --> 00:31:44,220<br>
+So we create this<br>
+ProfileViewModel,<br>
+<br>
+733<br>
+00:31:44,220 --> 00:31:48,030<br>
+which talks to the repository<br>
+to get this information.<br>
+<br>
+734<br>
+00:31:48,030 --> 00:31:50,850<br>
+And then the actual<br>
+fragment gets the data<br>
+<br>
+735<br>
+00:31:50,850 --> 00:31:54,450<br>
+from the view model so that<br>
+if the fragment comes back,<br>
+<br>
+736<br>
+00:31:54,450 --> 00:31:57,270<br>
+the LiveData will be there<br>
+in the ProfileViewModel.<br>
+<br>
+737<br>
+00:31:57,270 --> 00:32:00,070<br>
+But if the fragment<br>
+disappears completely,<br>
+<br>
+738<br>
+00:32:00,070 --> 00:32:01,680<br>
+we will get rid<br>
+of the ViewModel,<br>
+<br>
+739<br>
+00:32:01,680 --> 00:32:05,240<br>
+and the data can be<br>
+garbage collected.<br>
+<br>
+740<br>
+00:32:05,240 --> 00:32:07,100<br>
+Now, all this<br>
+abstraction we made,<br>
+<br>
+741<br>
+00:32:07,100 --> 00:32:10,640<br>
+if you notice, every single<br>
+component only talks to the one<br>
+<br>
+742<br>
+00:32:10,640 --> 00:32:14,520<br>
+right below it, which is--<br>
+helps to scale your application.<br>
+<br>
+743<br>
+00:32:14,520 --> 00:32:16,340<br>
+It also has a<br>
+great side benefit,<br>
+<br>
+744<br>
+00:32:16,340 --> 00:32:18,260<br>
+which is called testing.<br>
+<br>
+745<br>
+00:32:18,260 --> 00:32:19,230<br>
+You're testing, right?<br>
+<br>
+746<br>
+00:32:19,230 --> 00:32:24,500<br>
+<br>
+<br>
+747<br>
+00:32:24,500 --> 00:32:26,210<br>
+So let's say you<br>
+want to test your UI.<br>
+<br>
+748<br>
+00:32:26,210 --> 00:32:27,880<br>
+Now, people say UI<br>
+testing is hard.<br>
+<br>
+749<br>
+00:32:27,880 --> 00:32:30,990<br>
+UI testing is--<br>
+yes, it's harder.<br>
+<br>
+750<br>
+00:32:30,990 --> 00:32:33,320<br>
+But it's usually hard because<br>
+you put all of your code<br>
+<br>
+751<br>
+00:32:33,320 --> 00:32:35,290<br>
+into that activity.<br>
+<br>
+752<br>
+00:32:35,290 --> 00:32:38,630<br>
+Now, we said, put most<br>
+of it into the ViewModel,<br>
+<br>
+753<br>
+00:32:38,630 --> 00:32:41,510<br>
+and you know that UI only<br>
+talks to the ViewModel,<br>
+<br>
+754<br>
+00:32:41,510 --> 00:32:43,520<br>
+so you can get rid<br>
+of the other two.<br>
+<br>
+755<br>
+00:32:43,520 --> 00:32:47,170<br>
+You only need to create a fake<br>
+ViewModel to test your UI.<br>
+<br>
+756<br>
+00:32:47,170 --> 00:32:50,900<br>
+Testing your UI become super,<br>
+super easy with Espresso.<br>
+<br>
+757<br>
+00:32:50,900 --> 00:32:52,880<br>
+And we have a<br>
+sample app on GitHub<br>
+<br>
+758<br>
+00:32:52,880 --> 00:32:56,346<br>
+that you can check<br>
+out with [INAUDIBLE].<br>
+<br>
 
 
 </td></tr> 
