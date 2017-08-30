@@ -24,11 +24,11 @@ tags:
 + Написание надежных приложений для Android может оказаться сложной задачей среди нетривиальных проблем регулирования жизненного цикла компонентов, ненадежных мобильных сетей и ограниченной производительности устройств. Ошибки в этих областях приводят к утечкам памяти, падениям приложений, неэффективному расходу батареи и, в итоге, к несчастным пользователям. Эта сессия будет посвящена новому подходу к хорошей архитектуре приложений для Android. В ней представлен обзор функциональности, которая позволит принципиально упростить решение данных проблем. Эта сессия является первой из трёх посвященных архитектурным компонентам. Обязательно посмотрите две другие.
 
 Некоторые ссылки для понимая того, о чем говорится в докладе:
-- <a href="https://developer.android.com/topic/libraries/architecture/livedata.html">класс LiveData</a> - documentation.
-- <a href="https://developer.android.com/topic/libraries/architecture/room.html">Абстрация над SQLite базой данных, называемая Room</a> - documentation about Room Persistence Library, и еще <a href="https://medium.com/@tonyowen/a-room-with-a-view-getting-started-ec010f9f5448">о ней же</a> - article with Kotlin.
+- <a href="https://developer.android.com/topic/libraries/architecture/index.html">единая точка входа для архитектурных компонентов</a> - LiveData, ViewModel, LifecycleObserver, LifecycleOwner, Room (абстрация над SQLite базой данных), etc.
+- <a href="https://codelabs.developers.google.com/codelabs/android-persistence/#0">Android Persistence: Room Library</a> - tutorial codelab.
+- <a href="https://medium.com/@tonyowen/a-room-with-a-view-getting-started-ec010f9f5448">о Room</a> - article with Kotlin.
 - <a href="https://academy.realm.io/posts/android-architecture-components-and-realm/">Room, ViewModel, LifeCycle, LiveData</a> - article
 - <a href="https://codelabs.developers.google.com/codelabs/android-lifecycles/#0">Android lifecycle-aware components</a> - tutorial codelab.
-- <a href="https://codelabs.developers.google.com/codelabs/android-persistence/#0">Android Persistence: Room Library</a> - tutorial codelab.
 - <a href="https://www.youtube.com/watch?v=vOJCrbr144o">Architecture Components: Improve Your App's Design</a> - видео-обзор от Google новых архитектурных компонентов, 5 мин 41 сек на просмотр.
 
 
@@ -3305,7 +3305,7 @@ Rx Java, или наблюдатели<br>
 485<br>
 00:21:15,070 --> 00:21:19,210<br>
 Теперь еще одна большая<br>
-тема о живучести [надежное сохранение].<br>
+тема о поддержке сохранности данных.<br>
 <br>
 486<br>
 00:21:19,210 --> 00:21:22,000<br>
@@ -3314,7 +3314,7 @@ Rx Java, или наблюдатели<br>
 <br>
 487<br>
 00:21:22,000 --> 00:21:24,860<br>
-означает то, что необходимо<br>
+означает и то, что необходимо<br>
 сохранять данные на диск.<br>
 <br>
 488<br>
@@ -3334,7 +3334,7 @@ ContentProvider, который<br>
 491<br>
 00:21:32,320 --> 00:21:35,530<br>
 В реальности это не имеет<br>
-общего с живучестью данных.<br>
+общего с сохранением данных.<br>
 <br>
 492<br>
 00:21:35,530 --> 00:21:37,510<br>
