@@ -2712,7 +2712,7 @@ singleton, мы могли бы<br>
 <br>
 361<br>
 00:15:41,800 --> 00:15:43,930<br>
-get distance, start observing.<br>
+getInstance(), начать наблюдение.<br>
 <br>
 362<br>
 00:15:43,930 --> 00:15:47,280<br>
