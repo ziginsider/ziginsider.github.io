@@ -4650,7 +4650,7 @@ ViewModel,<br>
 771<br>
 00:33:26,420 --> 00:33:29,630<br>
 Но теперь я хочу пригласить <br>
-нашего product-manager lUKAS<br>
+нашего product-manager LUKAS<br>
 <br>
 772<br>
 00:33:29,630 --> 00:33:32,646<br>
