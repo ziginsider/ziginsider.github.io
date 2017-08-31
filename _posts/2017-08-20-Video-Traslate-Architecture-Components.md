@@ -14,6 +14,10 @@ tags:
 ---
 *Перевод английских субтитров на русские из видео Architecture Components - Introduction (Google I/O '17). Предпринят только для практики перевода с английского, скажем так to improve my reading and listening skills. Делается постепенно. Начало 20.08.2017, конец - 31.08.2017. All rights reserved.*
 
+Мой клон с русскими субтитрами:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Dl4DiQRxBi4" frameborder="0" allowfullscreen></iframe>
+
+Оригинальное видео:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FrteWKKVyzI" frameborder="0" allowfullscreen></iframe>
 
 Аннотация к видео:
