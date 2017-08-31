@@ -4592,73 +4592,73 @@ ViewModel для тестирование вашего UI.<br>
 <br>
 759<br>
 00:32:56,346 --> 00:32:58,220<br>
-And the same thing as<br>
-well as for ViewModels.<br>
+И то же самое, что<br>
+и для ViewModels.<br>
 <br>
 760<br>
 00:32:58,220 --> 00:32:59,660<br>
-If you want to<br>
-test the ViewModel,<br>
+Если вы хотите протестировать<br>
+ViewModel,<br>
 <br>
 761<br>
 00:32:59,660 --> 00:33:02,330<br>
-you know it's only talks<br>
-to the repositories.<br>
+вы знаете, что это только<br>
+переговоры к репозиторию.<br>
 <br>
 762<br>
 00:33:02,330 --> 00:33:05,860<br>
-You replace it with a mock<br>
-respository, and it works.<br>
+вы заменяете его mock-<br>
+репозиторием, и все работает.<br>
 <br>
 763<br>
 00:33:05,860 --> 00:33:08,570<br>
-And you can even<br>
-test your ViewModels<br>
+И вы даже можете тестировать<br>
+ваши ViewModels<br>
 <br>
 764<br>
 00:33:08,570 --> 00:33:11,150<br>
-on your host machine, on JVM.<br>
+на вашей главной машине, на JVM.<br>
 <br>
 765<br>
 00:33:11,150 --> 00:33:12,780<br>
-And last but not<br>
-least, you can test<br>
+И последнее, но не менее<br>
+важное, вы можете тестировать<br>
 <br>
 766<br>
 00:33:12,780 --> 00:33:14,030<br>
-the respository the same way.<br>
+репозиторий таким же способом.<br>
 <br>
 767<br>
 00:33:14,030 --> 00:33:16,040<br>
-You just mock the data sources.<br>
+Вам нужен mock-источник данных.<br>
 <br>
 768<br>
 00:33:16,040 --> 00:33:21,000<br>
-You can easily test your<br>
-repositories as JUnit test.<br>
+Вы можете легко протестировать<br>
+свой репозиторий как JUnit тест.<br>
 <br>
 769<br>
 00:33:21,000 --> 00:33:23,060<br>
-Now, I know this has been<br>
-a lot of information.<br>
+Я пониманию, что дал вам<br>
+много информации.<br>
 <br>
 770<br>
 00:33:23,060 --> 00:33:26,420<br>
-We have two sessions tomorrow,<br>
-and also documentation.<br>
+У нас будет две сессии завтра,<br>
+и есть документация.<br>
 <br>
 771<br>
 00:33:26,420 --> 00:33:29,630<br>
-But now I want to call<br>
-our product manager lUKAS<br>
+Но теперь я хочу пригласить <br>
+нашего product-manager lUKAS<br>
 <br>
 772<br>
 00:33:29,630 --> 00:33:32,646<br>
-to talk about what to do next.<br>
+рассказать, что будет дальше.<br>
 <br>
 773<br>
 00:33:32,646 --> 00:33:35,574<br>
-[APPLAUSE]<br>
+[АПЛОДИСМЕНТЫ]<br>
 <br>
 774<br>
 00:33:35,574 --> 00:33:41,425<br>
@@ -4667,43 +4667,43 @@ to talk about what to do next.<br>
 775<br>
 00:33:41,425 --> 00:33:42,800<br>
 LUKAS BERGSTROM:<br>
-Like Yigit said,<br>
+Как Yigit сказал,<br>
 <br>
 776<br>
 00:33:42,800 --> 00:33:44,870<br>
-we just covered a lot of ground.<br>
+мы только много прошлись по поверхности.<br>
 <br>
 777<br>
 00:33:44,870 --> 00:33:46,820<br>
-And actually, we glossed<br>
-over a lot of detail<br>
+Но реально, мы скрыли<br>
+много деталей<br>
 <br>
 778<br>
 00:33:46,820 --> 00:33:48,080<br>
-while we did that.<br>
+пока мы рассказывали это.<br>
 <br>
 779<br>
 00:33:48,080 --> 00:33:50,420<br>
-But luckily, you don't<br>
-have to remember everything<br>
+Но, к счастью, вам не нужно<br>
+запоминать все,<br>
 <br>
 780<br>
 00:33:50,420 --> 00:33:51,950<br>
-that you just heard.<br>
+что вы теперь услышали.<br>
 <br>
 781<br>
 00:33:51,950 --> 00:33:56,180<br>
-We have a lot of material<br>
-for you to check out<br>
+У нас много материала<br>
+для вас на<br>
 <br>
 782<br>
 00:33:56,180 --> 00:33:58,910<br>
-at developer.android.com/arch.<br>
+developer.android.com/arch.<br>
 <br>
 783<br>
 00:33:58,910 --> 00:34:03,305<br>
-And that link should start<br>
-working in 21 minutes.<br>
+И эта ссылка должна работать<br>
+через 21 минуту.<br>
 <br>
 784<br>
 00:34:03,305 --> 00:34:06,260<br>
@@ -4711,70 +4711,70 @@ working in 21 minutes.<br>
 <br>
 785<br>
 00:34:06,260 --> 00:34:07,790<br>
-We wanted to give<br>
-you guys a chance<br>
+Мы хотели дать вам,<br>
+ребята, шанс сделать заметку<br>
 <br>
 786<br>
 00:34:07,790 --> 00:34:10,219<br>
-to kind of blog and tweet<br>
-about this before anybody else.<br>
+в блоге или твитнуть об этом<br>
+раньше кого-нибудь еще.<br>
 <br>
 787<br>
 00:34:10,219 --> 00:34:13,190<br>
-So that's why we held it back.<br>
+Вот почему мы придержали это.<br>
 <br>
 788<br>
 00:34:13,190 --> 00:34:15,560<br>
-So yeah, we made having<br>
-good documentation<br>
+Итак, да, мы сделали<br>
+хорошую документацию<br>
 <br>
 789<br>
 00:34:15,560 --> 00:34:18,469<br>
-and samples a priority from<br>
-the beginning of this project,<br>
+и она обозначает приоритеты<br>
+для начала этого проекта, поскольку<br>
 <br>
 790<br>
 00:34:18,469 --> 00:34:22,310<br>
-since providing good guidance is<br>
-really one of the major goals.<br>
+предоставление хорошего руководства<br>
+одна из гланым наших задач.<br>
 <br>
 791<br>
 00:34:22,310 --> 00:34:24,800<br>
-So you're going to find<br>
-in-depth documentation that's<br>
+Итак, вы собираетесь найти<br>
+углубленную документацию<br>
 <br>
 792<br>
 00:34:24,800 --> 00:34:27,337<br>
-written from the perspective<br>
-of an app developer.<br>
+написанную с точки<br>
+зрения разработчика.<br>
 <br>
 793<br>
 00:34:27,337 --> 00:34:29,420<br>
-You're going to find really<br>
-meaty sample apps that<br>
+Вы действительно найдете<br>
+содержательные примеры приложений<br>
 <br>
 794<br>
 00:34:29,420 --> 00:34:31,280<br>
-show how to build a real app.<br>
+и они покажут как создавать реальное.<br>
 <br>
 795<br>
 00:34:31,280 --> 00:34:34,650<br>
-And just as an example of<br>
-how much work went into this,<br>
+И как пример того, как<br>
+много работы пошло на это,<br>
 <br>
 796<br>
 00:34:34,650 --> 00:34:36,139<br>
-we have a GitHub<br>
-browser sample app<br>
+у нас есть GitHub пример<br>
+приложения браузера, который<br>
 <br>
 797<br>
 00:34:36,139 --> 00:34:39,440<br>
-that probably has better test<br>
-coverage than many real world<br>
+вероятно имеет лучшее покрытие<br>
+для тестирования, чем большинство<br>
 <br>
 798<br>
 00:34:39,440 --> 00:34:42,170<br>
-apps, written by that guy.<br>
+приложений, написанных этим парнем.<br>
 <br>
 799<br>
 00:34:42,170 --> 00:34:44,820<br>
@@ -4782,350 +4782,350 @@ apps, written by that guy.<br>
 <br>
 800<br>
 00:34:44,820 --> 00:34:47,420<br>
-And of course, we have the<br>
-guide to app architecture,<br>
+И, конечно, у нас есть гид<br>
+по архитектуре приложений,<br>
 <br>
 801<br>
 00:34:47,420 --> 00:34:50,929<br>
-which internally, we called the<br>
-Opinionated Guide for a while.<br>
+который внутри мы назвали<br>
+гид на время.<br>
 <br>
 802<br>
 00:34:50,929 --> 00:34:53,210<br>
-And we think that<br>
-label still applies.<br>
+И считаем, что<br>
+метка все еще применяется.<br>
 <br>
 803<br>
 00:34:53,210 --> 00:34:55,639<br>
-But even if you're not<br>
-planning to use our recommended<br>
+Но даже, если вы не планируете,<br>
+использовать ваши рекомендации<br>
 <br>
 804<br>
 00:34:55,639 --> 00:34:58,580<br>
-architecture, we think people<br>
-should check out the guide.<br>
+по архитектуре, мы считаем <br>
+вам следует посмотреть этот гид.<br>
 <br>
 805<br>
 00:34:58,580 --> 00:35:04,010<br>
-It has principles that we think<br>
-apply to all apps on Android.<br>
+Там есть принципы, которые мы думаем<br>
+применимы ко всем приложениям.<br>
 <br>
 806<br>
 00:35:04,010 --> 00:35:07,760<br>
-And you're probably asking<br>
-yourself, do I not--<br>
+И вы, вероятно, спросите себя<br>
+сделал я не -<br>
 <br>
 807<br>
 00:35:07,760 --> 00:35:09,830<br>
-what's the impact of<br>
-this going to be on me?<br>
+какое влияние это должно<br>
+оказывать на меня?<br>
 <br>
 808<br>
 00:35:09,830 --> 00:35:13,160<br>
-Am I going to have to change the<br>
-way that I'm doing everything?<br>
+Должен ли я поменять сбособ,<br>
+которым я все делаю?<br>
 <br>
 809<br>
 00:35:13,160 --> 00:35:15,315<br>
-You know, if you're<br>
-starting a new project,<br>
+Вы знаете, если вы находитесь<br>
+в запуске нового проекта,<br>
 <br>
 810<br>
 00:35:15,315 --> 00:35:16,940<br>
-or if you have an<br>
-existing app, but you<br>
+или у вас есть существующее<br>
+приложение, но вы<br>
 <br>
 811<br>
 00:35:16,940 --> 00:35:19,190<br>
-want to improve the<br>
-core architecture,<br>
+хотите улучшить его<br>
+архитектуру,<br>
 <br>
 812<br>
 00:35:19,190 --> 00:35:22,100<br>
-then yeah, we recommend<br>
-taking a look at this stuff.<br>
+тогда мы рекомендуем<br>
+взглянуть на этот материал.<br>
 <br>
 813<br>
 00:35:22,100 --> 00:35:24,050<br>
-It's still preview.<br>
+Это по-прежнему превью.<br>
 <br>
 814<br>
 00:35:24,050 --> 00:35:26,790<br>
-We won't be hitting<br>
-1.0 for a few months,<br>
+Мы не будем бить версию<br>
+1.0 несколько месяцев,<br>
 <br>
 815<br>
 00:35:26,790 --> 00:35:30,050<br>
-but we think it's definitely<br>
-ready for you guys<br>
+Но мы думаем, что это<br>
+готовое для вас, ребята,<br>
 <br>
 816<br>
 00:35:30,050 --> 00:35:32,460<br>
-to check out, and<br>
-use in projects.<br>
+руководство, чтобы проверить и<br>
+использовать в своих проверках.<br>
 <br>
 817<br>
 00:35:32,460 --> 00:35:34,250<br>
-But if you're happy<br>
-with what you have,<br>
+Но, если вы счастливы<br>
+с тем, что у вас есть,<br>
 <br>
 818<br>
 00:35:34,250 --> 00:35:37,360<br>
-you don't need to<br>
-rewrite your app.<br>
+вам не нужно переписывать<br>
+ваше приложение.<br>
 <br>
 819<br>
 00:35:37,360 --> 00:35:39,530<br>
-So in the spirit of be<br>
-together, not the same,<br>
+Поэтому быть вместе в одном<br>
+духе, это не значит,<br>
 <br>
 820<br>
 00:35:39,530 --> 00:35:41,890<br>
-we're not dictating what<br>
-everyone has to use.<br>
+что мы диктуем всем,<br>
+как поступать. Если<br>
 <br>
 821<br>
 00:35:41,890 --> 00:35:44,590<br>
-If you're happy with your app<br>
-architecture, you can keep it.<br>
+вы довольны своей архитектурой,<br>
+то вам следует ее сохранить.<br>
 <br>
 822<br>
 00:35:44,590 --> 00:35:46,510<br>
-If you're happy with<br>
-your existing ORM,<br>
+Если вы довольны<br>
+вашей существующей ORM,<br>
 <br>
 823<br>
 00:35:46,510 --> 00:35:48,820<br>
-you don't have to use Room.<br>
+вам не надо использовать Room.<br>
 <br>
 824<br>
 00:35:48,820 --> 00:35:51,910<br>
-Architecture components are<br>
-designed to work well together,<br>
+Архитектурные компоненты нужны<br>
+для удобной совместной работы,<br>
 <br>
 825<br>
 00:35:51,910 --> 00:35:55,780<br>
-but they do work<br>
-perfectly fine standalone.<br>
+Но они действительно работают<br>
+отлично и сами по себе, отдельно.<br>
 <br>
 826<br>
 00:35:55,780 --> 00:35:58,300<br>
-And mixing and matching<br>
-applies not only<br>
+И смешивание и сопоставление<br>
+применяется не только<br>
 <br>
 827<br>
 00:35:58,300 --> 00:36:04,730<br>
-to architecture components,<br>
-but also third party libraries.<br>
+к архитектурным компонентам,<br>
+но и к сторонним библиотекам.<br>
 <br>
 828<br>
 00:36:04,730 --> 00:36:11,760<br>
-So-- I'm waiting for<br>
-this slide to come up.<br>
+Итак - я жду, чтобы<br>
+этот слайд появился..<br>
 <br>
 829<br>
 00:36:11,760 --> 00:36:14,389<br>
-So yeah, so you can<br>
-use what you have,<br>
+Итак, вы можете<br>
+использовать, что у вас есть,<br>
 <br>
 830<br>
 00:36:14,389 --> 00:36:16,680<br>
-and to start to integrate<br>
-architecture components where<br>
+и начинать интегрировать<br>
+архитектурные компоненты, где<br>
 <br>
 831<br>
 00:36:16,680 --> 00:36:18,310<br>
-they make sense.<br>
+это имеет смысл.<br>
 <br>
 832<br>
 00:36:18,310 --> 00:36:21,000<br>
-So for example, if you're<br>
-happy with Rx Java,<br>
+Итак, например, если вы<br>
+счастливы с RxJava,<br>
 <br>
 833<br>
 00:36:21,000 --> 00:36:24,510<br>
-but you really like the<br>
-Lifecycle aware component stuff<br>
+но вам реально нравятся<br>
+Lifecycle-зависимые компоненты<br>
 <br>
 834<br>
 00:36:24,510 --> 00:36:27,360<br>
-that Yigit just showed, so that<br>
-you have these self-sufficient<br>
+которые Yigit только что показывал,<br>
+у вас есть эти самодовлеющие<br>
 <br>
 835<br>
 00:36:27,360 --> 00:36:31,590<br>
-components, you can use<br>
-LiveData together with Rx Java.<br>
+компоненты, вы можете использовать<br>
+LiveData совместно с RxJava.<br>
 <br>
 836<br>
 00:36:31,590 --> 00:36:34,800<br>
-So you can get all the<br>
-power of Rx Java operators,<br>
+Итак, вы можете получить все<br>
+преимущества от RxJava действий,<br>
 <br>
 837<br>
 00:36:34,800 --> 00:36:36,420<br>
-and now it's Lifecycle safe.<br>
+и теперь это будет Lifecycle-безопасно.<br>
 <br>
 838<br>
 00:36:36,420 --> 00:36:39,510<br>
-So kind of the best<br>
-of both worlds.<br>
+Так что, наподобие лучшего<br>
+из обоих миров.<br>
 <br>
 839<br>
 00:36:39,510 --> 00:36:41,760<br>
-And we've got additional<br>
-integrations to come.<br>
+И у нас есть дополнительная<br>
+инфа про интеграцию.<br>
 <br>
 840<br>
 00:36:41,760 --> 00:36:45,890<br>
-We're definitely looking at<br>
-a lot of stuff internally<br>
+Мы определенно смотрим на<br>
+много вещей внутри<br>
 <br>
 841<br>
 00:36:45,890 --> 00:36:48,480<br>
-that would be nice if<br>
-it were self-sufficient<br>
+и это было бы неплохо,<br>
+если бы они были самодостаточны<br>
 <br>
 842<br>
 00:36:48,480 --> 00:36:50,500<br>
-and Lifecycle aware.<br>
+и Lifecycle-зависимы.<br>
 <br>
 843<br>
 00:36:50,500 --> 00:36:53,460<br>
-And if you're a<br>
-library developer,<br>
+И если вы<br>
+разработчик библиотеки,<br>
 <br>
 844<br>
 00:36:53,460 --> 00:36:55,920<br>
-we really recommend<br>
-checking out Lifecycles<br>
+мы настоятельно рекомендуем<br>
+проверять жизненные циклы<br>
 <br>
 845<br>
 00:36:55,920 --> 00:36:57,690<br>
-and LifecycleObserver<br>
-because we think<br>
+и LifecycleObserver<br>
+потому что мы думаем<br>
 <br>
 846<br>
 00:36:57,690 --> 00:37:00,480<br>
-there is a really bright<br>
-future, and a lot of potential<br>
+это реально яркое будущее<br>
+и есть много потенциала<br>
 <br>
 847<br>
 00:37:00,480 --> 00:37:03,420<br>
-in making libraries and<br>
-components that are Lifecycle<br>
+в создании библиотечных компонентов,<br>
+которые зависимы от жизненного<br>
 <br>
 848<br>
 00:37:03,420 --> 00:37:07,870<br>
-aware by default.<br>
-But before you go<br>
+цикла по умолчанию.<br>
+Но перед тем как сделать<br>
 <br>
 849<br>
 00:37:07,870 --> 00:37:11,110<br>
-do that, we have a lot more<br>
-for you at I/O this year.<br>
+это, у нас есть еще много<br>
+для вас на I/O в этом году.<br>
 <br>
 850<br>
 00:37:11,110 --> 00:37:15,310<br>
-We have two more talks,<br>
-one on Lifecycles<br>
+У нас есть еще две беседы,<br>
+одна про жизненные циклы<br>
 <br>
 851<br>
 00:37:15,310 --> 00:37:18,280<br>
-that's even more in-depth than<br>
-what we just showed tomorrow<br>
+это даже более глубоко, чем<br>
+что мы покажем завтра<br>
 <br>
 852<br>
 00:37:18,280 --> 00:37:20,020<br>
-morning.<br>
+утром.<br>
 <br>
 853<br>
 00:37:20,020 --> 00:37:24,040<br>
-We have another one on<br>
-Room and Persistence,<br>
+У нас есть еще Room<br>
+и поддержка сохранности данных<br>
 <br>
 854<br>
 00:37:24,040 --> 00:37:25,480<br>
-and going a little<br>
-bit beyond Room<br>
+немного раньше<br>
+чем о Room<br>
 <br>
 855<br>
 00:37:25,480 --> 00:37:27,790<br>
-starting at 12:30 tomorrow.<br>
+начнется в 12:30 завтра.<br>
 <br>
 856<br>
 00:37:27,790 --> 00:37:31,950<br>
-And we'll have people who are<br>
-well-versed in architecture<br>
+И у нас будут люди, которые<br>
+хороше кумекают в архитектурных<br>
 <br>
 857<br>
 00:37:31,950 --> 00:37:36,740<br>
-components in the<br>
-sandbox for all of I/O.<br>
+компонентах на песочнице<br>
+для всех на I/O.<br>
 <br>
 858<br>
 00:37:36,740 --> 00:37:41,600<br>
-And we also have codelabs,<br>
-which we're pretty happy with.<br>
+И у нас есть codelabs,<br>
+которыми мы очень довольны.<br>
 <br>
 859<br>
 00:37:41,600 --> 00:37:43,890<br>
-And there's more to come.<br>
+И еще все впереди.<br>
 <br>
 860<br>
 00:37:43,890 --> 00:37:46,100<br>
-So we think we've just<br>
-scratched the surface of ways<br>
+Поэтому мы думаем, что мы<br>
+только слегка затронули области,<br>
 <br>
 861<br>
 00:37:46,100 --> 00:37:48,260<br>
-that we can improve the<br>
-experience of using Android<br>
+с помощью которых мы можем<br>
+улучшить использование Android<br>
 <br>
 862<br>
 00:37:48,260 --> 00:37:51,320<br>
-Frameworks, and we're looking<br>
-at applying this approach<br>
+фреймворка, и мы также рассматриваем<br>
+применение этого подхода<br>
 <br>
 863<br>
 00:37:51,320 --> 00:37:53,310<br>
-in other areas as well.<br>
+в других областях.<br>
 <br>
 864<br>
 00:37:53,310 --> 00:37:54,980<br>
-So some things<br>
-already in the works.<br>
+Итак, некоторые вещи<br>
+уже работают.<br>
 <br>
 865<br>
 00:37:54,980 --> 00:37:58,310<br>
-And we're also interested in<br>
-hearing from you on what else<br>
+И мы также заинтересованы<br>
+слышать от вас, о том,<br>
 <br>
 866<br>
 00:37:58,310 --> 00:37:59,720<br>
-you'd like to see.<br>
+чтобы вы хотели еще видеть.<br>
 <br>
 867<br>
 00:37:59,720 --> 00:38:04,010<br>
-So come by, talk to us, tell us<br>
-what you like, what you don't.<br>
+Так что приходите, говорите с нами,<br>
+что вам нравится, чего вам нехватает.<br>
 <br>
 868<br>
 00:38:04,010 --> 00:38:06,800<br>
-And stay tuned, because we're<br>
-really excited about the future<br>
+И следите за обновлениями,<br>
+которые мы реально ждем от будущего<br>
 <br>
 869<br>
 00:38:06,800 --> 00:38:08,570<br>
-of Android development.<br>
+Android разработки.<br>
 <br>
 870<br>
 00:38:08,570 --> 00:38:09,310<br>
-Thank you.<br>
+Спасибо.<br>
 <br>
 871<br>
 00:38:09,310 --> 00:38:11,460<br>
-[APPLAUSE]<br>
+[АПЛОДИСМЕНТЫ]<br>
 <br>
 872<br>
 00:38:11,460 --> 00:00:00,000<br>
