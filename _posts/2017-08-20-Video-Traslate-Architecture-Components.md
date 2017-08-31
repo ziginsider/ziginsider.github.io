@@ -1004,9 +1004,3180 @@ it calls whenever the location<br>
 00:08:46,520 --> 00:08:48,800<br>
 changes, and you update the UI.<br>
 <br>
-
-
-
+201<br>
+00:08:48,800 --> 00:08:51,230<br>
+Now, if you have ever written<br>
+an Android application,<br>
+<br>
+202<br>
+00:08:51,230 --> 00:08:54,330<br>
+you know that this<br>
+code is never enough.<br>
+<br>
+203<br>
+00:08:54,330 --> 00:08:57,440<br>
+You also need to go ahead and<br>
+override onStart, and then<br>
+<br>
+204<br>
+00:08:57,440 --> 00:09:01,880<br>
+tell it to start, and override<br>
+onStop, and tell it to stop.<br>
+<br>
+205<br>
+00:09:01,880 --> 00:09:04,040<br>
+You always need to<br>
+do this babysitting<br>
+<br>
+206<br>
+00:09:04,040 --> 00:09:05,510<br>
+for these components.<br>
+<br>
+207<br>
+00:09:05,510 --> 00:09:06,840<br>
+But this is acceptable.<br>
+<br>
+208<br>
+00:09:06,840 --> 00:09:09,680<br>
+This a simple example,<br>
+this looks all right.<br>
+<br>
+209<br>
+00:09:09,680 --> 00:09:11,750<br>
+But then your product<br>
+manager comes and says,<br>
+<br>
+210<br>
+00:09:11,750 --> 00:09:12,560<br>
+oh, you know what?<br>
+<br>
+211<br>
+00:09:12,560 --> 00:09:16,160<br>
+We need to first check the<br>
+user settings before enable--<br>
+<br>
+212<br>
+00:09:16,160 --> 00:09:17,710<br>
+asking for a location.<br>
+<br>
+213<br>
+00:09:17,710 --> 00:09:22,160<br>
+Then your developer says, OK,<br>
+sure, that's an easy change.<br>
+<br>
+214<br>
+00:09:22,160 --> 00:09:25,570<br>
+I'm going to change this method<br>
+to first call this utility<br>
+<br>
+215<br>
+00:09:25,570 --> 00:09:27,980<br>
+method, which probably<br>
+makes a web service call<br>
+<br>
+216<br>
+00:09:27,980 --> 00:09:29,900<br>
+to check the user settings.<br>
+<br>
+217<br>
+00:09:29,900 --> 00:09:32,030<br>
+And then if the<br>
+user is enrolled,<br>
+<br>
+218<br>
+00:09:32,030 --> 00:09:34,160<br>
+then we want to start<br>
+the LocationListener.<br>
+<br>
+219<br>
+00:09:34,160 --> 00:09:37,010<br>
+Which looks like a<br>
+very simple change,<br>
+<br>
+220<br>
+00:09:37,010 --> 00:09:39,440<br>
+you will think this would<br>
+work, but let's look<br>
+<br>
+221<br>
+00:09:39,440 --> 00:09:42,440<br>
+at what happens in that<br>
+activity's Lifecycle.<br>
+<br>
+222<br>
+00:09:42,440 --> 00:09:43,990<br>
+So our activity was created.<br>
+<br>
+223<br>
+00:09:43,990 --> 00:09:49,526<br>
+We said, OK, run start check<br>
+if the user status is enrolled.<br>
+<br>
+224<br>
+00:09:49,526 --> 00:09:52,370<br>
+Then meanwhile, user wants<br>
+to rotate the device.<br>
+<br>
+225<br>
+00:09:52,370 --> 00:09:54,930<br>
+Which, rotation means<br>
+a configuration change,<br>
+<br>
+226<br>
+00:09:54,930 --> 00:09:58,430<br>
+which means Android is going<br>
+to recreate that activity.<br>
+<br>
+227<br>
+00:09:58,430 --> 00:10:00,200<br>
+So in onStop, we<br>
+knew about this,<br>
+<br>
+228<br>
+00:10:00,200 --> 00:10:03,292<br>
+and we said, OK,<br>
+location manager stop.<br>
+<br>
+229<br>
+00:10:03,292 --> 00:10:05,780<br>
+And then the new<br>
+activity came, it also<br>
+<br>
+230<br>
+00:10:05,780 --> 00:10:07,430<br>
+goes through the same thing.<br>
+<br>
+231<br>
+00:10:07,430 --> 00:10:10,280<br>
+Looks all right, except<br>
+do you remember this call<br>
+<br>
+232<br>
+00:10:10,280 --> 00:10:12,140<br>
+we made before?<br>
+<br>
+233<br>
+00:10:12,140 --> 00:10:15,400<br>
+That little change, and then<br>
+it decides to come back.<br>
+<br>
+234<br>
+00:10:15,400 --> 00:10:17,110<br>
+Hey, user is enrolled.<br>
+<br>
+235<br>
+00:10:17,110 --> 00:10:18,080<br>
+And then what we did?<br>
+<br>
+236<br>
+00:10:18,080 --> 00:10:20,790<br>
+We said, OK, then start.<br>
+<br>
+237<br>
+00:10:20,790 --> 00:10:22,250<br>
+And you realize the [INAUDIBLE]?<br>
+<br>
+238<br>
+00:10:22,250 --> 00:10:26,510<br>
+We called start after<br>
+calling on stop, which means<br>
+<br>
+239<br>
+00:10:26,510 --> 00:10:28,700<br>
+our activity will live forever.<br>
+<br>
+240<br>
+00:10:28,700 --> 00:10:31,130<br>
+We are going to observe<br>
+the location forever,<br>
+<br>
+241<br>
+00:10:31,130 --> 00:10:32,257<br>
+the battery will drain.<br>
+<br>
+242<br>
+00:10:32,257 --> 00:10:33,215<br>
+We will have sad users.<br>
+<br>
+243<br>
+00:10:33,215 --> 00:10:37,078<br>
+<br>
+<br>
+244<br>
+00:10:37,078 --> 00:10:38,600<br>
+This is situation, right?<br>
+<br>
+245<br>
+00:10:38,600 --> 00:10:40,220<br>
+We want to get rid of this.<br>
+<br>
+246<br>
+00:10:40,220 --> 00:10:41,840<br>
+We want to put an end to this.<br>
+<br>
+247<br>
+00:10:41,840 --> 00:10:43,950<br>
+So we said, OK, we<br>
+need to acknowledge--<br>
+<br>
+248<br>
+00:10:43,950 --> 00:10:46,670<br>
+like as Mike mentioned,<br>
+we cannot change the laws,<br>
+<br>
+249<br>
+00:10:46,670 --> 00:10:49,670<br>
+but we can make it easier<br>
+to deal with these things.<br>
+<br>
+250<br>
+00:10:49,670 --> 00:10:52,430<br>
+So we decided to introduce<br>
+a new interface called<br>
+<br>
+251<br>
+00:10:52,430 --> 00:10:53,970<br>
+LifecycleOwner.<br>
+<br>
+252<br>
+00:10:53,970 --> 00:10:55,970<br>
+This is a thing<br>
+with a Lifecycle.<br>
+<br>
+253<br>
+00:10:55,970 --> 00:10:58,400<br>
+Is your activity, is<br>
+your fragment-- or maybe<br>
+<br>
+254<br>
+00:10:58,400 --> 00:11:02,270<br>
+you have your own UI framework,<br>
+whatever the container you have<br>
+<br>
+255<br>
+00:11:02,270 --> 00:11:05,570<br>
+there as a LifecycleOwner.<br>
+<br>
+256<br>
+00:11:05,570 --> 00:11:08,780<br>
+And we have these<br>
+LifecycleObservers,<br>
+<br>
+257<br>
+00:11:08,780 --> 00:11:11,180<br>
+which are the things that<br>
+care about the Lifecycle.<br>
+<br>
+258<br>
+00:11:11,180 --> 00:11:13,310<br>
+Like the<br>
+LocationListener we had,<br>
+<br>
+259<br>
+00:11:13,310 --> 00:11:16,580<br>
+it cares about the Lifecycle,<br>
+it wants to stop itself<br>
+<br>
+260<br>
+00:11:16,580 --> 00:11:18,680<br>
+if the Lifecycle is not active.<br>
+<br>
+261<br>
+00:11:18,680 --> 00:11:21,130<br>
+So we said, OK, we<br>
+will acknowledge this.<br>
+<br>
+262<br>
+00:11:21,130 --> 00:11:23,600<br>
+And we have a<br>
+LifecycleObservers.<br>
+<br>
+263<br>
+00:11:23,600 --> 00:11:26,090<br>
+And we'll go through the<br>
+code through our activity.<br>
+<br>
+264<br>
+00:11:26,090 --> 00:11:30,080<br>
+Now we make our activity extend<br>
+the LifecycleActivity class.<br>
+<br>
+265<br>
+00:11:30,080 --> 00:11:33,320<br>
+This is just a temporary<br>
+class until these components<br>
+<br>
+266<br>
+00:11:33,320 --> 00:11:34,410<br>
+reach 1.0.<br>
+<br>
+267<br>
+00:11:34,410 --> 00:11:35,900<br>
+Then everything<br>
+in Support Library<br>
+<br>
+268<br>
+00:11:35,900 --> 00:11:39,980<br>
+will implement this<br>
+LifecycleOwner interface.<br>
+<br>
+269<br>
+00:11:39,980 --> 00:11:42,550<br>
+Inside of our activity,<br>
+when we initialize<br>
+<br>
+270<br>
+00:11:42,550 --> 00:11:45,710<br>
+our LocationListener,<br>
+we are going to tell it,<br>
+<br>
+271<br>
+00:11:45,710 --> 00:11:48,240<br>
+this is the Lifecycle<br>
+you care about.<br>
+<br>
+272<br>
+00:11:48,240 --> 00:11:50,390<br>
+And that's all we will do.<br>
+<br>
+273<br>
+00:11:50,390 --> 00:11:54,410<br>
+But as it's the same, it<br>
+calls back the update UI.<br>
+<br>
+274<br>
+00:11:54,410 --> 00:11:57,020<br>
+So how can we change<br>
+our LocationListener<br>
+<br>
+275<br>
+00:11:57,020 --> 00:12:00,890<br>
+to take advantage<br>
+of this Lifecycle?<br>
+<br>
+276<br>
+00:12:00,890 --> 00:12:03,500<br>
+Oh, we do the same thing<br>
+for the UserStatus as well.<br>
+<br>
+277<br>
+00:12:03,500 --> 00:12:06,240<br>
+<br>
+<br>
+278<br>
+00:12:06,240 --> 00:12:08,880<br>
+So there's some boilerplate<br>
+code here to get the fields.<br>
+<br>
+279<br>
+00:12:08,880 --> 00:12:10,950<br>
+It doesn't really<br>
+matter, but we have<br>
+<br>
+280<br>
+00:12:10,950 --> 00:12:14,850<br>
+this enabled method which gets<br>
+called if the user is enrolled.<br>
+<br>
+281<br>
+00:12:14,850 --> 00:12:16,500<br>
+Inside this enabled<br>
+method, now we<br>
+<br>
+282<br>
+00:12:16,500 --> 00:12:18,420<br>
+want to start<br>
+listening to location<br>
+<br>
+283<br>
+00:12:18,420 --> 00:12:21,360<br>
+only if the activity is started.<br>
+<br>
+284<br>
+00:12:21,360 --> 00:12:23,040<br>
+Now you can do this.<br>
+<br>
+285<br>
+00:12:23,040 --> 00:12:26,590<br>
+You can say, what is my current<br>
+state, which is amazing.<br>
+<br>
+286<br>
+00:12:26,590 --> 00:12:29,370<br>
+We didn't have<br>
+this API until now.<br>
+<br>
+287<br>
+00:12:29,370 --> 00:12:32,010<br>
+Well now you can.<br>
+<br>
+288<br>
+00:12:32,010 --> 00:12:34,110<br>
+So OK, that was a simple change.<br>
+<br>
+289<br>
+00:12:34,110 --> 00:12:36,510<br>
+But we also get<br>
+notified, what if we get<br>
+<br>
+290<br>
+00:12:36,510 --> 00:12:38,710<br>
+enrolled when the activity<br>
+was in back state,<br>
+<br>
+291<br>
+00:12:38,710 --> 00:12:40,800<br>
+and user comes back<br>
+to the activity.<br>
+<br>
+292<br>
+00:12:40,800 --> 00:12:43,290<br>
+Now we should actually<br>
+start the LocationManager.<br>
+<br>
+293<br>
+00:12:43,290 --> 00:12:46,290<br>
+For this, we want to<br>
+observe that Lifecycle.<br>
+<br>
+294<br>
+00:12:46,290 --> 00:12:48,690<br>
+To do that, we implement<br>
+this interface,<br>
+<br>
+295<br>
+00:12:48,690 --> 00:12:50,670<br>
+which allows us to<br>
+write these methods.<br>
+<br>
+296<br>
+00:12:50,670 --> 00:12:52,710<br>
+You can annotate<br>
+the methods saying<br>
+<br>
+297<br>
+00:12:52,710 --> 00:12:56,152<br>
+that, if ON_START<br>
+happens, call this method.<br>
+<br>
+298<br>
+00:12:56,152 --> 00:12:58,360<br>
+And the new components will<br>
+take care of calling you.<br>
+<br>
+299<br>
+00:12:58,360 --> 00:13:00,660<br>
+So if you are already<br>
+enabled, now you<br>
+<br>
+300<br>
+00:13:00,660 --> 00:13:03,540<br>
+start, and ON_STOP<br>
+you disconnect.<br>
+<br>
+301<br>
+00:13:03,540 --> 00:13:06,700<br>
+And last but not least, if<br>
+the activity is destroyed<br>
+<br>
+302<br>
+00:13:06,700 --> 00:13:09,220<br>
+there is nothing you want<br>
+to do with that activity<br>
+<br>
+303<br>
+00:13:09,220 --> 00:13:11,796<br>
+so you can unregister.<br>
+<br>
+304<br>
+00:13:11,796 --> 00:13:13,920<br>
+So now you might be asking<br>
+yourself, well, you just<br>
+<br>
+305<br>
+00:13:13,920 --> 00:13:16,710<br>
+moved those ON_START, ON_STOP<br>
+methods from the activity<br>
+<br>
+306<br>
+00:13:16,710 --> 00:13:18,450<br>
+into this Location Manager.<br>
+<br>
+307<br>
+00:13:18,450 --> 00:13:20,150<br>
+How come it is simpler?<br>
+<br>
+308<br>
+00:13:20,150 --> 00:13:22,250<br>
+It's simpler because<br>
+those methods<br>
+<br>
+309<br>
+00:13:22,250 --> 00:13:23,610<br>
+live in the right place.<br>
+<br>
+310<br>
+00:13:23,610 --> 00:13:27,690<br>
+It's the Location Manager which<br>
+cares about the Lifecycle.<br>
+<br>
+311<br>
+00:13:27,690 --> 00:13:30,780<br>
+So it should be able to<br>
+do it without the activity<br>
+<br>
+312<br>
+00:13:30,780 --> 00:13:32,460<br>
+babysitting itself.<br>
+<br>
+313<br>
+00:13:32,460 --> 00:13:34,170<br>
+I'm sure if you look<br>
+at your code today,<br>
+<br>
+314<br>
+00:13:34,170 --> 00:13:37,260<br>
+your activity ON_START, ON_STOP<br>
+methods are like, at least 20,<br>
+<br>
+315<br>
+00:13:37,260 --> 00:13:38,730<br>
+30 lines of code.<br>
+<br>
+316<br>
+00:13:38,730 --> 00:13:42,060<br>
+We want them to be<br>
+zero lines of code.<br>
+<br>
+317<br>
+00:13:42,060 --> 00:13:43,800<br>
+If we go back to<br>
+activity, I want<br>
+<br>
+318<br>
+00:13:43,800 --> 00:13:45,780<br>
+to point out something that--<br>
+<br>
+319<br>
+00:13:45,780 --> 00:13:49,260<br>
+look, in onCreate, we<br>
+initialized these components.<br>
+<br>
+320<br>
+00:13:49,260 --> 00:13:50,580<br>
+And that's all we did.<br>
+<br>
+321<br>
+00:13:50,580 --> 00:13:53,230<br>
+We didn't override, we<br>
+didn't ON_STOP, ON_START,<br>
+<br>
+322<br>
+00:13:53,230 --> 00:13:55,020<br>
+we don't override<br>
+any of those things<br>
+<br>
+323<br>
+00:13:55,020 --> 00:13:59,630<br>
+because the Location Manager<br>
+is a Lifecycle aware component<br>
+<br>
+324<br>
+00:13:59,630 --> 00:14:01,875<br>
+now.<br>
+<br>
+325<br>
+00:14:01,875 --> 00:14:03,990<br>
+So it's a new concept<br>
+we want to introduce.<br>
+<br>
+326<br>
+00:14:03,990 --> 00:14:08,130<br>
+A Lifecycle aware component in<br>
+a component can get a Lifecycle,<br>
+<br>
+327<br>
+00:14:08,130 --> 00:14:09,170<br>
+and do the right things.<br>
+<br>
+328<br>
+00:14:09,170 --> 00:14:12,210<br>
+It can take care of itself<br>
+so that your activity,<br>
+<br>
+329<br>
+00:14:12,210 --> 00:14:15,120<br>
+you can just initialize<br>
+it and forget about it.<br>
+<br>
+330<br>
+00:14:15,120 --> 00:14:19,060<br>
+You know that's not<br>
+going to leak you.<br>
+<br>
+331<br>
+00:14:19,060 --> 00:14:22,480<br>
+Now, of course, it was like<br>
+more of moving the complex<br>
+<br>
+332<br>
+00:14:22,480 --> 00:14:24,520<br>
+from activity to the<br>
+Location Manager,<br>
+<br>
+333<br>
+00:14:24,520 --> 00:14:27,310<br>
+and then it still needs<br>
+to deal with Lifecycle.<br>
+<br>
+334<br>
+00:14:27,310 --> 00:14:29,190<br>
+We said, OK, what do we want?<br>
+<br>
+335<br>
+00:14:29,190 --> 00:14:32,540<br>
+It's nice to be able to<br>
+do that, but we want more.<br>
+<br>
+336<br>
+00:14:32,540 --> 00:14:35,230<br>
+We want a very convenient<br>
+to handle this common case.<br>
+<br>
+337<br>
+00:14:35,230 --> 00:14:38,390<br>
+It's very common that your<br>
+activity or fragment, it<br>
+<br>
+338<br>
+00:14:38,390 --> 00:14:41,830<br>
+observes some data, and<br>
+whenever that data changes,<br>
+<br>
+339<br>
+00:14:41,830 --> 00:14:43,300<br>
+it wants to refresh itself.<br>
+<br>
+340<br>
+00:14:43,300 --> 00:14:46,910<br>
+It happens basically<br>
+almost every single UI.<br>
+<br>
+341<br>
+00:14:46,910 --> 00:14:49,870<br>
+And we want to share resources<br>
+across multiple fragments<br>
+<br>
+342<br>
+00:14:49,870 --> 00:14:51,250<br>
+or activities.<br>
+<br>
+343<br>
+00:14:51,250 --> 00:14:54,580<br>
+The location of the device<br>
+is the same from fragment<br>
+<br>
+344<br>
+00:14:54,580 --> 00:14:55,240<br>
+to fragment.<br>
+<br>
+345<br>
+00:14:55,240 --> 00:14:57,040<br>
+If you have two<br>
+fragments, why do you<br>
+<br>
+346<br>
+00:14:57,040 --> 00:15:01,610<br>
+need to create two listeners<br>
+to listen to the same location?<br>
+<br>
+347<br>
+00:15:01,610 --> 00:15:05,080<br>
+Hence, we created this<br>
+new LiveData clause.<br>
+<br>
+348<br>
+00:15:05,080 --> 00:15:06,600<br>
+Let's look at that.<br>
+<br>
+349<br>
+00:15:06,600 --> 00:15:10,390<br>
+So LiveData is a data holder,<br>
+it just holds some data.<br>
+<br>
+350<br>
+00:15:10,390 --> 00:15:13,690<br>
+It's like an observable, but<br>
+the tricky thing about LiveData<br>
+<br>
+351<br>
+00:15:13,690 --> 00:15:15,760<br>
+is that it is Lifecycle aware.<br>
+<br>
+352<br>
+00:15:15,760 --> 00:15:18,310<br>
+It understands about Lifecycles.<br>
+<br>
+353<br>
+00:15:18,310 --> 00:15:20,820<br>
+Because it understands<br>
+about Lifecycles,<br>
+<br>
+354<br>
+00:15:20,820 --> 00:15:22,850<br>
+it automatically<br>
+manages subscriptions.<br>
+<br>
+355<br>
+00:15:22,850 --> 00:15:25,220<br>
+So very similar to<br>
+the previous example,<br>
+<br>
+356<br>
+00:15:25,220 --> 00:15:29,290<br>
+if you are observing a LiveData,<br>
+you don't need to unsubscribe,<br>
+<br>
+357<br>
+00:15:29,290 --> 00:15:33,040<br>
+the right things will<br>
+happen in the right times.<br>
+<br>
+358<br>
+00:15:33,040 --> 00:15:37,660<br>
+So if that LocationListener<br>
+was a LiveData, and a singleton<br>
+<br>
+359<br>
+00:15:37,660 --> 00:15:40,000<br>
+because location<br>
+is singleton, we<br>
+<br>
+360<br>
+00:15:40,000 --> 00:15:41,800<br>
+could write the code like this--<br>
+<br>
+361<br>
+00:15:41,800 --> 00:15:43,930<br>
+get distance, start observing.<br>
+<br>
+362<br>
+00:15:43,930 --> 00:15:47,280<br>
+And when you observe, you<br>
+say, this is my Lifecycle.<br>
+<br>
+363<br>
+00:15:47,280 --> 00:15:48,280<br>
+This all you need to do.<br>
+<br>
+364<br>
+00:15:48,280 --> 00:15:51,880<br>
+Before on Android, if you were<br>
+observing something singleton<br>
+<br>
+365<br>
+00:15:51,880 --> 00:15:55,180<br>
+from an activity, everyone<br>
+will give minus two<br>
+<br>
+366<br>
+00:15:55,180 --> 00:15:56,650<br>
+to that code review.<br>
+<br>
+367<br>
+00:15:56,650 --> 00:15:57,805<br>
+Now you can do this.<br>
+<br>
+368<br>
+00:15:57,805 --> 00:16:01,600<br>
+This is safe,<br>
+nothing ever leaks.<br>
+<br>
+369<br>
+00:16:01,600 --> 00:16:03,790<br>
+So if you want to change<br>
+your LocationListener<br>
+<br>
+370<br>
+00:16:03,790 --> 00:16:07,430<br>
+to use this new API, we get<br>
+rid of the unnecessary things.<br>
+<br>
+371<br>
+00:16:07,430 --> 00:16:09,590<br>
+All we need is a<br>
+context to connect.<br>
+<br>
+372<br>
+00:16:09,590 --> 00:16:15,540<br>
+What we say, this is a LiveData,<br>
+this a LiveData of a location.<br>
+<br>
+373<br>
+00:16:15,540 --> 00:16:18,110<br>
+And we get these<br>
+two new methods.<br>
+<br>
+374<br>
+00:16:18,110 --> 00:16:20,520<br>
+One of two says<br>
+onActive, which means<br>
+<br>
+375<br>
+00:16:20,520 --> 00:16:22,920<br>
+you have an active observer.<br>
+<br>
+376<br>
+00:16:22,920 --> 00:16:24,475<br>
+And the other one<br>
+says onInactive,<br>
+<br>
+377<br>
+00:16:24,475 --> 00:16:27,555<br>
+which means you don't have<br>
+any observers that are active.<br>
+<br>
+378<br>
+00:16:27,555 --> 00:16:30,360<br>
+Now at this point, you're<br>
+probably asking yourself,<br>
+<br>
+379<br>
+00:16:30,360 --> 00:16:32,590<br>
+what is an active observer?<br>
+<br>
+380<br>
+00:16:32,590 --> 00:16:34,290<br>
+Well, we define<br>
+an active observer<br>
+<br>
+381<br>
+00:16:34,290 --> 00:16:37,710<br>
+as an observer that's in the<br>
+STARTED or RESUMED state, which<br>
+<br>
+382<br>
+00:16:37,710 --> 00:16:40,440<br>
+is like an activity user<br>
+is currently seeing.<br>
+<br>
+383<br>
+00:16:40,440 --> 00:16:43,020<br>
+So if you have an observer<br>
+in the back stack,<br>
+<br>
+384<br>
+00:16:43,020 --> 00:16:45,300<br>
+there's no reason to<br>
+put this inactive.<br>
+<br>
+385<br>
+00:16:45,300 --> 00:16:47,190<br>
+There's no reason to<br>
+update that activity<br>
+<br>
+386<br>
+00:16:47,190 --> 00:16:49,950<br>
+because user will never, ever<br>
+see what's going on there.<br>
+<br>
+387<br>
+00:16:49,950 --> 00:16:53,390<br>
+<br>
+<br>
+388<br>
+00:16:53,390 --> 00:16:56,130<br>
+So inside our connect<br>
+method, all we need to do<br>
+<br>
+389<br>
+00:16:56,130 --> 00:16:58,540<br>
+is, whenever the system<br>
+Location Manager sends us<br>
+<br>
+390<br>
+00:16:58,540 --> 00:17:02,120<br>
+a new location, we call<br>
+setValue on ourselves.<br>
+<br>
+391<br>
+00:17:02,120 --> 00:17:05,589<br>
+Then the LiveData knows which<br>
+are the active observers,<br>
+<br>
+392<br>
+00:17:05,589 --> 00:17:08,410<br>
+and delivers the data<br>
+to those observers.<br>
+<br>
+393<br>
+00:17:08,410 --> 00:17:11,930<br>
+Or if one of the observers<br>
+was on the back stack<br>
+<br>
+394<br>
+00:17:11,930 --> 00:17:14,290<br>
+and then becomes<br>
+visible again, LiveData<br>
+<br>
+395<br>
+00:17:14,290 --> 00:17:17,079<br>
+takes care of sending the latest<br>
+data back to that observer.<br>
+<br>
+396<br>
+00:17:17,079 --> 00:17:19,608<br>
+<br>
+<br>
+397<br>
+00:17:19,608 --> 00:17:22,858<br>
+And then we can make our<br>
+LocationListener singleton<br>
+<br>
+398<br>
+00:17:22,858 --> 00:17:26,019<br>
+because well, we don't<br>
+need multiple instances.<br>
+<br>
+399<br>
+00:17:26,020 --> 00:17:30,400<br>
+So if we look at LiveData, it<br>
+is a Lifecycle aware Observable.<br>
+<br>
+400<br>
+00:17:30,400 --> 00:17:32,520<br>
+It is very simple start<br>
+and stop semantics.<br>
+<br>
+401<br>
+00:17:32,520 --> 00:17:34,650<br>
+Doesn't matter how many<br>
+observers you have,<br>
+<br>
+402<br>
+00:17:34,650 --> 00:17:39,740<br>
+or what state they are, we merge<br>
+all of it into one Lifecycle.<br>
+<br>
+403<br>
+00:17:39,740 --> 00:17:42,000<br>
+And it doesn't have any<br>
+activities or fragments<br>
+<br>
+404<br>
+00:17:42,000 --> 00:17:44,620<br>
+inside it, but it works<br>
+with both of them.<br>
+<br>
+405<br>
+00:17:44,620 --> 00:17:47,460<br>
+And is also really used to<br>
+test LiveData because it's<br>
+<br>
+406<br>
+00:17:47,460 --> 00:17:49,080<br>
+kind of Android free.<br>
+<br>
+407<br>
+00:17:49,080 --> 00:17:52,720<br>
+And if you know about this<br>
+infamous FragmentTransaction<br>
+<br>
+408<br>
+00:17:52,720 --> 00:17:56,670<br>
+exception, we guarantee that<br>
+your observer will never,<br>
+<br>
+409<br>
+00:17:56,670 --> 00:17:59,750<br>
+ever be called in a state<br>
+where you cannot run<br>
+<br>
+410<br>
+00:17:59,750 --> 00:18:01,260<br>
+a FragmentTransaction.<br>
+<br>
+411<br>
+00:18:01,260 --> 00:18:03,780<br>
+So this is very, very<br>
+specifically designed<br>
+<br>
+412<br>
+00:18:03,780 --> 00:18:08,100<br>
+to work well with your<br>
+Activities and Fragments.<br>
+<br>
+413<br>
+00:18:08,100 --> 00:18:11,520<br>
+OK, let's think about<br>
+configuration changes.<br>
+<br>
+414<br>
+00:18:11,520 --> 00:18:14,460<br>
+Now, that example was easy<br>
+because location is global,<br>
+<br>
+415<br>
+00:18:14,460 --> 00:18:17,550<br>
+but most of the time,<br>
+the data belongs to a UI.<br>
+<br>
+416<br>
+00:18:17,550 --> 00:18:22,770<br>
+So if we had an activity<br>
+where we show a user profile,<br>
+<br>
+417<br>
+00:18:22,770 --> 00:18:24,660<br>
+and we implemented<br>
+a web service that<br>
+<br>
+418<br>
+00:18:24,660 --> 00:18:28,260<br>
+can return the data as a<br>
+LiveData which we can safely<br>
+<br>
+419<br>
+00:18:28,260 --> 00:18:32,580<br>
+observe without risking<br>
+leaking overactivity,<br>
+<br>
+420<br>
+00:18:32,580 --> 00:18:33,470<br>
+this all looks nice.<br>
+<br>
+421<br>
+00:18:33,470 --> 00:18:35,030<br>
+You will never<br>
+leak this activity,<br>
+<br>
+422<br>
+00:18:35,030 --> 00:18:36,390<br>
+it will work very well.<br>
+<br>
+423<br>
+00:18:36,390 --> 00:18:40,340<br>
+Except, what happens if the<br>
+user rotates to the device?<br>
+<br>
+424<br>
+00:18:40,340 --> 00:18:42,850<br>
+Let's look at the<br>
+LifeCycle graph again.<br>
+<br>
+425<br>
+00:18:42,850 --> 00:18:44,790<br>
+So activity is<br>
+created, it saves, OK.<br>
+<br>
+426<br>
+00:18:44,790 --> 00:18:46,752<br>
+Fetch the user.<br>
+<br>
+427<br>
+00:18:46,752 --> 00:18:48,460<br>
+And then while you<br>
+are fetching the user,<br>
+<br>
+428<br>
+00:18:48,460 --> 00:18:51,390<br>
+user decides, oh, I want<br>
+to rotate the phone.<br>
+<br>
+429<br>
+00:18:51,390 --> 00:18:53,130<br>
+And then that<br>
+activity is destroyed.<br>
+<br>
+430<br>
+00:18:53,130 --> 00:18:55,740<br>
+Luckily we don't leak<br>
+it, which is great.<br>
+<br>
+431<br>
+00:18:55,740 --> 00:18:57,810<br>
+But then the new<br>
+activity starts,<br>
+<br>
+432<br>
+00:18:57,810 --> 00:18:59,620<br>
+which makes this new call.<br>
+<br>
+433<br>
+00:18:59,620 --> 00:19:02,160<br>
+Now, this is OK, but not great.<br>
+<br>
+434<br>
+00:19:02,160 --> 00:19:03,640<br>
+What do we want?<br>
+<br>
+435<br>
+00:19:03,640 --> 00:19:05,700<br>
+We want to actually<br>
+retain that data, right?<br>
+<br>
+436<br>
+00:19:05,700 --> 00:19:09,870<br>
+We are already making that<br>
+request, why remake it?<br>
+<br>
+437<br>
+00:19:09,870 --> 00:19:12,780<br>
+So we want our graph<br>
+to look like this.<br>
+<br>
+438<br>
+00:19:12,780 --> 00:19:14,640<br>
+So if the new activity<br>
+comes, we should<br>
+<br>
+439<br>
+00:19:14,640 --> 00:19:18,330<br>
+be able to give it back the<br>
+same view model, which is<br>
+<br>
+440<br>
+00:19:18,330 --> 00:19:20,340<br>
+a new class called ViewModel.<br>
+<br>
+441<br>
+00:19:20,340 --> 00:19:22,290<br>
+So we are introducing<br>
+this new class<br>
+<br>
+442<br>
+00:19:22,290 --> 00:19:23,760<br>
+very specific to<br>
+this thing, where<br>
+<br>
+443<br>
+00:19:23,760 --> 00:19:27,210<br>
+you should put the data<br>
+inside your activities<br>
+<br>
+444<br>
+00:19:27,210 --> 00:19:30,940<br>
+into the ViewModel, and make<br>
+the activities data-free.<br>
+<br>
+445<br>
+00:19:30,940 --> 00:19:33,000<br>
+So if you want to<br>
+change this activity,<br>
+<br>
+446<br>
+00:19:33,000 --> 00:19:36,910<br>
+we create this new class, it<br>
+extends the VewModel class.<br>
+<br>
+447<br>
+00:19:36,910 --> 00:19:41,830<br>
+Whatever data we had inside<br>
+the activity, we move it there.<br>
+<br>
+448<br>
+00:19:41,830 --> 00:19:45,630<br>
+And in the ViewModel, all we do<br>
+is, inside the getUser method,<br>
+<br>
+449<br>
+00:19:45,630 --> 00:19:48,790<br>
+if this is the first goal,<br>
+get it from the web service.<br>
+<br>
+450<br>
+00:19:48,790 --> 00:19:51,800<br>
+Otherwise, return<br>
+to existing value.<br>
+<br>
+451<br>
+00:19:51,800 --> 00:19:53,220<br>
+Now, super simple.<br>
+<br>
+452<br>
+00:19:53,220 --> 00:19:55,800<br>
+And inside our activity, we<br>
+get rid of all that code.<br>
+<br>
+453<br>
+00:19:55,800 --> 00:19:58,590<br>
+We say, get the<br>
+ViewModelProviders.of this.<br>
+<br>
+454<br>
+00:19:58,590 --> 00:20:01,620<br>
+So each activity or a fragment<br>
+has a ViewModelProvider<br>
+<br>
+455<br>
+00:20:01,620 --> 00:20:04,680<br>
+that you can obtain, and<br>
+that ViewModelProvider knows<br>
+<br>
+456<br>
+00:20:04,680 --> 00:20:06,510<br>
+how to give you the ViewModel.<br>
+<br>
+457<br>
+00:20:06,510 --> 00:20:08,880<br>
+So when you call<br>
+get MyViewModel,<br>
+<br>
+458<br>
+00:20:08,880 --> 00:20:10,530<br>
+the very first time<br>
+you make this call,<br>
+<br>
+459<br>
+00:20:10,530 --> 00:20:11,940<br>
+we will give you a new instance.<br>
+<br>
+460<br>
+00:20:11,940 --> 00:20:13,780<br>
+When the rotated<br>
+activity comes back,<br>
+<br>
+461<br>
+00:20:13,780 --> 00:20:16,760<br>
+it's going to reconnect<br>
+to the same ViewModel.<br>
+<br>
+462<br>
+00:20:16,760 --> 00:20:19,432<br>
+And then the rest of<br>
+the code is the same.<br>
+<br>
+463<br>
+00:20:19,432 --> 00:20:22,318<br>
+[APPLAUSE]<br>
+<br>
+464<br>
+00:20:22,318 --> 00:20:28,580<br>
+<br>
+<br>
+465<br>
+00:20:28,580 --> 00:20:31,060<br>
+So if you look at the<br>
+Lifecycle, this is how it looks.<br>
+<br>
+466<br>
+00:20:31,060 --> 00:20:32,040<br>
+This is what we wanted.<br>
+<br>
+467<br>
+00:20:32,040 --> 00:20:35,800<br>
+The new activity is<br>
+started, it reconnects.<br>
+<br>
+468<br>
+00:20:35,800 --> 00:20:38,140<br>
+And when the new<br>
+activity is finished,<br>
+<br>
+469<br>
+00:20:38,140 --> 00:20:41,050<br>
+like when we don't have anything<br>
+to do with that activity,<br>
+<br>
+470<br>
+00:20:41,050 --> 00:20:42,580<br>
+and then we go<br>
+and tell ViewModel<br>
+<br>
+471<br>
+00:20:42,580 --> 00:20:44,350<br>
+that it's not needed anymore.<br>
+<br>
+472<br>
+00:20:44,350 --> 00:20:48,340<br>
+This is actually the only<br>
+method in the ViewModel class.<br>
+<br>
+473<br>
+00:20:48,340 --> 00:20:49,570<br>
+So this is very simple.<br>
+<br>
+474<br>
+00:20:49,570 --> 00:20:51,640<br>
+So if we look at<br>
+Lifecycles, they<br>
+<br>
+475<br>
+00:20:51,640 --> 00:20:53,310<br>
+hold the data for the activity.<br>
+<br>
+476<br>
+00:20:53,310 --> 00:20:56,500<br>
+They survive<br>
+configuration changes.<br>
+<br>
+477<br>
+00:20:56,500 --> 00:20:58,930<br>
+They should never,<br>
+ever reference views<br>
+<br>
+478<br>
+00:20:58,930 --> 00:21:00,870<br>
+because they [INAUDIBLE]<br>
+leave the activities.<br>
+<br>
+479<br>
+00:21:00,870 --> 00:21:03,430<br>
+So you cannot reference<br>
+back to the activity.<br>
+<br>
+480<br>
+00:21:03,430 --> 00:21:05,640<br>
+That's why you use<br>
+things like LiveData,<br>
+<br>
+481<br>
+00:21:05,640 --> 00:21:08,550<br>
+Rx Java, or<br>
+datamining observables<br>
+<br>
+482<br>
+00:21:08,550 --> 00:21:10,270<br>
+to do that communication.<br>
+<br>
+483<br>
+00:21:10,270 --> 00:21:12,730<br>
+And this is what our<br>
+activity talks-- it always<br>
+<br>
+484<br>
+00:21:12,730 --> 00:21:15,070<br>
+talks to the ViewModel.<br>
+<br>
+485<br>
+00:21:15,070 --> 00:21:19,210<br>
+Now, another big<br>
+topic is persistence.<br>
+<br>
+486<br>
+00:21:19,210 --> 00:21:22,000<br>
+Now, we know that to write a<br>
+good, responsive Android app,<br>
+<br>
+487<br>
+00:21:22,000 --> 00:21:24,860<br>
+you need to save<br>
+the data on disk.<br>
+<br>
+488<br>
+00:21:24,860 --> 00:21:27,700<br>
+If you come to Android, there's<br>
+this three major APIs we have.<br>
+<br>
+489<br>
+00:21:27,700 --> 00:21:29,980<br>
+One of them is content<br>
+providers, which<br>
+<br>
+490<br>
+00:21:29,980 --> 00:21:32,320<br>
+is to talk between processes.<br>
+<br>
+491<br>
+00:21:32,320 --> 00:21:35,530<br>
+It really has nothing to do<br>
+with persistence, in reality.<br>
+<br>
+492<br>
+00:21:35,530 --> 00:21:37,510<br>
+The other one is<br>
+shared preferences,<br>
+<br>
+493<br>
+00:21:37,510 --> 00:21:40,090<br>
+which saves the data in XML.<br>
+<br>
+494<br>
+00:21:40,090 --> 00:21:43,190<br>
+So you can only put very<br>
+little data into that.<br>
+<br>
+495<br>
+00:21:43,190 --> 00:21:44,800<br>
+And the last one<br>
+is SQLite, which<br>
+<br>
+496<br>
+00:21:44,800 --> 00:21:48,160<br>
+is something we have been<br>
+shipping since Android 1.<br>
+<br>
+497<br>
+00:21:48,160 --> 00:21:49,720<br>
+So you know you<br>
+need to use SQLite<br>
+<br>
+498<br>
+00:21:49,720 --> 00:21:51,890<br>
+if you want to save big data.<br>
+<br>
+499<br>
+00:21:51,890 --> 00:21:55,330<br>
+And so you go into the<br>
+developer.android.com/ This is<br>
+<br>
+500<br>
+00:21:55,330 --> 00:21:57,960<br>
+the very first saving<br>
+your data slide.<br>
+<br>
+501<br>
+00:21:57,960 --> 00:22:00,130<br>
+This is so confusing.<br>
+<br>
+502<br>
+00:22:00,130 --> 00:22:01,642<br>
+This is very sad.<br>
+<br>
+503<br>
+00:22:01,642 --> 00:22:03,370<br>
+[LAUGHTER]<br>
+<br>
+504<br>
+00:22:03,370 --> 00:22:06,190<br>
+So is it-- OK, we want<br>
+to make this less sad.<br>
+<br>
+505<br>
+00:22:06,190 --> 00:22:07,960<br>
+We want to make it happy.<br>
+<br>
+506<br>
+00:22:07,960 --> 00:22:10,060<br>
+So we'll look at<br>
+the example, right?<br>
+<br>
+507<br>
+00:22:10,060 --> 00:22:11,740<br>
+So there's-- on top,<br>
+it tries to say,<br>
+<br>
+508<br>
+00:22:11,740 --> 00:22:15,670<br>
+I want to select these three<br>
+columns with this constraint,<br>
+<br>
+509<br>
+00:22:15,670 --> 00:22:17,950<br>
+and I want to order<br>
+them like this.<br>
+<br>
+510<br>
+00:22:17,950 --> 00:22:20,670<br>
+This actually really,<br>
+really simple SQL query,<br>
+<br>
+511<br>
+00:22:20,670 --> 00:22:22,210<br>
+but you need to<br>
+write all this code.<br>
+<br>
+512<br>
+00:22:22,210 --> 00:22:24,160<br>
+Plus, this code<br>
+doesn't even show where<br>
+<br>
+513<br>
+00:22:24,160 --> 00:22:27,720<br>
+you define all those constants.<br>
+<br>
+514<br>
+00:22:27,720 --> 00:22:29,430<br>
+So what do we really want?<br>
+<br>
+515<br>
+00:22:29,430 --> 00:22:32,060<br>
+We want to get rid of that<br>
+boilerplate-free code.<br>
+<br>
+516<br>
+00:22:32,060 --> 00:22:34,890<br>
+When you are writing Java,<br>
+if you make a typo in Java,<br>
+<br>
+517<br>
+00:22:34,890 --> 00:22:36,630<br>
+it doesn't compile right.<br>
+<br>
+518<br>
+00:22:36,630 --> 00:22:39,010<br>
+We want the same thing for SQL.<br>
+<br>
+519<br>
+00:22:39,010 --> 00:22:42,000<br>
+We still want to use SQLite,<br>
+because on every single Android<br>
+<br>
+520<br>
+00:22:42,000 --> 00:22:43,740<br>
+device it's a proven technology.<br>
+<br>
+521<br>
+00:22:43,740 --> 00:22:46,230<br>
+We know it works very well.<br>
+<br>
+522<br>
+00:22:46,230 --> 00:22:48,280<br>
+But we want the compile<br>
+time verification.<br>
+<br>
+523<br>
+00:22:48,280 --> 00:22:49,970<br>
+So we don't want the<br>
+boilerplate code,<br>
+<br>
+524<br>
+00:22:49,970 --> 00:22:52,480<br>
+we want to compile<br>
+time verification.<br>
+<br>
+525<br>
+00:22:52,480 --> 00:22:56,220<br>
+So we said, well-- we came up<br>
+with Room, which is an object<br>
+<br>
+526<br>
+00:22:56,220 --> 00:22:59,649<br>
+mapping library for SQLite.<br>
+<br>
+527<br>
+00:22:59,649 --> 00:23:05,800<br>
+[APPLAUSE]<br>
+<br>
+528<br>
+00:23:05,800 --> 00:23:08,210<br>
+So if you look at<br>
+this query, we said,<br>
+<br>
+529<br>
+00:23:08,210 --> 00:23:10,770<br>
+OK, let's move this query<br>
+inside the annotation.<br>
+<br>
+530<br>
+00:23:10,770 --> 00:23:12,610<br>
+We like annotations.<br>
+<br>
+531<br>
+00:23:12,610 --> 00:23:14,560<br>
+And we have this<br>
+feed object, which we<br>
+<br>
+532<br>
+00:23:14,560 --> 00:23:16,360<br>
+want to save in the database.<br>
+<br>
+533<br>
+00:23:16,360 --> 00:23:19,270<br>
+I want to put that query<br>
+inside an interface.<br>
+<br>
+534<br>
+00:23:19,270 --> 00:23:21,280<br>
+You want to create the FeedDao--<br>
+<br>
+535<br>
+00:23:21,280 --> 00:23:24,040<br>
+the Dao stands for<br>
+Data Access Object.<br>
+<br>
+536<br>
+00:23:24,040 --> 00:23:27,430<br>
+Usually in database, the best<br>
+practice to put your database<br>
+<br>
+537<br>
+00:23:27,430 --> 00:23:29,350<br>
+access into certain interfaces.<br>
+<br>
+538<br>
+00:23:29,350 --> 00:23:32,252<br>
+Then we just need to tell<br>
+the Room, this is a Dow.<br>
+<br>
+539<br>
+00:23:32,252 --> 00:23:34,360<br>
+Tell Room this is an entity.<br>
+<br>
+540<br>
+00:23:34,360 --> 00:23:37,960<br>
+And finally, we had a<br>
+database class which says,<br>
+<br>
+541<br>
+00:23:37,960 --> 00:23:41,050<br>
+I have these entities-- so<br>
+you have multiple entities,<br>
+<br>
+542<br>
+00:23:41,050 --> 00:23:45,240<br>
+and I have these data access<br>
+objects, as you saw them.<br>
+<br>
+543<br>
+00:23:45,240 --> 00:23:46,210<br>
+This is all you write.<br>
+<br>
+544<br>
+00:23:46,210 --> 00:23:48,760<br>
+Once you write that, you can<br>
+get an implementation of it<br>
+<br>
+545<br>
+00:23:48,760 --> 00:23:49,590<br>
+from Room.<br>
+<br>
+546<br>
+00:23:49,590 --> 00:23:52,750<br>
+It's very similar to how<br>
+you use Retrofit or Dagger--<br>
+<br>
+547<br>
+00:23:52,750 --> 00:23:57,080<br>
+you define the interfaces, we<br>
+provide the implementation.<br>
+<br>
+548<br>
+00:23:57,080 --> 00:23:59,740<br>
+Now, once we know<br>
+this is a Dow, we<br>
+<br>
+549<br>
+00:23:59,740 --> 00:24:01,210<br>
+can do these shortcut methods.<br>
+<br>
+550<br>
+00:24:01,210 --> 00:24:05,350<br>
+Like, insert these items, or<br>
+delete these items, or update--<br>
+<br>
+551<br>
+00:24:05,350 --> 00:24:06,930<br>
+a bunch of shortcut methods.<br>
+<br>
+552<br>
+00:24:06,930 --> 00:24:08,710<br>
+And you can press<br>
+multiple parameters.<br>
+<br>
+553<br>
+00:24:08,710 --> 00:24:11,115<br>
+As long as you can read<br>
+it and it makes sense,<br>
+<br>
+554<br>
+00:24:11,115 --> 00:24:13,930<br>
+Room will understand it.<br>
+<br>
+555<br>
+00:24:13,930 --> 00:24:16,000<br>
+But the most<br>
+important part of Room<br>
+<br>
+556<br>
+00:24:16,000 --> 00:24:18,680<br>
+is, it understands your SQL.<br>
+<br>
+557<br>
+00:24:18,680 --> 00:24:20,320<br>
+So the part-- all<br>
+those constants<br>
+<br>
+558<br>
+00:24:20,320 --> 00:24:23,630<br>
+I mentioned we defined to<br>
+get compile time guarantees,<br>
+<br>
+559<br>
+00:24:23,630 --> 00:24:26,560<br>
+Room actually gives<br>
+all of this for free.<br>
+<br>
+560<br>
+00:24:26,560 --> 00:24:28,380<br>
+So when Room sees<br>
+this query, says,<br>
+<br>
+561<br>
+00:24:28,380 --> 00:24:31,060<br>
+OK, you are receiving<br>
+these three columns<br>
+<br>
+562<br>
+00:24:31,060 --> 00:24:34,900<br>
+from this table where the<br>
+title looks like this keyword.<br>
+<br>
+563<br>
+00:24:34,900 --> 00:24:36,705<br>
+Where is this<br>
+keyword coming from?<br>
+<br>
+564<br>
+00:24:36,705 --> 00:24:38,710<br>
+Oh, it's coming from<br>
+the function parameters.<br>
+<br>
+565<br>
+00:24:38,710 --> 00:24:39,567<br>
+Makes sense.<br>
+<br>
+566<br>
+00:24:39,567 --> 00:24:40,900<br>
+And what does it want to return?<br>
+<br>
+567<br>
+00:24:40,900 --> 00:24:42,970<br>
+It wants to return<br>
+a list of feeds.<br>
+<br>
+568<br>
+00:24:42,970 --> 00:24:45,330<br>
+And then Room goes and checks.<br>
+<br>
+569<br>
+00:24:45,330 --> 00:24:47,980<br>
+Does the columns<br>
+returned match the object<br>
+<br>
+570<br>
+00:24:47,980 --> 00:24:49,690<br>
+the user wants to return?<br>
+<br>
+571<br>
+00:24:49,690 --> 00:24:53,812<br>
+And once they're equal, it says,<br>
+OK, I can generate this code.<br>
+<br>
+572<br>
+00:24:53,812 --> 00:24:55,270<br>
+You can have even<br>
+say, select star.<br>
+<br>
+573<br>
+00:24:55,270 --> 00:24:56,600<br>
+You don't need to list them.<br>
+<br>
+574<br>
+00:24:56,600 --> 00:25:00,190<br>
+Room really, really<br>
+understand your query.<br>
+<br>
+575<br>
+00:25:00,190 --> 00:25:03,130<br>
+You can even join 10<br>
+tables, it will still work.<br>
+<br>
+576<br>
+00:25:03,130 --> 00:25:05,020<br>
+But what if you made a typo?<br>
+<br>
+577<br>
+00:25:05,020 --> 00:25:07,750<br>
+Instead of saying feed<br>
+table you wrote feeds.<br>
+<br>
+578<br>
+00:25:07,750 --> 00:25:10,750<br>
+Now, if this happens,<br>
+Room is going to give you<br>
+<br>
+579<br>
+00:25:10,750 --> 00:25:12,940<br>
+an error at compile time.<br>
+<br>
+580<br>
+00:25:12,940 --> 00:25:15,040<br>
+So it goes out and<br>
+verifies your query<br>
+<br>
+581<br>
+00:25:15,040 --> 00:25:17,080<br>
+against the schema<br>
+you have defined,<br>
+<br>
+582<br>
+00:25:17,080 --> 00:25:19,562<br>
+and it tells you if<br>
+something is wrong.<br>
+<br>
+583<br>
+00:25:19,562 --> 00:25:22,508<br>
+[APPLAUSE]<br>
+<br>
+584<br>
+00:25:22,508 --> 00:25:27,797<br>
+<br>
+<br>
+585<br>
+00:25:27,797 --> 00:25:29,380<br>
+But that's not the<br>
+only thing it does.<br>
+<br>
+586<br>
+00:25:29,380 --> 00:25:30,860<br>
+So if you said--<br>
+<br>
+587<br>
+00:25:30,860 --> 00:25:34,070<br>
+if your query is correct, you<br>
+want to fetch ID and title.<br>
+<br>
+588<br>
+00:25:34,070 --> 00:25:35,870<br>
+This said, well,<br>
+it's query, but you<br>
+<br>
+589<br>
+00:25:35,870 --> 00:25:37,350<br>
+want to return it as a string.<br>
+<br>
+590<br>
+00:25:37,350 --> 00:25:40,460<br>
+And then Room says, well, you<br>
+are returning two columns,<br>
+<br>
+591<br>
+00:25:40,460 --> 00:25:42,260<br>
+but you only have one string.<br>
+<br>
+592<br>
+00:25:42,260 --> 00:25:43,320<br>
+That doesn't make sense.<br>
+<br>
+593<br>
+00:25:43,320 --> 00:25:46,800<br>
+And it's going to give you<br>
+a compile time error again.<br>
+<br>
+594<br>
+00:25:46,800 --> 00:25:49,220<br>
+And there's a really nice<br>
+way to fix this in Room.<br>
+<br>
+595<br>
+00:25:49,220 --> 00:25:51,095<br>
+You can basically<br>
+create any Java class.<br>
+<br>
+596<br>
+00:25:51,095 --> 00:25:52,580<br>
+It doesn't need<br>
+to be annotating,<br>
+<br>
+597<br>
+00:25:52,580 --> 00:25:55,170<br>
+there's nothing special<br>
+about that Pojo,<br>
+<br>
+598<br>
+00:25:55,170 --> 00:25:57,080<br>
+and tell Room to return it.<br>
+<br>
+599<br>
+00:25:57,080 --> 00:25:59,780<br>
+As long as whatever<br>
+query it returns<br>
+<br>
+600<br>
+00:25:59,780 --> 00:26:01,880<br>
+matches what you<br>
+want it to return,<br>
+<br>
+601<br>
+00:26:01,880 --> 00:26:05,250<br>
+Room will write<br>
+the code for you.<br>
+<br>
+602<br>
+00:26:05,250 --> 00:26:07,470<br>
+And observability, which<br>
+is very important, right?<br>
+<br>
+603<br>
+00:26:07,470 --> 00:26:09,390<br>
+If you have a query<br>
+like this, now you're<br>
+<br>
+604<br>
+00:26:09,390 --> 00:26:11,460<br>
+showing lists of<br>
+feeds, you obviously<br>
+<br>
+605<br>
+00:26:11,460 --> 00:26:14,295<br>
+want to get notified<br>
+when the data changes.<br>
+<br>
+606<br>
+00:26:14,295 --> 00:26:17,842<br>
+And in Room, if you want to<br>
+do this, all you have to do<br>
+<br>
+607<br>
+00:26:17,842 --> 00:26:19,290<br>
+is tell it.<br>
+<br>
+608<br>
+00:26:19,290 --> 00:26:22,980<br>
+Tell it to return a LiveData,<br>
+and it will do it for you.<br>
+<br>
+609<br>
+00:26:22,980 --> 00:26:26,400<br>
+Because it knows your query,<br>
+it knows what things affect it.<br>
+<br>
+610<br>
+00:26:26,400 --> 00:26:29,520<br>
+So it can let you know<br>
+if that query changes.<br>
+<br>
+611<br>
+00:26:29,520 --> 00:26:32,280<br>
+And this is the part where all<br>
+these architectural components<br>
+<br>
+612<br>
+00:26:32,280 --> 00:26:33,750<br>
+work well together.<br>
+<br>
+613<br>
+00:26:33,750 --> 00:26:36,640<br>
+Room already knows<br>
+about LiveData.<br>
+<br>
+614<br>
+00:26:36,640 --> 00:26:40,340<br>
+So your ViewModel, all you would<br>
+write is-- from the data is,<br>
+<br>
+615<br>
+00:26:40,340 --> 00:26:42,600<br>
+call this query, and<br>
+this all it will do.<br>
+<br>
+616<br>
+00:26:42,600 --> 00:26:46,650<br>
+Whenever that data changes,<br>
+your UI will get a new update.<br>
+<br>
+617<br>
+00:26:46,650 --> 00:26:49,470<br>
+And it only happens<br>
+if the UI is visible.<br>
+<br>
+618<br>
+00:26:49,470 --> 00:26:52,958<br>
+Last but not least, Room<br>
+also supports RxJava 2.<br>
+<br>
+619<br>
+00:26:52,958 --> 00:26:55,448<br>
+[APPLAUSE]<br>
+<br>
+620<br>
+00:26:55,448 --> 00:27:01,930<br>
+<br>
+<br>
+621<br>
+00:27:01,930 --> 00:27:04,390<br>
+OK, if we look at<br>
+Room in a nutshell,<br>
+<br>
+622<br>
+00:27:04,390 --> 00:27:06,730<br>
+it writes the<br>
+boilerplate code for you.<br>
+<br>
+623<br>
+00:27:06,730 --> 00:27:08,050<br>
+It has full SQLite support.<br>
+<br>
+624<br>
+00:27:08,050 --> 00:27:10,990<br>
+You can just write in<br>
+SQLite, there's no builders.<br>
+<br>
+625<br>
+00:27:10,990 --> 00:27:14,070<br>
+It verifies your<br>
+queries at compile time.<br>
+<br>
+626<br>
+00:27:14,070 --> 00:27:17,350<br>
+It incentivizes best<br>
+practices, which helps you<br>
+<br>
+627<br>
+00:27:17,350 --> 00:27:19,480<br>
+with testing migrations.<br>
+<br>
+628<br>
+00:27:19,480 --> 00:27:23,020<br>
+And it's also observable<br>
+out of the box.<br>
+<br>
+629<br>
+00:27:23,020 --> 00:27:28,000<br>
+OK, architecture,<br>
+our last topic today.<br>
+<br>
+630<br>
+00:27:28,000 --> 00:27:30,000<br>
+So where we started, right?<br>
+<br>
+631<br>
+00:27:30,000 --> 00:27:31,860<br>
+And now, you might<br>
+be asking yourselves,<br>
+<br>
+632<br>
+00:27:31,860 --> 00:27:34,335<br>
+what has changed<br>
+in 2017 that you<br>
+<br>
+633<br>
+00:27:34,335 --> 00:27:36,930<br>
+are talking about architecture?<br>
+<br>
+634<br>
+00:27:36,930 --> 00:27:38,740<br>
+Well, actually<br>
+nothing has changed.<br>
+<br>
+635<br>
+00:27:38,740 --> 00:27:40,560<br>
+We've been talking<br>
+about this topic a lot.<br>
+<br>
+636<br>
+00:27:40,560 --> 00:27:44,460<br>
+Adam Powell and I gave a<br>
+lot of talks on this topic.<br>
+<br>
+637<br>
+00:27:44,460 --> 00:27:49,050<br>
+There's even a talk from 2010<br>
+which I watch as a developer.<br>
+<br>
+638<br>
+00:27:49,050 --> 00:27:51,630<br>
+So this is a topic we have<br>
+been more clear about.<br>
+<br>
+639<br>
+00:27:51,630 --> 00:27:54,720<br>
+But what is missing was<br>
+a well-defined reference<br>
+<br>
+640<br>
+00:27:54,720 --> 00:27:56,022<br>
+architecture.<br>
+<br>
+641<br>
+00:27:56,022 --> 00:27:57,480<br>
+So it's what we<br>
+are shipping today.<br>
+<br>
+642<br>
+00:27:57,480 --> 00:27:59,370<br>
+If you go to<br>
+developer.android.com today<br>
+<br>
+643<br>
+00:27:59,370 --> 00:28:01,680<br>
+after the session,<br>
+there's a section<br>
+<br>
+644<br>
+00:28:01,680 --> 00:28:05,246<br>
+about how to architect<br>
+an Android application.<br>
+<br>
+645<br>
+00:28:05,246 --> 00:28:08,697<br>
+[APPLAUSE]<br>
+<br>
+646<br>
+00:28:08,697 --> 00:28:13,640<br>
+<br>
+<br>
+647<br>
+00:28:13,640 --> 00:28:15,890<br>
+So by the way, this<br>
+is a reference guide.<br>
+<br>
+648<br>
+00:28:15,890 --> 00:28:17,780<br>
+This is not your religious book.<br>
+<br>
+649<br>
+00:28:17,780 --> 00:28:20,600<br>
+We believe this is a very good<br>
+way to write applications,<br>
+<br>
+650<br>
+00:28:20,600 --> 00:28:24,320<br>
+but you don't need to<br>
+follow it line by line.<br>
+<br>
+651<br>
+00:28:24,320 --> 00:28:27,400<br>
+So I'm going to briefly go<br>
+through this architecture,<br>
+<br>
+652<br>
+00:28:27,400 --> 00:28:28,960<br>
+but if you get<br>
+lost, don't worry.<br>
+<br>
+653<br>
+00:28:28,960 --> 00:28:31,950<br>
+We have all of this documented<br>
+on developer Android com<br>
+<br>
+654<br>
+00:28:31,950 --> 00:28:34,264<br>
+with sample applications.<br>
+<br>
+655<br>
+00:28:34,264 --> 00:28:35,680<br>
+So we think that<br>
+an application is<br>
+<br>
+656<br>
+00:28:35,680 --> 00:28:37,300<br>
+composed of four main things--<br>
+<br>
+657<br>
+00:28:37,300 --> 00:28:41,680<br>
+there's UI controllers, the<br>
+view models, a repository,<br>
+<br>
+658<br>
+00:28:41,680 --> 00:28:43,030<br>
+and the data sources.<br>
+<br>
+659<br>
+00:28:43,030 --> 00:28:45,640<br>
+So let's look at<br>
+these in detail.<br>
+<br>
+660<br>
+00:28:45,640 --> 00:28:47,980<br>
+UI controllers are<br>
+your activities,<br>
+<br>
+661<br>
+00:28:47,980 --> 00:28:51,100<br>
+fragments, custom views.<br>
+<br>
+662<br>
+00:28:51,100 --> 00:28:52,750<br>
+They have really simple tasks.<br>
+<br>
+663<br>
+00:28:52,750 --> 00:28:55,270<br>
+They observe the<br>
+fields of the ViewModel<br>
+<br>
+664<br>
+00:28:55,270 --> 00:28:56,720<br>
+and update themselves.<br>
+<br>
+665<br>
+00:28:56,720 --> 00:28:58,540<br>
+And they want more<br>
+responsibility.<br>
+<br>
+666<br>
+00:28:58,540 --> 00:29:01,540<br>
+Whenever user takes<br>
+an action on the UI,<br>
+<br>
+667<br>
+00:29:01,540 --> 00:29:04,450<br>
+they understand that action,<br>
+and call the ViewModel<br>
+<br>
+668<br>
+00:29:04,450 --> 00:29:07,540<br>
+to express whatever<br>
+the user wanted to do.<br>
+<br>
+669<br>
+00:29:07,540 --> 00:29:10,390<br>
+If you go to our view<br>
+model, view model<br>
+<br>
+670<br>
+00:29:10,390 --> 00:29:13,450<br>
+is the one which prepares<br>
+the data for the UI,<br>
+<br>
+671<br>
+00:29:13,450 --> 00:29:14,480<br>
+and holds onto it.<br>
+<br>
+672<br>
+00:29:14,480 --> 00:29:16,740<br>
+This is where the<br>
+data for the UI lives.<br>
+<br>
+673<br>
+00:29:16,740 --> 00:29:20,050<br>
+View model knows how<br>
+to get that data.<br>
+<br>
+674<br>
+00:29:20,050 --> 00:29:21,949<br>
+Usually it has LiveData.<br>
+<br>
+675<br>
+00:29:21,949 --> 00:29:23,740<br>
+If you are using Rx<br>
+Java, it is observable,<br>
+<br>
+676<br>
+00:29:23,740 --> 00:29:26,940<br>
+or datamining observables.<br>
+<br>
+677<br>
+00:29:26,940 --> 00:29:28,830<br>
+It survives<br>
+configuration changes.<br>
+<br>
+678<br>
+00:29:28,830 --> 00:29:32,200<br>
+That's why we put the<br>
+data into the view models.<br>
+<br>
+679<br>
+00:29:32,200 --> 00:29:33,680<br>
+And it is also the gateway.<br>
+<br>
+680<br>
+00:29:33,680 --> 00:29:37,040<br>
+You can also consider it<br>
+as, your UI controller only<br>
+<br>
+681<br>
+00:29:37,040 --> 00:29:39,230<br>
+ever talks to the<br>
+view model to reach<br>
+<br>
+682<br>
+00:29:39,230 --> 00:29:42,690<br>
+to the rest of the application.<br>
+<br>
+683<br>
+00:29:42,690 --> 00:29:44,360<br>
+And then what's the repository?<br>
+<br>
+684<br>
+00:29:44,360 --> 00:29:47,100<br>
+Now, the view model<br>
+serves as a data store<br>
+<br>
+685<br>
+00:29:47,100 --> 00:29:48,920<br>
+for your UI controller, right?<br>
+<br>
+686<br>
+00:29:48,920 --> 00:29:51,060<br>
+Repository saves<br>
+it as a data store<br>
+<br>
+687<br>
+00:29:51,060 --> 00:29:53,520<br>
+for all of your application.<br>
+<br>
+688<br>
+00:29:53,520 --> 00:29:56,070<br>
+So it's the complete<br>
+data model for the app,<br>
+<br>
+689<br>
+00:29:56,070 --> 00:29:58,560<br>
+and it provides this<br>
+data with simple APIs<br>
+<br>
+690<br>
+00:29:58,560 --> 00:30:00,210<br>
+to the rest of the application.<br>
+<br>
+691<br>
+00:30:00,210 --> 00:30:03,420<br>
+You can have a user repository<br>
+where you pass a user ID,<br>
+<br>
+692<br>
+00:30:03,420 --> 00:30:06,000<br>
+and it returns your<br>
+LiveData of users.<br>
+<br>
+693<br>
+00:30:06,000 --> 00:30:07,650<br>
+How it gets the data?<br>
+<br>
+694<br>
+00:30:07,650 --> 00:30:10,260<br>
+You don't care, it's<br>
+the repository's job.<br>
+<br>
+695<br>
+00:30:10,260 --> 00:30:11,280<br>
+So how does it do that?<br>
+<br>
+696<br>
+00:30:11,280 --> 00:30:12,420<br>
+It talks to the--<br>
+<br>
+697<br>
+00:30:12,420 --> 00:30:15,920<br>
+fetching, syncing,<br>
+looking at database,<br>
+<br>
+698<br>
+00:30:15,920 --> 00:30:17,990<br>
+or talking to your<br>
+retrofit back end.<br>
+<br>
+699<br>
+00:30:17,990 --> 00:30:20,770<br>
+It's the repository's job.<br>
+<br>
+700<br>
+00:30:20,770 --> 00:30:23,100<br>
+And last but not least,<br>
+we have our data sources,<br>
+<br>
+701<br>
+00:30:23,100 --> 00:30:25,020<br>
+like your REST API client.<br>
+<br>
+702<br>
+00:30:25,020 --> 00:30:28,470<br>
+You might be using Retrofit,<br>
+or you have SQLite storage.<br>
+<br>
+703<br>
+00:30:28,470 --> 00:30:30,500<br>
+You might be using Room,<br>
+or you might be using<br>
+<br>
+704<br>
+00:30:30,500 --> 00:30:32,460<br>
+GRAM, doesn't really matter.<br>
+<br>
+705<br>
+00:30:32,460 --> 00:30:34,920<br>
+Or you might be talking<br>
+to other content providers<br>
+<br>
+706<br>
+00:30:34,920 --> 00:30:36,390<br>
+from other processes.<br>
+<br>
+707<br>
+00:30:36,390 --> 00:30:39,090<br>
+These are things we<br>
+call data sources.<br>
+<br>
+708<br>
+00:30:39,090 --> 00:30:41,940<br>
+And we think that<br>
+all of these layers<br>
+<br>
+709<br>
+00:30:41,940 --> 00:30:43,830<br>
+can discover each<br>
+other to create<br>
+<br>
+710<br>
+00:30:43,830 --> 00:30:45,630<br>
+dependency checks<br>
+to the system which<br>
+<br>
+711<br>
+00:30:45,630 --> 00:30:47,370<br>
+we'll command using Dagger.<br>
+<br>
+712<br>
+00:30:47,370 --> 00:30:49,800<br>
+But we also realize that<br>
+understanding dependency<br>
+<br>
+713<br>
+00:30:49,800 --> 00:30:51,810<br>
+situation is not very trivial.<br>
+<br>
+714<br>
+00:30:51,810 --> 00:30:55,560<br>
+It's a more complex topic, and<br>
+sometimes might be an overkill.<br>
+<br>
+715<br>
+00:30:55,560 --> 00:30:57,750<br>
+And you could also<br>
+use a service locator<br>
+<br>
+716<br>
+00:30:57,750 --> 00:31:01,560<br>
+if you feel more<br>
+comfortable with it.<br>
+<br>
+717<br>
+00:31:01,560 --> 00:31:04,050<br>
+So let's go back to--<br>
+<br>
+718<br>
+00:31:04,050 --> 00:31:06,700<br>
+go through a concrete example.<br>
+<br>
+719<br>
+00:31:06,700 --> 00:31:10,110<br>
+Let's say we have a UI<br>
+that shows a user profile,<br>
+<br>
+720<br>
+00:31:10,110 --> 00:31:12,380<br>
+and we have the<br>
+data sources which--<br>
+<br>
+721<br>
+00:31:12,380 --> 00:31:16,080<br>
+we save it to database, we also<br>
+can get it from the network.<br>
+<br>
+722<br>
+00:31:16,080 --> 00:31:18,210<br>
+How do we connect<br>
+these two things?<br>
+<br>
+723<br>
+00:31:18,210 --> 00:31:21,240<br>
+Well, we said we first<br>
+need a user repository.<br>
+<br>
+724<br>
+00:31:21,240 --> 00:31:23,880<br>
+User repository knows it<br>
+should check the database.<br>
+<br>
+725<br>
+00:31:23,880 --> 00:31:25,680<br>
+It's not there,<br>
+make a web request.<br>
+<br>
+726<br>
+00:31:25,680 --> 00:31:28,500<br>
+Or meanwhile, also try<br>
+to run the database.<br>
+<br>
+727<br>
+00:31:28,500 --> 00:31:30,750<br>
+It doesn't matter<br>
+how it does it,<br>
+<br>
+728<br>
+00:31:30,750 --> 00:31:32,820<br>
+but it knows how to<br>
+create a LiveData<br>
+<br>
+729<br>
+00:31:32,820 --> 00:31:36,780<br>
+of a user or an<br>
+observable, doesn't matter.<br>
+<br>
+730<br>
+00:31:36,780 --> 00:31:38,430<br>
+And then we need the<br>
+ViewModel, right,<br>
+<br>
+731<br>
+00:31:38,430 --> 00:31:41,670<br>
+because the data for the<br>
+UI lives in the ViewModel.<br>
+<br>
+732<br>
+00:31:41,670 --> 00:31:44,220<br>
+So we create this<br>
+ProfileViewModel,<br>
+<br>
+733<br>
+00:31:44,220 --> 00:31:48,030<br>
+which talks to the repository<br>
+to get this information.<br>
+<br>
+734<br>
+00:31:48,030 --> 00:31:50,850<br>
+And then the actual<br>
+fragment gets the data<br>
+<br>
+735<br>
+00:31:50,850 --> 00:31:54,450<br>
+from the view model so that<br>
+if the fragment comes back,<br>
+<br>
+736<br>
+00:31:54,450 --> 00:31:57,270<br>
+the LiveData will be there<br>
+in the ProfileViewModel.<br>
+<br>
+737<br>
+00:31:57,270 --> 00:32:00,070<br>
+But if the fragment<br>
+disappears completely,<br>
+<br>
+738<br>
+00:32:00,070 --> 00:32:01,680<br>
+we will get rid<br>
+of the ViewModel,<br>
+<br>
+739<br>
+00:32:01,680 --> 00:32:05,240<br>
+and the data can be<br>
+garbage collected.<br>
+<br>
+740<br>
+00:32:05,240 --> 00:32:07,100<br>
+Now, all this<br>
+abstraction we made,<br>
+<br>
+741<br>
+00:32:07,100 --> 00:32:10,640<br>
+if you notice, every single<br>
+component only talks to the one<br>
+<br>
+742<br>
+00:32:10,640 --> 00:32:14,520<br>
+right below it, which is--<br>
+helps to scale your application.<br>
+<br>
+743<br>
+00:32:14,520 --> 00:32:16,340<br>
+It also has a<br>
+great side benefit,<br>
+<br>
+744<br>
+00:32:16,340 --> 00:32:18,260<br>
+which is called testing.<br>
+<br>
+745<br>
+00:32:18,260 --> 00:32:19,230<br>
+You're testing, right?<br>
+<br>
+746<br>
+00:32:19,230 --> 00:32:24,500<br>
+<br>
+<br>
+747<br>
+00:32:24,500 --> 00:32:26,210<br>
+So let's say you<br>
+want to test your UI.<br>
+<br>
+748<br>
+00:32:26,210 --> 00:32:27,880<br>
+Now, people say UI<br>
+testing is hard.<br>
+<br>
+749<br>
+00:32:27,880 --> 00:32:30,990<br>
+UI testing is--<br>
+yes, it's harder.<br>
+<br>
+750<br>
+00:32:30,990 --> 00:32:33,320<br>
+But it's usually hard because<br>
+you put all of your code<br>
+<br>
+751<br>
+00:32:33,320 --> 00:32:35,290<br>
+into that activity.<br>
+<br>
+752<br>
+00:32:35,290 --> 00:32:38,630<br>
+Now, we said, put most<br>
+of it into the ViewModel,<br>
+<br>
+753<br>
+00:32:38,630 --> 00:32:41,510<br>
+and you know that UI only<br>
+talks to the ViewModel,<br>
+<br>
+754<br>
+00:32:41,510 --> 00:32:43,520<br>
+so you can get rid<br>
+of the other two.<br>
+<br>
+755<br>
+00:32:43,520 --> 00:32:47,170<br>
+You only need to create a fake<br>
+ViewModel to test your UI.<br>
+<br>
+756<br>
+00:32:47,170 --> 00:32:50,900<br>
+Testing your UI become super,<br>
+super easy with Espresso.<br>
+<br>
+757<br>
+00:32:50,900 --> 00:32:52,880<br>
+And we have a<br>
+sample app on GitHub<br>
+<br>
+758<br>
+00:32:52,880 --> 00:32:56,346<br>
+that you can check<br>
+out with [INAUDIBLE].<br>
+<br>
+759<br>
+00:32:56,346 --> 00:32:58,220<br>
+And the same thing as<br>
+well as for ViewModels.<br>
+<br>
+760<br>
+00:32:58,220 --> 00:32:59,660<br>
+If you want to<br>
+test the ViewModel,<br>
+<br>
+761<br>
+00:32:59,660 --> 00:33:02,330<br>
+you know it's only talks<br>
+to the repositories.<br>
+<br>
+762<br>
+00:33:02,330 --> 00:33:05,860<br>
+You replace it with a mock<br>
+respository, and it works.<br>
+<br>
+763<br>
+00:33:05,860 --> 00:33:08,570<br>
+And you can even<br>
+test your ViewModels<br>
+<br>
+764<br>
+00:33:08,570 --> 00:33:11,150<br>
+on your host machine, on JVM.<br>
+<br>
+765<br>
+00:33:11,150 --> 00:33:12,780<br>
+And last but not<br>
+least, you can test<br>
+<br>
+766<br>
+00:33:12,780 --> 00:33:14,030<br>
+the respository the same way.<br>
+<br>
+767<br>
+00:33:14,030 --> 00:33:16,040<br>
+You just mock the data sources.<br>
+<br>
+768<br>
+00:33:16,040 --> 00:33:21,000<br>
+You can easily test your<br>
+repositories as JUnit test.<br>
+<br>
+769<br>
+00:33:21,000 --> 00:33:23,060<br>
+Now, I know this has been<br>
+a lot of information.<br>
+<br>
+770<br>
+00:33:23,060 --> 00:33:26,420<br>
+We have two sessions tomorrow,<br>
+and also documentation.<br>
+<br>
+771<br>
+00:33:26,420 --> 00:33:29,630<br>
+But now I want to call<br>
+our product manager lUKAS<br>
+<br>
+772<br>
+00:33:29,630 --> 00:33:32,646<br>
+to talk about what to do next.<br>
+<br>
+773<br>
+00:33:32,646 --> 00:33:35,574<br>
+[APPLAUSE]<br>
+<br>
+774<br>
+00:33:35,574 --> 00:33:41,425<br>
+<br>
+<br>
+775<br>
+00:33:41,425 --> 00:33:42,800<br>
+LUKAS BERGSTROM:<br>
+Like Yigit said,<br>
+<br>
+776<br>
+00:33:42,800 --> 00:33:44,870<br>
+we just covered a lot of ground.<br>
+<br>
+777<br>
+00:33:44,870 --> 00:33:46,820<br>
+And actually, we glossed<br>
+over a lot of detail<br>
+<br>
+778<br>
+00:33:46,820 --> 00:33:48,080<br>
+while we did that.<br>
+<br>
+779<br>
+00:33:48,080 --> 00:33:50,420<br>
+But luckily, you don't<br>
+have to remember everything<br>
+<br>
+780<br>
+00:33:50,420 --> 00:33:51,950<br>
+that you just heard.<br>
+<br>
+781<br>
+00:33:51,950 --> 00:33:56,180<br>
+We have a lot of material<br>
+for you to check out<br>
+<br>
+782<br>
+00:33:56,180 --> 00:33:58,910<br>
+at developer.android.com/arch.<br>
+<br>
+783<br>
+00:33:58,910 --> 00:34:03,305<br>
+And that link should start<br>
+working in 21 minutes.<br>
+<br>
+784<br>
+00:34:03,305 --> 00:34:06,260<br>
+<br>
+<br>
+785<br>
+00:34:06,260 --> 00:34:07,790<br>
+We wanted to give<br>
+you guys a chance<br>
+<br>
+786<br>
+00:34:07,790 --> 00:34:10,219<br>
+to kind of blog and tweet<br>
+about this before anybody else.<br>
+<br>
+787<br>
+00:34:10,219 --> 00:34:13,190<br>
+So that's why we held it back.<br>
+<br>
+788<br>
+00:34:13,190 --> 00:34:15,560<br>
+So yeah, we made having<br>
+good documentation<br>
+<br>
+789<br>
+00:34:15,560 --> 00:34:18,469<br>
+and samples a priority from<br>
+the beginning of this project,<br>
+<br>
+790<br>
+00:34:18,469 --> 00:34:22,310<br>
+since providing good guidance is<br>
+really one of the major goals.<br>
+<br>
+791<br>
+00:34:22,310 --> 00:34:24,800<br>
+So you're going to find<br>
+in-depth documentation that's<br>
+<br>
+792<br>
+00:34:24,800 --> 00:34:27,337<br>
+written from the perspective<br>
+of an app developer.<br>
+<br>
+793<br>
+00:34:27,337 --> 00:34:29,420<br>
+You're going to find really<br>
+meaty sample apps that<br>
+<br>
+794<br>
+00:34:29,420 --> 00:34:31,280<br>
+show how to build a real app.<br>
+<br>
+795<br>
+00:34:31,280 --> 00:34:34,650<br>
+And just as an example of<br>
+how much work went into this,<br>
+<br>
+796<br>
+00:34:34,650 --> 00:34:36,139<br>
+we have a GitHub<br>
+browser sample app<br>
+<br>
+797<br>
+00:34:36,139 --> 00:34:39,440<br>
+that probably has better test<br>
+coverage than many real world<br>
+<br>
+798<br>
+00:34:39,440 --> 00:34:42,170<br>
+apps, written by that guy.<br>
+<br>
+799<br>
+00:34:42,170 --> 00:34:44,820<br>
+<br>
+<br>
+800<br>
+00:34:44,820 --> 00:34:47,420<br>
+And of course, we have the<br>
+guide to app architecture,<br>
+<br>
+801<br>
+00:34:47,420 --> 00:34:50,929<br>
+which internally, we called the<br>
+Opinionated Guide for a while.<br>
+<br>
+802<br>
+00:34:50,929 --> 00:34:53,210<br>
+And we think that<br>
+label still applies.<br>
+<br>
+803<br>
+00:34:53,210 --> 00:34:55,639<br>
+But even if you're not<br>
+planning to use our recommended<br>
+<br>
+804<br>
+00:34:55,639 --> 00:34:58,580<br>
+architecture, we think people<br>
+should check out the guide.<br>
+<br>
+805<br>
+00:34:58,580 --> 00:35:04,010<br>
+It has principles that we think<br>
+apply to all apps on Android.<br>
+<br>
+806<br>
+00:35:04,010 --> 00:35:07,760<br>
+And you're probably asking<br>
+yourself, do I not--<br>
+<br>
+807<br>
+00:35:07,760 --> 00:35:09,830<br>
+what's the impact of<br>
+this going to be on me?<br>
+<br>
+808<br>
+00:35:09,830 --> 00:35:13,160<br>
+Am I going to have to change the<br>
+way that I'm doing everything?<br>
+<br>
+809<br>
+00:35:13,160 --> 00:35:15,315<br>
+You know, if you're<br>
+starting a new project,<br>
+<br>
+810<br>
+00:35:15,315 --> 00:35:16,940<br>
+or if you have an<br>
+existing app, but you<br>
+<br>
+811<br>
+00:35:16,940 --> 00:35:19,190<br>
+want to improve the<br>
+core architecture,<br>
+<br>
+812<br>
+00:35:19,190 --> 00:35:22,100<br>
+then yeah, we recommend<br>
+taking a look at this stuff.<br>
+<br>
+813<br>
+00:35:22,100 --> 00:35:24,050<br>
+It's still preview.<br>
+<br>
+814<br>
+00:35:24,050 --> 00:35:26,790<br>
+We won't be hitting<br>
+1.0 for a few months,<br>
+<br>
+815<br>
+00:35:26,790 --> 00:35:30,050<br>
+but we think it's definitely<br>
+ready for you guys<br>
+<br>
+816<br>
+00:35:30,050 --> 00:35:32,460<br>
+to check out, and<br>
+use in projects.<br>
+<br>
+817<br>
+00:35:32,460 --> 00:35:34,250<br>
+But if you're happy<br>
+with what you have,<br>
+<br>
+818<br>
+00:35:34,250 --> 00:35:37,360<br>
+you don't need to<br>
+rewrite your app.<br>
+<br>
+819<br>
+00:35:37,360 --> 00:35:39,530<br>
+So in the spirit of be<br>
+together, not the same,<br>
+<br>
+820<br>
+00:35:39,530 --> 00:35:41,890<br>
+we're not dictating what<br>
+everyone has to use.<br>
+<br>
+821<br>
+00:35:41,890 --> 00:35:44,590<br>
+If you're happy with your app<br>
+architecture, you can keep it.<br>
+<br>
+822<br>
+00:35:44,590 --> 00:35:46,510<br>
+If you're happy with<br>
+your existing ORM,<br>
+<br>
+823<br>
+00:35:46,510 --> 00:35:48,820<br>
+you don't have to use Room.<br>
+<br>
+824<br>
+00:35:48,820 --> 00:35:51,910<br>
+Architecture components are<br>
+designed to work well together,<br>
+<br>
+825<br>
+00:35:51,910 --> 00:35:55,780<br>
+but they do work<br>
+perfectly fine standalone.<br>
+<br>
+826<br>
+00:35:55,780 --> 00:35:58,300<br>
+And mixing and matching<br>
+applies not only<br>
+<br>
+827<br>
+00:35:58,300 --> 00:36:04,730<br>
+to architecture components,<br>
+but also third party libraries.<br>
+<br>
+828<br>
+00:36:04,730 --> 00:36:11,760<br>
+So-- I'm waiting for<br>
+this slide to come up.<br>
+<br>
+829<br>
+00:36:11,760 --> 00:36:14,389<br>
+So yeah, so you can<br>
+use what you have,<br>
+<br>
+830<br>
+00:36:14,389 --> 00:36:16,680<br>
+and to start to integrate<br>
+architecture components where<br>
+<br>
+831<br>
+00:36:16,680 --> 00:36:18,310<br>
+they make sense.<br>
+<br>
+832<br>
+00:36:18,310 --> 00:36:21,000<br>
+So for example, if you're<br>
+happy with Rx Java,<br>
+<br>
+833<br>
+00:36:21,000 --> 00:36:24,510<br>
+but you really like the<br>
+Lifecycle aware component stuff<br>
+<br>
+834<br>
+00:36:24,510 --> 00:36:27,360<br>
+that Yigit just showed, so that<br>
+you have these self-sufficient<br>
+<br>
+835<br>
+00:36:27,360 --> 00:36:31,590<br>
+components, you can use<br>
+LiveData together with Rx Java.<br>
+<br>
+836<br>
+00:36:31,590 --> 00:36:34,800<br>
+So you can get all the<br>
+power of Rx Java operators,<br>
+<br>
+837<br>
+00:36:34,800 --> 00:36:36,420<br>
+and now it's Lifecycle safe.<br>
+<br>
+838<br>
+00:36:36,420 --> 00:36:39,510<br>
+So kind of the best<br>
+of both worlds.<br>
+<br>
+839<br>
+00:36:39,510 --> 00:36:41,760<br>
+And we've got additional<br>
+integrations to come.<br>
+<br>
+840<br>
+00:36:41,760 --> 00:36:45,890<br>
+We're definitely looking at<br>
+a lot of stuff internally<br>
+<br>
+841<br>
+00:36:45,890 --> 00:36:48,480<br>
+that would be nice if<br>
+it were self-sufficient<br>
+<br>
+842<br>
+00:36:48,480 --> 00:36:50,500<br>
+and Lifecycle aware.<br>
+<br>
+843<br>
+00:36:50,500 --> 00:36:53,460<br>
+And if you're a<br>
+library developer,<br>
+<br>
+844<br>
+00:36:53,460 --> 00:36:55,920<br>
+we really recommend<br>
+checking out Lifecycles<br>
+<br>
+845<br>
+00:36:55,920 --> 00:36:57,690<br>
+and LifecycleObserver<br>
+because we think<br>
+<br>
+846<br>
+00:36:57,690 --> 00:37:00,480<br>
+there is a really bright<br>
+future, and a lot of potential<br>
+<br>
+847<br>
+00:37:00,480 --> 00:37:03,420<br>
+in making libraries and<br>
+components that are Lifecycle<br>
+<br>
+848<br>
+00:37:03,420 --> 00:37:07,870<br>
+aware by default.<br>
+But before you go<br>
+<br>
+849<br>
+00:37:07,870 --> 00:37:11,110<br>
+do that, we have a lot more<br>
+for you at I/O this year.<br>
+<br>
+850<br>
+00:37:11,110 --> 00:37:15,310<br>
+We have two more talks,<br>
+one on Lifecycles<br>
+<br>
+851<br>
+00:37:15,310 --> 00:37:18,280<br>
+that's even more in-depth than<br>
+what we just showed tomorrow<br>
+<br>
+852<br>
+00:37:18,280 --> 00:37:20,020<br>
+morning.<br>
+<br>
+853<br>
+00:37:20,020 --> 00:37:24,040<br>
+We have another one on<br>
+Room and Persistence,<br>
+<br>
+854<br>
+00:37:24,040 --> 00:37:25,480<br>
+and going a little<br>
+bit beyond Room<br>
+<br>
+855<br>
+00:37:25,480 --> 00:37:27,790<br>
+starting at 12:30 tomorrow.<br>
+<br>
+856<br>
+00:37:27,790 --> 00:37:31,950<br>
+And we'll have people who are<br>
+well-versed in architecture<br>
+<br>
+857<br>
+00:37:31,950 --> 00:37:36,740<br>
+components in the<br>
+sandbox for all of I/O.<br>
+<br>
+858<br>
+00:37:36,740 --> 00:37:41,600<br>
+And we also have codelabs,<br>
+which we're pretty happy with.<br>
+<br>
+859<br>
+00:37:41,600 --> 00:37:43,890<br>
+And there's more to come.<br>
+<br>
+860<br>
+00:37:43,890 --> 00:37:46,100<br>
+So we think we've just<br>
+scratched the surface of ways<br>
+<br>
+861<br>
+00:37:46,100 --> 00:37:48,260<br>
+that we can improve the<br>
+experience of using Android<br>
+<br>
+862<br>
+00:37:48,260 --> 00:37:51,320<br>
+Frameworks, and we're looking<br>
+at applying this approach<br>
+<br>
+863<br>
+00:37:51,320 --> 00:37:53,310<br>
+in other areas as well.<br>
+<br>
+864<br>
+00:37:53,310 --> 00:37:54,980<br>
+So some things<br>
+already in the works.<br>
+<br>
+865<br>
+00:37:54,980 --> 00:37:58,310<br>
+And we're also interested in<br>
+hearing from you on what else<br>
+<br>
+866<br>
+00:37:58,310 --> 00:37:59,720<br>
+you'd like to see.<br>
+<br>
+867<br>
+00:37:59,720 --> 00:38:04,010<br>
+So come by, talk to us, tell us<br>
+what you like, what you don't.<br>
+<br>
+868<br>
+00:38:04,010 --> 00:38:06,800<br>
+And stay tuned, because we're<br>
+really excited about the future<br>
+<br>
+869<br>
+00:38:06,800 --> 00:38:08,570<br>
+of Android development.<br>
+<br>
+870<br>
+00:38:08,570 --> 00:38:09,310<br>
+Thank you.<br>
+<br>
+871<br>
+00:38:09,310 --> 00:38:11,460<br>
+[APPLAUSE]<br>
+<br>
+872<br>
+00:38:11,460 --> 00:00:00,000<br>
+<br>
+<br>
 </td>
       
 <td>1<br>
