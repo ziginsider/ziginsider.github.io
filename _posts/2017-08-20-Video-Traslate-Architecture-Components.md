@@ -12,7 +12,7 @@ tags:
 - Google I/O '17
 - философия
 ---
-*Перевод английских субтитров на русские из видео Architecture Components - Introduction (Google I/O '17). Предпринят только для практики перевода с английского, скажем так to improve my reading and listening skills. Делается постепенно. Начало 20.08.2017, конец - . All rights reserved.*
+*Перевод английских субтитров на русские из видео Architecture Components - Introduction (Google I/O '17). Предпринят только для практики перевода с английского, скажем так to improve my reading and listening skills. Делается постепенно. Начало 20.08.2017, конец - 31.08.2017. All rights reserved.*
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FrteWKKVyzI" frameborder="0" allowfullscreen></iframe>
 
