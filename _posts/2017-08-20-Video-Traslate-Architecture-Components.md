@@ -10,9 +10,12 @@ tags:
 - youtube
 - translate
 - Google I/O '17
+- Architecture Components
 - философия
 ---
 *Перевод английских субтитров на русские из видео Architecture Components - Introduction (Google I/O '17). Предпринят только для практики перевода с английского, скажем так to improve my reading and listening skills. Делается постепенно. Начало 20.08.2017, конец - 31.08.2017. All rights reserved.*
+
+Смотри другие переводы видео (субтитры) по этой теме: <a href="">Tag: Architecture Components</a>
 
 Мой клон с русскими субтитрами:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Dl4DiQRxBi4" frameborder="0" allowfullscreen></iframe>
@@ -28,7 +31,7 @@ tags:
 + Написание надежных приложений для Android может оказаться сложной задачей среди нетривиальных проблем регулирования жизненного цикла компонентов, ненадежных мобильных сетей и ограниченной производительности устройств. Ошибки в этих областях приводят к утечкам памяти, падениям приложений, неэффективному расходу батареи и, в итоге, к несчастным пользователям. Эта сессия будет посвящена новому подходу к хорошей архитектуре приложений для Android. В ней представлен обзор функциональности, которая позволит принципиально упростить решение данных проблем. Эта сессия является первой из трёх посвященных архитектурным компонентам. Обязательно посмотрите две другие.
 
 Некоторые ссылки для понимая того, о чем говорится в докладе:
-- <a href="https://developer.android.com/topic/libraries/architecture/index.html">единая точка входа для архитектурных компонентов</a> - LiveData, ViewModel, LifecycleObserver, LifecycleOwner, Room (абстрация над SQLite базой данных), etc.
+- <a href="https://goo.gl/po4gyH">единая точка входа для архитектурных компонентов</a> - LiveData, ViewModel, LifecycleObserver, LifecycleOwner, Room (абстрация над SQLite базой данных), etc.
 - <a href="https://codelabs.developers.google.com/codelabs/android-persistence/#0">Android Persistence: Room Library</a> - tutorial codelab.
 - <a href="https://medium.com/@tonyowen/a-room-with-a-view-getting-started-ec010f9f5448">о Room</a> - article with Kotlin.
 - <a href="https://academy.realm.io/posts/android-architecture-components-and-realm/">Room, ViewModel, LifeCycle, LiveData</a> - article
