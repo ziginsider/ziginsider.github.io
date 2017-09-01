@@ -57,14 +57,12 @@ td{
 }
 </style>
 <table bordercolor="black" border="1">
-<caption>Перевод субтитров</caption>
+   <caption>Перевод субтитров</caption>
   <tr>
     <th>English</th>
     <th>Русский</th>
   </tr>
-  <tr>
-    <td>
-1<br>
+  <tr><td>1<br>
 00:00:00,000 --> 00:00:02,130<br>
 LYLA: In response<br>
 to popular demand,<br>
@@ -741,6 +739,7 @@ don't forget to subscribe.<br>
 <br>
 <br>
     </td>
+    <td>
 1<br>
 00:00:00,000 --> 00:00:02,130<br>
 LYLA: In response<br>
@@ -1417,7 +1416,6 @@ don't forget to subscribe.<br>
 00:05:34,330 --> 00:00:00,000<br>
 <br>
 <br>
-    <td>
     </td>
   </tr> 
 </table>
