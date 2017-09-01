@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Google I/O '17 Architecture Components - Introduction. Перевод субтитров.
+title: Видео. Google I/O '17 Architecture Components - Introduction. Перевод субтитров.
 date: 2017-08-20 9:44
 tags:
 - Java
