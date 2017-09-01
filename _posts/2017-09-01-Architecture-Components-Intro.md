@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Видео: Architecture Components: Improve Your App's Design. Перевод субтитров.
+title: Видео. Architecture Components. Improve Your App's Design. Перевод субтитров.
 date: 2017-09-01 19:25
 tags:
 - Java
