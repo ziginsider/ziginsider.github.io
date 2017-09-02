@@ -14,9 +14,9 @@ tags:
 ---
 *Перевод английских субтитров на русские из видео Architecture Components: Improve Your App's Design. Начало 01.09.2017, конец - 09.2017. All rights reserved.*
 
-Смотри другие переводы видео (субтитры) по этой теме: <a href="">Tag: Architecture Components</a>
+Смотри другие переводы видео (субтитры) по этой теме: <a href="https://ziginsider.github.io/tags/#Architecture+Components">Tag: Architecture Components</a>
 
-Мой клон с русскими субтитрами:
+Мой клон с русскими `субтитрами`:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
 
 Оригинальное видео:
