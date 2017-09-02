@@ -742,52 +742,52 @@ don't forget to subscribe.<br>
     <td>
 1<br>
 00:00:00,000 --> 00:00:02,130<br>
-LYLA: In response<br>
-to popular demand,<br>
+LYLA: В ответ на<br>
+популярный запрос,<br>
 <br>
 2<br>
 00:00:02,130 --> 00:00:05,010<br>
-the Android Framework team has<br>
-written an opinionated guide<br>
+команда Android Framework<br>
+написала свой гид<br>
 <br>
 3<br>
 00:00:05,010 --> 00:00:06,960<br>
-to architecting Android<br>
-apps, and they've<br>
+по архитектуре Android<br>
+приложений, и они<br>
 <br>
 4<br>
 00:00:06,960 --> 00:00:09,870<br>
-developed a companion set<br>
-of architecture components.<br>
+разработали соответствующие<br>
+архитектурные компоненты.<br>
 <br>
 5<br>
 00:00:09,870 --> 00:00:12,960<br>
-Hi, my name's Lyla, a<br>
-developer advocate for Android,<br>
+Hi, меня зовут Lyla, и я<br>
+разработчик Android,<br>
 <br>
 6<br>
 00:00:12,960 --> 00:00:15,900<br>
-and I'm here to introduce you<br>
-to these shiny new architecture<br>
+И я сейчас представлю для вас<br>
+эти замечательные архитектурные<br>
 <br>
 7<br>
 00:00:15,900 --> 00:00:17,070<br>
-components.<br>
+компоненты.<br>
 <br>
 8<br>
 00:00:17,070 --> 00:00:19,890<br>
-These components persist<br>
-data, manage lifecycle,<br>
+Эти компоненты хранят данные,<br>
+управляют жизненным циклом,<br>
 <br>
 9<br>
 00:00:19,890 --> 00:00:22,860<br>
-make your app modular, help<br>
-you avoid memory leaks,<br>
+делают ваше приложение модульным,<br>
+помогают избежать утечек памяти,<br>
 <br>
 10<br>
 00:00:22,860 --> 00:00:26,430<br>
-and prevent you from having to<br>
-write boring boilerplate code.<br>
+И не заставляют вас использовать<br>
+скучные шаблоны кода.<br>
 <br>
 11<br>
 00:00:26,430 --> 00:00:28,680<br>
