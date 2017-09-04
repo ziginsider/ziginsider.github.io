@@ -791,64 +791,64 @@ Hi, меня зовут Lyla, и я<br>
 <br>
 11<br>
 00:00:26,430 --> 00:00:28,680<br>
-Your basic Android<br>
-app needs a database<br>
+Основной части Android<br>
+приложений нужна база данных<br>
 <br>
 12<br>
 00:00:28,680 --> 00:00:30,780<br>
-connected to a robust UI.<br>
+подключенная надежно к UI.<br>
 <br>
 13<br>
 00:00:30,780 --> 00:00:33,890<br>
-The new components, Room,<br>
+Новые компоненты: Room,<br>
 ViewModel, LiveData,<br>
 <br>
 14<br>
 00:00:33,890 --> 00:00:35,732<br>
-and Lifecycle, make that easy.<br>
+и Lifecycle, делают это простым.<br>
 <br>
 15<br>
 00:00:35,732 --> 00:00:38,190<br>
-They're also designed to fit<br>
-together like building blocks,<br>
+Они могут использоваться совместно,<br>
+как строительные блоки,<br>
 <br>
 16<br>
 00:00:38,190 --> 00:00:39,690<br>
-so let's see how.<br>
+давайте посмотрим каким образом.<br>
 <br>
 17<br>
 00:00:39,690 --> 00:00:42,990<br>
-I'll tackle the database using<br>
-Room, which is a new SQLite<br>
+Я собираюсь использовать базу данных<br>
+Room, как новую SQLite<br>
 <br>
 18<br>
 00:00:42,990 --> 00:00:44,820<br>
-object mapping library.<br>
+ORM библиотеку.<br>
 <br>
 19<br>
 00:00:44,820 --> 00:00:46,440<br>
-To set up the tables<br>
-using Room, we<br>
+Чтобы настроить таблицы<br>
+используя Room, мы<br>
 <br>
 20<br>
 00:00:46,440 --> 00:00:49,550<br>
-can define a Plain Old<br>
-Java Object, or a POJO.<br>
+можем определить Старый Добрый<br>
+Java Объект, или POJO.<br>
 <br>
 21<br>
 00:00:49,550 --> 00:00:52,950<br>
-We then mark this POJO<br>
-with the @Entity annotation<br>
+Мы тогда помечаем этот POJO<br>
+аннотацией @Entity<br>
 <br>
 22<br>
 00:00:52,950 --> 00:00:56,650<br>
-and create an ID marked with<br>
-the @PrimaryKey annotation.<br>
+и создаем ID маркер с<br>
+аннотацией @PrimaryKey.<br>
 <br>
 23<br>
 00:00:56,650 --> 00:00:59,820<br>
-Now for each POJO, you need<br>
-to define a DAO, or a Database<br>
+Теперь для каждого POJO, мы должны<br>
+определить DAO, или Database<br>
 <br>
 24<br>
 00:00:59,820 --> 00:01:01,290<br>
@@ -856,130 +856,130 @@ Access Object.<br>
 <br>
 25<br>
 00:01:01,290 --> 00:01:03,130<br>
-The annotated methods<br>
-represent the SQLite<br>
+Аннотированные методы <br>
+представляют собой SQLite<br>
 <br>
 26<br>
 00:01:03,130 --> 00:01:05,950<br>
-commands that you need to<br>
-interact with your POJO's data.<br>
+команды, которые должны<br>
+взаимодействовать с данными POJO .<br>
 <br>
 27<br>
 00:01:05,950 --> 00:01:08,790<br>
-Now, take a look at this insert<br>
-method and this query method.<br>
+Теперь взгляните на этот insert<br>
+метод и на query метод.<br>
 <br>
 28<br>
 00:01:08,790 --> 00:01:11,400<br>
-Room has automatically<br>
-converted your POJO objects<br>
+Room автоматически конвертирует<br>
+ваш POJO объект<br>
 <br>
 29<br>
 00:01:11,400 --> 00:01:14,265<br>
-into the corresponding database<br>
-tables, and back again.<br>
+в соответствующие таблицы<br>
+базы данных и обратно.<br>
 <br>
 30<br>
 00:01:14,265 --> 00:01:17,130<br>
-Room also verifies your<br>
-SQLite at compile time.<br>
+Room также проверяет правильность<br>
+вашего SQLite во время компиляции.<br>
 <br>
 31<br>
 00:01:17,130 --> 00:01:19,150<br>
-So if you spell something<br>
-a little bit wrong,<br>
+И если вы напишите что-то<br>
+немного не так,<br>
 <br>
 32<br>
 00:01:19,150 --> 00:01:21,150<br>
-or if you reference a<br>
-column that's not actually<br>
+или ваша ссылка на столбец<br>
+будет не актуальна а БД,<br>
 <br>
 33<br>
 00:01:21,150 --> 00:01:24,310<br>
-in the database, it will<br>
-throw a helpful error.<br>
+то выкинится полезная<br>
+предупреждающая ошибка.<br>
 <br>
 34<br>
 00:01:24,310 --> 00:01:26,070<br>
-Now that you have<br>
-a Room database,<br>
+Теперь, когда у вас есть<br>
+Room база данных,<br>
 <br>
 35<br>
 00:01:26,070 --> 00:01:27,570<br>
-you can use another<br>
-new architecture<br>
+вы можете использовать другие<br>
+новые архитектурные компоненты<br>
 <br>
 36<br>
 00:01:27,570 --> 00:01:30,210<br>
-component, called LiveData,<br>
-to monitor changes<br>
+называемые LiveData,<br>
+для мониторинга изменений<br>
 <br>
 37<br>
 00:01:30,210 --> 00:01:31,320<br>
-in the database.<br>
+в базе данных.<br>
 <br>
 38<br>
 00:01:31,320 --> 00:01:33,900<br>
-LiveData is an<br>
-observable data holder.<br>
+LiveData это наблюдаемый<br>
+[observable] держатель данных.<br>
 <br>
 39<br>
 00:01:33,900 --> 00:01:35,910<br>
-That means it holds<br>
-data and notifies you<br>
+Это значит, что он хранит<br>
+данные и оповещает вас<br>
 <br>
 40<br>
 00:01:35,910 --> 00:01:39,090<br>
-with the data changes so<br>
-that you can update the UI.<br>
+если данные изменились,<br>
+и вы можете обновить UI.<br>
 <br>
 41<br>
 00:01:39,090 --> 00:01:41,790<br>
-LiveData is an abstract<br>
-class that you can extend,<br>
+LiveData это абстрактный класс<br>
+который вы можете расширить,<br>
 <br>
 42<br>
 00:01:41,790 --> 00:01:45,600<br>
-or, for simple cases, you can<br>
-use the MutableLiveData class.<br>
+или, для простых случаев, вы можете<br>
+использовать MutableLiveData класс.<br>
 <br>
 43<br>
 00:01:45,600 --> 00:01:47,730<br>
-If you update the value<br>
-of the MutableLiveData<br>
+Если вы обновляете данные<br>
+в MutableLiveData<br>
 <br>
 44<br>
 00:01:47,730 --> 00:01:50,230<br>
-with a call to set value, it<br>
-could then trigger and update<br>
+с установлением нового значения,<br>
+это может обновить и изменить<br>
 <br>
 45<br>
 00:01:50,230 --> 00:01:51,570<br>
-in your UI.<br>
+ваш UI.<br>
 <br>
 46<br>
 00:01:51,570 --> 00:01:53,170<br>
-What's even more<br>
-powerful though,<br>
+Что еще более мощно,<br>
+так это то, что<br>
 <br>
 47<br>
 00:01:53,170 --> 00:01:55,680<br>
-is that Room is built<br>
-to support LiveData.<br>
+Room построена на<br>
+поддержке LiveData.<br>
 <br>
 48<br>
 00:01:55,680 --> 00:01:58,080<br>
-To use them together,<br>
-you just modify your DAO<br>
+Чтобы использовать их вместе,<br>
+вы просто изменяете DAO<br>
 <br>
 49<br>
 00:01:58,080 --> 00:02:00,450<br>
-to return objects that are<br>
-wrapped with the LiveData<br>
+так чтобы возвращать объекты<br>
+завернутые в LiveData<br>
 <br>
 50<br>
 00:02:00,450 --> 00:02:01,360<br>
-class.<br>
+класс.<br>
 <br>
 51<br>
 00:02:01,360 --> 00:02:04,850<br>
