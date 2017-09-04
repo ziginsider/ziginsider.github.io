@@ -983,143 +983,145 @@ Room построена на<br>
 <br>
 51<br>
 00:02:01,360 --> 00:02:04,850<br>
-Room will create a LiveData<br>
-object observing the database.<br>
+Room создаст объект LiveData<br>
+наблюдающий базу данных.<br>
 <br>
 52<br>
 00:02:04,850 --> 00:02:08,258<br>
-Then you could write code<br>
-like this to update your UI.<br>
+Тогда вы могли бы писать код<br>
+для обновления вашего UI.<br>
 <br>
 53<br>
 00:02:08,258 --> 00:02:10,959<br>
-The end result is that if<br>
-your Room database updates,<br>
+В конечном счете если вы <br>
+обновляете вашу Room БД,<br>
 <br>
 54<br>
 00:02:10,960 --> 00:02:13,410<br>
-it changes the data in<br>
-your LiveData object, which<br>
+эти изменения изменят данные<br>
+вашего LiveData объекта,<br>
 <br>
 55<br>
 00:02:13,410 --> 00:02:15,930<br>
-automatically<br>
-triggers UI updates.<br>
+который автоматически<br>
+включит обновление UI.<br>
 <br>
 56<br>
 00:02:15,930 --> 00:02:18,840<br>
-This brings me to another<br>
-awesome feature of LiveData.<br>
+Это подводит меня к другой<br>
+удивительной особенности LiveData.<br>
 <br>
 57<br>
 00:02:18,840 --> 00:02:21,344<br>
-LiveData is a<br>
-lifecycle-aware component.<br>
+LiveData осведомлен о<br>
+(зависим от) жизненном цикле.<br>
 <br>
 58<br>
 00:02:21,344 --> 00:02:23,010<br>
-Now, you might be<br>
-thinking, what exactly<br>
+Теперь вы можете подумать,<br>
+что именно представляет собой<br>
 <br>
 59<br>
 00:02:23,010 --> 00:02:24,990<br>
-is a lifecycle-aware component?<br>
+зависимый от жизненного<br>
+цикла компонент?<br>
 <br>
 60<br>
 00:02:24,990 --> 00:02:26,390<br>
-Well, I'm glad you asked.<br>
+Хорошо, я рада, что вы спросили.<br>
 <br>
 61<br>
 00:02:26,390 --> 00:02:28,620<br>
-Through the magic of<br>
-lifecycle observation,<br>
+Через магическое наблюдение<br>
+за жизненным циклом,<br>
 <br>
 62<br>
 00:02:28,620 --> 00:02:31,160<br>
-LiveData knows when your<br>
-activity is on screen,<br>
+LiveData знает когда ваша<br>
+активити на экране,<br>
 <br>
 63<br>
 00:02:31,160 --> 00:02:34,200<br>
-off screen, or destroyed, so<br>
-that it doesn't send database<br>
+спит, или разрушена, итак<br>
+база данных не отправляет<br>
 <br>
 64<br>
 00:02:34,200 --> 00:02:36,600<br>
-updates to a non-active UI.<br>
+обнавления неактивному UI.<br>
 <br>
 65<br>
 00:02:36,600 --> 00:02:38,520<br>
-There are two<br>
-interfaces for this--<br>
+Есть два интерфейса<br>
+для этого -<br>
 <br>
 66<br>
 00:02:38,520 --> 00:02:41,070<br>
-Lifecycle Owner and<br>
+Lifecycle Owner и<br>
 Lifecycle Observer.<br>
 <br>
 67<br>
 00:02:41,070 --> 00:02:43,200<br>
-Lifecycle Owners are<br>
-objects with lifecycles,<br>
+Lifecycle Owners это<br>
+объекты с жизненным циклом<br>
 <br>
 68<br>
 00:02:43,200 --> 00:02:44,820<br>
-like activities and fragments.<br>
+подобным таковым у<br>
+Activity и Fragment.<br>
 <br>
 69<br>
 00:02:44,820 --> 00:02:46,620<br>
 Lifecycle Observers,<br>
-on the other hand,<br>
+с другой стороны, наблюдают<br>
 <br>
 70<br>
 00:02:46,620 --> 00:02:50,509<br>
-observe Lifecycle Owners and are<br>
-notified of lifecycle changes.<br>
+Lifecycle Owners и уведомляются<br>
+об изменниях жизненного цикла.<br>
 <br>
 71<br>
 00:02:50,509 --> 00:02:52,050<br>
-Here's a quick peek<br>
-at the simplified<br>
+Вот упрощенный взгляд на<br>
+простой пример кода<br>
 <br>
 72<br>
 00:02:52,050 --> 00:02:55,770<br>
-code for LiveData, which is<br>
-also a Lifecycle Observer.<br>
+для LiveData, который есть<br>
+также Lifecycle Observer.<br>
 <br>
 73<br>
 00:02:55,770 --> 00:02:58,890<br>
-The methods annotated<br>
-with @OnLifecycleEvent<br>
+Эти методы аннотируются<br>
+с @OnLifecycleEvent<br>
 <br>
 74<br>
 00:02:58,890 --> 00:03:00,970<br>
-take care of initialization<br>
-and tear down<br>
+для заботы об инициализации<br>
+и остановке, когда<br>
 <br>
 75<br>
 00:03:00,970 --> 00:03:04,350<br>
-when the associated Lifecycle<br>
-Owner starts and stops.<br>
+связанный Lifecycle Owner<br>
+стартует и останавливается.<br>
 <br>
 76<br>
 00:03:04,350 --> 00:03:07,530<br>
-This allows LiveData objects<br>
-to take care of their own setup<br>
+это позволяет объектам LiveData<br>
+заботится о своей настройке и<br>
 <br>
 77<br>
 00:03:07,530 --> 00:03:09,690<br>
-and tear down, so<br>
-the UI components<br>
+остановке, поэтому<br>
+UI компоненты наблюдают<br>
 <br>
 78<br>
 00:03:09,690 --> 00:03:12,000<br>
-observe the LiveData, and<br>
-the LiveData components<br>
+LiveData, и <br>
+LiveData компоненты<br>
 <br>
 79<br>
 00:03:12,000 --> 00:03:13,890<br>
-observe the Lifecycle Owners.<br>
+наблюдатели Lifecycle Owners.<br>
 <br>
 80<br>
 00:03:13,890 --> 00:03:16,380<br>
