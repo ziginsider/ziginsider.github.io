@@ -1125,116 +1125,116 @@ LiveData компоненты<br>
 <br>
 80<br>
 00:03:13,890 --> 00:03:16,380<br>
-As a side note to all you<br>
-Android library designers out<br>
+В качестве заметки для всех вас,<br>
+разработчики библиотек Android,<br>
 <br>
 81<br>
 00:03:16,380 --> 00:03:19,350<br>
-there, you can use this exact<br>
-same lifecycle observation<br>
+вы можете использовать такое же<br>
+наблюдение за жизненным циклом<br>
 <br>
 82<br>
 00:03:19,350 --> 00:03:22,350<br>
-code to call setup and tear<br>
-down functions automatically<br>
+для ваших функций настроек и<br>
+завершения работы, для ваших<br>
 <br>
 83<br>
 00:03:22,350 --> 00:03:24,240<br>
-for your own libraries.<br>
+собственных библиотек.<br>
 <br>
 84<br>
 00:03:24,240 --> 00:03:26,559<br>
-Now you still have one<br>
-more problem to solve.<br>
+Теперь, у вас есть еще одна<br>
+проблема для решения.<br>
 <br>
 85<br>
 00:03:26,559 --> 00:03:29,100<br>
-As your app is used, it will go<br>
-through various configuration<br>
+Поскольку ваше приложение используется<br>
+оно будет в разных состояниях<br>
 <br>
 86<br>
 00:03:29,100 --> 00:03:32,070<br>
-changes that destroy and<br>
-rebuild the activity.<br>
+в onDestroy и onResume,<br>
+onStart и onStop.<br>
 <br>
 87<br>
 00:03:32,070 --> 00:03:34,800<br>
-We don't want to tie the<br>
-initialization of LiveData<br>
+Мы не хотим привязывать<br>
+LiveData к жизненному циклу<br>
 <br>
 88<br>
 00:03:34,800 --> 00:03:36,660<br>
-to the activity<br>
-lifecycle because that<br>
+Activity, потому что это<br>
+вызывает много<br>
 <br>
 89<br>
 00:03:36,660 --> 00:03:39,830<br>
-causes a lot of needlessly<br>
-re-executed code.<br>
+случаев не необходимого<br>
+переиспользования кода.<br>
 <br>
 90<br>
 00:03:39,830 --> 00:03:41,910<br>
-An example of this is<br>
-your database query,<br>
+Примером этого является ваш<br>
+запрос к базе данных,<br>
 <br>
 91<br>
 00:03:41,910 --> 00:03:44,820<br>
-which is executed every<br>
-time you rotate the phone.<br>
+каждый раз когда вы<br>
+поворачиваете телефон.<br>
 <br>
 92<br>
 00:03:44,820 --> 00:03:46,300<br>
-So what do you do?<br>
+Итак, что же вам делать?<br>
 <br>
 93<br>
 00:03:46,300 --> 00:03:48,750<br>
-Well, you put your<br>
-LiveData and any other data<br>
+Хорошо, вы кладете ваш<br>
+LiveData и другие данные<br>
 <br>
 94<br>
 00:03:48,750 --> 00:03:52,230<br>
-associated with the UI<br>
-in a ViewModel instead.<br>
+ассоциированные с UI<br>
+во ViewModel.<br>
 <br>
 95<br>
 00:03:52,230 --> 00:03:55,650<br>
-ViewModels are objects that<br>
-provide data for UI components<br>
+ViewModels это объекты, которые<br>
+доставляют данные для UI компонентов<br>
 <br>
 96<br>
 00:03:55,650 --> 00:03:57,750<br>
-and survive<br>
-configuration changes.<br>
+и не зависят от изменений<br>
+конфигураций устройства.<br>
 <br>
 97<br>
 00:03:57,750 --> 00:04:01,500<br>
-To create a ViewModel object,<br>
-you extend the ViewModel class.<br>
+для создания объекта ViewModel,<br>
+вы наследуетесь от класса ViewModel.<br>
 <br>
 98<br>
 00:04:01,500 --> 00:04:03,450<br>
-You then put all of<br>
-the necessary data<br>
+Вы кладете все<br>
+необходимые данные<br>
 <br>
 99<br>
 00:04:03,450 --> 00:04:06,030<br>
-for your activity UI<br>
-into the ViewModel.<br>
+для UI вашего Activity<br>
+во ViewModel.<br>
 <br>
 100<br>
 00:04:06,030 --> 00:04:08,850<br>
-Since you've cached data for<br>
-the UI inside of the ViewModel,<br>
+И с тех пор как вы храните<br>
+ваши UI-данные во ViewModel,<br>
 <br>
 101<br>
 00:04:08,850 --> 00:04:10,590<br>
-your app won't<br>
-requery the database<br>
+ваше приложение не будет<br>
+запрашивать базу данных<br>
 <br>
 102<br>
-00:04:10,590 --> 00:04:13,860<br>
-if your activity is recreated<br>
-due to a configuration change.<br>
+00:04:10,590 --> 00:04:13,860<br>A
+если ваша Activity пересоздана<br>
+или изменилась конфигурация.<br>
 <br>
 103<br>
 00:04:13,860 --> 00:04:16,140<br>
