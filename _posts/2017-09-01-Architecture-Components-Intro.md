@@ -17,7 +17,7 @@ tags:
 Смотри другие переводы видео (субтитры) по этой теме: <a href="https://ziginsider.github.io/tags/#Architecture+Components">Tag: Architecture Components</a>
 
 Мой клон с русскими `субтитрами`:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P_XPLT5ZwcE" frameborder="0" allowfullscreen></iframe>
 
 Оригинальное видео:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vOJCrbr144o" frameborder="0" allowfullscreen></iframe>
