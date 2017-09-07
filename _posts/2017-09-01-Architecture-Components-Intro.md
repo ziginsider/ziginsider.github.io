@@ -1238,181 +1238,181 @@ ViewModels это объекты, которые<br>
 <br>
 103<br>
 00:04:13,860 --> 00:04:16,140<br>
-Then, when you're creating<br>
-your activity or fragment,<br>
+Затем, когда вы создаете ваши<br>
+Activity или Fragment,<br>
 <br>
 104<br>
 00:04:16,140 --> 00:04:18,660<br>
-you can get a reference to<br>
-the ViewModel and use it.<br>
+вы можете получить ссылку<br>
+на ViewModel и использовать его.<br>
 <br>
 105<br>
 00:04:18,660 --> 00:04:19,680<br>
-And that's it!<br>
+Вот и все!<br>
 <br>
 106<br>
 00:04:19,680 --> 00:04:21,269<br>
-The first time you<br>
-get a ViewModel,<br>
+Когда вы впервые<br>
+получаете ViewModel,<br>
 <br>
 107<br>
 00:04:21,269 --> 00:04:23,160<br>
-it's generated<br>
-for your activity.<br>
+он создается для<br>
+вашей Activity.<br>
 <br>
 108<br>
 00:04:23,160 --> 00:04:24,840<br>
-When you request<br>
-a ViewModel again,<br>
+Когда вы снова<br>
+запрашиваете ViewModel,<br>
 <br>
 109<br>
 00:04:24,840 --> 00:04:27,000<br>
-your activity receives<br>
-the original ViewModel<br>
+ваша Activity получает<br>
+оригинальную ViewModel<br>
 <br>
 110<br>
 00:04:27,000 --> 00:04:28,980<br>
-with the UI data<br>
-cache, so there's<br>
+с данными для UI из кеша,<br>
+так что никаких бесполезных<br>
 <br>
 111<br>
 00:04:28,980 --> 00:04:31,410<br>
-no more useless database calls.<br>
+запросов к базе данных.<br>
 <br>
 112<br>
 00:04:31,410 --> 00:04:34,290<br>
-To summarize all of this<br>
-new architecture shininess,<br>
+Подводя всему итог:<br>
+новая архитектура блестяща,<br>
 <br>
 113<br>
 00:04:34,290 --> 00:04:37,140<br>
-we've talked about Room,<br>
-which is an object mapping<br>
+мы поговорили о Room,<br>
+которая является object mapping<br>
 <br>
 114<br>
 00:04:37,140 --> 00:04:40,350<br>
-library for SQLite,<br>
-LiveData, which notifies you<br>
+library для SQLite,<br>
+LiveData, который предупреждает вас<br>
 <br>
 115<br>
 00:04:40,350 --> 00:04:43,080<br>
-when its data changes so<br>
-that you could update the UI,<br>
+если данные изменились, и вы<br>
+можете обновить ваш IU,<br>
 <br>
 116<br>
 00:04:43,080 --> 00:04:45,200<br>
-and importantly, it<br>
-works well with Room,<br>
+и, что важно, он<br>
+хорошо работает с Room,<br>
 <br>
 117<br>
 00:04:45,200 --> 00:04:47,070<br>
-so that you can easily<br>
-update the UI when<br>
+так что вы легко сможете<br>
+обноовить ваш UI, когда<br>
 <br>
 118<br>
 00:04:47,070 --> 00:04:48,820<br>
-the database values change.<br>
+данные из базы изменились.<br>
 <br>
 119<br>
 00:04:48,820 --> 00:04:51,480<br>
-We've also talked about<br>
-Lifecycle Observers and Owners,<br>
+Мы также поговорили о<br>
+Lifecycle Observers и Owners,<br>
 <br>
 120<br>
 00:04:51,480 --> 00:04:55,020<br>
-which allow non-UI objects<br>
-to observe lifecycle events.<br>
+которые позволяют не-UI объектам<br>
+наблюдать за событиями жизненного цикла.<br>
 <br>
 121<br>
 00:04:55,020 --> 00:04:57,150<br>
-And finally, we talked<br>
-about ViewModels,<br>
+И наконец, мы поговорили<br>
+о ViewModels, которые<br>
 <br>
 122<br>
 00:04:57,150 --> 00:04:58,770<br>
-which provide you<br>
-data objects that<br>
+предоставляют вам<br>
+объекты с данными, которые<br>
 <br>
 123<br>
 00:04:58,770 --> 00:05:00,890<br>
-survive configuration changes.<br>
+сохраняются при изменениях конфигураций.<br>
 <br>
 124<br>
 00:05:00,890 --> 00:05:03,710<br>
-Altogether, they make up a<br>
-set of architecture components<br>
+В целом они составляют набор<br>
+архитектурных компонентов<br>
 <br>
 125<br>
 00:05:03,710 --> 00:05:07,190<br>
-for writing modular, testable,<br>
-and robust Android apps.<br>
+для написания модульных, тестируемых,<br>
+и надежных Android-приложений.<br>
 <br>
 126<br>
 00:05:07,190 --> 00:05:08,660<br>
-You can sensibly<br>
-use them together,<br>
+Вы можете, где необходимо,<br>
+использовать их вместе,<br>
 <br>
 127<br>
 00:05:08,660 --> 00:05:10,700<br>
-or you can pick and<br>
-choose what you need.<br>
+или использовать только то,<br>
+что вам нужно.<br>
 <br>
 128<br>
 00:05:10,700 --> 00:05:12,530<br>
-But this is just the<br>
-tip of the iceberg.<br>
+Но это только<br>
+верхушка айзберга.<br>
 <br>
 129<br>
 00:05:12,530 --> 00:05:14,720<br>
-In fact, a more<br>
-fully-fledged Android app<br>
+Фактически, более функциональное<br>
+Android-приложение<br>
 <br>
 130<br>
 00:05:14,720 --> 00:05:16,310<br>
-might look like this.<br>
+может выглядеть так.<br>
 <br>
 131<br>
 00:05:16,310 --> 00:05:19,150<br>
-For an in-depth look at how<br>
-everything works together<br>
+Для детального изучения, как<br>
+все работает вместе,br>
 <br>
 132<br>
 00:05:19,150 --> 00:05:20,900<br>
-and the reasoning<br>
-behind these components,<br>
+и для понимания этих<br>
+компонентов, ознакомтесь<br>
 <br>
 133<br>
 00:05:20,900 --> 00:05:23,174<br>
-check out the links in<br>
-the description below.<br>
+со ссылками под<br>
+этим видео.<br>
 <br>
 134<br>
 00:05:23,174 --> 00:05:24,590<br>
-To jump straight<br>
-into code and get<br>
+Чтобы перейти прямо к<br>
+коду и начать работу<br>
 <br>
 135<br>
 00:05:24,590 --> 00:05:26,090<br>
-started working<br>
-with these objects,<br>
+с этими компонентами,<br>
+вы можете перейти,<br>
 <br>
 136<br>
 00:05:26,090 --> 00:05:27,840<br>
-you can check out the<br>
-codelabs and samples<br>
+к codelabs и примерам<br>
+для жизненного цикла<br>
 <br>
 137<br>
 00:05:27,840 --> 00:05:29,500<br>
-for lifecycle and persistence.<br>
+и поддержки сохранности данных.<br>
 <br>
 138<br>
 00:05:29,500 --> 00:05:32,180<br>
-Happy building and, as always,<br>
-don't forget to subscribe.<br>
+Хорошего проектирования, и как всегда,<br>
+не забывайте подписываться.<br>
 <br>
 139<br>
 00:05:32,180 --> 00:05:34,330<br>
-[MUSIC PLAYING]<br>
+[ИГРАЕТ МУЗЫКА]<br>
 <br>
 140<br>
 00:05:34,330 --> 00:00:00,000<br>
