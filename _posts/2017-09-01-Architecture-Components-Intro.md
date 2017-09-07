@@ -26,10 +26,10 @@ tags:
 
 + Build robust Android apps using the new architecture components. New classes and interfaces, such as ViewModel, LiveData and LifecycleObserver, make it easy to access and manage the Activity and Fragment Lifecycle. Room, an object mapping library for SQLite, simplifies caching, loading and displaying your app’s data. Used together, you can quickly generate SQLite databases and get information into your app’s UI with far less boilerplate code, letting you focus on the code that makes your app unique.
 
-Перевод:
+[tag:Перевод]:
 + Создавайте надежные приложения для Android, используя новые архитектурные компоненты. Новые классы и интерфейсы, такие как ViewModel, LiveData и LifecycleObserver, облегчают доступ к жизненному циклу Activity и Fragment и управлению ими. Room, object mapping library для SQLite, упрощает кэширование, загрузку и отображение данных вашего приложения. Используя все это, вы можете быстро создавать базы данных SQLite и получать информацию в UI вашего приложения с гораздо меньшим количеством шаблонного кода. Это позволяет вам сосредоточиться на коде, который делает ваше приложение уникальным.
 
-Ссылки, которые даны в аннотации к видео:
+Ссылки к видео:
 - <a href="https://goo.gl/po4gyH">единая точка входа для архитектурных компонентов</a> - LiveData, ViewModel, LifecycleObserver, LifecycleOwner, Room (абстрация над SQLite базой данных), etc.
 - <a href="https://codelabs.developers.google.com/codelabs/android-persistence/#0">Android Persistence: Room Library</a> - tutorial codelab.
 - <a href="https://medium.com/@tonyowen/a-room-with-a-view-getting-started-ec010f9f5448">о Room</a> - article with Kotlin.
