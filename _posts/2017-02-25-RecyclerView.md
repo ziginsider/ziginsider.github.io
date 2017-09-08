@@ -13,14 +13,16 @@ tags:
 
 *Заметки о RecyclerView. Принципы работы. Внутреннее устройство.*
 <br>
-## Принцип работы RecyclerView в общих словах:
-1) прокручивается список, создаются вьюхи и выводятся на экран, при этом выполняется <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> и <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
-2) ушедшие за экран вьюхи не уничтожаются, а попадают в пул объектов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Recycled Pool)</span>. 
-3) При дальнейшем скролле, вьюхи появляющиеся из-за экране не пересоздаются, а берутся из этого самого пула . При этом срабатывает только <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
+### Принцип работы RecyclerView в общих словах:
+1. Прокручивается список, создаются вьюхи и выводятся на экран, при этом выполняется <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> и <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
+
+2. Ушедшие за экран вьюхи не уничтожаются, а попадают в пул объектов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Recycled Pool)</span>. 
+
+3. При дальнейшем скролле, вьюхи появляющиеся из-за пределов экрана не пересоздаются, а берутся из этого самого пула . При этом срабатывает только <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
 
 Говоря отвлеченно, метод <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> создает "бассейн", а метод  <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span> "наполняет бассейн водой". Если каждый раз, когда меняется представление (скролл) не "менять воду в бассейне" полностью т.е. не переопределять содержание всех элементов, которые могут измениться, в <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>, то вьюха может выдавать сюрпризы в виде старых значений. 
 
-## Компоненты RecyclerView:
+### Компоненты RecyclerView:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LayoutManager</span> - размещает элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ItemAnimator</span> - анимирует элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Adapter</span> - создает элементы
@@ -38,7 +40,7 @@ tags:
 - отвечает за View Focusing (В случае <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span> отвечал сам <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span>); т.е. на каком элементе сфокусироваться.
 - отвечает за Accessibility; для людей с ограниченными возможностями. 
 
-## Adapter
+### Adapter
 <img src="{{ site.baseurl }}/images/RecyclerView2.png"> 
 Обязанности Adapter'а: 
 - создание ViewHolder'ов
@@ -72,7 +74,7 @@ boolean onFailedToRecycleView(ViewHolder holder)
 void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
 <br> 
-## Методы notifyItemX() 
+### Методы notifyItemX() 
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
 {% highlight java %}
 notifyItemChanged();
@@ -98,7 +100,7 @@ long getItemId(int position)
 и давать уникальное Id элемента на основе его содержимого или создавать Id на основе Id layout'a, из которого мы надуваем это view, и который всегда уникальный.
 
 
-## Типичные ошибки  
+### Типичные ошибки  
 1)
 {% highlight java %}
 public void onBindViewHolder(...) {
@@ -140,7 +142,7 @@ public ViewHolder onCreateViewHolder(...) {
 
 Но зачем кэшировать (создавать) заранее? Надо создавать, когда в этом есть необходимость. 
 
-## ViewHolder 
+### ViewHolder 
 
 <img src="{{ site.baseurl }}/images/RecyclerView3.png">
 
@@ -201,7 +203,7 @@ NB: как проверить список на ошибки (торможнен
 - Правильно вызывать notifyItemChanged 
 - pool.setMaxRecycledViews(type, count); (кол-во эл-ов кот. будут кэшиться, важно для тех у кого неоднородные списки, для одних типов (тех кот.больше на экране) можно увеличить значения, для других (тех кот. меньше) – уменьшить)  
 
-## ItemDecorator 
+### ItemDecorator 
 
 Adapter - для того чтобы представить какой-либо массив данных на экране.
 ItemDecorator - для того чтобы доболнить это представление в зависимости от какой-либо логики (например смена ориентайии экрана) вашего приложения. 
@@ -254,7 +256,7 @@ public void getItemOffsets(Rect out Rect,
 }
 {% endhighlight %}
 
-## ItemTouchHelper 
+### ItemTouchHelper 
 
 Для чего нужен?
 - Drag&Drop
@@ -275,7 +277,7 @@ public void onSwiped(RecyclerView.ViewHolder viewHolder,
 etc.  
 {% endhighlight %}
 
-## Практика
+### Практика
 
 *Как заполнить RecyclerView данными, когда их много?* 
 
