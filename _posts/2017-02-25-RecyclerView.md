@@ -161,6 +161,8 @@ public ViewHolder onCreateViewHolder(...) {
 
 <img src="{{ site.baseurl }}/images/RecyclerView3.png">
 
+Обязателен, в отличии от реализации ListView.
+
 Для чего нужен был ViewHolder раньше?
 Ответ: кеширование относительно дорогого findViewById 
 
