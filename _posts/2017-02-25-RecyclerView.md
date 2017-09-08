@@ -45,6 +45,16 @@ tags:
 - отвечает за View Focusing (В случае <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span> отвечал сам <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span>); т.е. на каком элементе сфокусироваться.
 - отвечает за Accessibility; для людей с ограниченными возможностями. 
 
+Что делать, если стандартная реализация не подходит? Два варианта:
+- Переопределить стандартный LayoutManager:
+Например, у нас есть LinearLayoutManager. Нам необходимо сделать так, что при малом количестве элементов, наш LinearManager будет по высоте занимать ровно столько места, сколько нужно под это количество элементов. Тогда делаем свой ExtendedLinearLayoutManager, где переопределяем метод onMeasure().
+- Написать свой LayoutManager:
+Достаточно переопределить (для компиляции) метод RecyclerView.LayoutParams generateDefaultLayoutParams(...), который будет говорить, какие по умолчанию параметры должны быть применены к новым View.
+Не стоит забывать также void onLayoutChildren(...) - непосредственное размещение наших дочерних View на экране.
+boolean canScrollHorizontally(...) - говорим можем ли мы листать горизонтально
+boolean canScrollVertically(...) - вертикально...
+
+
 ### Adapter
 <img src="{{ site.baseurl }}/images/RecyclerView2.png"> 
 Обязанности Adapter'а: 
@@ -106,7 +116,7 @@ long getItemId(int position)
 
 
 ### Типичные ошибки  
-1)
+1) Обработка нажатий на элемент внутри onBindViewHolder(...):
 {% highlight java %}
 public void onBindViewHolder(...) {
     holder.itemView
