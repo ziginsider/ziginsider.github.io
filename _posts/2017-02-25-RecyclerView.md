@@ -46,13 +46,13 @@ tags:
 - отвечает за Accessibility; для людей с ограниченными возможностями. 
 
 Что делать, если стандартная реализация не подходит? Два варианта:
-- Переопределить стандартный LayoutManager:
+- Переопределить стандартный LayoutManager:<br>
 Например, у нас есть LinearLayoutManager. Нам необходимо сделать так, что при малом количестве элементов, наш LinearManager будет по высоте занимать ровно столько места, сколько нужно под это количество элементов. Тогда делаем свой ExtendedLinearLayoutManager, где переопределяем метод onMeasure().
-- Написать свой LayoutManager:
-Достаточно переопределить (для компиляции) метод RecyclerView.LayoutParams generateDefaultLayoutParams(...), который будет говорить, какие по умолчанию параметры должны быть применены к новым View.
-Не стоит забывать также void onLayoutChildren(...) - непосредственное размещение наших дочерних View на экране.
-boolean canScrollHorizontally(...) - говорим можем ли мы листать горизонтально
-boolean canScrollVertically(...) - вертикально...
+- Написать свой LayoutManager:<br>
+Достаточно переопределить (для компиляции) метод RecyclerView.LayoutParams generateDefaultLayoutParams(...), который будет говорить, какие по умолчанию параметры должны быть применены к новым View.<br>
+Не стоит забывать также void onLayoutChildren(...) - непосредственное размещение наших дочерних View на экране.<br>
+boolean canScrollHorizontally(...) - говорим можем ли мы листать горизонтально<br>
+boolean canScrollVertically(...) - вертикально...<br>
 
 
 ### Adapter
