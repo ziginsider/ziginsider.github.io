@@ -16,7 +16,7 @@ tags:
 ### Принцип работы RecyclerView в общих словах:
 1. Прокручивается список, создаются вьюхи и выводятся на экран, при этом выполняется <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> и <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
 
-2. Ушедшие за экран вьюхи не уничтожаются, а попадают в пул объектов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Recycled Pool)</span>. 
+2. Ушедшие за экран вьюхи не уничтожаются, а попадают в пул объектов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Recycled Pool</span>. 
 
 3. При дальнейшем скролле, вьюхи появляющиеся из-за пределов экрана не пересоздаются, а берутся из этого самого пула . При этом срабатывает только <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
 
