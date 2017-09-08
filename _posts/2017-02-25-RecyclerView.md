@@ -27,6 +27,7 @@ tags:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ItemAnimator</span> - анимирует элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Adapter</span> - создает элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Decorator</span> - дорисовывает элементы 
+- <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ViewHolder</span> - кеширует findViewById
 
 ## LayoutManager
 Бывает:
@@ -34,8 +35,12 @@ tags:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">GridLayoutManager</span> (табличное)
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">StaggeredGridLayoutManager</span> (сложное) 
 
+<img src="{{ site.baseurl }}/images/LayoutManager_looks.jpg">
+<br>
 Обязаности LayoutManager'а:
 - размещает элементы
+- отвечает за размер элементов (measure)
+- отвечает за то, какие элементы больше не нужны
 - отвечает за скроллинг
 - отвечает за View Focusing (В случае <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span> отвечал сам <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ListView</span>); т.е. на каком элементе сфокусироваться.
 - отвечает за Accessibility; для людей с ограниченными возможностями. 
