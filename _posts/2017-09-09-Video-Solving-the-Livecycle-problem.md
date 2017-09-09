@@ -26,7 +26,8 @@ tags:
 + Handling Application & UI lifecycle on Android has always been a challenge for applications: subclassing, overriding, and entirely too much code in your Activity class leads to fragile, complicated application logic. Wouldn’t it be nice if this was easier? This session will cover a new approach to lifecycles and explore functionality that makes the problem dramatically easier. Be sure to also check out the other two “Architecture Components” sessions for more information on architecting better Android applications.
 
 Перевод:
-+ 
++ Управление жизненным циклом приложений и пользовательского интерфейса на Android всегда было проблемой для приложений: подклассы, переопределение и слишком много кода в классе Activity приводят к хрупкой, сложной логике приложений. Было бы неплохо, если бы это было проще? В этой сессии попробуем охватить новый подход к жизненным циклам и изучить функциональность, которая значительно упростит проблему. Обязательно ознакомьтесь с двумя другими разделами «Компоненты архитектуры» для получения дополнительной информации об архитектуре лучших приложений для Android.
+
 
 Ссылки к видео:
 - <a href="https://goo.gl/po4gyH">единая точка входа для архитектурных компонентов</a> - LiveData, ViewModel, LifecycleObserver, LifecycleOwner, Room (абстрация над SQLite базой данных), etc.
@@ -3559,60 +3560,60 @@ Thank you<br>
   <td>
    1<br>
 00:00:00,000 --> 00:00:06,201<br>
-[MUSIC PLAYING]<br>
+[ИГРАЕТ МУЗЫКА]<br>
 <br>
 2<br>
 00:00:06,201 --> 00:00:09,380<br>
-SERGEI VASILINETC:<br>
-Good morning, everyone.<br>
+СЕРГЕЙ ВАСИЛИНЕЦ:<br>
+Доброе утро всем!.<br>
 <br>
 3<br>
 00:00:09,380 --> 00:00:10,130<br>
-My name is Sergei.<br>
+Меня зовут Сергей<br>
 <br>
 4<br>
 00:00:10,130 --> 00:00:12,620<br>
-This is Adam and<br>
-Yigit with me today,<br>
+Это Adam и Yigit,<br>
+они сегодня со мной,<br>
 <br>
 5<br>
 00:00:12,620 --> 00:00:15,780<br>
-and we will speak about<br>
-LifeCycle problems.<br>
+и мы поговорим о проблемах<br>
+жизненного цикла.<br>
 <br>
 6<br>
 00:00:15,780 --> 00:00:21,240<br>
-So probably many of you attended<br>
-yesterday at Yigit's talk<br>
+Возможно, многие из вас<br>
+присутствовали вчера,<br>
 <br>
 7<br>
 00:00:21,240 --> 00:00:24,670<br>
-where he introduced new<br>
-architecture components.<br>
+когда Yigit представил новые<br>
+архитектурные компоненты.<br>
 <br>
 8<br>
 00:00:24,670 --> 00:00:27,550<br>
-He introduced LiveData,<br>
-ViewModel, new persistence<br>
+Он представил LiveData,<br>
+ViewModel, новую ORM<br>
 <br>
 9<br>
 00:00:27,550 --> 00:00:28,540<br>
-slide named Room.<br>
+называемую Room.<br>
 <br>
 10<br>
 00:00:28,540 --> 00:00:31,900<br>
-And today we will focus<br>
-on the LifeCycle part<br>
+И сегодня мы будем говорить<br>
+о жизненном цикле из<br>
 <br>
 11<br>
 00:00:31,900 --> 00:00:34,990<br>
-of these architectural<br>
-components.<br>
+парадигмы архитектурных<br>
+компонентов.<br>
 <br>
 12<br>
 00:00:34,990 --> 00:00:37,715<br>
-So we will speak again about<br>
-LiveData And ViewModel.<br>
+Поэтому мы снова поговорим о<br>
+LiveData и ViewModel.<br>
 <br>
 13<br>
 00:00:37,715 --> 00:00:41,140<br>
