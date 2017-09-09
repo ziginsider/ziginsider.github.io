@@ -104,6 +104,7 @@ if (adapter instanceof ItemTouchHelperCallBack.onSwipListener) {
     itemTouchHelper.attachToRecyclerView(recyclerView);
 }
 ...
+{% endhighlight %}
 
 С помощью instanseof мы проверяем, есть ли реализация нашего интерфейса в адаптере. Получаем эту реализацию - swipListener. И привязываем ее - setOnSwipListener(swipListener).
 
