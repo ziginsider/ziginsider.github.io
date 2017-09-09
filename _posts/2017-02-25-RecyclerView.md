@@ -275,6 +275,8 @@ public void getItemOffsets(Rect out Rect,
 
 ### ItemTouchHelper 
 
+Статья призванная показать, как использовать ItemTouchHelper в RecyclerView: <a href="https://medium.com/@ipaulpro/drag-and-swipe-with-recyclerview-b9456d2b1aaf">Drag and Swipe with RecyclerView</a>
+
 Для чего нужен?
 - Drag&Drop
 - Swipe to dismiss 
