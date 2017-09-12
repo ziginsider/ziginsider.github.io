@@ -300,6 +300,13 @@ etc.
 {% highlight java %}
 ItemTouchHelper.SimpleCallback touchCallback = new ... {
     @Override
+    public int getMovementFlags(RecyclerView recyclerView, 
+    RecyclerView.ViewHolder viewHolder) {
+        int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+        int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+        return makeMovementFlags(dragFlags, swipeFlags);
+    }
+    @Override
     public Boolean onMove(...){...}
     @Override
     public void onSwipe(...){...}
