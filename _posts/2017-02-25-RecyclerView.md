@@ -296,6 +296,20 @@ public void onSwiped(RecyclerView.ViewHolder viewHolder,
 etc.  
 {% endhighlight %}
 
+Реализация:
+{% highlight java %}
+ItemTouchHelper.SimpleCallback touchCallback = new ... {
+    @Override
+    public Boolean onMove(...){...}
+    @Override
+    public void onSwipe(...){...}
+};
+
+ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
+
+itemTouchHelper.attachToRecyclerView(recyclerView);
+{% endhighlight %}
+
 
 
 ### Практика
