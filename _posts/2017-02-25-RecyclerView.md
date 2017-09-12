@@ -286,7 +286,7 @@ API:
 public int getMovementFlags(RecyclerView recyclerView,
                             RecyclerView.ViewHolder viewHolder)
 
-public Boolean onMove(RecyclerView recyclerView,
+public boolean onMove(RecyclerView recyclerView,
                       RecyclerView.ViewHolder viewHolder,
                       RecyclerView.ViewHolder target)
 
