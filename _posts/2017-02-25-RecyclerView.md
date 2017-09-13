@@ -233,20 +233,38 @@ ItemDecorator - для того чтобы дополнить это предс�
 API: 
 {% highlight java %}
 
-public void getItemOffsets(Rect out Rect,
-    View view,
+//определяет расстояние, которое 
+//будет между элементами списка
+public void getItemOffsets(Rect out Rect, //top, bottom, right, left
+    View view, //view to decorate
     RecyclerView parent,
     RecyclerView.State state)
 
+//вызывается до того как все элементы
+//списка будут отрисованы
 public void onDraw(Canvas c,
     RecyclerView parent,
     RecyclerView.State state)
 
+//после всех элементов...
 public void onDrawOver(Canvas c,
     RecyclerView parent,
     RecyclerView.State state) 
 
 {% endhighlight %}
+
+onDraw() и onDrawOver() - вызываются на каждый шаг отрисовки списка, поэтому в этих методах не стоит помещать тяжелых операций (инициализация объекта и т.д.)
+
+Декораторов у RecyclerView может быть не один, а несколько, что позволяет помещать различную логику в разные классы.
+
+Реализация:
+{% highlight java %}
+Class CustomDecoration extends RecyclerView.ItemDecoration {
+    @Override
+    getItemOffset(...){...}
+}
+{% endhighlight %}
+
 
 Частые ошибки: 
 {% highlight java %}
@@ -317,6 +335,9 @@ ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
 itemTouchHelper.attachToRecyclerView(recyclerView);
 {% endhighlight %}
 
+### ItemAnimator 
+
+ItemAnimator - позволяет анимировать добавление, удаление, изменение элементов.
 
 
 ### Практика
