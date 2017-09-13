@@ -339,6 +339,14 @@ itemTouchHelper.attachToRecyclerView(recyclerView);
 
 ItemAnimator - позволяет анимировать добавление, удаление, изменение элементов.
 
+Схема запуска анимации после методов notifyItemX() (методы см. выше):
+<br>
+<img src="{{ site.baseurl }}/images/ItemAnimatorTimeLine.jpg">
+<br>
+
+Отрисовка элементов делится на два этапа:
+- preLayout - элементы до изменения списка + те, что должны появиться;
+- postLayout - элементы после окончания анимации.
 
 ### Практика
 
