@@ -3617,112 +3617,112 @@ LiveData и ViewModel.<br>
 <br>
 13<br>
 00:00:37,715 --> 00:00:41,140<br>
-We will speak about LifeCycle<br>
-honors and LifeCycle that<br>
+Мы поговорим о преимуществах<br>
+жизненного цикла и о том, на каких<br>
 <br>
 14<br>
 00:00:41,140 --> 00:00:45,210<br>
-are basics for these libraries.<br>
+библиотеках он основывается.<br>
 <br>
 15<br>
 00:00:45,210 --> 00:00:49,150<br>
-But we will have more details.<br>
+Но мы затронем много деталей.<br>
 <br>
 16<br>
 00:00:49,150 --> 00:00:51,890<br>
-We will have some reasoning<br>
-behind our decisions.<br>
+У нас будут некоторые аргументы<br>
+в пользу наших решений.<br>
 <br>
 17<br>
 00:00:51,890 --> 00:00:56,360<br>
-So if you attended yesterday,<br>
-it will be still interesting.<br>
+И, если вы были на вчерашней сессии,<br>
+вам будет все еще интересно.<br>
 <br>
 18<br>
 00:00:56,360 --> 00:00:57,900<br>
-If you didn't<br>
-attend yesterday, we<br>
+Но даже если вы не<br>
+присутствовали вчера, мы<br>
 <br>
 19<br>
 00:00:57,900 --> 00:00:59,600<br>
-will reintroduce<br>
-all of these things<br>
+заново расскажем обо<br>
+всех этих вещах<br>
 <br>
 20<br>
 00:00:59,600 --> 00:01:03,370<br>
-so you will<br>
-understand everything.<br>
+так что вам будет<br>
+все понятно.<br>
 <br>
 21<br>
 00:01:03,370 --> 00:01:07,480<br>
-So let's see what we have today.<br>
+Ну, давайте посмотрим что у нас есть.<br>
 <br>
 22<br>
 00:01:07,480 --> 00:01:11,280<br>
-Today we have an activity<br>
-in the fragments.<br>
+Сегодня у нас Activity<br>
+по частям.<br>
 <br>
 23<br>
 00:01:11,280 --> 00:01:14,300<br>
-I'll start with is that not<br>
-for length length but dozens<br>
+Я начну стого, что<br>
+длинно, но с того, где<br>
 <br>
 24<br>
 00:01:14,300 --> 00:01:17,330<br>
-and dozens line of lines.<br>
+десятки и десятки строк.<br>
 <br>
 25<br>
 00:01:17,330 --> 00:01:22,190<br>
-And this line's the results<br>
-from a very natural process.<br>
+И эти строки результат очень<br>
+естественного процесса.<br>
 <br>
 26<br>
 00:01:22,190 --> 00:01:24,690<br>
-Google pay services<br>
-asked to register them<br>
+Сервисы Google play<br>
+попросили зарегистрировать их<br>
 <br>
 27<br>
 00:01:24,690 --> 00:01:25,670<br>
-in onStart methods.<br>
+в onStart методах.<br>
 <br>
 28<br>
 00:01:25,670 --> 00:01:29,620<br>
-It's Your own components need<br>
-to know about this LifeCycle<br>
+Ваши компоненты должны знать<br>
+о событиях жизненного цикла,<br>
 <br>
 29<br>
 00:01:29,620 --> 00:01:34,640<br>
-event, so you need to forward<br>
-them in some kind of API.<br>
+поэтому вам нужно получить их<br>
+в каком-либо API.<br>
 <br>
 30<br>
 00:01:34,640 --> 00:01:38,100<br>
-And correspondingly,<br>
-on onStop method,<br>
+И соответственно,<br>
+в onStop методе,<br>
 <br>
 31<br>
 00:01:38,100 --> 00:01:42,530<br>
-you have to call all<br>
-pairings stop methods,<br>
+вы должны вызвать все<br>
+методы-остановки,<br>
 <br>
 32<br>
 00:01:42,530 --> 00:01:44,900<br>
-and it's very easy<br>
-to forget one.<br>
+и тогда очень легко<br>
+забыть о каком-либо из них.<br>
 <br>
 33<br>
 00:01:44,900 --> 00:01:46,880<br>
-And will result in [INAUDIBLE].<br>
+И в результате утечка.<br>
 <br>
 34<br>
 00:01:46,880 --> 00:01:51,950<br>
-It will drain the<br>
-user's battery,<br>
+И это приведет к растрате<br>
+батареи пользователя,<br>
 <br>
 35<br>
 00:01:51,950 --> 00:01:54,920<br>
-and they will enjoy<br>
-your app a bit less.<br>
+и ваше приложение понравится<br>
+ему немного меньше.<br>
 <br>
 36<br>
 00:01:54,920 --> 00:01:58,190<br>
