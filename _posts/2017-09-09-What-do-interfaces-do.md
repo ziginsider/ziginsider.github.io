@@ -28,6 +28,8 @@ tags:
 
 --
 
+Конечно, это только одна сторона пользы от интерфейсоф. Зато  очень наглаядная на мой взгляд. Другая, очевидная сторона пользы от интерфейсов - это придание гибкости проекту. См. e.g. принципы SOLID: <href="https://academy.realm.io/posts/donn-felker-solid-part-5/">https://academy.realm.io/posts/donn-felker-solid-part-5/</a>
+
 Для себя так понял практическую пользу интерфейсов. Как-то разбирал одну библиотеку, которая реализовывала Swipe&Dismiss карточек в RecyclerView. Эта библиотека реализовывала свой колбэк тоучхелпера:
 
 {% highlight java %}
@@ -43,7 +45,7 @@ public class ItemTouchHelperCallBack extends ItemTouchHelper.Callback {
 {% highlight java %}
 public class ItemTouchHelperCallBack extends ItemTouchHelper.Callback {
   ...
-  private onSwipListener mOnSwipListener; //экземпляр интерфейса,
+  private onSwipListener mOnSwipListener; //экземпляр реализации интерфейса,
                                           //через который мы получим
                                           //реализованную Swipe&Dismiss
   ...
