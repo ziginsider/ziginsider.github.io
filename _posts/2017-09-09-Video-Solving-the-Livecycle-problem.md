@@ -3726,86 +3726,86 @@ LiveData и ViewModel.<br>
 <br>
 36<br>
 00:01:54,920 --> 00:01:58,190<br>
-Which is probably healthier for<br>
-them, but we think that's bad.<br>
+И это, возможно, нормально для них,<br>
+но мы не думаем, что это хорошо.<br>
 <br>
 37<br>
 00:01:58,190 --> 00:02:02,180<br>
-And they think the<br>
-answer in this situation<br>
+И они думают, что ответ<br>
+в этой ситуации - это<br>
 <br>
 38<br>
 00:02:02,180 --> 00:02:04,130<br>
-is to introduce LifeCycle<br>
-aware components.<br>
+представление жизненного цикла<br>
+осведомленным о компонентах.<br>
 <br>
 39<br>
 00:02:04,130 --> 00:02:06,770<br>
-So components which<br>
-handle LifeCycle.<br>
+Компоненты, которые взаимодействуют<br>
+с жизненным циклом.<br>
 <br>
 40<br>
 00:02:06,770 --> 00:02:08,538<br>
-And the first step<br>
-in this direction<br>
+И первый щаг в этом r>
+направлении - представление<br>
 <br>
 41<br>
 00:02:08,538 --> 00:02:11,750<br>
-is to introduce LifeCycle<br>
-as a first class citizen.<br>
+жизненного цикла как<br>
+объекта первого класса.<br>
 <br>
 42<br>
 00:02:11,750 --> 00:02:13,550<br>
-So it's a very<br>
-simple object which<br>
+Итак, это очень простой<br>
+объект, который отвечает на<br>
 <br>
 43<br>
 00:02:13,550 --> 00:02:17,370<br>
-answers the question, what is<br>
-the current state right now?<br>
+вопрос, какое<br>
+состояние сейчас?<br>
 <br>
 44<br>
 00:02:17,370 --> 00:02:19,130<br>
-And notifies you<br>
-about new events.<br>
+И уведомляет вас о<br>
+новых событиях. И тогда<br>
 <br>
 45<br>
 00:02:19,130 --> 00:02:22,340<br>
-And then no feature is important<br>
-but sounds ridiculous right<br>
+никакая особенность не важна<br>
+но звучит нелепо прямо сейчас,<br>
 <br>
 46<br>
 00:02:22,340 --> 00:02:26,060<br>
-now, events and states<br>
-are different things.<br>
+события и состояния -<br>
+разные вещи.<br>
 <br>
 47<br>
 00:02:26,060 --> 00:02:28,540<br>
-So let's see what I mean.<br>
+Вот, что я имею в виду.<br>
 <br>
 48<br>
 00:02:28,540 --> 00:02:31,610<br>
-Your case is instantiated<br>
-in initialized state.<br>
+Ваша Activity создается в<br>
+инициализированном состоянии.<br>
 <br>
 49<br>
 00:02:31,610 --> 00:02:37,965<br>
-And all creation phases<br>
-pass very routinely.<br>
+И все этапы создания<br>
+проходят очень регулярно.<br>
 <br>
 50<br>
 00:02:37,965 --> 00:02:39,680<br>
-OnCreate, create the state.<br>
+OnCreate(), создание состояния.<br>
 <br>
 51<br>
 00:02:39,680 --> 00:02:42,460<br>
-OnStart, start the state,<br>
-same thing for resume.<br>
+OnStart, старт состояния,<br>
+то же самое для resume.<br>
 <br>
 52<br>
 00:02:42,460 --> 00:02:45,070<br>
-But the road down is a<br>
-bit more interesting.<br>
+Но дорога назад немного<br>
+более интересная.<br>
 <br>
 53<br>
 00:02:45,070 --> 00:02:48,920<br>
