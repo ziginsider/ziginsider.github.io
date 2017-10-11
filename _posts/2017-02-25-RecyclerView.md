@@ -372,6 +372,8 @@ v.requestLayout();
 
 Повесьте на RecyclerView слушатель прокрутки и, когда он будет прокручен до последнего элемента, подгружайте новую порцию данных.
 
+Пример реализации: <a href="https://github.com/ziginsider/DynamicLoadingRecyclerView/tree/master">https://github.com/ziginsider/DynamicLoadingRecyclerView/tree/master</a>
+
 Способ №2:
 
 {% highlight java %}
