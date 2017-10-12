@@ -3,6 +3,7 @@ layout: post
 title: Несколько примеров на Kotlin
 date: 2017-06-03 14:19
 tags:
+- Android
 - Kotlin
 - примеры
 - моё
