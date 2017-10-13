@@ -16,8 +16,49 @@ tags:
 
 ### Способ первый
 
-<a href="https://www.youtube.com/watch?v=SR83u5FoW3U">https://www.youtube.com/watch?v=SR83u5FoW3U</a>
+<a href="https://goo.gl/MXtkMn">https://github.com/ziginsider/TimerDemo</a>
+
+{% highlight java %}
+    class MyTimerTask extends TimerTask {
+        @Override
+        public void run() {
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss a");
+            final String strDate = simpleDateFormat.format(calendar.getTime());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    txtCounter.setText(strDate);
+                }
+            });
+        }
+    }
+{% endhighlight %}
 
 ### Способ второй
 
-<a href=https://github.com/ziginsider/CodeLabsAndroidLifeCycle"">https://github.com/ziginsider/CodeLabsAndroidLifeCycle</a>
+<a href="https://goo.gl/bm9kHF">https://github.com/ziginsider/CodeLabsAndroidLifeCycle</a>
+
+{% highlight java %}
+    public LiveDataTimerViewModel() {
+        mInitalTime = SystemClock.elapsedRealtime();
+        Timer timer = new Timer();
+
+        //Update the elapsed time every second
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                final long newValue = (SystemClock.elapsedRealtime() - mInitalTime) / 1000;
+
+                //use tne Main looper
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mElapsedTime.setValue(newValue);
+                    }
+                });
+            }
+        }, ONE_SECOND, ONE_SECOND);
+    }
+{% endhighlight %}
