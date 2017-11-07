@@ -12,7 +12,7 @@ tags:
 
 * Пример создания бесконечной, случайной анимации с помощью TimeAnimator *
 
-<img src="{{ site.baseurl }}/images/device-2017-11-07-140532.png">
+<img src="{{ site.baseurl }}/images/capture_revolution.png">
 
 ### Введение
 
