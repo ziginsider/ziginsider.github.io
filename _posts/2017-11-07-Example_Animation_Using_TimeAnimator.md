@@ -189,7 +189,8 @@ public class RevolutionAnimationView extends View {
                 }
                 // deltaTime - столько времени в миллисекундах прошло с последнего шага анимации
                 updateState(deltaTime); // см. ниже изменяем состояние объектов
-                invalidate(); //обновляем View
+                invalidate(); //обновляем View т.е. вызываем onDraw()
+                // и т.о. делаем новое состояние видимым
             }
         });
         mTimeAnimator.start(); //запускаем Animator
@@ -538,15 +539,231 @@ public class RevolutionAnimationView extends View {
         }
     }
 }
+{% endhighlight %}
 
+Наконец, используемый в примере layout: 
+{% highlight xml %}
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    tools:context="io.github.ziginsider.revolutiondemo.FullscreenActivity">
+
+    <FrameLayout
+        android:id="@+id/animated_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        >
+
+        <io.github.ziginsider.revolutiondemo.RevolutionAnimationView
+            android:id="@+id/animated_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_alignParentTop="true"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Revolution!"
+            android:fontFamily="sans-serif-light"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Display2"
+            android:textColor="#66000000"
+
+            />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/kremlin_part"
+            />
+
+        <LinearLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_pause"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Pause"
+                android:textColor="@color/white"
+                android:background="@color/colorX"/>
+
+            <android.support.v4.widget.Space
+                android:layout_width="16dp"
+                android:layout_height="16dp"/>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_resume"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resume"
+                android:textColor="@color/white"
+                android:background="@color/colorX"/>
+                
+        </LinearLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
 {% endhighlight %}
+
+И код Activity:
 {% highlight java %}
+package io.github.ziginsider.revolutiondemo;
+
+
+import android.media.MediaPlayer;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+
+public class FullscreenActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private RevolutionAnimationView mAnimationView;
+
+    MediaPlayer mediaPlayer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        setContentView(R.layout.activity_fullscreen);
+
+        mAnimationView = (RevolutionAnimationView) findViewById(R.id.animated_view);
+        findViewById(R.id.btn_pause).setOnClickListener(this);
+        findViewById(R.id.btn_resume).setOnClickListener(this);
+
+        mediaPlayer = MediaPlayer.create(FullscreenActivity.this, R.raw.rodina_shostakovich);
+
+        mediaPlayer.setLooping(true);
+        mediaPlayer.setVolume(1.0f, 1.0f);
+        mediaPlayer.start();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mAnimationView.resume();
+        mediaPlayer.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mAnimationView.pause();
+        mediaPlayer.pause();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_pause:
+                mediaPlayer.pause();
+                mAnimationView.pause();
+                break;
+            case R.id.btn_resume:
+                mediaPlayer.start();
+                mAnimationView.resume();
+                break;
+        }
+    }
+}
 {% endhighlight %}
+
+### Бонус
+- Чтобы не было скучно, давайте добавим проигрывание музыки при запуске приложения. Для этого надо создать в ресурсах папку raw и поместить туда аудио-файл. В Activity прописать (как видно выше)
 {% highlight java %}
+    mediaPlayer = MediaPlayer.create(FullscreenActivity.this, R.raw.rodina_shostakovich);
+
+    mediaPlayer.setLooping(true);
+    mediaPlayer.setVolume(1.0f, 1.0f);
+    mediaPlayer.start();
 {% endhighlight %}
+
+- Давайте добавим больше независимости кастомному View от Activity. Сделаем так, чтобы View сам следил за жизненным циклом Activity или Fragment в котором используется и реагировал бы на события onPause() и onResume(). Для этого воспользуемся возможностями Android Architecture Components:
+
+Теперь наша Activity наследуется от LifecycleActivity. И в прописании функций onPause() и onResume() отпадает необходимость:
 {% highlight java %}
+public class FullscreenActivity extends LifecycleActivity implements View.OnClickListener {
+
+    private RevolutionAnimationView mAnimationView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        setContentView(R.layout.activity_fullscreen);
+
+        mAnimationView = (RevolutionAnimationView) findViewById(R.id.animated_view);
+        findViewById(R.id.btn_pause).setOnClickListener(this);
+        findViewById(R.id.btn_resume).setOnClickListener(this);
+        ...
+    }
+
+    //@Override
+    //protected void onResume() {
+    //    super.onResume();
+    //    mAnimationView.resume();
+    //}
+
+    //@Override
+    //protected void onPause() {
+    //    super.onPause();
+    //    mAnimationView.pause();
+    //}
+
+    ...
+}
 {% endhighlight %}
+
+При этом наша кастомная View реализует интерфейс LifecycleObserver. И перед функциями pause() и resume() появляются следующие аннотации:
 {% highlight java %}
+public class RevolutionAnimationView extends View implements LifecycleObserver {
+...
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    public void pause() {
+        if (mTimeAnimator != null && mTimeAnimator.isRunning()) {
+            // Сохраним текущее время произведения для последующего восстановления
+            mCurrentPlayTime = mTimeAnimator.getCurrentPlayTime();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                mTimeAnimator.pause();
+            }
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public void resume() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (mTimeAnimator != null && mTimeAnimator.isPaused()) {
+                mTimeAnimator.start();
+                // восстанавливаем время воспроизведения TimeAnimator
+                mTimeAnimator.setCurrentPlayTime(mCurrentPlayTime);
+            }
+        }
+    }
+    ...
+}
 {% endhighlight %}
-{% highlight java %}
-{% endhighlight %}
+
+Все.
+
+Код проекта на github: <a href="https://github.com/ziginsider/RevolutionDemo">https://github.com/ziginsider/RevolutionDemo</a>
