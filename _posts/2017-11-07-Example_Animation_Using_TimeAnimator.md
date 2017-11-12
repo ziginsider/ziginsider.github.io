@@ -16,7 +16,7 @@ tags:
 
 ### Введение
 
-Данная заметка базируется на статье <a href="https://medium.com/@patrick_iv/continuous-animation-using-timeanimator-5b8a903603fb">Continuous animation in Android using TimeAnimator</a>.
+Заметка базируется на статье <a href="https://medium.com/@patrick_iv/continuous-animation-using-timeanimator-5b8a903603fb">Continuous animation in Android using TimeAnimator</a>.
 
 Цель: используя <a href="https://developer.android.com/reference/android/animation/TimeAnimator.html">TimeAnimator</a>, создать анимацию конечного числа объектов, которые, уходя за экран, переиспользовались бы снова (повышение производительности). Расположение объектов случайное. С помощью анимаций перемещения, вращения, изменения масштаба и прозрачности, создать эффект глубины.
 
