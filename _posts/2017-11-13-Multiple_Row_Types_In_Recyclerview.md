@@ -107,16 +107,81 @@ tags:
 </android.support.constraint.ConstraintLayout>
 {% endhighlight %}
 
+### Классы для каждого типа View
+
+имея в виду `row_type_button`, создаем для него класс. Не забываем о конструкторе и обработчике нажатия:
 {% highlight java %}
+public class ButtonRowType implements RowType {
+
+    private Context context;
+
+    public ButtonRowType(Context context) {
+        this.context = context;
+    }
+
+    public View.OnClickListener getOnClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Click!", Toast.LENGTH_SHORT).show();
+            }
+        };
+    }
+}
 {% endhighlight %}
 
+Как видим, `RowType` и будет нашим объединяющим интерфейсом.
+
+Далее, переходим к `row_type_image`. Незабываем о геттере для текста:
 {% highlight java %}
+public class ImageRowType implements RowType {
+
+    private String text;
+
+    public ImageRowType(String text) {
+        this.text = text;
+    }
+
+    public String getText() {
+        return text;
+    }
+}
 {% endhighlight %}
 
+Наконец, `row_type_text`. Тут добавим геттеры для заголовка и текста:
 {% highlight java %}
+public class TextRowType implements RowType {
+
+    private String header;
+    private String text;
+
+    public TextRowType(String header, String text) {
+        this.header = header;
+        this.text = text;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public String getText() {
+        return text;
+    }
+}
 {% endhighlight %}
 
+### Объединяющий интерфейс
+
+В адаптере мы будем различать типы наших View посредством `int getItemViewType(int position)`. Теперь вспомним об особенности интерфейсов, в силу уникальности, хранить в себе константы. Т.е. сигнатура `int` в интерфейсе соответсвует сигнатуре `public static final int` в классе наследующем интерфейс.
+
+Учитывая данную особенность, сконструируем наш интерфейс для различения типов View:
+
 {% highlight java %}
+public interface RowType {
+    int BUTTON_ROW_TYPE =   0;
+    int IMAGE_ROW_TYPE = 1;
+    int TEXT_ROW_TYPE = 2;
+}
 {% endhighlight %}
 
 {% highlight java %}
