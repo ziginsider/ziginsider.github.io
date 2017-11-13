@@ -30,7 +30,7 @@ tags:
 
 Создаем, три layout, соответствующих трем типам View.
 
-`row_type_button.xml`
+`row_type_button.xml`:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,7 +46,8 @@ tags:
 </LinearLayout>
 {% endhighlight %}
 
-`row_type_image.xml`
+<br>
+`row_type_image.xml`:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -68,7 +69,8 @@ tags:
 </LinearLayout>
 {% endhighlight %}
 
-`row_type_text.xml`
+<br>
+`row_type_text.xml`:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -91,6 +93,7 @@ tags:
 </LinearLayout>
 {% endhighlight %}
 
+<br>
 В 'activity_main.xml' добавляем RecyclerView:
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8"?>
@@ -109,10 +112,10 @@ tags:
 </android.support.constraint.ConstraintLayout>
 {% endhighlight %}
 
-
+<br>
 ### Классы для каждого типа View
 
-имея в виду `row_type_button`, создаем для него класс. Не забываем о конструкторе и обработчике нажатия:
+Имея в виду `row_type_button`, создаем для него класс. Не забываем о конструкторе и обработчике нажатия:
 {% highlight java %}
 public class ButtonRowType implements RowType {
 
@@ -133,6 +136,7 @@ public class ButtonRowType implements RowType {
 }
 {% endhighlight %}
 
+<br>
 Как видим, `RowType` и будет нашим объединяющим интерфейсом.
 
 Далее, переходим к `row_type_image`. Незабываем о геттере для текста:
@@ -151,6 +155,7 @@ public class ImageRowType implements RowType {
 }
 {% endhighlight %}
 
+<br>
 Наконец, `row_type_text`. Тут добавим геттеры для заголовка и текста:
 {% highlight java %}
 public class TextRowType implements RowType {
@@ -173,7 +178,7 @@ public class TextRowType implements RowType {
 }
 {% endhighlight %}
 
-
+<br>
 ### Объединяющий интерфейс
 
 В адаптере мы будем различать типы наших View посредством `int getItemViewType(int position)`. Теперь вспомним об особенности интерфейсов, в силу уникальности, хранить в себе константы. Т.е. сигнатура `int` в интерфейсе соответсвует сигнатуре `public static final int` в классе наследующем интерфейс.
@@ -188,9 +193,10 @@ public interface RowType {
 }
 {% endhighlight %}
 
+<br>
 Теперь в адаптере мы сможем различать типы View используя `instanceof` и, таким образом, возвращать тип View. Итак...
 
-
+<br>
 ### Адаптер
 
 Получаем примерно такой адаптер:
@@ -285,6 +291,9 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
     }
 }
 {% endhighlight %}
+
+<br>
+
 
 {% highlight java %}
 {% endhighlight %}
