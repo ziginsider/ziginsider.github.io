@@ -8,7 +8,7 @@ tags:
 - RecyclerView
 - Refactoring
 ---
-*Заметка основана на статье Mateusz Dziubek  <a href="https://android.jlelse.eu/multiple-row-types-in-recyclerview-2febf66e96a4">"Multiple row types in RecyclerView"</a>. Приводится пример создания RecyclerView c различными типами View. В процессе написания код подвергается рефакторингу. Показывается эфективность применения различных паттернов програмирования и рефакторинга в целом на простом для понимания примере.*
+*Заметка основана на статье Mateusz Dziubek  <a href="https://android.jlelse.eu/multiple-row-types-in-recyclerview-2febf66e96a4">"Multiple row types in RecyclerView"</a>. Приводится пример создания RecyclerView c различными типами View. В процессе написания код подвергается рефакторингу. Показывается эффективность применения различных паттернов программирования и рефакторинга в целом на простом для понимания примере.*
 
 <br>
 ### Постановка задачи
