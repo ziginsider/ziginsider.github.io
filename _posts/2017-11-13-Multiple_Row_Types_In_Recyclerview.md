@@ -10,6 +10,7 @@ tags:
 ---
 *Заметка основана на статье Mateusz Dziubek  <a href="https://android.jlelse.eu/multiple-row-types-in-recyclerview-2febf66e96a4">"Multiple row types in RecyclerView"</a>*
 
+
 ### Введение
 
 Итак, представим ситуацию, когда нам надо в один RecyclerView поместить несколько различных типов View. Допустим, это:
@@ -23,6 +24,7 @@ tags:
 <img src="{{ site.baseurl }}/images/testing1.jpeg">
 
 Вдохновляясь статьей <a href="https://sourcemaking.com/refactoring/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a>, попробуем сделать это. Основная идея - каждому типу View соответсвует отдельный класс, и эти классы объединяются общим интерфейсом.
+
 
 ### layout
 
@@ -107,6 +109,7 @@ tags:
 </android.support.constraint.ConstraintLayout>
 {% endhighlight %}
 
+
 ### Классы для каждого типа View
 
 имея в виду `row_type_button`, создаем для него класс. Не забываем о конструкторе и обработчике нажатия:
@@ -170,6 +173,7 @@ public class TextRowType implements RowType {
 }
 {% endhighlight %}
 
+
 ### Объединяющий интерфейс
 
 В адаптере мы будем различать типы наших View посредством `int getItemViewType(int position)`. Теперь вспомним об особенности интерфейсов, в силу уникальности, хранить в себе константы. Т.е. сигнатура `int` в интерфейсе соответсвует сигнатуре `public static final int` в классе наследующем интерфейс.
@@ -183,6 +187,11 @@ public interface RowType {
     int TEXT_ROW_TYPE = 2;
 }
 {% endhighlight %}
+
+Теперь в адаптере мы сможем различать типы View используя `instanceof` и, таким образом, возвращать тип View. Итак...
+
+
+### Адаптер
 
 {% highlight java %}
 {% endhighlight %}
