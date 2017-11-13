@@ -8,10 +8,10 @@ tags:
 - RecyclerView
 - Refactoring
 ---
-*Заметка основана на статье Mateusz Dziubek  <a href="https://android.jlelse.eu/multiple-row-types-in-recyclerview-2febf66e96a4">"Multiple row types in RecyclerView"</a>*
+*Заметка основана на статье Mateusz Dziubek  <a href="https://android.jlelse.eu/multiple-row-types-in-recyclerview-2febf66e96a4">"Multiple row types in RecyclerView"</a>. Приводится пример создания RecyclerView c различными типами View. В процессе написания код подвергается рефакторингу. Показывается эфективность применения различных паттернов програмирования и рефакторинга в целом на простом для понимания примере.*
 
-
-### Введение
+<br>
+### Постановка задачи
 
 Итак, представим ситуацию, когда нам надо в один RecyclerView поместить несколько различных типов View. Допустим, это:
 
@@ -25,7 +25,7 @@ tags:
 
 Вдохновляясь статьей <a href="https://sourcemaking.com/refactoring/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a>, попробуем сделать это. Основная идея - каждому типу View соответсвует отдельный класс, и эти классы объединяются общим интерфейсом.
 
-
+<br>
 ### layout
 
 Создаем, три layout, соответствующих трем типам View.
@@ -225,13 +225,16 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == RowType.BUTTON_ROW_TYPE) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_type_button, parent, false);
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.row_type_button, parent, false);
             return new ButtonViewHolder(view);
         } else if (viewType == RowType.IMAGE_ROW_TYPE) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_type_image, parent, false);
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.row_type_image, parent, false);
             return new ImageViewHolder(view);
         } else if (viewType == RowType.TEXT_ROW_TYPE) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_type_text, parent, false);
+            View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.row_type_text, parent, false);
             return new TextViewHolder(view);
         } else {
             return null;
@@ -241,12 +244,16 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ButtonViewHolder) {
-            ((ButtonViewHolder) holder).button.setOnClickListener(((ButtonRowType) dataSet.get(position)).getOnClickListener());
+            ((ButtonViewHolder) holder).button
+                    .setOnClickListener(((ButtonRowType) dataSet.get(position)).getOnClickListener());
         } else if (holder instanceof ImageViewHolder) {
-            ((ImageViewHolder) holder).textView2.setText(((ImageRowType) dataSet.get(position)).getText());
+            ((ImageViewHolder) holder).textView2
+                    .setText(((ImageRowType) dataSet.get(position)).getText());
         } else if (holder instanceof TextViewHolder) {
-            ((TextViewHolder) holder).headerTextView.setText(((TextRowType) dataSet.get(position)).getHeader());
-            ((TextViewHolder) holder).textView1.setText(((TextRowType) dataSet.get(position)).getText());
+            ((TextViewHolder) holder).headerTextView
+                    .setText(((TextRowType) dataSet.get(position)).getHeader());
+            ((TextViewHolder) holder).textView1
+                    .setText(((TextRowType) dataSet.get(position)).getText());
         }
     }
 
@@ -293,8 +300,10 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
 {% endhighlight %}
 
 <br>
+Что сказать? Невооруженным взглядом можно видеть что кода много. Лично у меня возникает ощущение захламенности. Давайте улучшать ситуацию.
 
-
+<br>
+### Рефакторинг
 {% highlight java %}
 {% endhighlight %}
 
