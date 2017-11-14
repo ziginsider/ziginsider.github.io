@@ -5,7 +5,6 @@ date: 2017-02-20 22:10
 tags:
 - Android
 - Java
-- моё
 ---
 *A* <br> 
 - <a href="https://developer.android.com/training/appbar/index.html" title="Action Bar">Action Bar</a> - руководство по API Action Bar, которое является исчерпывающим для библиотеки AppCompat. Включает ToolBar.
