@@ -5,12 +5,12 @@ date: 2017-09-09 20:42
 tags:
 - Java
 - Android
-- архитектура
-- video
-- youtube
-- translate
+- Архитектура
+- Video
+- Youtube
+- Translate
 - Architecture Components
-- философия
+- Философия
 ---
 *Перевод английских субтитров на русские из видео Architecture Components: Solving the Lifecycle Problem. Начало 09.09.2017, конец - .09.2017. All rights reserved.*
 
