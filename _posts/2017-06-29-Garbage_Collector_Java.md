@@ -4,8 +4,8 @@ title: Краткий конспект реализации Garbage Collector в
 date: 2017-06-29 21:40
 tags:
 - Java
-- философия
-- моё
+- Философия
+- Garbage Collector
 ---
 
 ## Функции
