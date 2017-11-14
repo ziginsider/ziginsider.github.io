@@ -5,12 +5,12 @@ date: 2017-09-01 19:25
 tags:
 - Java
 - Android
-- архитектура
-- video
-- youtube
-- translate
+- Архитектура
+- Video
+- Youtube
+- Translate
 - Architecture Components
-- философия
+- Философия
 ---
 *Перевод английских субтитров на русские из видео Architecture Components: Improve Your App's Design. Начало 01.09.2017, конец - 07.09.2017. All rights reserved.*
 
