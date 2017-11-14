@@ -161,7 +161,7 @@ public ViewHolder onCreateViewHolder(...) {
 
 <img src="{{ site.baseurl }}/images/RecyclerView3.png">
 
-Обязателен, в отличии от реализации ListView.
+Обязателен, в отличии от реализации ListView. (NB: см. отличия RecyclerView от ListView в <a href="https://ziginsider.github.io/What_is_the_difference_between_ListView_and_RecyclerView/">этой заметке</a>)
 
 Для чего нужен был ViewHolder раньше?
 Ответ: кеширование относительно дорогого findViewById 
