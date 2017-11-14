@@ -6,7 +6,6 @@ tags:
 - Android
 - Java
 - RecyclerView
-- моё
 ---
 <img src="{{ site.baseurl }}/images/RecyclerView1.png">
 <br>
