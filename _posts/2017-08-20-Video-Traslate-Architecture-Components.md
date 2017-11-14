@@ -5,13 +5,13 @@ date: 2017-08-20 9:44
 tags:
 - Java
 - Android
-- архитектура
-- video
-- youtube
-- translate
+- Архитектура
+- Video
+- Youtube
+- Translate
 - Google I/O '17
 - Architecture Components
-- философия
+- Философия
 ---
 *Перевод английских субтитров на русские из видео Architecture Components - Introduction (Google I/O '17). Предпринят только для практики перевода с английского, скажем так to improve my reading and listening skills. Делается постепенно. Начало 20.08.2017, конец - 31.08.2017. All rights reserved.*
 
