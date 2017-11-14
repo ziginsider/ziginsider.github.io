@@ -12,7 +12,6 @@ tags:
 
 <br>
 ### Постановка задачи
-
 Итак, представим ситуацию, когда нам надо в один RecyclerView поместить несколько различных типов View. Допустим, это:
 
 - кнопка
@@ -27,7 +26,6 @@ tags:
 
 <br>
 ### layout
-
 Создаем, три layout, соответствующих трем типам View.
 
 `row_type_button.xml`:
@@ -114,7 +112,6 @@ tags:
 
 <br>
 ### Классы для каждого типа View
-
 Имея в виду `row_type_button`, создаем для него класс. Не забываем о конструкторе и обработчике нажатия:
 {% highlight java %}
 public class ButtonRowType implements RowType {
@@ -180,7 +177,6 @@ public class TextRowType implements RowType {
 
 <br>
 ### Объединяющий интерфейс
-
 В адаптере мы будем различать типы наших View посредством `int getItemViewType(int position)`. Теперь вспомним об особенности интерфейсов, в силу уникальности, хранить в себе константы. Т.е. сигнатура `int` в интерфейсе соответсвует сигнатуре `public static final int` в классе наследующем интерфейс.
 
 Учитывая данную особенность, сконструируем наш интерфейс для различения типов View:
@@ -198,7 +194,6 @@ public interface RowType {
 
 <br>
 ### Адаптер
-
 Получаем примерно такой адаптер:
 {% highlight java %}
 public class MultipleTypesAdapter extends RecyclerView.Adapter {
