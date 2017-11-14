@@ -12,7 +12,7 @@ tags:
 
 <br>
 ### Введение
-Поскульку мы Android разработчики, нам не сложно реализовать прокручиваемый список тем способом, который соответствует задаче. Но два наиболее популярных пути - <a href="https://developer.android.com/reference/android/widget/ListView.html">ListView</a> и <a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a>.
+Поскольку мы Android разработчики, нам не сложно реализовать прокручиваемый список тем способом, который соответствует задаче. Но два наиболее популярных пути - <a href="https://developer.android.com/reference/android/widget/ListView.html">ListView</a> и <a href="https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html">RecyclerView</a>.
 
 Первый из них прекрасный виджет, который был доступен с API 1. До Android Lollipop мы главным образом использовали этот способ, что было довольно неплохо - API был интуитивно понятен. Но к сожалению мы могли создать только вертикально прокручиваемый список, и чтобы он прокручивался плавно, прриходилось делать все надлежлащим способом. Кроме того, класс ListView довольно тяжелый - у него множество обязанностей. Всякий раз, когда нам требовалось обработать список, т.е. сконфигурировать его, единственный путь сделать это был через объект ListView внутри адаптера.
 
