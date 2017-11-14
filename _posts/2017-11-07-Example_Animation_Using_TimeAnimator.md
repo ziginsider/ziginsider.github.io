@@ -7,7 +7,7 @@ tags:
 - Android
 - TimeAnimator
 - Animation
-- примеры
+- Примеры
 ---
 
 *Пример создания бесконечной, случайной анимации с помощью TimeAnimator*
