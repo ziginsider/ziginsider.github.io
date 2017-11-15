@@ -332,12 +332,134 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
 
 <br>
 ### Рефакторинг
+Во-первых, у нас три различных ViewHolder. Ничто не мешает нам применить к этой тройке шаблон проектирования <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B5%D1%82%D0%BE%D0%B4_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">"Фабрика"</a>. Одной ответственностью станет меньше.
+
+Заводим отдельный класс ViewHolderFactory и выносим туда наши холдеры. Внутри класса определяем функцию viewHolder create(parent, viewType), которая будет создавать необходимый холдер, согласно типу View:
 {% highlight java %}
+public class ViewHolderFactory {
+
+    public static class ButtonViewHolder extends RecyclerView.ViewHolder {
+
+        public Button button;
+
+        public ButtonViewHolder(View itemView) {
+            super(itemView);
+            button = (Button) itemView.findViewById(R.id.button);
+        }
+    }
+
+    public static class TextViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView headerTextView;
+        public TextView textView1;
+
+        public TextViewHolder(View itemView) {
+            super(itemView);
+            headerTextView = (TextView) itemView.findViewById(R.id.header);
+            textView1 = (TextView) itemView.findViewById(R.id.text);
+        }
+
+    }
+
+    public static class ImageViewHolder extends RecyclerView.ViewHolder {
+
+        public ImageView imageView;
+        public TextView textView2;
+
+        public ImageViewHolder(View itemView) {
+            super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.image);
+            textView2 = (TextView) itemView.findViewById(R.id.text_image);
+        }
+    }
+
+    public static RecyclerView.ViewHolder create(ViewGroup parent, int viewType) {
+
+        switch (viewType) {
+            case RowType.BUTTON_ROW_TYPE:
+                View buttonTypeView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_type_button, parent, false);
+                return new ViewHolderFactory.ButtonViewHolder(buttonTypeView);
+
+            case RowType.TEXT_ROW_TYPE:
+                View textTypeView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_type_text, parent, false);
+                return new ViewHolderFactory.TextViewHolder(textTypeView);
+
+            case RowType.IMAGE_ROW_TYPE:
+                View imageTypeView = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_type_image, parent, false);
+                return new ViewHolderFactory.ImageViewHolder(imageTypeView);
+
+            default:
+                return null;
+        }
+    }
+}
 {% endhighlight %}
 
+<br>
+Кроме того каждый data-класc, представляющий определенный тип View (ButtonRowType, ImageRowType, TextRowType), сам может возвращать тип своего View и самостоятельно Bind'ить ViewHolder. Для этого добавляем в интерфейс RowType две фунции:
 {% highlight java %}
+public interface RowType {
+    int BUTTON_ROW_TYPE =   0;
+    int IMAGE_ROW_TYPE = 1;
+    int TEXT_ROW_TYPE = 2;
+
+    int getItemViewType();
+
+    void onBindViewHolder(RecyclerView.ViewHolder viewHolder);
+}
 {% endhighlight %}
 
+Ниже пример реализации этих функций для класса TextRowType. Обратите внимание, что теперь нет необходимости в геттерах. 
+<br>
 {% highlight java %}
+@Override
+    public int getItemViewType() {
+        return RowType.TEXT_ROW_TYPE;
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder) {
+        ViewHolderFactory.TextViewHolder textViewHolder = (ViewHolderFactory.TextViewHolder) viewHolder;
+        textViewHolder.headerTextView.setText(header);
+        textViewHolder.textView1.setText(text);
+    }
 {% endhighlight %}
 
+Аналогично реализуем методы для остальных классов. В итоге получаем такой адаптер:
+{% highlight java %}
+public class MultipleTypesAdapter extends RecyclerView.Adapter {
+
+    private List<RowType> dataSet;
+
+    public MultipleTypesAdapter(List<RowType> dataSet) {
+        this.dataSet = dataSet;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return dataSet.get(position).getItemViewType();
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return ViewHolderFactory.create(parent, viewType);
+    }
+
+    @Override
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        dataSet.get(position).onBindViewHolder(holder);
+    }
+
+    @Override
+    public int getItemCount() {
+        return dataSet.size();
+    }
+}
+{% endhighlight %}
+
+<br>
+Кода в два раза меньше. Код понятнее. Масштабировать/изменять проект гораздо легче. 
+
+А что еще надо?
+
+Проект на github: <a href="https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo">https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo</a>
