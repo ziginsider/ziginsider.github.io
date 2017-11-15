@@ -20,7 +20,7 @@ tags:
 
 На смартфоне мы должны получить что-то вроде этого:
 
-<img src="{{ site.baseurl }}/images/testing1.jpeg">
+<img src="{{ site.baseurl }}/images/dif_type_view.png">
 
 Вдохновляясь статьей <a href="https://sourcemaking.com/refactoring/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a>, попробуем сделать это. Основная идея - каждому типу View соответсвует отдельный класс, и эти классы объединяются общим интерфейсом.
 
