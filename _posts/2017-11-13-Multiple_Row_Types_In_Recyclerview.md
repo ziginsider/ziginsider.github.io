@@ -464,3 +464,5 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
 А что еще надо?
 
 Проект на github: <a href="https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo">https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo</a>
+
+{% gist f23498cb4c30197fe719deb7b71488cf %}
