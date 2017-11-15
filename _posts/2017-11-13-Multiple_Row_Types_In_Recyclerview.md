@@ -425,6 +425,7 @@ public interface RowType {
     }
 {% endhighlight %}
 
+<br>
 Аналогично реализуем методы для остальных классов. В итоге получаем такой адаптер:
 {% highlight java %}
 public class MultipleTypesAdapter extends RecyclerView.Adapter {
