@@ -55,6 +55,7 @@ tags:
 </android.support.v7.widget.CardView>
 {% endhighlight %}
 
+{% gist a0110c871086c441be940beef168171d %}
 <br>
 `row_type_image.xml`:
 {% highlight xml %}
@@ -397,17 +398,8 @@ public class ViewHolderFactory {
 
 <br>
 Кроме того каждый data-класc, представляющий определенный тип View (ButtonRowType, ImageRowType, TextRowType), сам может возвращать тип своего View и самостоятельно Bind'ить ViewHolder. Для этого добавляем в интерфейс RowType две фунции:
-{% highlight java %}
-public interface RowType {
-    int BUTTON_ROW_TYPE =   0;
-    int IMAGE_ROW_TYPE = 1;
-    int TEXT_ROW_TYPE = 2;
 
-    int getItemViewType();
-
-    void onBindViewHolder(RecyclerView.ViewHolder viewHolder);
-}
-{% endhighlight %}
+{% gist f23498cb4c30197fe719deb7b71488cf %}
 
 Ниже пример реализации этих функций для класса TextRowType. Обратите внимание, что теперь нет необходимости в геттерах. 
 <br>
@@ -465,4 +457,5 @@ public class MultipleTypesAdapter extends RecyclerView.Adapter {
 
 Проект на github: <a href="https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo">https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo</a>
 
-{% gist f23498cb4c30197fe719deb7b71488cf %}
+
+
