@@ -64,6 +64,8 @@ layout <a href="https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo
 <br>
 Что сказать? Невооруженным взглядом можно видеть что кода много. Лично у меня возникает ощущение захламленности. Давайте улучшать ситуацию.
 
+NB: Однако же все работает. Можно запустить и проверить. Реализацию MainActivity можно глянуть на github <a href="https://github.com/ziginsider/MultipleRowTypesInRecyclerViewDemo/blob/master/app/src/main/java/io/github/ziginsider/multiplerowtypesinrecyclerviewdemo/MainActivity.java">тут</a>. Рефакторинг мы делаем исключительно из-за архитектурных соображений. В конечном итоге такой подход приносит пользу. Да и на код не страшно смотреть.
+
 <br>
 ### Рефакторинг
 Во-первых, у нас три различных ViewHolder. Ничто не мешает нам применить к этой тройке шаблон проектирования <a href="https://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D1%87%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B5%D1%82%D0%BE%D0%B4_(%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)">"Фабрика"</a>. Одной ответственностью станет меньше.
