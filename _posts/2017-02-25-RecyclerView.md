@@ -21,6 +21,7 @@ tags:
 
 Говоря отвлеченно, метод <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> создает "бассейн", а метод  <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span> "наполняет бассейн водой". Если каждый раз, когда меняется представление (скролл) не "менять воду в бассейне" полностью т.е. не переопределять содержание всех элементов, которые могут измениться, в <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>, то вьюха может выдавать сюрпризы в виде старых значений. 
 
+<br>
 ### Компоненты RecyclerView:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LayoutManager</span> - размещает элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ItemAnimator</span> - анимирует элементы
@@ -28,6 +29,7 @@ tags:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Decorator</span> - дорисовывает элементы 
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ViewHolder</span> - кеширует findViewById
 
+<br>
 ## LayoutManager
 Бывает:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LinearLayoutManager</span> (линейное размещение элементов)
@@ -53,7 +55,7 @@ tags:
 boolean canScrollHorizontally(...) - говорим можем ли мы листать горизонтально<br>
 boolean canScrollVertically(...) - вертикально...<br>
 
-
+<br>
 ### Adapter
 <img src="{{ site.baseurl }}/images/RecyclerView2.png"> 
 Обязанности Adapter'а: 
@@ -87,7 +89,8 @@ boolean onFailedToRecycleView(ViewHolder holder)
 {% highlight java %}
 void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
-<br> 
+
+<br>
 ### Методы notifyItemX() 
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
 {% highlight java %}
@@ -113,7 +116,7 @@ long getItemId(int position)
 {% endhighlight %}
 и давать уникальное Id элемента на основе его содержимого или создавать Id на основе Id layout'a, из которого мы надуваем это view, и который всегда уникальный.
 
-
+<br>
 ### Типичные ошибки  
 1) Обработка нажатий на элемент внутри onBindViewHolder(...):
 {% highlight java %}
@@ -156,8 +159,8 @@ public ViewHolder onCreateViewHolder(...) {
 
 Но зачем кэшировать (создавать) заранее? Надо создавать, когда в этом есть необходимость. 
 
+<br>
 ### ViewHolder 
-
 <img src="{{ site.baseurl }}/images/RecyclerView3.png">
 
 Обязателен, в отличии от реализации ListView. (NB: см. отличия RecyclerView от ListView в <a href="https://ziginsider.github.io/What_is_the_difference_between_ListView_and_RecyclerView/">этой заметке</a>)
@@ -180,6 +183,9 @@ getOldPosition();
 isRecyclable() / setRecyclable(Boolean)
 {% endhighlight %}
 
+NB: Как правильно организовать код, когда ViewHolder'ов несколько (несколько типов элементов в одном RecyclerView)? Ответ см. в этой заметке: <a href="https://ziginsider.github.io/Multiple_Row_Types_In_Recyclerview/">Различные типы Item View в RecyclerView</a>
+
+<br>
 ### Жизнь и смерть ViewHolder’а  
 
 - LayoutManager  дает запрос RecyclerView на элемент: getViewForPosition 
@@ -206,7 +212,7 @@ RecyclerView при удалении своего child из представл�
 Удаление из представления с т.з. LayoutManager’а:  
 Если LayoutManager удаляет элемент из представления он посылает запрос к RecyclerView removeAndRecycleView. RecyclerView проверяет view на валидность (isValid?) NO! -> отправляет view в Recycler Pool. Recycled Pool проверяет элемент на транзиентность hasTransientState? – состояние (на системном уровне, а не уровне RecyclerView) когда не ясно в каком состоянии view (например, анимация или selection text). И тут (hasTransientState = true) выходит на сцену Adapter. У него есть возможность последний раз сказать RecyclerView, что view можно переиспользовать. И если он скажет, что можно, то recycle’м его, иначе – навсегда его теряем (отсюда вывод: единственный, кто может анимировать view – ItemAnimator. Остальное на свой страх и риск: можно потерять ViewHolder) 
 
-NB: как проверить список на ошибки (торможнение, неправильное использование hasTransientState и глюки из-за этого). Открывает дебажный лог и начинаем прокручивать список. Если видим, что потребление памяти растет, то у нас ошибка в архитектуре Recycler’а (ViewHolder не освобождается) 
+NB: как проверить список на ошибки (торможнение, неправильное использование hasTransientState и глюки из-за этого). Открываем дебажный лог и начинаем прокручивать список. Если видим, что потребление памяти растет, то у нас ошибка в архитектуре Recycler’а (ViewHolder не освобождается) 
 
 Еще один способ умереть ViewHolder’у. RecyclerView обращается к Recycled Pool: addViewToPool. Recycled Pool проверяет есть ли место для еще одного ViewHolder’а типа Х. Если место есть, то ОК. Иначе, ViewHolder умирает. 
 
@@ -219,6 +225,7 @@ NB: как проверить список на ошибки (торможнен
 - Правильно вызывать notifyItemChanged 
 - pool.setMaxRecycledViews(type, count); (кол-во эл-ов кот. будут кэшиться, важно для тех у кого неоднородные списки, для одних типов (тех кот.больше на экране) можно увеличить значения, для других (тех кот. меньше) – уменьшить)  
 
+<br>
 ### ItemDecorator 
 
 Adapter - для того чтобы представить какой-либо массив данных на экране.
@@ -290,6 +297,7 @@ public void getItemOffsets(Rect out Rect,
 }
 {% endhighlight %}
 
+<br>
 ### ItemTouchHelper 
 
 Статья призванная показать, как использовать ItemTouchHelper в RecyclerView: <a href="https://medium.com/@ipaulpro/drag-and-swipe-with-recyclerview-b9456d2b1aaf">Drag and Swipe with RecyclerView</a>
@@ -334,7 +342,7 @@ ItemTouchHelper itemTouchHelper = new ItemTouchHelper(touchCallback);
 itemTouchHelper.attachToRecyclerView(recyclerView);
 {% endhighlight %}
 
-<br><br>
+<br>
 ### ItemAnimator 
 
 ItemAnimator - позволяет анимировать добавление, удаление, изменение элементов.
@@ -362,9 +370,8 @@ v.requestLayout();
 
 - Подход 2: Кастомный Adapter
 
-
+<br>
 ### Практика
-
 *Как заполнить RecyclerView данными, когда их много?* 
 
 Способ №1:
