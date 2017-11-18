@@ -393,10 +393,15 @@ v.requestLayout();
 
 В адаптере можно получить позицию только что появившегося элемента списка. Если позиция появившегося элемента последняя, значит пора подгружать новую порцию данных
 
-*Кк организовать код, когда имеем вложенные в друг друга RecyclerView?*
-##### lf lf LDL
+<br>
+*Как организовать код, когда имеем вложенные в друг друга RecyclerView?*
 
 Ответ <a href="https://ziginsider.github.io/Optimizing_nested_RecyclerView/">в этой заметке</a>
+
+<br>
+*Как организовать код, когда имеем разные типы View в RecyclerView?*
+
+Ответ <a href="https://ziginsider.github.io/Multiple_Row_Types_In_Recyclerview/">в этой заметке</a>
 
 
 
