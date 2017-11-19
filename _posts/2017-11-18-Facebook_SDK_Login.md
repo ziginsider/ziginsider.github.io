@@ -29,6 +29,8 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 {% gist f2ad9ffeeccfeac3228a4a500d7268d6 %}
 
+### Макет
+
 Подготавливаем макет Activity:
 
 {% gist 25b7947b45be90c506572acec2a153bb%}
@@ -44,6 +46,8 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 В res/values/strings.xml добавим две строчки, значения в которые пропишем позднее:
 
 {% gist fd9234fdbc0865b8e849bf2e8aab450c %}
+
+### Key Hash и регистрация приложения на Facebook
 
 Теперь получим Key Hash в формате Base64 согласно <a href="https://developers.facebook.com/docs/android/getting-started/?locale=ru_RU">данной документации</a>. В Activity временно пишем код (разумеется "..." это пропуски кода):
 
@@ -68,6 +72,8 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 {% gist b00e38794881875c7d51735efd67e65a %}
 
 Т.е., во второй строке, просто добавляем "fb" перед идентификатором.
+
+### Рабочий код
 
 Теперь добавим в MainActivity некоторые переменные, которые нам понадобятся в дальнейшем, и переопределим onActivityResult(...), чтобы ловить ответы, которые будут приходить от Facebook:
 
