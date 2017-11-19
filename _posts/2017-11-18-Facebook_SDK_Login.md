@@ -16,6 +16,7 @@ tags:
 ### Введение
 Постановка задачи: Познакомиться с Facebook SDK. Залогиниться. Получить некоторые данные, как то картинка профиля, дата рождения, email, число френдов, etc.
 
+<br>
 ### Начало
 Создаем новый проект, выбираем Empty Activity. Затем подключаем библиотеки: 
 - Facebook SDK
@@ -29,8 +30,8 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 {% gist f2ad9ffeeccfeac3228a4a500d7268d6 %}
 
+<br>
 ### Макет
-
 Подготавливаем макет Activity:
 
 {% gist 25b7947b45be90c506572acec2a153bb%}
@@ -47,8 +48,8 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 {% gist fd9234fdbc0865b8e849bf2e8aab450c %}
 
+<br>
 ### Key Hash и регистрация приложения на Facebook
-
 Теперь получим Key Hash в формате Base64 согласно <a href="https://developers.facebook.com/docs/android/getting-started/?locale=ru_RU">данной документации</a>. В Activity временно пишем код (разумеется "..." это пропуски кода):
 
 {% gist 742ea2b0b4441835cae244c2024af888 %}
@@ -73,8 +74,8 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 Т.е., во второй строке, просто добавляем "fb" перед идентификатором.
 
+<br>
 ### Рабочий код
-
 Теперь добавим в MainActivity некоторые переменные, которые нам понадобятся в дальнейшем, и переопределим onActivityResult(...), чтобы ловить ответы, которые будут приходить от Facebook:
 
 {% gist a51081568c05398d776886a351861a00 %}
