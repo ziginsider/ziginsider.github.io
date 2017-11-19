@@ -90,9 +90,16 @@ printKeyHash() можно удалить или закомментить. Эта
 
 setReadPermissions(List) - задаем разрешения на использование информации, которая будет предоставлена, если пользователь залогинился. Разрешения дается только на чтение. Список разрешений можно глянуть на <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.2">этой странице</a>.
 
-Переопределим функции ответа на запрос о регистрации. Соответственно onSuccess(...), onCancel(...), onError(...):
+Переопределим функцию ответа на запрос о регистрации onSuccess(...)  (onCancel(...) и onError(...) за рамками данной заметки):
+
+{% gist dcfaff1ec5eb9d3dca010440828c0b61 %}
+
+getData():
+{% gist 0b60055652a7275f5ba879e58c0b1047 %}
+
+Если регистрация уже пройдена, то незачем запускать ее снова. Добавим в onCreate(...):
+
+{% gist aa36769010d2de0ecb32d6421e5e8acf %}
 
 
-
-
-
+Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo">https://github.com/ziginsider/FacebookSDKDemo</a>
