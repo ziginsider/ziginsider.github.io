@@ -21,7 +21,7 @@ tags:
 - Facebook SDK
 - Picaso
 
-Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">советует</a>: В своем проекте откройте your_app | Gradle Scripts | build.gradle (Project) и добавьте следующий репозиторий в раздел buildscript { repositories {}}, чтобы скачать SDK с Maven Central Repository:
+Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">советует</a>: В своем проекте откройте your_app -&gt; Gradle Scripts -&gt; build.gradle (Project) и добавьте следующий репозиторий в раздел buildscript { repositories {}}, чтобы скачать SDK с Maven Central Repository:
 
 {% gist c59968cb47f18e468c70335aa50504c3 %}
 
