@@ -86,7 +86,13 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 {% gist c3b8b3410ec7b6fb17f842b5c6f10f19 %}
 
-setREadPermissions(List) - задаем разрешения на исаользование информации, которая будет предоставлена, если пользователь залогинился. Разрешения
+printKeyHash() можно удалить или закомментить. Эта функция нам больше не понадобится.
+
+setReadPermissions(List) - задаем разрешения на использование информации, которая будет предоставлена, если пользователь залогинился. Разрешения дается только на чтение. Список разрешений можно глянуть на <a href="https://developers.facebook.com/docs/facebook-login/permissions/v2.2">этой странице</a>.
+
+Переопределим функции ответа на запрос о регистрации. Соответственно onSuccess(...), onCancel(...), onError(...):
+
+
 
 
 
