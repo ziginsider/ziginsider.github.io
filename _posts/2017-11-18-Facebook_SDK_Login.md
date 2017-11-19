@@ -73,9 +73,9 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 {% gist a51081568c05398d776886a351861a00 %}
 
-Итак, по requestCode будем определять на какой именно запрос пришел ответ, resultCode показывает удачно ли завершился запрос, а data - массив данных, из которых мы будем получать информацию.
+Итак, по requestCode будем определять на какой именно запрос пришел ответ, resultCode показывает удачно ли завершился запрос, а data - массив данных, из которых мы будем получать информацию. CallbackManager, согласно <a href="https://developers.facebook.com/docs/reference/android/current/interface/CallbackManager/">документации Facebook</a>, будет управлять нашими запросами к Facebook через onActivityResult(...).
 
-Теперь в MainActivity onCreate(...) определим наши View и заданим колбэк для кнопки:
+Теперь в MainActivity onCreate(...) определим наши View и зададим CallbackManager для кнопки:
 
 {% gist c3b8b3410ec7b6fb17f842b5c6f10f19 %}
 
