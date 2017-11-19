@@ -101,5 +101,14 @@ getData():
 
 {% gist aa36769010d2de0ecb32d6421e5e8acf %}
 
-
 Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo">https://github.com/ziginsider/FacebookSDKDemo</a>
+
+Стоит запустить проект на реальном устройстве. Получим что-то подобное:
+
+<img src="{{ site.baseurl }}/images/success_facebook_1.jpg">
+<br>
+<br>
+<img src="{{ site.baseurl }}/images/success_facebook_2.jpg">
+
+<br>
+end.
