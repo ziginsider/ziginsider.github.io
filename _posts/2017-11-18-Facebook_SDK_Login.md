@@ -105,10 +105,10 @@ getData():
 
 Стоит запустить проект на реальном устройстве. Получим что-то подобное:
 
-<img src="{{ site.baseurl }}/images/success_facebook_1.jpg">
+<img src="{{ site.baseurl }}/images/success_facebook_1.png">
 <br>
 <br>
-<img src="{{ site.baseurl }}/images/success_facebook_2.jpg">
+<img src="{{ site.baseurl }}/images/success_facebook_2.png">
 
 <br>
 end.
