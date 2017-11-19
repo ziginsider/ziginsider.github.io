@@ -79,6 +79,7 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 {% gist c3b8b3410ec7b6fb17f842b5c6f10f19 %}
 
+setREadPermissions(List) - задаем разрешения на исаользование информации, которая будет предоставлена, если пользователь залогинился. Разрешения
 
 
 
