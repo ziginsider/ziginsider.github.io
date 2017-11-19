@@ -51,5 +51,7 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 Запускаем приложение и в логах находим наш Key Hash:
 
+<img src="{{ site.baseurl }}/images/KeyHashFacebook.jpg">
+
 
 
