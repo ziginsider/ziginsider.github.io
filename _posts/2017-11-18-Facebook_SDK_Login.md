@@ -108,6 +108,7 @@ getData():
 <img src="{{ site.baseurl }}/images/success_facebook_1.png">
 <br>
 <br>
+
 <img src="{{ site.baseurl }}/images/success_facebook_2.png">
 
 <br>
