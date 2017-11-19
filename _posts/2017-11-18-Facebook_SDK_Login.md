@@ -21,6 +21,12 @@ tags:
 - Facebook SDK
 - Picaso
 
+Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">советует</a>: В своем проекте откройте your_app | Gradle Scripts | build.gradle (Project) и добавьте следующий репозиторий в раздел buildscript { repositories {}}, чтобы скачать SDK с Maven Central Repository:
+
+{% gist c59968cb47f18e468c70335aa50504c3 %}
+
+Теперь в build.gradle (Module: app) добавляем инструкции компиляции в раздел dependencies{}.
+
 {% gist f2ad9ffeeccfeac3228a4a500d7268d6 %}
 
 Подготавливаем макет Activity:
@@ -35,9 +41,15 @@ tags:
 
 {% gist cbf3abf6a23182fcf415d0e7e4d9f257 %}
 
-В res/values/strings.xml добавим две строчки, значения в которые добавим позднее:
+В res/values/strings.xml добавим две строчки, значения в которые пропишем позднее:
 
 {% gist fd9234fdbc0865b8e849bf2e8aab450c %}
+
+Теперь получим Key Hash в формате Base64 согласно <a href="https://developers.facebook.com/docs/android/getting-started/?locale=ru_RU">данной документации</a>. В Activity временно пишем код (разумеется "..." это пропуски кода):
+
+{% gist 742ea2b0b4441835cae244c2024af888 %}
+
+Запускаем приложение и в логах находим наш Key Hash:
 
 
 
