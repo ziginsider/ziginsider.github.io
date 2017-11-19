@@ -7,7 +7,7 @@ tags:
 - Java
 - Facebook SDK
 ---
-<img src="{{ site.baseurl }}/images/facebook-login.png">
+<img src="{{ site.baseurl }}/images/facebook-login_small.png">
 <br>
 
 *По мотивам: <a href="https://www.youtube.com/watch?v=KjBNFWKNMOY">Android Studio Tutorial - Facebook SDK Login</a>*
