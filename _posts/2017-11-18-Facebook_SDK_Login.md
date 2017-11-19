@@ -53,5 +53,10 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 
 <img src="{{ site.baseurl }}/images/KeyHashFacebook.jpg">
 
+<br>
+Если вы еще не зарегистрированы как разработчик на Facebook, то заходим на сайт developers.facebook.com и в правом верхнем углу находим кнопку "начать", жмем, выполняем инструкции и попадаем в панель управления приложением.
+
+Далее "Настройки" ("Settings") -&gt; "Основное"("Basic"). Внизу видим кнопку "+ Добавить платформу" ("+ Add platform"). Жмем. Добавляем Android. В поле "Название пакета Google Play" ("Google Play package name") вводим свой package. В моем случае это "io.github.ziginsider.facebooksdkdemo". В поле "Название класса" ("Class name") полное имя класса Activity - в моем случае "io.github.ziginsider.facebooksdkdemo.MainActivity". В поле "Ключевые хэш-адреса" ("Key Hashes") вводим полученный ранее Key Hash
+
 
 
