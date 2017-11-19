@@ -27,11 +27,11 @@ tags:
 
 {% gist 25b7947b45be90c506572acec2a153bb%}
 
-Прописываем разрешения мета-данные в манифесте. Перед тегом <application> пишем:
+Прописываем разрешения и мета-данные в манифесте. Перед тегом &lt;application&gt; пишем:
 
 {% gist 058c9231d295e351827503bb93870802 %}
 
-Теперь внутри <application> добавляем ApplicationId:
+Теперь внутри &lt;application&gt; добавляем ApplicationId:
 
 {% gist cbf3abf6a23182fcf415d0e7e4d9f257 %}
 
