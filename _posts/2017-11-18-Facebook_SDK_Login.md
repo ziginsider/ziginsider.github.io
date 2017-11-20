@@ -24,6 +24,8 @@ tags:
 - Facebook SDK
 - Picaso
 
+NB: Не стоит включать в название проекта слово "Facebook" или "FB" - как показал опыт Facebook ругается на это, когда регистрируешь приложение.
+
 Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">советует</a>: В своем проекте откройте your_app -&gt; Gradle Scripts -&gt; build.gradle (Project) и добавьте следующий репозиторий в раздел buildscript { repositories {}}, чтобы скачать SDK с Maven Central Repository:
 
 {% gist c59968cb47f18e468c70335aa50504c3 %}
@@ -131,6 +133,9 @@ Facebook Android SDK отправляет все разрешения, указ�
 <br>
 
 <img src="{{ site.baseurl }}/images/success_facebook_2.png">
+
+
+Совет: пользуйтесь документацией developers.facebook.com - там вполне понятно и доступно изложены основы и нюансы работы с Android Facebook SDK.
 
 <br>
 end.
