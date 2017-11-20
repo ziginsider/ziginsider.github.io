@@ -124,8 +124,6 @@ Facebook Android SDK отправляет все разрешения, указ�
 
 {% gist aa36769010d2de0ecb32d6421e5e8acf %}
 
-Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo">https://github.com/ziginsider/FacebookSDKDemo</a>
-
 Стоит запустить проект на реальном устройстве. Получим что-то подобное:
 
 <img src="{{ site.baseurl }}/images/success_facebook_1.png">
@@ -137,5 +135,6 @@ Facebook Android SDK отправляет все разрешения, указ�
 
 Совет: пользуйтесь документацией developers.facebook.com - там вполне понятно и доступно изложены основы и нюансы работы с Android Facebook SDK.
 
+Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo">https://github.com/ziginsider/FacebookSDKDemo</a>
 <br>
 end.
