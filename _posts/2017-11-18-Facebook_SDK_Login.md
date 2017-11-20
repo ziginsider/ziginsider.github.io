@@ -12,6 +12,8 @@ tags:
 
 *По мотивам: <a href="https://www.youtube.com/watch?v=KjBNFWKNMOY">Android Studio Tutorial - Facebook SDK Login</a>*
 
+Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo">https://github.com/ziginsider/FacebookSDKDemo</a>
+
 <br>
 ### Введение
 Постановка задачи: Познакомиться с Facebook SDK. Залогиниться. Получить некоторые данные, как то картинка профиля, дата рождения, email, число френдов, etc.
@@ -43,6 +45,10 @@ Facebook <a href="https://developers.facebook.com/docs/android/componentsdks">с
 Теперь внутри &lt;application&gt; добавляем ApplicationId:
 
 {% gist cbf3abf6a23182fcf415d0e7e4d9f257 %}
+
+И последнее, но не обязательное, как показал опыт. Прописываем в манифесте внутри тегов &lt;activity&gt; &lt;intent-filter&gt; ... схему данных, которые будет принимать наша Activity:
+
+{% gist 6e6d29d0ba04220288a4d609dc3d6de6 %}
 
 В res/values/strings.xml добавим две строчки, значения в которые пропишем позднее:
 
