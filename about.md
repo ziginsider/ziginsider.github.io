@@ -4,11 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Nichts.
+Android blog
 
 ### More Information
 
-Nichts.
+github.com/ziginsider
 
 ### Contact me
 
