@@ -14,7 +14,6 @@ tags:
 
 Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo/tree/master">https://github.com/ziginsider/FacebookSDKDemo</a>
 
-<br>
 <a href="https://ziginsider.github.io/Facebook_SDK_Login_2/">Часть II. Android. Facebook-SDK. Как запостить контент на Facebook?</a>
 
 <br>
