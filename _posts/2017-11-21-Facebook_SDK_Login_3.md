@@ -15,6 +15,7 @@ tags:
 Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo/tree/get_post">https://github.com/ziginsider/FacebookSDKDemo</a>
 
 <a href="https://ziginsider.github.io/Facebook_SDK_Login/">Часть I. Android. Facebook-SDK. Как залогиниться на Facebook?</a>
+
 <a href="https://ziginsider.github.io/Facebook_SDK_Login_2/">Часть II. Android. Facebook-SDK. Как запостить контент на Facebook?</a>
 
 <br>
@@ -48,6 +49,7 @@ NB: для разбора JSON есть неплохой сайт http://www.jso
 Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo/tree/get_post">https://github.com/ziginsider/FacebookSDKDemo</a>
 
 <a href="https://ziginsider.github.io/Facebook_SDK_Login/">Часть I. Android. Facebook-SDK. Как залогиниться на Facebook?</a>
+
 <a href="https://ziginsider.github.io/Facebook_SDK_Login_2/">Часть II. Android. Facebook-SDK. Как запостить контент на Facebook?</a>
 
 end.
