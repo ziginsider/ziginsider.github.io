@@ -15,6 +15,7 @@ tags:
 Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo/tree/share_post">https://github.com/ziginsider/FacebookSDKDemo</a>
 
 <a href="https://ziginsider.github.io/Facebook_SDK_Login/">Часть I. Android. Facebook-SDK. Как залогиниться на Facebook?</a>
+
 <a href="https://ziginsider.github.io/Facebook_SDK_Login_3/">Часть III. Android. Facebook-SDK. Как вытащить посты из Facebook?</a>
 
 <br>
@@ -56,6 +57,7 @@ tags:
 Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo/tree/share_post">https://github.com/ziginsider/FacebookSDKDemo</a>
 
 <a href="https://ziginsider.github.io/Facebook_SDK_Login/">Часть I. Android. Facebook-SDK. Как залогиниться на Facebook?</a>
+
 <a href="https://ziginsider.github.io/Facebook_SDK_Login_3/">Часть III. Android. Facebook-SDK. Как вытащить посты из Facebook?</a>
 
 to be continued...
