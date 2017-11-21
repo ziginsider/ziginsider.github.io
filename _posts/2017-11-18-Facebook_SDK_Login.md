@@ -141,4 +141,4 @@ Facebook Android SDK отправляет все разрешения, указ�
 <br>
 to be continued...
 <br>
-<a href="https://ziginsider.github.io/Facebook_SDK_Login_2/">Часть II. Как запостить контент на Facebook?</a>
+<a href="https://ziginsider.github.io/Facebook_SDK_Login_2/">Часть II. Android. Facebook-SDK. Как запостить контент на Facebook?</a>
