@@ -166,7 +166,9 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 56. Как сравнить два объекта?
 
-57. Переменные в Java передаются по ссылке или по значению? <details><summary>ответ</summary><p>http://info.javarush.ru/translation/2014/06/30/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B0-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2-%D0%B2-Java-%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4-.html</p></details>
+57. Переменные в Java передаются по ссылке или по значению?
+
+<details><summary>ответ</summary><p>http://info.javarush.ru/translation/2014/06/30/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B0-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2-%D0%B2-Java-%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4-.html</p></details>
 
 58. Когда вы используете observeOn() и когда subscribeOn()?
 
