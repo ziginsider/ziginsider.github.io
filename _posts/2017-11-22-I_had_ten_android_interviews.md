@@ -64,11 +64,12 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 5. explain the lifeCycle of the Fragment?
 
-:rage:
 
 <details>
-   <summary>Информация об авторе</summary>
-   <p>Бендер Родригез</p>
+   <summary>1</summary>
+   <p>2</p>
 </details>
+
+:+1:
 
 [to be continued...]
