@@ -88,7 +88,7 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 17. Какая разница между Service и IntentService?
 
-18. Что такое ANR message?
+18. Что такое ANR message? :scream_cat:
 
 19. Объясните работу BroadcastReciever и его реализацию.
 
@@ -98,53 +98,83 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 22. Какая разница между Default и Protected модификаторами в Java?
 
-23- what do you know about AsyncTask?
-24- what’s the difference between Parcelable and Serializable? Which one is better? why?
-25- how to access a variable in Activity from fragment?
-26- you have one Activity with two fragments, one has a button and the second has a TextView, clicking the button change the TextView, how do you implement it?
-27- how to make a variable thread safe?
-28- what strategies we can use to achieve thread safety?
-29- what is the purpose of “static” keyword in Java?
-30- how could you initialize a static variable in Java?
-31- what design patterns you know?
-32- explain the builder pattern?
-33- when do you use an observer pattern?
-33- what’s the Singleton, when do you use it in Android?
-34- what’s the difference between the LinkedList, ArrayList and Arrays?
-35- what projects currently you work on? What is your workflow to implement a specific feature?
-36- how do you handle Firebase push notifications?
-37- how do you implement Firebase realtime Database?
-38- you have a big project, and you have a login screen requirement, what processes you will follow to ship it?
-39- what’s an Eventbus?
-40- what the thread that onRecieve() method of a BroadcastReceiver operates on?
-41- how to implement a custom BroadcastReceiver?
-42- what’s the difference between MVC and MVP?
-43- could you explain MVVM?
-44- what’s the M in MVP? Answering … could it be a something else?
-45- what’s the purpose of Content Provider?
-46- what Sqlite library do you use?
-47- what libraries do you use for Networking, Image loading, Database?
-48- what do you use to handle a very fast Sensor that emit many readings at a time in Rx way?
-49- what’s the difference between map and flatMap() in Rxjava?
-50- how to create parallel Network calls with Rxjava?
-51- if you have one request from the network and you want to call the cache if Network throw an error … how to achieve that via Rxjava?
-The funny thing that I’ve read Dan lew blog post about this case, implemented it twice before, but couldn’t answering this question during the interview … bad things happen.
-52- what’s the difference between concatMap() and flatMap() in Rxjava?
-53- what do you know about Intents? What is the purpose of categories in Intents?
-54- what’s the purpose of FrameLayout?
-55- how to compare between Two objects?
-56- Java is pass by Value or pass by Reference?
-57- when you use observeOn() and subscribeOn()?
+23. Что вы знаете об AsyncTask?
 
-<details>
-   <summary>1</summary>
-   <p>2</p>
+24. В чем разница между Parcelable и Serializable? Что лучше? Почему?
+
+25. Как получить доступ к переменной в Activity из Fragment'а?
+
+26. У вас есть Activity с двумя Fragment'ами, у одного есть кнопка, у другого - TextView, кликая на кнопку, меняется TextView. Как вы реализуете это?
+
+27. Как сделать переменную потоко-безопасной?
+
+28. Какие стратегии мы можем использовать, чтобы достигнуть потоко-безопасности?
+
+29. В чем цель ключевого слова "static" в Java?
+
+30. Как можно инициализировать static-переменную в Java?
+
+31. Какие паттерны проектирования вы знаете?
+
+32. Объясните принцип паттерна проектирования "Строитель"?
+
+33. Где вы использовали паттерн "Наблюдатель"?
+
+34. Паттерн Singleton, где его использовать в Android?
+
+35. В чем разница между LinkedList, ArrayList и Arrays?
+
+36. Над каким проектом вы сейчас работаете? Каков ваш рабочий процесс реализации задуманной функциональности?
+
+37. Как вы управляетесь с Firebase push notifications?
+
+38. Как реализовать Firebase realtime Database?
+
+39. У вас есть большой проект и у вас есть требования к безопасному входу в систему. Как вы будете реализовывать эти требования? :grimacing:
+
+40. Что такое Eventbus? <details>
+   <summary>ответ</summary>
+   <p>http://greenrobot.org/ru-eventbus/</p>
 </details>
 
-:+1:
-:sweat:
+41. В каком потоке вызывается  метод onRecieve() в BroadcastReceiver'е?
 
-:wink:
+42. Как реализовать кастомный BroadcastReceiver?
+
+43. В чем разница между MVC и MVP?
+
+44. Объясните как устроен MVVM?
+
+45. Что означает M в MVP? Ответ … могло бы это быть чем-то еще? :confounded:
+
+46. Какова цель Content Provider'а?
+
+47. Для чего используется библиотека SQLite?
+
+48. Какие библиотеки вы используете для работы с сетью (networking), загрузки картинок, баз данных?
+
+49. Что вы используете для очень быстрого Sensor, который излучает много показаний за раз в Rx? :disappointed_relieved: (what do you use to handle a very fast Sensor that emit many readings at a time in Rx way?)
+
+50. В чем разница между map и flatMap() в Rxjava?
+
+51. Как создавать параллельные сетевые запросы в Rxjava?
+
+52. Если у вас есть запрос к сети и вы хотите запросить кеш, если сеть выдает ошибку, как это сделать на RxJava? Самое смешное, что я читал об этом в <a href="http://blog.danlew.net/">блоге Дэна Лью</a>, затем реализовал это дважды, но не смог ответить на этот вопрос на интервью. Плохие вещи случаются...
+
+53. В чем разница между concatMap() и flatMap() в Rxjava?
+
+54. Что вам известно об Intents? Какова цель категорий в Intents?
+
+55. В чем цель FrameLayout?
+
+56. Как сравнить два объекта?
+
+57. Переменные в Java передаются по ссылке или по значению? <details>
+   <summary>ответ</summary>
+   <p>http://info.javarush.ru/translation/2014/06/30/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B0-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2-%D0%B2-Java-%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4-.html</p>
+</details>
+
+58. Когда вы используете observeOn() и когда subscribeOn()?
 
 :triumph:
 [to be continued...]
