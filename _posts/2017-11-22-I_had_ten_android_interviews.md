@@ -54,15 +54,15 @@ WM: Java и Android и тестирование гибкости. - Задачи
 <br>
 ### Вопросы на собеседованиях (не упорядочены по сложности)
 
-1. what are the latest Android versions? The most important Marshmallow new features?
+1. Какие последние версии Android? Наиболее важные новые фичи в Marshmallow?
 
-2. what is the purpose of the Activity?
+2. Какая цель у Activity?
 
-3. what is the purpose of the Fragments?
+3. Какая цель у Fragment'ов?
 
-4. explain the lifeCycle of the Activity?
+4. Расскажите о жизненном цикле Activity?
 
-5. explain the lifeCycle of the Fragment?
+5. Расскажите о жизненном цикле Fragment?
 
 
 <details>
@@ -71,5 +71,9 @@ WM: Java и Android и тестирование гибкости. - Задачи
 </details>
 
 :+1:
+:sweat:
 
+:wink:
+
+:triumph:
 [to be continued...]
