@@ -66,24 +66,38 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 6. Вы используете приложение для путешествий, затем нажимаете кнопку настроек, открывается Activity настроек, затем вы кликаете "назад" - что происходит с жизненным циклом Activity настроек и с циклом главного Activity при этом?
 
-7. 
-6- you’re using a traveling app then you clicked settings button, Settings Activity opened, then you click Android back, what’s the lifeCycle of the Settings Activity and the Home Activity when you did that?
-7- what do you know about Material design?
-8- what’s the difference between Abstract class and Interface in Java?
-9- what’s an Interface in Java?
-10- what’s an Abstract class in Java?
-11- why you couldn’t create an instance from an abstract class?
-12- what’s the difference between Dialog and AlertDialog in Android?
-13- what’s the difference between LinearLayout and RelativeLayout?
-14- which has better performance, LinearLayout or RelativeLayout?
-15- given a simple contact item, with image and name and number, how could you implement it in XML?
-16- what’s the Service, which thread it operates on?
-17- what’s the difference between Service and IntentService?
-18- what’s ANR message?
-19- explain the BroadcastReciever job and implementation?
-20- can you use a Fragment with no UI? What cases could make you use this pattern?
-21- explain the Java access modifiers?
-22- what’s the difference between Default and Protected access modifiers in Java?
+7. Что вы знаете о Material degign?
+
+8. Какая разница между абстрактным классом и интерфейсом в Java?
+
+9. Что такое интерфейс в Java?
+
+10. Что такое абстрактный класс в Java? 
+
+11. Почему нельзя создать экземпляр абстрактного класса?
+
+12. Какая разница между Dialog и AlertDialog в Android?
+
+13. Какая разница между LinearLayout и RelativeLayout?
+
+14. Где выше производительность, у LinearLayout или RelativeLayout?
+
+15. Возьмем макет контакта с картинкой, именем и номером, как вы реализуете его в XML?
+
+16. Что такое Service, с какими потоками он работает?
+
+17. Какая разница между Service и IntentService?
+
+18. Что такое ANR message?
+
+19. Объясните работу BroadcastReciever и его реализацию.
+
+20. Можете ли вы использовать фрагмент без UI? В каких случаях вы бы использовали этот паттерн?
+
+21. Расскажите о модификаторах доступа в Java?
+
+22. Какая разница между Default и Protected модификаторами в Java?
+
 23- what do you know about AsyncTask?
 24- what’s the difference between Parcelable and Serializable? Which one is better? why?
 25- how to access a variable in Activity from fragment?
