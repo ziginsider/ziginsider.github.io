@@ -132,7 +132,7 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 39. У вас есть большой проект и у вас есть требования к безопасному входу в систему. Как вы будете реализовывать эти требования? :grimacing:
 
-40. Что такое Eventbus? <details><summary>ответ</summary><p>http://greenrobot.org/ru-eventbus/</p></details>
+40. Что такое Eventbus? <details> <summary>ответ</summary> <p>http://greenrobot.org/ru-eventbus/</p> </details>
 
 41. В каком потоке вызывается  метод onRecieve() в BroadcastReceiver'е?
 
