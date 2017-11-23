@@ -57,14 +57,21 @@ WM: Java и Android и тестирование гибкости. - Задачи
  <summary>1. Какие последние версии Android? Наиболее важные новые фичи в Marshmallow?</summary>
  <p>
   Версии:
-  4.0.3. Ice Cream Sandwich
-  4.1. Jelly Bean
-  4.4. KitKat
-  5.0. Lollipop
-  6.0. Marshallow
-  7.0. Nougat
-  8.0. Oreo
   
+  4.0.3. Ice Cream Sandwich
+  
+  4.1. Jelly Bean
+  
+  4.4. KitKat
+  
+  5.0. Lollipop
+  
+  6.0. Marshallow
+  
+  7.0. Nougat
+  
+  8.0. Oreo
+  <br>
   Marshallow:
   1. https://ru.wikipedia.org/wiki/Android_Marshmallow
   2. https://4pda.ru/2015/10/05/249631/</p>
@@ -449,10 +456,13 @@ end.
 <details>
  <summary>3. Какие дополнительные компоненты у Android?</summary>
  <p>
-  - Fragment - содержит часть UI в Activity
-  - View - элементы UI, которые рисуются на экране, включая кнопки, списки, формы ввода, и т.д.
-  - Layout - организация иерархии View и взаимного расположения View, и особенностей показа View на экране
-  - Manifest - конфигурационный файл приложения
+  -Fragment - содержит часть UI в Activity
+  
+  -View - элементы UI, которые рисуются на экране, включая кнопки, списки, формы ввода, и т.д.
+  
+  -Layout - организация иерархии View и взаимного расположения View, и особенностей показа View на экране
+  
+  -Manifest - конфигурационный файл приложения
  </p>
 </details>
 
@@ -461,13 +471,13 @@ end.
  <summary>4. Какие уведомления доступны в Android и каково их использование?</summary>
  <p>
   <a href="https://material.io/guidelines/components/snackbars-toasts.html#snackbars-toasts-specs">Snackbars & Toast Notification</a> − отображается как всплывающее сообщение на поверхности окна.
-  
+  <br>
   Snackbar содержит одну строку текста, который непосредственно связан с выполняемой операцией. Только одно сообщение за один раз может быть на экране и может содержать только одно действие, которое не может быть "отменить".
-  
+  <br>
   Toast используется для системных сообщений. Обычно они отображаются на короткое время (два варианта 3.5 и 2 секунды) внизу экрана (можно настраивать).
-  
+  <br>
   Status bar уведомления отображаются в строке состояния.
-  
+  <br>
   Dialogue Notification − активное окно с уведомлением.
  </p>
 </details>
