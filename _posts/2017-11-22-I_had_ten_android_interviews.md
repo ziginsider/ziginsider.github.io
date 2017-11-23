@@ -438,33 +438,104 @@ end.
  <summary>/summary>
  <p></p>
 </details>
- <br>
+ 
+ 2. Please name the Android Application Architecture.
+Activities dictate the UI and handle the user interaction with a smartphone screen. Activity performs actions on the screen.
+Broadcast Receivers respond to broadcast messages from other application in or from the system. This is implemented as a subclass of BroadcastReceiver class and each message is recognized as an Intent object.
+Services. These are used to perform background functions.
+Intent. This is what enables inter connectivity between activities and data passing mechanism.
+Resource Externalisation which refers to strings and graphics.
+Notification for dialogue box, icon, light, notification, sound and toast
+Content Providers for sharing data between applications
+
+<br>
 <details>
- <summary>/summary>
+ <summary></summary>
  <p></p>
 </details>
- <br>
+
+<br>
 <details>
- <summary>/summary>
+ <summary></summary>
  <p></p>
 </details>
- <br>
+
+<br>
 <details>
- <summary>/summary>
+ <summary></summary>
  <p></p>
 </details>
- <br>
+
+<br>
 <details>
- <summary>/summary>
+ <summary></summary>
  <p></p>
 </details>
- <br>
+
+<br>
 <details>
- <summary>/summary>
+ <summary></summary>
  <p></p>
 </details>
- <br>
+
+<br>
 <details>
- <summary>/summary>
+ <summary></summary>
  <p></p>
 </details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+
+<br>
+<details>
+ <summary></summary>
+ <p></p>
+</details>
+ 
