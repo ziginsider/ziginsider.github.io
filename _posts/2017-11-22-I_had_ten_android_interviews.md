@@ -430,28 +430,30 @@ end.
  <summary>1. What is Android and who founded it?</summary>
  <p>Android - это операционная система на основе Linux с открытым исходным кодом. Она была создана Эндрю Рубином и предназначена для мобильных телефонов, планшетов, телевизоров... и т.д.</p>
 </details>
-
-
  
 <br>
 <details>
- <summary>/summary>
- <p></p>
+ <summary>2. Назовите основные компоненты Android-фреймворка</summary>
+ <p>
+  - Activity - хранит UI и организует взаимодействие пользователя с отдельным экраном смартфона
+  - Broadcast Receiver - организует отправку сообщений для других приложений или других систем. Это реализуется с помощью подкласса класса BroadcastReceiver и каждое сообщение организуется как Intent-объект
+  - Service - используется для фоновых операций
+  - Intent - эта сущность позволяет взаимодействовать разным Activity и организовать механизмы обмена данными
+  - Resource - хранит строковые и графические ресурсы
+  - Notification - для диалоговых окон, иконок, уведомлений, звука и всплывающих сообщений
+  - Content Provider - для обмена данными между приложениями или компонентами внутри одного приложения
+ </p>
 </details>
- 
- 2. Please name the Android Application Architecture.
-Activities dictate the UI and handle the user interaction with a smartphone screen. Activity performs actions on the screen.
-Broadcast Receivers respond to broadcast messages from other application in or from the system. This is implemented as a subclass of BroadcastReceiver class and each message is recognized as an Intent object.
-Services. These are used to perform background functions.
-Intent. This is what enables inter connectivity between activities and data passing mechanism.
-Resource Externalisation which refers to strings and graphics.
-Notification for dialogue box, icon, light, notification, sound and toast
-Content Providers for sharing data between applications
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>3. Какие дополнительные компоненты у Android?</summary>
+ <p>
+  - Fragment - содержит часть UI в Activity
+  - View - элементы UI, которые рисуются на экране, включая кнопки, списки, формы ввода, и т.д.
+  - Layout - организация иерархии View и взаимного расположения View, и особенностей показа View на экране
+  - Manifest - конфигурационный файл приложения
+ </p>
 </details>
 
 <br>
