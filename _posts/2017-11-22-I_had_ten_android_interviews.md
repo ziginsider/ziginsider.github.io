@@ -53,134 +53,353 @@ WM: Java и Android и тестирование гибкости. - Задачи
 
 <br>
 ### Вопросы на собеседованиях (не упорядочены по сложности)
-
-
-
 <details>
  <summary>1. Какие последние версии Android? Наиболее важные новые фичи в Marshmallow?</summary>
  <p>ааа</p>
 </details>
 
-
+<br>
 <details>
  <summary>2. Какая цель у Activity?</summary>
  <p>ссс</p>
 </details>
 
-
+<br>
 <details>
  <summary>3. Какая цель у Fragment'ов?</summary>
- <p></p>
+ <p>ответ:</p>
 </details>
-4. Расскажите о жизненном цикле Activity?
 
-5. Расскажите о жизненном цикле Fragment?
+<br>
+<details>
+ <summary>4. Расскажите о жизненном цикле Activity?</summary>
+ <p>ответ:</p>
+</details>
 
-6. Вы используете приложение для путешествий, затем нажимаете кнопку настроек, открывается Activity настроек, затем вы кликаете "назад" - что происходит с жизненным циклом Activity настроек и с циклом главного Activity при этом?
+<br>
+<details>
+ <summary>5. Расскажите о жизненном цикле Fragment?</summary>
+ <p>ответ:</p>
+</details>
 
-7. Что вы знаете о Material design?
+<br>
+<details>
+ <summary>6. Вы используете приложение для путешествий, затем нажимаете кнопку настроек, открывается Activity настроек, затем вы кликаете "назад" - что происходит с жизненным циклом Activity настроек и с циклом главного Activity при этом?</summary>
+ <p>ответ:</p>
+</details>
 
-8. Какая разница между абстрактным классом и интерфейсом в Java?
+<br>
+<details>
+ <summary>7. Что вы знаете о Material design?</summary>
+ <p>ответ:</p>
+</details>
 
-9. Что такое интерфейс в Java?
+<br>
+<details>
+ <summary>8. Какая разница между абстрактным классом и интерфейсом в Java?</summary>
+ <p>ответ:</p>
+</details>
 
-10. Что такое абстрактный класс в Java? 
+<br>
+<details>
+ <summary>8. Какая разница между абстрактным классом и интерфейсом в Java?</summary>
+ <p>ответ:</p>
+</details>
 
-11. Почему нельзя создать экземпляр абстрактного класса?
+<br>
+<details>
+ <summary>10. Что такое абстрактный класс в Java? </summary>
+ <p>ответ:</p>
+</details>
 
-12. Какая разница между Dialog и AlertDialog в Android?
+<br>
+<details>
+ <summary>11. Почему нельзя создать экземпляр абстрактного класса?</summary>
+ <p>ответ:</p>
+</details>
 
-13. Какая разница между LinearLayout и RelativeLayout?
+<br>
+<details>
+ <summary>12. Какая разница между Dialog и AlertDialog в Android?</summary>
+ <p>ответ:</p>
+</details>
 
-14. Где выше производительность, у LinearLayout или RelativeLayout?
+<br>
+<details>
+ <summary>13. Какая разница между LinearLayout и RelativeLayout?</summary>
+ <p>ответ:</p>
+</details>
 
-15. Возьмем макет контакта с картинкой, именем и номером, как вы реализуете его в XML?
+<br>
+<details>
+ <summary>14. Где выше производительность, у LinearLayout или RelativeLayout?</summary>
+ <p>ответ:</p>
+</details>
 
-16. Что такое Service, с какими потоками он работает?
+<br>
+<details>
+ <summary>15. Возьмем макет контакта с картинкой, именем и номером, как вы реализуете его в XML?</summary>
+ <p>ответ:</p>
+</details>
 
-17. Какая разница между Service и IntentService?
+<br>
+<details>
+ <summary>16. Что такое Service, с какими потоками он работает?</summary>
+ <p>ответ:</p>
+</details>
 
-18. Что такое ANR message? :scream_cat:
+<br>
+<details>
+ <summary>17. Какая разница между Service и IntentService?</summary>
+ <p>ответ:</p>
+</details>
 
-19. Объясните работу BroadcastReciever и его реализацию.
+<br>
+<details>
+ <summary>18. Что такое ANR message? :scream_cat:</summary>
+ <p>ответ:</p>
+</details>
 
-20. Можете ли вы использовать фрагмент без UI? В каких случаях вы бы использовали этот паттерн?
+<br>
+<details>
+ <summary>19. Объясните работу BroadcastReciever и его реализацию.</summary>
+ <p>ответ:</p>
+</details>
 
-21. Расскажите о модификаторах доступа в Java?
+<br>
+<details>
+ <summary>20. Можете ли вы использовать фрагмент без UI? В каких случаях вы бы использовали этот паттерн?</summary>
+ <p>ответ:</p>
+</details>
 
-22. Какая разница между Default и Protected модификаторами в Java?
+<br>
+<details>
+ <summary>21. Расскажите о модификаторах доступа в Java?</summary>
+ <p>ответ:</p>
+</details>
 
-23. Что вы знаете об AsyncTask?
+<br>
+<details>
+ <summary>22. Какая разница между Default и Protected модификаторами в Java?</summary>
+ <p>ответ:</p>
+</details>
 
-24. В чем разница между Parcelable и Serializable? Что лучше? Почему?
+<br>
+<details>
+ <summary>23. Что вы знаете об AsyncTask?</summary>
+ <p>ответ:</p>
+</details>
 
-25. Как получить доступ к переменной в Activity из Fragment'а?
+<br>
+<details>
+ <summary>24. В чем разница между Parcelable и Serializable? Что лучше? Почему?</summary>
+ <p>ответ:</p>
+</details>
 
-26. У вас есть Activity с двумя Fragment'ами, у одного есть кнопка, у другого - TextView, кликая на кнопку, меняется TextView. Как вы реализуете это?
+<br>
+<details>
+ <summary>25. Как получить доступ к переменной в Activity из Fragment'а?</summary>
+ <p>ответ:</p>
+</details>
 
-27. Как сделать переменную потоко-безопасной?
+<br>
+<details>
+ <summary>26. У вас есть Activity с двумя Fragment'ами, у одного есть кнопка, у другого - TextView, кликая на кнопку, меняется TextView. Как вы реализуете это?</summary>
+ <p>ответ:</p>
+</details>
 
-28. Какие стратегии мы можем использовать, чтобы достигнуть потоко-безопасности?
+<br>
+<details>
+ <summary>27. Как сделать переменную потоко-безопасной?</summary>
+ <p>ответ:</p>
+</details>
 
-29. В чем цель ключевого слова "static" в Java?
+<br>
+<details>
+ <summary>28. Какие стратегии мы можем использовать, чтобы достигнуть потоко-безопасности?</summary>
+ <p>ответ:</p>
+</details>
 
-30. Как можно инициализировать static-переменную в Java?
+<br>
+<details>
+ <summary>29. В чем цель ключевого слова "static" в Java?</summary>
+ <p>ответ:</p>
+</details>
 
-31. Какие паттерны проектирования вы знаете?
+<br>
+<details>
+ <summary>30. Как можно инициализировать static-переменную в Java?</summary>
+ <p>ответ:</p>
+</details>
 
-32. Объясните принцип паттерна проектирования "Строитель"?
+<br>
+<details>
+ <summary>31. Какие паттерны проектирования вы знаете?</summary>
+ <p>ответ:</p>
+</details>
 
-33. Где вы использовали паттерн "Наблюдатель"?
+<br>
+<details>
+ <summary>32. Объясните принцип паттерна проектирования "Строитель"?</summary>
+ <p>ответ:</p>
+</details>
 
-34. Паттерн Singleton, где его использовать в Android?
+<br>
+<details>
+ <summary>33. Где вы использовали паттерн "Наблюдатель"?</summary>
+ <p>ответ:</p>
+</details>
 
-35. В чем разница между LinkedList, ArrayList и Arrays?
+<br>
+<details>
+ <summary>34. Паттерн Singleton, где его использовать в Android?</summary>
+ <p>ответ:</p>
+</details>
 
-36. Над каким проектом вы сейчас работаете? Каков ваш рабочий процесс реализации задуманной функциональности?
+<br>
+<details>
+ <summary>35. В чем разница между LinkedList, ArrayList и Arrays?</summary>
+ <p>ответ:</p>
+</details>
 
-37. Как вы управляетесь с Firebase push notifications?
+<br>
+<details>
+ <summary>36. Над каким проектом вы сейчас работаете? Каков ваш рабочий процесс реализации задуманной функциональности?</summary>
+ <p>ответ:</p>
+</details>
 
-38. Как реализовать Firebase realtime Database?
+<br>
+<details>
+ <summary>37. Как вы управляетесь с Firebase push notifications?</summary>
+ <p>ответ:</p>
+</details>
 
-39. У вас есть большой проект и у вас есть требования к безопасному входу в систему. Как вы будете реализовывать эти требования? :grimacing:
+<br>
+<details>
+ <summary>38. Как реализовать Firebase realtime Database?</summary>
+ <p>ответ:</p>
+</details>
 
-40. Что такое Eventbus? <details> <summary>ответ</summary> <p>http://greenrobot.org/ru-eventbus/</p> </details>
+<br>
+<details>
+ <summary>39. У вас есть большой проект и у вас есть требования к безопасному входу в систему. Как вы будете реализовывать эти требования? :grimacing:</summary>
+ <p>ответ:</p>
+</details>
 
-41. В каком потоке вызывается  метод onRecieve() в BroadcastReceiver'е?
+<br>
+<details>
+ <summary>40. Что такое Eventbus?</summary>
+ <p>ответ: http://greenrobot.org/ru-eventbus/</p>
+</details>
 
-42. Как реализовать кастомный BroadcastReceiver?
+<br>
+<details>
+ <summary>41. В каком потоке вызывается  метод onRecieve() в BroadcastReceiver'е?</summary>
+ <p>ответ:</p>
+</details>
 
-43. В чем разница между MVC и MVP?
+<br>
+<details>
+ <summary>42. Как реализовать кастомный BroadcastReceiver?</summary>
+ <p>ответ:</p>
+</details>
 
-44. Объясните как устроен MVVM?
+<br>
+<details>
+ <summary>43. В чем разница между MVC и MVP?</summary>
+ <p>ответ:</p>
+</details>
 
-45. Что означает M в MVP? Ответ … могло бы это быть чем-то еще? :confounded:
+<br>
+<details>
+ <summary>44. Объясните как устроен MVVM?</summary>
+ <p>ответ:</p>
+</details>
 
-46. Какова цель Content Provider'а?
+<br>
+<details>
+ <summary>45. Что означает M в MVP? Ответ … могло бы это быть чем-то еще? :confounded:</summary>
+ <p>ответ:</p>
+</details>
 
-47. Для чего используется библиотека SQLite?
+<br>
+<details>
+ <summary>46. Какова цель Content Provider'а?</summary>
+ <p>ответ:</p>
+</details>
 
-48. Какие библиотеки вы используете для работы с сетью (networking), загрузки картинок, баз данных?
+<br>
+<details>
+ <summary>47. Для чего используется библиотека SQLite?</summary>
+ <p>ответ:</p>
+</details>
 
-49. Что вы используете для очень быстрого Sensor, который излучает много показаний за раз в Rx? :disappointed_relieved: (what do you use to handle a very fast Sensor that emit many readings at a time in Rx way?)
+<br>
+<details>
+ <summary>48. Какие библиотеки вы используете для работы с сетью (networking), загрузки картинок, баз данных?</summary>
+ <p>ответ:</p>
+</details>
 
-50. В чем разница между map и flatMap() в Rxjava?
+<br>
+<details>
+ <summary>49. Что вы используете для очень быстрого Sensor, который излучает много показаний за раз в Rx? :disappointed_relieved: (what do you use to handle a very fast Sensor that emit many readings at a time in Rx way?)</summary>
+ <p>ответ:</p>
+</details>
 
-51. Как создавать параллельные сетевые запросы в Rxjava?
+<br>
+<details>
+ <summary>50. В чем разница между map и flatMap() в Rxjava?</summary>
+ <p>ответ:</p>
+</details>
 
-52. Если у вас есть запрос к сети и вы хотите запросить кеш, если сеть выдает ошибку, как это сделать на RxJava? Самое смешное, что я читал об этом в <a href="http://blog.danlew.net/">блоге Дэна Лью</a>, затем реализовал это дважды, но не смог ответить на этот вопрос на интервью. Плохие вещи случаются...
+<br>
+<details>
+ <summary>51. Как создавать параллельные сетевые запросы в Rxjava?</summary>
+ <p>ответ:</p>
+</details>
 
-53. В чем разница между concatMap() и flatMap() в Rxjava?
+<br>
+<details>
+ <summary>52. Если у вас есть запрос к сети и вы хотите запросить кеш, если сеть выдает ошибку, как это сделать на RxJava? Самое смешное, что я читал об этом в <a href="http://blog.danlew.net/">блоге Дэна Лью</a>, затем реализовал это дважды, но не смог ответить на этот вопрос на интервью. Плохие вещи случаются...</summary>
+ <p>ответ:</p>
+</details>
 
-54. Что вам известно об Intents? Какова цель категорий в Intents?
+<br>
+<details>
+ <summary>53. В чем разница между concatMap() и flatMap() в Rxjava?</summary>
+ <p>ответ:</p>
+</details>
 
-55. В чем цель FrameLayout?
+<br>
+<details>
+ <summary>54. Что вам известно об Intents? Какова цель категорий в Intents?</summary>
+ <p>ответ:</p>
+</details>
 
-56. Как сравнить два объекта?
+<br>
+<details>
+ <summary>55. В чем цель FrameLayout?</summary>
+ <p>ответ:</p>
+</details>
 
-57. Переменные в Java передаются по ссылке или по значению?<details>http://info.javarush.ru/translation/2014/06/30/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B0-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2-%D0%B2-Java-%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4-.html</details>
+<br>
+<details>
+ <summary>56. Как сравнить два объекта?</summary>
+ <p>ответ:</p>
+</details>
 
-58. Когда вы используете observeOn() и когда subscribeOn()?
+<br>
+<details>
+ <summary>57. Переменные в Java передаются по ссылке или по значению?</summary>
+ <p>ответ: http://info.javarush.ru/translation/2014/06/30/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B0-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%B2-%D0%B2-Java-%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4-.html</p>
+</details>
+
+<br>
+<details>
+ <summary>58. Когда вы используете observeOn() и когда subscribeOn()?</summary>
+ <p>ответ:</p>
+</details>
+
 
 :triumph:
 [to be continued...]
