@@ -421,6 +421,50 @@ end.
 
 ### Bonus
 
-*Еще парочка вопросов с ответами*
+*Еще парочка вопросов с ответами* :whale:
+
+Основные вопросы:
+
+<br>
+<details>
+ <summary>1. What is Android and who founded it?</summary>
+ <p>Android - это операционная система на основе Linux с открытым исходным кодом. Она была создана Эндрю Рубином и предназначена для мобильных телефонов, планшетов, телевизоров... и т.д.</p>
+</details>
+
 
  
+<br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
+ <br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
+ <br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
+ <br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
+ <br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
+ <br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
+ <br>
+<details>
+ <summary>/summary>
+ <p></p>
+</details>
