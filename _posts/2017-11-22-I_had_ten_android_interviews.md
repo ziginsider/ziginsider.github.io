@@ -533,49 +533,7 @@ end.
  <p>Это миниатюрные представления приложений, которые доступны для демонстрации в других приложениях (таких как Home screen). Больше см. <a href="https://developer.android.com/guide/topics/appwidgets/index.html#Basics">здесь</a></p>
 </details>
 
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
 
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
-
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
-
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
-
-
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
-
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
-
-<br>
-<details>
- <summary></summary>
- <p></p>
-</details>
- 
  
 
 <br>
@@ -584,7 +542,7 @@ end.
  *Ссылки на аналогичные списки и разговоры о собеседовании:*
  
  1. https://proglib.io/p/15-android-questions/ - :confused:
- 2. http://www.quizful.net/interview/android?page=0 :simple_smile:
+ 2. http://www.quizful.net/interview/android?page=0 :smile:
  3. https://goo.gl/qgry1C
  4. https://habrahabr.ru/post/199280/
  5. https://dou.ua/forums/topic/17020/
