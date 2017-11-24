@@ -555,3 +555,5 @@ end.
  
  
  [дополняется по мере сил, возможностей и способностей]
+ 
+ <img src="{{ site.baseurl }}/images/hitrozhopye.jpg">
