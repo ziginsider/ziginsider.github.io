@@ -529,8 +529,8 @@ end.
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>10. Что такое виджеты приложений?</summary>
+ <p>Это миниатюрные представления приложений, которые доступны для демонстрации в других приложениях (таких как Home screen). Больше см. <a href="https://developer.android.com/guide/topics/appwidgets/index.html#Basics">здесь</a></p>
 </details>
 
 <br>
