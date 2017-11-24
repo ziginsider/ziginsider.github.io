@@ -486,32 +486,45 @@ end.
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>5. Какие флаги используются при запуске приложения Android?</summary>
+ <p>
+  FLAG_ACTIVITY_NEW_TASK
+  <br><br>
+  FLAG_ACTIVITY_CLEAR_TOP.</p>
 </details>
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>6. Версии Android идут под кодовыми номерами. Назовите как можно больше этих имен.</summary>
+ <p>Aestro, Blender, Cupcake, Donut, Eclair, Froyo, Gingerbread, Honeycomb, Ice Cream Sandwich, Jelly Bean, Kitkat, Lollipop, Marshmallow</p>
 </details>
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>7. Какие главные преимущества Android?</summary>
+ <p>Android - это ОС c открытым исходным кодом, это означает, что она бесплатна для конечного пользователя. Плата за лицензию, разработку и распространение не взимается. Она поддерживает множество различных технологий включая камеру, bluetooth, wifi и т.д. К томуже она имеет оптимизированную для маломощных устройств виртуальную машину Dalvik.</p>
 </details>
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>8. Назовите базу данных, которую использует Android, и расскажите о ней.</summary>
+ <p>Android использует SQLite реляционную базу данных с открытым исходным кодом. Она встроена в Andoid по-умолчанию. Достаточно быстрая и удобная в работе. </p>
 </details>
 
 <br>
 <details>
- <summary></summary>
- <p></p>
+ <summary>9. Как можно организовать хранение данных в Android? Расскажите об этих способах.</summary>
+ <p>
+  Shared Preferences - хранит данные в виде приметивов ключ-значение. Класс SharedPreferences организует основную работу, которая позволяет пользователям хранить и получать данные по типу ключ-значение. Shared Preferences можно использовать для хранения таких типов данных как int, float, long, string... Эти данные сохраняются относительно постоянно (если только их не удалить целенаправленно). Больше информации <a href="https://developer.android.com/guide/topics/data/data-storage.html">здесь</a>.
+  <br><br>
+  Internal Storage - хранит данные в памяти устройства в виде файлов. Файлы, сохраненные для вашего приложения, по-умолчанию приватны, и другое приложение не может получит к ним доступ. Когда пользователь удаляет приложение, файлы, связанные с приложением, также удаляются.
+  <br><br>
+  External Storage - хранит данные в общем хранилище. Все приложения имеют доступ к этим данным. 
+  <br><br>
+  SQLite Database - хранит данные в структурированнов виде в базе данных. Android полностью поддерживает SQLite. Вне приложения база данных недоступна.
+  <br><br>
+  Также возможно хранение данных в сети на сервере. Доступ - посредством сетевого соединения. Организация сетевого соединения возможна посредвом пакетов java.net и android.net, но чаще используют готовые библиотеки.
+ </p>
 </details>
 
 <br>
@@ -568,8 +581,19 @@ end.
 <br>
 ### Bonus 2 
  
- *Ссылки на аналогичные списки:*
+ *Ссылки на аналогичные списки и разговоры о собеседовании:*
  
- 1. https://proglib.io/p/15-android-questions/ - не слишком простые вопросы :confused:
+ 1. https://proglib.io/p/15-android-questions/ - :confused:
+ 2. http://www.quizful.net/interview/android?page=0 :simple_smile:
+ 3. https://goo.gl/qgry1C
+ 4. https://habrahabr.ru/post/199280/
+ 5. https://dou.ua/forums/topic/17020/
+ 6. https://www.youtube.com/watch?v=igDSTgjhpN4
+ 7. http://www.tutorialspoint.com/android/android_questions_answers.htm :gb:
+ 8. http://www.careerride.com/android-interview-questions.aspx :gb:
+ 9. https://www.toptal.com/android/interview-questions :gb:
+ 10. https://intellipaat.com/interview-question/android-interview-questions/ :gb:
+ 11. https://github.com/MindorksOpenSource/android-interview-questions :gb: :thumbsup: :fire:
+ 
  
  [дополняется по мере сил, возможностей и способностей]
