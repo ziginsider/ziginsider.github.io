@@ -28,15 +28,15 @@ tags:
 
 Подключится можно двумя способами: автоматически и вручную. Подключимся автоматически. В Android Studio выбираем Tools - Firebase. Открывается Firebase Assistant. Нам нужно Realtime Database.
 
-<img src="{{ site.baseurl }}/images/firebase/firebase_1.png">
+<img src="{{ site.baseurl }}/images/firebase/firebase_1.jpg">
 
 Сначала Assiatant предложит подключить приложение к Firebase. Нажимаем. Следуем инструкциям (необходим аккаутн Google). Подключили. Затем добавляем Realtime Database в наше приложение. Если все ок, в Assistant мы получим надпись зеленым шрифтом: "Dependencies set up correctly". 
 
-<img src="{{ site.baseurl }}/images/firebase/firebase_2.png">
+<img src="{{ site.baseurl }}/images/firebase/firebase_2.jpg">
 
 В консоли Firebase теперь можно увидеть наш проект:
 
-<img src="{{ site.baseurl }}/images/firebase/firebase_3.png">
+<img src="{{ site.baseurl }}/images/firebase/firebase_3.jpg">
 
 Если что-то пошло не так, можно подключить проект вручную. Наглядный пример см. <a href="https://youtu.be/tAV_ehyZmTE?t=1m5s">здесь</a>
 
