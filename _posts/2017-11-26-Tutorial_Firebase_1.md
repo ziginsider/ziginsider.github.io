@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Firebase Tutorial - Farebase database. Part I.
+title: Firebase Tutorial - Firebase database. Part I.
 date: 2017-11-26 21:59
 tags:
 - Android
