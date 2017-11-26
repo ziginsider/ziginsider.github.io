@@ -12,7 +12,7 @@ tags:
 
 *Firebase. Регистрация приложения. База данных Firebase.*
 
-Проект на github: <a href="https://github.com/ziginsider/FacebookSDKDemo/tree/get_post">https://github.com/ziginsider/FacebookSDKDemo</a>
+Проект на github: <a href="https://github.com/ziginsider/FirebaseDemo/tree/master">https://github.com/ziginsider/FirebaseDemo</a>
 
 <br>
 ### Введение
