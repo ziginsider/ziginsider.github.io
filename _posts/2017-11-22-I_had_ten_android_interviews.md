@@ -92,19 +92,26 @@ WM: Java и Android и тестирование гибкости. - Задачи
 <br>
 <details>
  <summary>3. Какая цель у Fragment'ов?</summary>
- <p>ответ:</p>
+ <p>
+Cодержит часть UI в Activity.  
+<br><br>
+Организация приложения на основе нескольких Activity не всегда может быть оптимальной. Мир ОС Android довольно сильно фрагментирован и состоит из многих устройств. И если для мобильных аппаратов с небольшими экранами взаимодействие между разными Activity выглядит довольно неплохо, то на больших экранах - планшетах, телевизорах окна Activity смотрелись бы не очень в силу большого размера экрана. Собственно поэтому и появилась концепция Fragment.
+<br><br>
+Fragment существует в контексте Activity и имеет свой жизненный цикл, вне Activity обособлено он существовать не может. Каждая Activity может иметь несколько Fragment.
+</p>
 </details>
 
 <br>
 <details>
  <summary>4. Расскажите о жизненном цикле Activity?</summary>
- <p>ответ:</p>
+ <p>См. <a href="https://developer.android.com/guide/components/activities.html?hl=ru#Lifecycle">здесь</a>
+ </p>
 </details>
 
 <br>
 <details>
  <summary>5. Расскажите о жизненном цикле Fragment?</summary>
- <p>ответ:</p>
+ <p>См. <a href="https://developer.android.com/guide/components/fragments.html?hl=ru#Lifecycle">здесь</a></p>
 </details>
 
 <br>
