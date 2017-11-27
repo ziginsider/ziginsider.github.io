@@ -40,5 +40,24 @@ tags:
 
 Если что-то пошло не так, можно подключить проект вручную. Наглядный пример см. <a href="https://youtu.be/tAV_ehyZmTE?t=1m5s">здесь</a>
 
+Теперь добавим простое меню, по которому мы будем добавлять, сохранять и удалять записи в базе данных. Итак, добавим три иконки (ic_new, ic_remove, ic_save), например такие:
+
+<img src="{{ site.baseurl }}/images/firebase/icons.jpg">
+
+и добавим соответствующий им файл меню в наш проект. Для этого в res добавляем папку menu и там создаем файл "menu_main.xml":
+
+{% gist f2e42d5f892da9000ecf938536f8f207 %}
+
+Теперь добавим Toolbar. В файле res - values - styles.xml параметр parent у "AppTheme" меняем на parent="Theme.AppCompat.Light.NoActionBar"
+
+В "activity_main.xml" добавляем описание макета Toolbar:
+
+{% gist cf692fabf96c2566f45d9663483d2a85 %}
+
+И, наконец, регистрируем Toolbar в MainActivity:
+
+{% gist a868876e7219067718de9914db2a25ed %}
+
+
 [в процессе...]
 
