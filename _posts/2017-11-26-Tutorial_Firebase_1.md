@@ -74,7 +74,7 @@ tags:
 
 При этом надо учесть, что т.к. мы используем TextInputLayout у нас должна быть в build.gradle (Module:app) подключена библотека design, например 'com.android.support:design:26.1.0'
 
-Добавим "activity_main.xml" ListView в котором будет отображаться список контактов:
+Добавим в "activity_main.xml" ListView в котором будет отображаться список контактов:
 
 {% gist fe23e485fc8fc559ddea4f220db4dca1 %}
 
