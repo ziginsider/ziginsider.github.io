@@ -40,7 +40,7 @@ tags:
 
 Если что-то пошло не так, можно подключить проект вручную. Наглядный пример см. <a href="https://youtu.be/tAV_ehyZmTE?t=1m5s">здесь</a>
 
-Теперь добавим простое меню, по которому мы будем добавлять, сохранять и удалять записи в базе данных. Итак, добавим три иконки (ic_new, ic_remove, ic_save), например такие:
+Теперь добавим простое меню, по которому мы будем добавлять записи, сохранять изменения редактируемых записей и удалять записи в базе данных. Итак, добавим три иконки (ic_new, ic_remove, ic_save), например такие:
 
 <img src="{{ site.baseurl }}/images/firebase/icons.jpg">
 
@@ -100,13 +100,53 @@ tags:
 
 {% gist 8904df6a2c93b27e07e39951def61a31 %}
 
-Наконец, перейдет к Firebase. Инициализируем Firebase и получим ссылку на базу данных:
+Наконец, перейдет к Firebase. Инициализируем Firebase и получим ссылку на базу данных. Для этого добавляем в onCreate(...) функцию initFirebase():
 
 {% gist 3938d0c98fc3406d358b243b1437468b %}
 
+Теперь в onCreate(...) добавляем функцию addEventFirebaseListener() в которой создадим слушатель, который будет обнавлять записи в ListView, когда в базе данных Firebase происходят изменения:
+
 {% gist 25bfdee33a531a3f85c2c745acb41d16 %}
 
+Теперь в консоли Firebase в разделе Database изменим правила, чтобы данные читались и писались из нашего приложения в базу данных Firebase. Для этого для чтения и записи выставляем "true". Публикуем правила.
 
+<img src="{{ site.baseurl }}/images/firebase/firebase_rules.jpg">
 
-[в процессе...]
+Наконец описываем что-же произойдет когда мы нажимаем на кнопки ранее созданного меню (напомним: "создать запись", "сохранить изменения в записи", "удалить запись").
+
+Переопределяем функцию onOptionsItemSelected(MenuItem item), которая ловит нажатия на кнопки меню:
+
+{% gist 9f311e54f0fae1634c6bbdc886af70d9 %}
+
+Теперь нам надо написать тело функций createUser(), updateUser(selectedUser) и deleteUser(selectedUser), но для начала переопределим слушатель нажатия на элемент списка ListView, чтобы определять выбранную запись = selectedUser. Создаем глобальную переменную selectedUser и пишем тело слушателя нажатия на элемент ListView в onCreate(...):
+
+{% gist f2e572778c12249d8eac2833d2c9a678 %}
+
+Пишем createUser():
+
+{% gist 290da8bbb5acc5aa3bfca279271a6193 %}
+
+updateUser(selectedUser):
+
+{% gist f540b589b47b59a843584216bdbfc751 %}
+
+deleteUser(selectedUser)
+
+{% gist a949606fbae8f56842c2334b3050148c %}
+
+Если все сделали правильно, длжно работать. Мы можем добавлять данные в базуданных Firebase, редактировать и удалять их. В консоли Firebase изменение данных можно наблюдать "в прямом эфире":
+
+На телефоне:
+
+<img src="{{ site.baseurl }}/images/firebase/firebase_phone.jpg">
+
+В консоле Firebase:
+
+<img src="{{ site.baseurl }}/images/firebase/firebase_database.jpg">
+
+Например, когда мы удаляем данные, в консоли они окрашиваются в красный цвет:
+
+<img src="{{ site.baseurl }}/images/firebase/remove_firebase_database_item.jpg.jpg">
+
+end.
 
