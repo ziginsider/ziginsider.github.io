@@ -138,7 +138,7 @@ deleteUser(selectedUser)
 
 На телефоне:
 
-<img src="{{ site.baseurl }}/images/firebase/firebase_phone.jpg">
+<img src="{{ site.baseurl }}/images/firebase/firebase_phone.png">
 
 В консоле Firebase:
 
@@ -146,7 +146,7 @@ deleteUser(selectedUser)
 
 Например, когда мы удаляем данные, в консоли они окрашиваются в красный цвет:
 
-<img src="{{ site.baseurl }}/images/firebase/remove_firebase_database_item.jpg.jpg">
+<img src="{{ site.baseurl }}/images/firebase/remove_firebase_database_item.jpg">
 
 end.
 
