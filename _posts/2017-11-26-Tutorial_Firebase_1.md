@@ -148,5 +148,9 @@ deleteUser(selectedUser)
 
 <img src="{{ site.baseurl }}/images/firebase/remove_firebase_database_item.jpg">
 
+<br>
+<br>
+Проект на github: <a href="https://github.com/ziginsider/FirebaseDemo/tree/master">https://github.com/ziginsider/FirebaseDemo</a>
+
 end.
 
