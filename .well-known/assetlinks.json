@@ -1,9 +1,0 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "io.github.ziginsider.firebasesigninproject",
-    "sha256_cert_fingerprints":
-    ["27:BB:29:83:E7:D8:A1:67:B5:1C:09:4D:57:2F:4C:2F:6C:D4:EE:82:7F:36:1A:BA:79:0B:6F:64:73:68:E0:F6"]
-  }
-}]
