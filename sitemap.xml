@@ -39,73 +39,76 @@
     <url>
         <loc>https://ziginsider.github.io/Leksikon_Android</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/RecyclerView</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/KotlitExampleRegexAndNull</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Garbage_Collector_Java</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Volley-vs-Retrofit</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Loaders</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/rest-api</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Content-Provider</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Video-Traslate-Architecture-Components</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Architecture-Components-Intro</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/What-do-interfaces-do</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Video-Solving-the-Livecycle-problem</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Android-timer-example</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Example_Animation_Using_TimeAnimator</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Writing_tests_will_make_you_happier</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Multiple_Row_Types_In_Recyclerview</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/What_is_the_difference_between_ListView_and_RecyclerView</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Optimizing_nested_RecyclerView</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Facebook_SDK_Login</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Facebook_SDK_Login_2</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Facebook_SDK_Login_3</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/I_had_ten_android_interviews</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Tutorial_Firebase_1</loc>
     </url>
-	<url>
+    <url>
         <loc>https://ziginsider.github.io/Tutorial_Firebase_2</loc>
+    </url>
+    <url>
+	<loc>https://ziginsider.github.io/introduction-to-android-architecture-components</loc>
     </url>
 </urlset>
