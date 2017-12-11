@@ -393,6 +393,10 @@ v.requestLayout();
 
 В адаптере можно получить позицию только что появившегося элемента списка. Если позиция появившегося элемента последняя, значит пора подгружать новую порцию данных
 
+:fire: :fire: :fire: Способ №3:
+
+Для организации пакетной загрузки круто использовать <a href="https://developer.android.com/topic/libraries/architecture/paging.html">Pagging Library</a>. Библиотека представлена вместе с Architecture Components (см. <a href="https://ziginsider.github.io/tags/#Architecture+Components">заметки</a> по ним)
+
 <br>
 *Как организовать код, когда имеем вложенные в друг друга RecyclerView?*
 
