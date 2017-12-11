@@ -11,7 +11,7 @@ tags:
 - Pagging Library
 - CursorAdapter
 ---
-<img src="{{ site.baseurl }}/images/largedatabase/intro_39.jpg">
+<a href="https://ziginsider.github.io/large-database-queries-on-android/"><img src="{{ site.baseurl }}/images/largedatabase/intro_39.jpg"></a>
 
 :books: *Перевод статьи Chris Craik <a href="https://medium.com/google-developers/large-database-queries-on-android-cb043ae626e8">"Large Database Queries on Android"</a>.*
 
