@@ -107,7 +107,7 @@ interface UserDao {
 
 {% highlight java %}
 LiveData<PagedList<User>> users = userDao.usersByLastName()
-        .create(/*начальная позиция загрузки*/ 0, /*размер выборки*/ 20);
+        .create(/*начальная позиция загрузки*/ 0, /*размер страницы*/ 20);
 {% endhighlight %}
 
 В приведенном выше коде, мы использовали <a href="https://developer.android.com/topic/libraries/architecture/livedata.html">LiveData</a>-версию результатов запросов с постраничной загрузкой, которая также будет обновлять любые <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html">Observers</a> (наблюдатели), подписанные на нее, когда меняются данные в базе данных. Чтобы узнать больше о постраничной загрузке из SQLite с использованием architecture components, см. обзор <a href="https://developer.android.com/topic/libraries/architecture/paging.html">Paging Library</a> и <a href="https://github.com/googlesamples/android-architecture-components/tree/master/PagingSample">пример её использования</a> на GitHub.
