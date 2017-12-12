@@ -103,7 +103,7 @@ interface UserDao {
 }
 {% endhighlight %}
 
-Затем предоставляются параметры постраничной загрузки, чтобы получить `LiveData&#060;PagedList&#062;`, который содержит результаты больших выборок:
+Затем предоставляются параметры постраничной загрузки, чтобы получить `LiveData<PagedList>`, который содержит результаты больших выборок:
 
 {% highlight java %}
 LiveData<PagedList<User>> users = userDao.usersByLastName()
