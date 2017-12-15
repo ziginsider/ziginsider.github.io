@@ -12,7 +12,23 @@ tags:
 
 *Заметки о RecyclerView. Принципы работы. Внутреннее устройство.*
 <br>
-### Принцип работы RecyclerView в общих словах:
+## Оглавление
+ * [Принцип работы RecyclerView в общих словах](#принцип-работы-recyclerview-в-общих-словах)
+ * [Компоненты RecyclerView](#компоненты-recyclerview)
+ * [LayoutManager](#layoutmanager)
+ * [Adapter](#adapter)
+ * [Методы notifyItemX()](#методы-notifyitemx())
+ * [ViewHolder](#viewholder)
+ * [Жизнь и смерть ViewHolder](#жизнь-и-смерть-viewholder)
+ * [ItemDecorator](#itemdecorator)
+ * [ItemTouchHelper](#itemtouchhelper)
+ * [ItemAnimator ](#itemanimator)
+ * [RecyclerView и SQLite](#recyclerview-и-sqlite)
+ * [Типичные ошибки новичка](#типичные-ошибки-новичка)
+ * [Практика](#практика)  
+ 
+<br> 
+### Принцип работы RecyclerView в общих словах
 1. Прокручивается список, создаются вьюхи и выводятся на экран, при этом выполняется <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> и <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. 
 
 2. Ушедшие за экран вьюхи не уничтожаются, а попадают в пул объектов <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Recycled Pool</span>. 
@@ -22,7 +38,7 @@ tags:
 Говоря отвлеченно, метод <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onCreateViewHolder()</span> создает "бассейн", а метод  <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span> "наполняет бассейн водой". Если каждый раз, когда меняется представление (скролл) не "менять воду в бассейне" полностью т.е. не переопределять содержание всех элементов, которые могут измениться, в <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>, то вьюха может выдавать сюрпризы в виде старых значений. 
 
 <br>
-### Компоненты RecyclerView:
+### Компоненты RecyclerView
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LayoutManager</span> - размещает элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ItemAnimator</span> - анимирует элементы
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">Adapter</span> - создает элементы
@@ -30,7 +46,7 @@ tags:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">ViewHolder</span> - кеширует findViewById
 
 <br>
-## LayoutManager
+### LayoutManager
 Бывает:
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">LinearLayoutManager</span> (линейное размещение элементов)
 - <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">GridLayoutManager</span> (табличное)
@@ -91,7 +107,7 @@ void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
 
 <br>
-### Методы notifyItemX() 
+### Методы notifyItemX()
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
 {% highlight java %}
 notifyItemChanged();
@@ -115,49 +131,6 @@ void setHasStableIds(boolean hasStableIds)
 long getItemId(int position)
 {% endhighlight %}
 и давать уникальное Id элемента на основе его содержимого или создавать Id на основе Id layout'a, из которого мы надуваем это view, и который всегда уникальный.
-
-<br>
-### Типичные ошибки  
-1) Обработка нажатий на элемент внутри onBindViewHolder(...):
-{% highlight java %}
-public void onBindViewHolder(...) {
-    holder.itemView
-    .setOnClickListener(v -> {
-        itemClicked(position);
-    });
-}
-{% endhighlight %}
-Во-первых, создается объект на каждый Bind. Во-вторых, берется position элемента, которая у него была до <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. Но элемент с помощью <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">notify()</span> может быть перемещен/удален и его position, следовательно, измениться. Для этой ситуации есть решение, а именно установить слушатель нажатия при создании элемента:
-{% highlight java %}
-public RecyclerView.ViewHolder onCreateViewHolder(...) {
-    View v = createView();
-    RecyclerView.ViewHolder h = new RecyclerView.ViewHolder(v) {};
-    v.setOnClickListener(it -> {
-        int adapterPosition = h.getAdapterPosition();
-        if (adapterPosition != RecyclerView.NO_POSITION) {
-            itemClicked(adapterPosition);
-        }
-    });
-    return h;
-}
-{% endhighlight %}
-Очень важно проверить на <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">NO_POSITION</span>. Сложно представить, как можно кликнуть на то, у чего нет позиции, но иногда такое происходит. Рекомендация от Google не забывать делать эту проверку.
-
-2)
-{% highlight java %}
-public ViewHolder onCreateViewHolder(...) {
-    if (cachedHeader == null) {
-        cachedHeader = createHeader();
-    }
-    if (viewType == R.layout.header) {
-        return cachedHeader;
-    } else {
-        return createItem();
-    }
-}
-{% endhighlight %}
-
-Но зачем кэшировать (создавать) заранее? Надо создавать, когда в этом есть необходимость. 
 
 <br>
 ### ViewHolder 
@@ -186,7 +159,7 @@ isRecyclable() / setRecyclable(Boolean)
 NB: Как правильно организовать код, когда ViewHolder'ов несколько (несколько типов элементов в одном RecyclerView)? Ответ см. в этой заметке: <a href="https://ziginsider.github.io/Multiple_Row_Types_In_Recyclerview/">Различные типы Item View в RecyclerView</a>
 
 <br>
-### Жизнь и смерть ViewHolder’а  
+### Жизнь и смерть ViewHolder 
 
 - LayoutManager  дает запрос RecyclerView на элемент: getViewForPosition 
 - RecyclerView обращается в Cache 
@@ -371,12 +344,63 @@ v.requestLayout();
 - Подход 2: Кастомный Adapter
 
 <br>
+### RecyclerView и SQLite
+На практике довольно часто данные для RecyclerView беруться из базы данных SQLite. Можно, конечно, сначала получать данные из базы данных (с помощью SQLiteCursor) и затем передавать их через конструктор RecyclerView для отображения. Но есть готовое решение:
+
+- <a href="https://gist.github.com/skyfishjy/443b7448f59be978bc59">CursorRecyclerViewAdapter</a> - организует работу RecyclerAdapter поверх курсора. Т.е. вам нужно получить курсор, и без посредников, передать его в CursorRecyclerViewAdapter.
+
+- <a href="https://developer.android.com/topic/libraries/architecture/paging.html">Paging Library</a> - Решение от Google в рамках <a href="https://ziginsider.github.io/tags/#Architecture+Components">Android Architecture Components</a>. В данном случае взаимодействует с <a href="https://developer.android.com/topic/libraries/architecture/room.html">Room</a>
+
+<br>
+### Типичные ошибки новичка 
+1) Обработка нажатий на элемент внутри onBindViewHolder(...):
+{% highlight java %}
+public void onBindViewHolder(...) {
+    holder.itemView
+    .setOnClickListener(v -> {
+        itemClicked(position);
+    });
+}
+{% endhighlight %}
+Во-первых, создается объект на каждый Bind. Во-вторых, берется position элемента, которая у него была до <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">onBindViewHolder()</span>. Но элемент с помощью <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">notify()</span> может быть перемещен/удален и его position, следовательно, измениться. Для этой ситуации есть решение, а именно установить слушатель нажатия при создании элемента:
+{% highlight java %}
+public RecyclerView.ViewHolder onCreateViewHolder(...) {
+    View v = createView();
+    RecyclerView.ViewHolder h = new RecyclerView.ViewHolder(v) {};
+    v.setOnClickListener(it -> {
+        int adapterPosition = h.getAdapterPosition();
+        if (adapterPosition != RecyclerView.NO_POSITION) {
+            itemClicked(adapterPosition);
+        }
+    });
+    return h;
+}
+{% endhighlight %}
+Очень важно проверить на <span style="background-color: #f4f4f4; color: #333; font-family: Consolas, monaco, monospace; font-size: 14px;  font-style: normal; max-width: 800px; word-break: break-all; white-space: normal; padding: 3px; border-radius: 3px;">NO_POSITION</span>. Сложно представить, как можно кликнуть на то, у чего нет позиции, но иногда такое происходит. Рекомендация от Google не забывать делать эту проверку.
+
+2)
+{% highlight java %}
+public ViewHolder onCreateViewHolder(...) {
+    if (cachedHeader == null) {
+        cachedHeader = createHeader();
+    }
+    if (viewType == R.layout.header) {
+        return cachedHeader;
+    } else {
+        return createItem();
+    }
+}
+{% endhighlight %}
+
+Но зачем кэшировать (создавать) заранее? Надо создавать, когда в этом есть необходимость. 
+
+<br>
 ### Практика
 *Как заполнить RecyclerView данными, когда их много?* 
 
 Способ №1:
 
-Повесьте на RecyclerView слушатель прокрутки и, когда он будет прокручен до последнего элемента, подгружайте новую порцию данных.
+Повесьте на RecyclerView слушатель прокрутки и, когда он будет прокручен до последнего элемента (или до, скажем, середины списка, чтобы начать загрузку раньше, чем пользователь достигнет конца списка), подгружайте новую порцию данных.
 
 Пример реализации: <a href="https://github.com/ziginsider/DynamicLoadingRecyclerView/tree/master">https://github.com/ziginsider/DynamicLoadingRecyclerView</a>
 
@@ -393,9 +417,9 @@ v.requestLayout();
 
 В адаптере можно получить позицию только что появившегося элемента списка. Если позиция появившегося элемента последняя, значит пора подгружать новую порцию данных
 
-:fire: :fire: :fire: Способ №3:
+:fire: Способ №3:
 
-Для организации пакетной загрузки круто использовать <a href="https://developer.android.com/topic/libraries/architecture/paging.html">Pagging Library</a>. Библиотека представлена вместе с Architecture Components (см. <a href="https://ziginsider.github.io/tags/#Architecture+Components">заметки</a> по ним)
+Для организации постепенной подгрузки можно использовать <a href="https://developer.android.com/topic/libraries/architecture/paging.html">Pagging Library</a>. Библиотека представлена вместе с Architecture Components (см. <a href="https://ziginsider.github.io/tags/#Architecture+Components">заметки</a> по ним). Сам запуск механизма подгрузки аналогичен первым двум способам.
 
 <br>
 *Как организовать код, когда имеем вложенные в друг друга RecyclerView?*
