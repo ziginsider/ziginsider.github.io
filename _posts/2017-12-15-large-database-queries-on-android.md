@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Большие запросы к базе данных на Android
-date: 2017-12-11 16:28
+date: 2017-12-15 16:28
 tags:
 - Java
 - Android
