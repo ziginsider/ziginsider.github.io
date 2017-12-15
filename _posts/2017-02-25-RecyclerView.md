@@ -17,7 +17,7 @@ tags:
  * [Компоненты RecyclerView](#компоненты-recyclerview)
  * [LayoutManager](#layoutmanager)
  * [Adapter](#adapter)
- * [Методы notifyItemX()](#методы-notifyitemx())
+ * [Методы notifyItemX](#методы-notifyitemx)
  * [ViewHolder](#viewholder)
  * [Жизнь и смерть ViewHolder](#жизнь-и-смерть-viewholder)
  * [ItemDecorator](#itemdecorator)
@@ -107,7 +107,7 @@ void onViewRecycled(ViewHolder holder)
 {% endhighlight %}
 
 <br>
-### Методы notifyItemX()
+### Методы notifyItemX
 Нужны для того, чтобы изменять, удалять, добавлять элементы и при этом анимировать их:
 {% highlight java %}
 notifyItemChanged();
