@@ -421,6 +421,17 @@ public ViewHolder onCreateViewHolder(...) {
 
 Для организации постепенной подгрузки можно использовать <a href="https://developer.android.com/topic/libraries/architecture/paging.html">Pagging Library</a>. Библиотека представлена вместе с Architecture Components (см. <a href="https://ziginsider.github.io/tags/#Architecture+Components">заметки</a> по ним). Сам запуск механизма подгрузки аналогичен первым двум способам.
 
+Способ №4:
+
+Использовать одну из готовых библиотек (например, <a href="https://github.com/CymChad/BaseRecyclerViewAdapterHelper">BRVAH</a>). Такой способ не всегда может подойти, так как приходится тянуть всю библиотеку в проект.
+
+<br>
+*Как обновить данные в RecyclerView?*
+
+Ответ только один: обернуть RecyclerView в <a href="https://developer.android.com/training/swipe/add-swipe-interface.html">SwipeRefreshLayout</a>. Теперь можно применять жест названный в народе "резинка от трусов" т.е. потянуть вниз RecyclerView, отпустить, появиться виджет загрузки и т.д.
+
+:monkey: К первым двум вопросам хочется добавить, что когда мы организуем загрузку данных из сети в приложении, обновляем их, подгружаем в список и т.д. - то очень важно продумать логику взаимодействия (ошибки соединения, если данных нет, если загружены уже все данные, если еще ничего не загружено и т.п.). Понять о чем идет речь, можно из <a href="https://www.youtube.com/watch?v=h5afEeuI0GQ">этого доклада</a>, где автор дает хитрое решение данной логики с помощью концепции конечных автоматов. Сам код смотреть <a href="https://gitlab.com/terrakok/gitlab-client/blob/develop/app/src/main/java/ru/terrakok/gitlabclient/presentation/global/Paginator.kt">здесь</a>.
+
 <br>
 *Как организовать код, когда имеем вложенные в друг друга RecyclerView?*
 
