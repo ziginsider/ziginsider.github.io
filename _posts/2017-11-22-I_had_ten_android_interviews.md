@@ -507,7 +507,114 @@ end.
 <br>
 <details>
  <summary>6. Версии Android идут под кодовыми номерами. Назовите как можно больше этих имен.</summary>
- <p>Aestro, Blender, Cupcake, Donut, Eclair, Froyo, Gingerbread, Honeycomb, Ice Cream Sandwich, Jelly Bean, Kitkat, Lollipop, Marshmallow</p>
+ <p>
+ <table style="width: 50%;">
+<caption class="title">Table 1. Android versions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th>Code name</th>
+<th>Version</th>
+<th>API level</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oreo</td>
+<td>8.0</td>
+<td>26</td>
+</tr>
+<tr>
+<td>Nougat</td>
+<td>7.0 – 7.1.1</td>
+<td>24 -25</td>
+</tr>
+<tr>
+<td>Marshmallow</td>
+<td>6.0</td>
+<td>23</td>
+</tr>
+<tr>
+<td>Lollipop</td>
+<td>5.1</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Lollipop</td>
+<td>5.0</td>
+<td>21</td>
+</tr>
+<tr>
+<td>KitKat</td>
+<td>4.4 - 4.4.4</td>
+<td>19</td>
+</tr>
+<tr>
+<td>Jelly Bean</td>
+<td>4.1.x - 4.3.x</td>
+<td>16 - 18</td>
+</tr>
+<tr>
+<td>Ice Cream Sandwich</td>
+<td>4.0.1 - 4.0.4</td>
+<td >14 - 15</td>
+</tr>
+<tr>
+<td>Honeycomb</td>
+<td>3.2.x</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Honeycomb</td>
+<td>3.0 - 3.1</td>
+<td>11 - 12</td>
+</tr>
+<tr>
+<td>Gingerbread</td>
+<td>2.3 -  2.3.7</td>
+<td>9-10</td>
+</tr>
+<tr>
+<td>Froyo</td>
+<td>2.2.x</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Eclair</td>
+<td>2.1</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Eclair</td>
+<td>2.0 - 2.0.1</td>
+<td>5 -6</td>
+</tr>
+<tr>
+<td>Donut</td>
+<td>1.6</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cupcake</td>
+<td>1.5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>(no code name)</td>
+<td>1.1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>(no code name)</td>
+<td>1.0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></p>
 </details>
 
 <br>
