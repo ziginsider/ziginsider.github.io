@@ -670,6 +670,7 @@ end.
  9. https://www.toptal.com/android/interview-questions :gb:
  10. https://intellipaat.com/interview-question/android-interview-questions/ :gb:
  11. https://github.com/MindorksOpenSource/android-interview-questions :gb: :thumbsup: :fire:
+ 12. https://gist.github.com/lawloretienne/6f7d7d92f72986f5ebd60f226d9044ee :gb: :thumbsup: :fire:
  
  
  [дополняется по мере сил, возможностей и способностей]
