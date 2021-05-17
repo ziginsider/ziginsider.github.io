@@ -8,10 +8,12 @@ tags:
 ---
 ## Чек-листы для практических заданий RS School Android 2021
 
+Студент проходит по критериям чек-листа и выставляет оценки на форме. Сгенерированный отчет копируется в cross-check review
+
 <a href="https://ziginsider.github.io/checklist/index.html">Checklists RS School Android 2021</a>
 
 ## Что такое cross-check?
 
 Способ оценки выполнения заданий студентами у друг друга. 
 
-href="https://docs.rs.school/#/cross-check-flow?id=cross-check">RS School cross-check docs</a>
+<a href="https://docs.rs.school/#/cross-check-flow?id=cross-check">RS School cross-check docs</a>
