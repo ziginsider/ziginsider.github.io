@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Прощай ProgressDialog, ProgressBar многая лета! 
+title: ProgressDialog умер, да здравствует ProgressBar! 
 date: 2017-12-10 19:00
 tags:
 - Java
