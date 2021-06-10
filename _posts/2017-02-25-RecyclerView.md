@@ -20,7 +20,7 @@ tags:
  * [Методы notifyItemX](#методы-notifyitemx)
  * [ViewHolder](#viewholder)
  * [Жизнь и смерть ViewHolder](#жизнь-и-смерть-viewholder)
- * [ItemDecorator](#itemdecorator)
+ * [ItemDecoration](#itemdecoration)
  * [ItemTouchHelper](#itemtouchhelper)
  * [ItemAnimator ](#itemanimator)
  * [RecyclerView и SQLite](#recyclerview-и-sqlite)
@@ -199,10 +199,10 @@ NB: как проверить список на ошибки (торможнен
 - pool.setMaxRecycledViews(type, count); (кол-во эл-ов кот. будут кэшиться, важно для тех у кого неоднородные списки, для одних типов (тех кот.больше на экране) можно увеличить значения, для других (тех кот. меньше) – уменьшить)  
 
 <br>
-### ItemDecorator 
+### ItemDecoration 
 
 Adapter - для того чтобы представить какой-либо массив данных на экране.
-ItemDecorator - для того чтобы дополнить это представление в зависимости от какой-либо логики (например, смена ориентации экрана) вашего приложения. 
+ItemDecoration - для того чтобы дополнить это представление в зависимости от какой-либо логики (например, смена ориентации экрана) вашего приложения. 
 
 Для чего применяется:  
 - добавление разделителей и отступов
