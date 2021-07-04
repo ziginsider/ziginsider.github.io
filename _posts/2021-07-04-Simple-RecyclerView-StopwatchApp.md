@@ -73,7 +73,7 @@ activity_main.xml:
 
 Теперь в `MainActivity` добавляем `private val stopwatches = mutableListOf<Stopwatch>()` - в этом списке будут хранится стейты секундомеров
 
-Создаем класс адаптера для RecyclerView. Будем использовать ()[]. <a href="https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter">ListAdapter</a>Это адаптер для Recycler "на стероидах", он является частью фреймворка RecyclerView, по-умолчанию использует DiffUtil с асинхронными потоками - короче штука удобная и в простых случаях его стоит использовать. Для RecyclerView нам понадобится ViewHolder, поэтому сперва создаем этот класс:
+Создаем класс адаптера для RecyclerView. Будем использовать <a href="https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter">ListAdapter</a>. Это адаптер для Recycler "на стероидах", он является частью фреймворка RecyclerView, по-умолчанию использует DiffUtil с асинхронными потоками - короче штука удобная и в простых случаях его стоит использовать. Для RecyclerView нам понадобится ViewHolder, поэтому сперва создаем этот класс:
 
 {% gist b5403c038446dbfb52df82efed27b22d %}
 
