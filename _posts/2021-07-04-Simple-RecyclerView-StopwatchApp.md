@@ -14,7 +14,7 @@ tags:
 
 Всегда начинаем с продумывания, что у нас должно получиться. Допустим, мы хотим что-то такое:
 
-<img src="{{ site.baseurl }}/images/rs/img1.gif">
+<img src="{{ site.baseurl }}/images/rs/img1.gif" width="400">
 
 ## init-00
 
@@ -114,7 +114,7 @@ https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tre
 
 Ура! Что-то работает:
 
-<img src="{{ site.baseurl }}/images/rs/img2.gif">
+<img src="{{ site.baseurl }}/images/rs/img2.gif" width="400">
 
 Возможно, вы заметили некоторые проблемы с подобной организацией работы таймера прямо внутри ViewHolder. Если нет, то мы еще об этом скажем в конце статьи.
 
