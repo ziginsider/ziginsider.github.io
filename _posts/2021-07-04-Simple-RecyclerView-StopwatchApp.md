@@ -20,11 +20,11 @@ tags:
 
 Первым делом создаём проект в Android Studio c одной empty Activity, и убираем всё лишнее. Скажем, в данном проекте мы не используем тесты или proguard - поэтому убираем зависимости, папки, файлы - все, что нам не понадобится. Версии зависимостей должны быть актуальными - обновляем на стабильные последние версии.
 
-Мы будем использовать (View Binding)[https://developer.android.com/topic/libraries/view-binding]. Добавляем в проект, чуть переписываем MainActivity:
+Мы будем использовать <a href="https://developer.android.com/topic/libraries/view-binding">View Binding</a>. Добавляем в проект, чуть переписываем MainActivity:
 
 {% gist 360c4d84aa8f5275c7e3fe9adbb77a47 %}
 
-Проверяем, что всё компилиться: https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/init-00
+Проверяем, что всё компилиться: <a href="https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/init-00">https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/init-00</a>
 
 Мы готовы двигаться дальше.
 
@@ -39,7 +39,7 @@ tags:
 4. кнопка "Restart"
 5. кнопка "Delete"
 
-Для кнопок будем использовать подходящие иконки. Добавим в проект векторные файлы "ic_baseline_delete_24.xml", "ic_baseline_pause_24.xml", "ic_baseline_play_arrow_24.xml" и "ic_baseline_refresh_24.xml" - см. в репозитории: https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/layouts-01/app/src/main/res/drawable
+Для кнопок будем использовать подходящие иконки. Добавим в проект векторные файлы "ic_baseline_delete_24.xml", "ic_baseline_pause_24.xml", "ic_baseline_play_arrow_24.xml" и "ic_baseline_refresh_24.xml" - см. в репозитории: <a href="https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/layouts-01/app/src/main/res/drawable">https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/layouts-01/app/src/main/res/drawable</a>
 
 Для индикатора создадим animation-list:
 
@@ -73,7 +73,7 @@ activity_main.xml:
 
 Теперь в `MainActivity` добавляем `private val stopwatches = mutableListOf<Stopwatch>()` - в этом списке будут хранится стейты секундомеров
 
-Создаем класс адаптера для RecyclerView. Будем использовать (ListAdapter)[https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter]. Это адаптер для Recycler "на стероидах", он является частью фреймворка RecyclerView, по-умолчанию использует DiffUtil с асинхронными потоками - короче штука удобная и в простых случаях его стоит использовать. Для RecyclerView нам понадобится ViewHolder, поэтому сперва создаем этот класс:
+Создаем класс адаптера для RecyclerView. Будем использовать ()[]. <a href="https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter">ListAdapter</a>Это адаптер для Recycler "на стероидах", он является частью фреймворка RecyclerView, по-умолчанию использует DiffUtil с асинхронными потоками - короче штука удобная и в простых случаях его стоит использовать. Для RecyclerView нам понадобится ViewHolder, поэтому сперва создаем этот класс:
 
 {% gist b5403c038446dbfb52df82efed27b22d %}
 
@@ -91,14 +91,14 @@ activity_main.xml:
 2. `holder.bind(getItem(position))` - тут понятно - для конкретного ViewHolder обновляем параметры. `onBindViewHolder` вызывается в момент создания айтема, в моменты пересоздания (например, айтем вышел за пределы экрана, затем вернулся) и в моменты обновления айтемов (этим у нас занимается DiffUtil)
 3. Имплементация DiffUtil помогает понять RecyclerView какой айтем изменился (был удален, добавлен) и контент какого айтема изменился - чтобы правильно проиграть анимацию и показать результат пользователю. В `areContentsTheSame` лучше проверять на равество только те параметры модели, которые влияют на её визуальное представление на экране.
 
-Проверям, что все компилется и работает как надо https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/recycler-02
+Проверям, что все компилется и работает как надо <a href="https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/recycler-02">https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/recycler-02</a>
 
 
 ## timer-03
 
 Теперь займемся логикой. Сначала просто запустим наш секундомер, а на следующей стадии заставим кнопки выполнять свою функцию. Итак, мы создаем элемент списка RecyclerView и секундомер должен начать работать.
 
-В Android можно по-разному решить эту задачу: например, использовать Handler(), чтобы создать свой таймер, или что-нибудь с потоками создать или с корутинами или стороннюю лиюу можем подключить... Но в учебных целях мы пойдем по простому пути - будем использовать класс Android (CountDownTimer)[https://developer.android.com/reference/android/os/CountDownTimer]
+В Android можно по-разному решить эту задачу: например, использовать Handler(), чтобы создать свой таймер, или что-нибудь с потоками создать или с корутинами или стороннюю лиюу можем подключить... Но в учебных целях мы пойдем по простому пути - будем использовать класс Android <a href="https://developer.android.com/reference/android/os/CountDownTimer">CountDownTimer</a>
 
 Класс имеет интуитивно понятное API - мы задаем продолжительность работы  `millisInFuture` и величну интервала `countDownInterval` - через данное время будет вызываться коллбэк `onTick()` - пока это всё что нужно понимать. 
 
@@ -110,7 +110,7 @@ activity_main.xml:
 
 В целях тестирования в MainActivity, в момент создания экземпляра Stopwatch выставляйте значение `isStarted` как `true`. Теперь можно стартануть проект и посмотреть, что получилось:
 
-https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/timer-03
+<a href="https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/timer-03">https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/timer-03</a>
 
 Ура! Что-то работает:
 
@@ -140,7 +140,9 @@ https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tre
 Такой подход, когда ViewHolder обрабатывает только визуальное представление айтема, который пришел ему в методе `bind`, и ничего не меняет напрямую, а все колбэки обрабатываются снаружи (в нашем случае через listener) - является предпочтительным. Тут мы можем указать на проблему данного приложения. Если создать достаточное количество таймеров, и после скролла, запущенный таймер окажется за экраном, то таймер может остановится, и продолжит работу, только когда опять окажется видимым. Это происходит потому, что ViewHolder переиспользуется. Поэтому нужно быть аккуратным когда меняешь состоние айтема внутри ViewHolder'a - как в нашем случае с использованием CountDownTimer.
 
 
-https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/buttons-04
+<a href="https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/buttons-04">https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/buttons-04</a>
+
+</br>
 
 
 
