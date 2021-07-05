@@ -14,7 +14,7 @@ tags:
 
 Всегда начинаем с продумывания, что у нас должно получиться. Допустим, мы хотим что-то такое:
 
-<img src="{{ site.baseurl }}/images/rs/img1.gif" width="400">
+<img src="{{ site.baseurl }}/images/rs/img1.gif" width="300">
 
 ## init-00
 
@@ -121,7 +121,7 @@ activity_main.xml:
 
 Ура! Что-то работает:
 
-<img src="{{ site.baseurl }}/images/rs/img2.gif" width="400">
+<img src="{{ site.baseurl }}/images/rs/img2.gif" width="300">
 
 Возможно, вы заметили некоторые проблемы с подобной организацией работы таймера прямо внутри ViewHolder. Если нет, то мы еще об этом скажем в конце статьи.
 
