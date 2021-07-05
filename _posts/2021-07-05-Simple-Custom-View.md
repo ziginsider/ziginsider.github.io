@@ -12,7 +12,7 @@ tags:
 
 ## Custom View - circular progress bar
 
-В (лекции курса)[https://youtu.be/rhqFONf7O74] подробно про Custom View расказанно. Поэтому тут кратко.
+В [лекции курса](https://youtu.be/rhqFONf7O74) подробно про Custom View расказанно. Поэтому тут кратко.
 
 Добавляем кастомные аттрибуты, которые мы потом сможем использовать при создании view:
 
@@ -26,6 +26,6 @@ tags:
 
 В методе `onDraw()` не делаем никаких сложных вычислений, чтобы не загружать Main поток. Скажем, если можно создать необходимые объекты заранее, как например `Paint()` - то так и делаем.
 
-Для демострации используем корутины. Тут мы запускаем корутину на GlobalScope и каждую 0.1 sec сетаем новый стейт View. Но это для простоты и тестовых целей. Но в продакш GlobalScope (лучше не использовать)[https://elizarov.medium.com/the-reason-to-avoid-globalscope-835337445abc]
+Для демострации используем корутины. Тут мы запускаем корутину на GlobalScope и каждую 0.1 sec сетаем новый стейт View. Но это для простоты и тестовых целей. Но в продакш GlobalScope [лучше не использовать](https://elizarov.medium.com/the-reason-to-avoid-globalscope-835337445abc)
 
-Репозиторий - https://github.com/ziginsider/Simple-Custom-View_Android-Demo-App
+Репозиторий - [https://github.com/ziginsider/Simple-Custom-View_Android-Demo-App](https://github.com/ziginsider/Simple-Custom-View_Android-Demo-App)
