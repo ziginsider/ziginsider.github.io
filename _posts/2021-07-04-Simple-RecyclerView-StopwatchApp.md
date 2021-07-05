@@ -150,7 +150,8 @@ P.S. В адаптере, в имплементации DiffUtil мы добав
 
 `override fun getChangePayload(oldItem: Stopwatch, newItem: Stopwatch) = Any()`
 
-</br>
+<br>
+
 Результат:
 <a href="https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/buttons-04">https://github.com/ziginsider/Simple-RecyclerView-Android-Demo-app-Stopwatch/tree/buttons-04</a>
 
