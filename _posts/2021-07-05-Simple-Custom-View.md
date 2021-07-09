@@ -8,7 +8,7 @@ tags:
 - CustomView
 ---
 
-<img src="{{ site.baseurl }}/images/rs/customview.gif" width="400">
+<img src="{{ site.baseurl }}/images/rs/customview.gif" width="300">
 
 ## Custom View - circular progress bar
 
