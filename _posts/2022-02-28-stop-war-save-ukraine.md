@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Stop war! Save Ukraine! Belarus against war.
-date: 2017-11-18 19:52
+date: 2022-02-28 15:00
 tags:
 - Android
 - Java
@@ -11,5 +11,3 @@ tags:
 <br>
 
 Остановите войну!
-
-русский военный корабль и оккупант - пошёл на*уй!
