@@ -7,6 +7,7 @@ tags:
 - Java
 - Facebook SDK
 ---
+
 <img src="{{ site.baseurl }}/images/flag.jpg">
 <br>
 
