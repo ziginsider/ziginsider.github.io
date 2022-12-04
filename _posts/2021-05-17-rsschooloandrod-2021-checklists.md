@@ -10,7 +10,7 @@ tags:
 
 Студент проходит по критериям чек-листа и выставляет оценки на форме. Сгенерированный отчет копируется в cross-check review
 
-<a href="https://ziginsider.github.io/checklist/index.html">Checklists RS School Android 2021</a>
+<a href="https://ziginsider.github.io/checklist/index.html">Checklists RS School Android 2021-2022</a>
 
 ## Что такое cross-check?
 
