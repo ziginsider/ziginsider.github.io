@@ -74,5 +74,5 @@ namespace MedChestAssistant.iOS
 Оригинал: <https://habrahabr.ru/company/dataart/blog/282696/>
 
 
-<iframe src="https://pl.kotl.in/1ylRNa9t8?from=1&to=32"></iframe>
+<iframe width="560" height="500" src="https://pl.kotl.in/1ylRNa9t8?from=1&to=32"></iframe>
 
